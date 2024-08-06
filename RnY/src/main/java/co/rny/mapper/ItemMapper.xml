@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.rny.mapper.ItemMapper">
+
+	<select id="selectOne" resultType="co.rny.vo.ItemVO">
+		select 	*
+		from		tbl_item
+		where 	item_no = #{itemNo}		
+		and			is_disabled = 0
+	</select>
+	
+	<select id="selectList" >
+        select 
+        		a.item_no item_no
+				,a.item_name item_name
+				,a.item_price item_price
+				,a.item_image item_image
+        from
+        (
+            select 	 i.item_no
+                    ,i.item_name
+                    ,i.item_price
+                    ,i.item_image
+            from	tbl_item    i
+            join    tbl_line    l
+            on      i.line_no = l.line_parent_no
+            where   l.line_no = #{lineNo}
+            and     i.is_disabled = 0
+            and     l.is_disabled = 0
+            order by i.line_no
+        )a
+        <![CDATA[
+        where rownum <= 8					
+        ]]>						
+	</select>
+	
+	<select id="selectListRelated" >
+        select 
+        		a.prd_code prd_code
+				,a.prd_name prd_name
+				,a.prd_desc prd_desc
+				,a.origin_price origin_price
+				,a.sale_price sale_price
+				,a.star_point star_point
+				,a.prod_image prod_image
+				,a.creation_date creation_date
+        from
+        (
+		select 	 prd_code
+				,prd_name
+				,prd_desc
+				,origin_price
+				,sale_price
+				,star_point
+				,prod_image
+				,creation_date
+				
+		from	product_tbl
+		order by prd_code
+        )a
+    <![CDATA[
+    where rownum <= 4					
+    ]]>        
+	</select>	
+	
+</mapper>

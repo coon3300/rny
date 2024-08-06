@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.rny.mapper.LineMapper">
+
+	<select id="selectOne">
+		
+	</select>
+	
+	<select id="selectLineName">
+		SELECT line_name
+		FROM	tbl_line
+    WHERE is_disabled = 0
+    AND		line_no = #{lineNo}    
+		
+	</select>
+	
+	<select id="selectList" >
+		SELECT 
+		    level,
+		    line_no,
+		    line_parent_no,
+		    line_name
+		FROM
+		    tbl_line
+    WHERE   is_disabled = 0    
+		START WITH line_parent_no IS NULL
+		CONNECT BY PRIOR line_no = line_parent_no
+		ORDER BY LEVEL, line_parent_no, line_no  			
+	</select>
+	
+	<select id="selectListRelated" >
+        select 
+        		a.prd_code prd_code
+				,a.prd_name prd_name
+				,a.prd_desc prd_desc
+				,a.origin_price origin_price
+				,a.sale_price sale_price
+				,a.star_point star_point
+				,a.prod_image prod_image
+				,a.creation_date creation_date
+        from
+        (
+		select 	 prd_code
+				,prd_name
+				,prd_desc
+				,origin_price
+				,sale_price
+				,star_point
+				,prod_image
+				,creation_date
+				
+		from	product_tbl
+		order by prd_code
+        )a
+    <![CDATA[
+    where rownum <= 4					
+    ]]>        
+	</select>	
+	
+</mapper>
