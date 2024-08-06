@@ -5,7 +5,9 @@ import java.util.List;
 import co.rny.vo.MemberVO;
 
 public interface MemberService {
-	public List<MemberVO> memberList();
-
-	public boolean addMember(MemberVO mvo);
+	public List<MemberVO> memberList(); // 회원목록
+	MemberVO userinfo(String userNo); // 회원상세 
+	public void addMember(MemberVO mvo); // 회원가입
+	
+	
 }

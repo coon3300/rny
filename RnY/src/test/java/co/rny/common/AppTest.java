@@ -2,7 +2,7 @@ package co.rny.common;
 
 import org.apache.ibatis.session.SqlSession;
 
-import co.rny.mapper.ItemMapper;
+import co.rny.mapper.MemberMapper;
 
 public class AppTest {
 
@@ -36,6 +36,10 @@ public class AppTest {
 		});
 		 * 
 		 */
+		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper	.class);
+
+			System.out.println(mapper.userinfo("A100"));
 		
 		
 		
