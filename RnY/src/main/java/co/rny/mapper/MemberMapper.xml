@@ -7,16 +7,24 @@
 
 	<select id="selectList" resultType="co.rny.vo.MemberVO">
 		select *
-		from tbl_member
+		from rny_member
+	</select>
+	
+	<select id="userinfo" resultType="co.rny.vo.MemberVO">
+		select *
+		from rny_member
+		where user_no = #{userNo}
 	</select>
 
+
+
 	<insert id="insertMember" parameterType="co.rny.vo.MemberVO">
-		insert into tbl_member
-		(memberNo, memberId, memberPwd, memberName, memberNickName, memberBirthDate,
-		 memberEmail, memberPhone, memberAddress, memberGrant)
-		values(seq_member_no.nextval,
-		#{memberId}, #{memberPwd}, #{memberName}, #{memberNickName}, #{memberBirthDate},
-		#{memberEmail}, #{memberPhone}, #{memberAddress}, #{memberGrant})
+		insert into rny_member
+		(userNo, userId, userPw, userName, userNick, userBirth,
+		 userEmail, userPhone, userAdd, responsibility)
+		values('A' || seq_member.nextval,
+		#{userId}, #{userPw}, #{userName}, #{userNick}, #{userBirth},
+		#{userEmail}, #{userPhone}, #{userAdd}, #{responsibility})
 
 	</insert>
 </mapper>

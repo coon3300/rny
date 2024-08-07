@@ -13,8 +13,6 @@ import co.rny.service.MemberService;
 import co.rny.service.MemberServiceImpl;
 import co.rny.vo.MemberVO;
 
-
-
 public class AddMemberControl implements Control {
 
 	@Override
@@ -49,8 +47,8 @@ public class AddMemberControl implements Control {
 		mvo.setResponsibility(responsibility);
 
 		MemberService svc = new MemberServiceImpl();
-		if (svc.addMember(mvo)) {
-			resp.sendRedirect("memberList.do");
-		}
+		svc.addMember(mvo);
+		
+		resp.sendRedirect("main.do");
 	}
 }
