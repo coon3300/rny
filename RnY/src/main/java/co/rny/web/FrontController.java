@@ -15,8 +15,12 @@ import co.rny.control.AddMemberControl;
 import co.rny.control.ItemInfoControl;
 import co.rny.control.ItemListControl;
 import co.rny.control.MemberListControl;
+
 import co.rny.control.NoticeControl;
 import co.rny.control.NoticeListControl;
+
+import co.rny.control.UserControl;
+
 import co.rny.control.mainControl;
 
 public class FrontController extends HttpServlet {
@@ -37,8 +41,11 @@ public class FrontController extends HttpServlet {
 		// 아이템 정보
 		map.put("/itemInfo.do", new ItemInfoControl());
 
+		
 		// 회원목록 출력
 		map.put("/memberList.do", new MemberListControl());
+		// 회원상세목록
+		map.put("/user.do", new UserControl());
 		// 회원가입
 		map.put("/addMember.do", new AddMemberControl());
 		// 공지사항 목록
