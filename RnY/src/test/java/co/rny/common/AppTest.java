@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import co.rny.mapper.ItemMapper;
 import co.rny.mapper.LineMapper;
+import co.rny.mapper.MemberMapper;
 
 public class AppTest {
 
@@ -38,6 +39,10 @@ public class AppTest {
 		System.out.println(mapper.selectLineName(11));
 		 * 
 		 */
+		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper	.class);
+
+			System.out.println(mapper.userinfo("A100"));
 		
 		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
 		ItemMapper mapper = sqlSession.getMapper(ItemMapper	.class);

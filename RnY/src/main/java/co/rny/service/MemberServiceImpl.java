@@ -19,11 +19,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean addMember(MemberVO mvo) {
-		return mapper.insertMember(mvo) == 1;
+	public void addMember(MemberVO mvo) {
+		mapper.insertMember(mvo);
 	}
 
-
+	@Override
+	public MemberVO userinfo(String userNo) {
+		return mapper.userinfo(userNo);
 	}
 
-
+}
