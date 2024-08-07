@@ -16,15 +16,21 @@
 		where user_no = #{userNo}
 	</select>
 
+	<select id="selectMember" resultType="co.rny.vo.MemberVO">
+		select *
+		from rny_member
+		where user_id = #{id}
+		and user_pw = #{pw}
+	</select>
 
 
 	<insert id="insertMember" parameterType="co.rny.vo.MemberVO">
 		insert into rny_member
-		(userNo, userId, userPw, userName, userNick, userBirth,
-		 userEmail, userPhone, userAdd, responsibility)
+		(user_no, user_id, user_pw, user_name, user_nick, user_birth,
+		 user_email, user_phone, user_add)
 		values('A' || seq_member.nextval,
 		#{userId}, #{userPw}, #{userName}, #{userNick}, #{userBirth},
-		#{userEmail}, #{userPhone}, #{userAdd}, #{responsibility})
+		#{userEmail}, #{userPhone}, #{userAdd})
 
 	</insert>
 </mapper>

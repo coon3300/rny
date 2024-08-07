@@ -6,7 +6,7 @@ import co.rny.mapper.ItemMapper;
 import co.rny.mapper.LineMapper;
 import co.rny.mapper.MemberMapper;
 
-public class AppTest {
+public class rintest2 {
 
 	public static void main(String[] args) {
 
@@ -43,6 +43,7 @@ public class AppTest {
 		MemberMapper mapper = sqlSession.getMapper(MemberMapper	.class);
 
 			System.out.println(mapper.userinfo("A100"));
+		
 		
 		
 	}

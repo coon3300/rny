@@ -52,7 +52,7 @@
   integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css" href="css/vendor.css">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="css/main/style.css">
 
 <link href="https://webfontworld.github.io/cookierun/CookieRun.css" rel="stylesheet">
 
@@ -241,7 +241,8 @@
     <div class="container-fluid">
       <hr class="m-0">
     </div>
-
+${logid}
+${msg}
     <div class="container">
       <nav class="main-menu d-flex navbar navbar-expand-lg ">
 
@@ -347,6 +348,7 @@
 		          		<a class="nav-link mx-3" href="loginForm.do" data-bs-toggle="modal" data-bs-target="#loginModal">
                     <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
                   </a>
+                  
                 </li>
                 <li>
                   <a class="nav-link mx-3" href="#">
@@ -377,12 +379,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
+        
         <h1 class="modal-title fs-5" id="loginModalLabel">로그인 화면</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      
-			  <form action="#">
+			  <form action="login.do">
 			    <img class="mb-4" src="assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
 			    <h1 class="h3 mb-3 fw-normal">로그인 하세요</h1>
 			
