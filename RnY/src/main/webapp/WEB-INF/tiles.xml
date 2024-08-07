@@ -37,4 +37,13 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/member/{1}.jsp" /> <!-- 정해지지 않은 값(?) {1}{2} -->
 	</definition>
 
+  <definition name="WILDCARD:RnY/*" extends="myapp.user">
+    <put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp" /> <!-- 정해지지 않은 값(?) {1}{2} -->
+  </definition>
+  
+   <definition name="WILDCARD:notice/*" extends="myapp.user">
+    <put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp" /> <!-- 정해지지 않은 값(?) {1}{2} -->
+  </definition>
+  
+
 </tiles-definitions>
