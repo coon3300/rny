@@ -39,10 +39,18 @@ public class AppTest {
 		System.out.println(mapper.selectLineName(11));
 		 * 
 		 */
-		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
-		MemberMapper mapper = sqlSession.getMapper(MemberMapper	.class);
-
-			System.out.println(mapper.userinfo("A100"));
+		//나중에 주석풀기
+//		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
+//		MemberMapper mapper = sqlSession.getMapper(MemberMapper	.class);
+//
+//			System.out.println(mapper.userinfo("A100"));
+//		
+//		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
+//		ItemMapper mapper = sqlSession.getMapper(ItemMapper	.class);
+//		mapper.selectList(11).forEach(line -> {
+//			System.out.println(line);
+//		});
+		
 		
 		
 	}

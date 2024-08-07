@@ -143,7 +143,7 @@
         <ul class="list-group mb-3">
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
-              <h6 class="my-0">회색 후드 티</h6>
+              <h6 class="my-0">${itemName}</h6>
               <small class="text-body-secondary">간단한 설명</small>
             </div>
             <span class="text-body-secondary">12,000원</span>
@@ -168,7 +168,7 @@
           </li>
         </ul>
 
-        <button class="w-100 btn btn-primary btn-lg" type="submit">주문하기</button>
+        <button class="w-100 btn btn-primary btn-lg" type="submit"><a href="order.do">주문하기</a></button>
       </div>
     </div>
   </div>
@@ -257,7 +257,7 @@ ${msg}
               </a>
             </li>
             <li>
-              <a href="addMember.do" class="mx-3">
+              <a href="wish.do" class="mx-3">
                 <iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
               </a>
             </li>
@@ -351,7 +351,7 @@ ${msg}
                   
                 </li>
                 <li>
-                  <a class="nav-link mx-3" href="#">
+                  <a class="nav-link mx-3" href="wish.do">
                   
                     <iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
                   </a>

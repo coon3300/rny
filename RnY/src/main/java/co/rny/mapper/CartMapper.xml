@@ -2,11 +2,11 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="co.rny.mapper.WishMapper">
+<mapper namespace="co.rny.mapper.CartMapper">
 
-	<select id="wish" resultType="co.rny.vo.WishVO">
-		select *
-		from tbl_wish
+<select id="cart" resultType="co.rny.vo.CartVO">
+	select *
+	from tbl_cart
 	</select>
 
 </mapper>
