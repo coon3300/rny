@@ -7,17 +7,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.rny.common.Control;
 import co.rny.service.ItemService;
 import co.rny.service.ItemServiceImpl;
 import co.rny.service.LineService;
 import co.rny.service.LineServiceImpl;
 import co.rny.vo.ItemVO;
 
-public class ItemListControl extends LineControl  {
-
+public class ItemListControl implements Control  {
 
 	@Override
-	protected void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		ItemService svc = new ItemServiceImpl();
 		
@@ -31,12 +31,8 @@ public class ItemListControl extends LineControl  {
 		String lineName = svc2.lineName(lineNo);
 		
 		req.setAttribute("lineName", lineName);
-	}
-
-	@Override
-	protected String getViewPage() {
-        return "RnY/itemList.tiles";
-
+		
+    	req.getRequestDispatcher("RnY/itemList.tiles").forward(req, resp);
 	}
 
 }

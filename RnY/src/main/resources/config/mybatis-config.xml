@@ -18,8 +18,8 @@
       <dataSource type="POOLED">
         <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
         <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-        <property name="username" value="rny02"/>
-        <property name="password" value="rny02"/>
+        <property name="username" value="shop32"/>
+        <property name="password" value="shop32"/>
       </dataSource>
     </environment>
   </environments>

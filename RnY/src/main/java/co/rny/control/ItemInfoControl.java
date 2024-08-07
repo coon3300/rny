@@ -12,23 +12,18 @@ import co.rny.vo.ItemVO;
 
 public class ItemInfoControl extends LineControl  {
 
-
 	@Override
-	protected void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		ItemService svc = new ItemServiceImpl();
 		
 		int itemNo = Integer.parseInt(req.getParameter("itemNo"));
 		
 		ItemVO ivo = svc.itemSelected(itemNo);
+		
 		req.setAttribute("ivo", ivo);
 		
-	
-	}
-
-	@Override
-	protected String getViewPage() {
-        return "RnY/itemInfo.tiles";
-
+    	req.getRequestDispatcher("RnY/itemInfo.tiles").forward(req, resp);
 	}
 
 }

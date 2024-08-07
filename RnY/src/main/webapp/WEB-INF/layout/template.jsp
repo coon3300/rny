@@ -17,7 +17,7 @@
     </head>
     <body>
 				<tiles:insertAttribute name="menu"/><!-- 메뉴부분. -->
-								<tiles:insertAttribute name="body"/><!-- 바디부분. -->
+				<tiles:insertAttribute name="body"/><!-- 바디부분. -->
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <!-- Page content wrapper-->
