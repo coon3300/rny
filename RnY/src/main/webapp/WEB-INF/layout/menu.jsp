@@ -300,46 +300,37 @@
 
             <!-- <ul class="navbar-nav menu-list list-unstyled d-flex gap-md-3 mb-0"> -->
             <ul class="navbar-nav list-unstyled d-flex gap-md-3 mb-0">
-                <!-- 상위 라인 (2레벨) -->
+                <!-- 2레벨 시작 -->
                 <c:forEach var="line" items="${lineList}">
                     <c:if test="${line.level == 2}">
-                        <!-- 하위 라인 존재 여부 확인 -->
-                        <c:set var="hasSubLine" value="false"/>
-                        <c:forEach var="subLine" items="${lineList}">
-                            <c:if test="${subLine.lineParentNo == line.lineNo}">
-                                <c:set var="hasSubLine" value="true"/>
+                        <!-- 2레벨 확인 -->
+                        <c:set var="isLevel2" value="false"/>
+                        <c:forEach var="level2" items="${lineList}">
+                            <c:if test="${level2.lineParentNo == line.lineNo}">
+                                <c:set var="isLevel2" value="true"/>
                             </c:if>
                         </c:forEach>
                         <li class="nav-item dropdown">
                             <a href="itemList.do?lineNo=${line.lineNo}" class="nav-link dropdown-toggle"  id="navbarDropdown${line.lineNo}" role="button" aria-expanded="false">
                                 ${line.lineName}
                             </a>
-                            <!-- 하위 라인가 있는 경우에만 드롭다운 메뉴 생성 -->
-                            <c:if test="${hasSubLine}">
+                            <!-- 3레벨 드롭다운 메뉴 생성 -->
+                            <c:if test="${isLevel2}">
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown${line.lineNo}">
-                                    <!-- 하위 라인 (3레벨) -->
-                                    <c:forEach var="subLine" items="${lineList}">
-                                        <c:if test="${subLine.lineParentNo == line.lineNo}">
-                                            <!-- 3레벨 라인의 하위 라인 존재 여부 확인 -->
-                                            <c:set var="hasSubSubLine" value="false"/>
-                                            <c:forEach var="subSubLine" items="${lineList}">
-                                                <c:if test="${subSubLine.lineParentNo == subLine.lineNo}">
-                                                    <c:set var="hasSubSubLine" value="true"/>
+                                    <!-- 3레벨 시작 -->
+                                    <c:forEach var="level2" items="${lineList}">
+                                        <c:if test="${level2.lineParentNo == line.lineNo}">
+                                            <!-- 3레벨 확인 -->
+                                            <c:set var="isLevel3" value="false"/>
+                                            <c:forEach var="level3" items="${lineList}">
+                                                <c:if test="${level3.lineParentNo == level2.lineNo}">
+                                                    <c:set var="isLevel3" value="true"/>
                                                 </c:if>
                                             </c:forEach>
                                             <li class="dropdown-submenu">
-                                                <!-- 하위 라인가 있는 경우에만 dropdown-toggle 클래스 추가 -->
-                                                <a class="dropdown-item nav-link <c:if test="${hasSubSubLine}">dropdown-toggle</c:if>" href="itemList.do?lineNo=${subLine.lineNo}">${subLine.lineName}</a>
-                                                <!-- 하위 라인의 하위 라인 (4레벨) -->
-                                                <c:if test="${hasSubSubLine}">
-                                                    <ul class="dropdown-menu">
-                                                        <c:forEach var="subSubLine" items="${lineList}">
-                                                            <c:if test="${subSubLine.lineParentNo == subLine.lineNo}">
-                                                                <li><a class="dropdown-item nav-link" href="itemList.do?lineNo=${subSubLine.lineNo}">${subSubLine.lineName}</a></li>
-                                                            </c:if>
-                                                        </c:forEach>
-                                                    </ul>
-                                                </c:if>
+                                                <!-- 3레벨 dropdown-toggle 클래스 추가 -->
+                                                <a class="dropdown-item nav-link <c:if test="${isLevel3}">dropdown-toggle</c:if>" 
+                                                href="itemList.do?lineNo=${level2.lineNo}">${level2.lineName}</a>
                                             </li>
                                         </c:if>
                                     </c:forEach>

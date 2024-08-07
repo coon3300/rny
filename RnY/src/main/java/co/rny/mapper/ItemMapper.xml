@@ -25,8 +25,8 @@
                     ,i.item_image
             from	tbl_item    i
             join    tbl_line    l
-            on      i.line_no = l.line_parent_no
-            where   l.line_no = #{lineNo}
+            on      i.line_no = l.line_no
+            where   (l.line_no = #{lineNo} OR l.line_parent_no = #{lineNo})
             and     i.is_disabled = 0
             and     l.is_disabled = 0
             order by i.line_no
