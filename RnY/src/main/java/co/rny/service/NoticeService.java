@@ -6,5 +6,5 @@ import co.rny.vo.NoticeVO;
 
 public interface NoticeService {
 	List<NoticeVO> noticeList();
-	NoticeVO getBoard(int noticeNum);
+	NoticeVO selectNotice(int noticeNum);
 }

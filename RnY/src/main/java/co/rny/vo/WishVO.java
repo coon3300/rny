@@ -1,5 +1,8 @@
 package co.rny.vo;
 
-public class WishVO {
+import lombok.Data;
+
+@Data
+public class WishVO extends MemberVO {
 	private String wishNo;
 }

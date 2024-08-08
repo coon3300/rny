@@ -3,8 +3,20 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.rny.mapper.NoticeMapper"> <!--클래스 -->
-<select id = "noticeList" parameterType = "co.rny.vo.NoticeVO">
-select *
-from  tbl_notice
-</select>
+	<select id="noticeList" parameterType="co.rny.vo.NoticeVO">
+		select *
+		from tbl_notice
+	</select>
+
+	<select id="selectNotice" resultType="co.rny.vo.NoticeVO"
+		parameterType="int">
+		select user_no,
+		notice_num,
+		notice_title,
+		notice_content,
+		notice_image,
+		notice_date
+		from tbl_notice
+		where notice_num = #{noticeNum}
+	</select>
 </mapper>

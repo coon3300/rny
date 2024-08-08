@@ -1,0 +1,92 @@
+
+--주문테이블 생성
+create table tbl_order(
+    order_no varchar2(30), --주문번호(*pk)
+    user_no varchar2(30) not null, --회원고유번호(*fk)
+    item_no number(30), --상품고유번호(*fk)
+    order_date date default sysdate, --주문날짜
+    order_originprice number(30), --주문가격
+    order_saleprice number(30), --할인된가격
+    order_price number(20), -- 주문갯수
+    );
+  
+--주문테이블 키생성
+alter table tbl_order add constraint pk_order_no primary key (order_no); --프라이머리키
+alter table tbl_order add CONSTRAINT fk_user_no FOREIGN KEY(user_no) REFERENCES rny_member(user_no);
+alter table tbl_order add CONSTRAINT fk_item_no FOREIGN KEY(item_no) REFERENCES rny_member(item_no);
+
+--주문테이블 시퀀스생성
+create sequence seq_ord;
+
+--주문테이블 데이터삽입
+insert into tbl_order(order_no, user_no, item_no, order_price)
+values(seq_ord.nextval, '5', 58, 71500);
+insert into tbl_order(order_no, user_no, item_no, order_price)
+values(seq_ord.nextval, '6', 60, 42200);
+insert into tbl_order(order_no, user_no, item_no, order_price)
+values(seq_ord.nextval, '5', 53, 8000);
+insert into tbl_order(order_no, user_no, item_no, order_price)
+values(seq_ord.nextval, '7', 3, 20000);
+
+commit;
+
+
+
+
+--위시리스트테이블 생성
+
+create table tbl_wish(
+    wish_no varchar2(30),
+    user_no varchar2(30),
+    item_no number(30));
+
+--위시리스트테이블 키생성
+alter table tbl_wish add constraint pk_wish_no primary key (wish_no); 
+alter table tbl_wish add CONSTRAINT fk_wish_user_no FOREIGN KEY(user_no) REFERENCES rny_member(user_no);
+alter table tbl_wish add CONSTRAINT fk_item_no FOREIGN KEY(item_no) REFERENCES tbl_item(item_no);
+
+--위시리스트테이블 시퀀스생성
+create sequence seq_wish;
+
+--위시리스트테이블 데이터삽입
+insert into tbl_wish(wish_no, user_no, item_no)
+values(seq_wish.nextval, '5', 53);
+insert into tbl_wish(wish_no, user_no, item_no)
+values(seq_wish.nextval, '3', 10);
+insert into tbl_wish(wish_no, user_no, item_no)
+values(seq_wish.nextval, '2', 12);
+insert into tbl_wish(wish_no, user_no, item_no)
+values(seq_wish.nextval, '1', 14);
+
+
+commit;
+
+
+
+
+
+--장바구니 테이블생성
+CREATE TABLE tbl_cart (
+	cart_no	VARCHAR2(30),
+	user_no	varchar2(30)NOT NULL,
+	item_no	number(30)	NOT NULL
+);
+
+--장바구니 테이블 키생성
+alter table tbl_cart add constraint pk_cart_no primary key (cart_no); 
+alter table tbl_cart add CONSTRAINT fk_cart_user_no FOREIGN KEY(user_no) REFERENCES rny_member(user_no);
+alter table tbl_cart add CONSTRAINT fk_cart_item_no FOREIGN KEY(item_no) REFERENCES tbl_item(item_no);
+
+--장바구니 테이블 시퀀스생성
+create sequence seq_cart;
+
+--장바구니 테이블 데이터삽입
+insert into tbl_cart(cart_no, user_no, item_no)
+values (seq_cart.nextval, '1', 26);
+insert into tbl_cart(cart_no, user_no, item_no)
+values (seq_cart.nextval, '2', 40);
+insert into tbl_cart(cart_no, user_no, item_no)
+values (seq_cart.nextval, '4', 44);
+insert into tbl_cart(cart_no, user_no, item_no)
+values (seq_cart.nextval, '5', 57);
+    

@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MemberVO {
+public class MemberVO extends ItemVO {
     private String userNo;        // 회원 번호
     private String userId;     // 회원 아이디
     private String userPw;    // 회원 비밀번호

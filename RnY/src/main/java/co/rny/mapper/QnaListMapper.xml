@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.rny.mapper.QnaListMapper"> <!--클래스 -->
+	<select id="qnaList" resultType="co.rny.vo.QnaListVO">
+		select *
+		from tbl_QNA
+	</select>
+	<select id="selectQna" resultType="co.rny.vo.QnaListVO"
+	parameterType="co.rny.vo.QnaListVO">
+		select user_no,
+		qna_num,
+		qna_title,
+		qna_content,
+		qna_answer,
+		qna_image,
+		qna_date,
+		qna_answerdate
+		from tbl_qna
+		where qna_num = #{qnaNum}
+	</select>
+
+</mapper>
