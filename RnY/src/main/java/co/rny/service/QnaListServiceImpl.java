@@ -18,4 +18,9 @@ public class QnaListServiceImpl implements QnaListService {
 		return mapper.qnaList();
 	}
 
+	@Override
+	public QnaListVO selectQna(int qnaNum) {
+		return mapper.selectQna(qnaNum);
+	}
+
 }

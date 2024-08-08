@@ -30,12 +30,12 @@
 											<div class="categories__post__item__text">
 												<span class="post__label">${qna.qnaNum}</span>
 												<h3>
-													<a href="#">${qna.qnaTitle}</a>
+													<a href="qna.do?qnaNum=${qna.qnaNum}">${qna.qnaTitle}</a>
 												</h3>
 												<ul class="post__widget">
 													<li style="list-style-type: none">작성자 <span>${qna.userNo}</span></li>
 													<li style="list-style-type: none">작성일자 <span>${qna.qnaDate}</span></li>
-													<li style="list-style-type: none">답변일자 <span>${qna.qnaAnserDate}</span></li>
+													<li style="list-style-type: none">답변일자 <span>${qna.qnaAnswerDate}</span></li>
 												</ul>
 												<p>${qna.qnaContent}</p>
 											</div>
