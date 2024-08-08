@@ -18,6 +18,14 @@ qna_date date DEFAULT sysdate, -- 업로드 날짜
 qna_answerdate date DEFAULT sysdate -- 답변업로드 날짜
 );
 
+create table tbl_qnareply ( -- QnA 댓글 테이블
+user_no VARCHAR2(20) PRIMARY KEY, --회원 고유번호
+qna_num number(38) not null, --게시판번호(댓글달리는)
+qreply_num number(38) not null, -- 댓글번호
+qreply_content VARCHAR2(3000) not null, -- 댓글 내용
+qreply_date date DEFAULT sysdate -- 업로드 날짜
+);
+
 
 create table tbl_review ( --리뷰테이블
 user_no VARCHAR2(20) PRIMARY KEY, --회원 고유번호
@@ -27,6 +35,8 @@ review_content VARCHAR2(3000) not null,-- 리뷰 내용
 review_image VARCHAR2(300),-- 사진
 review_date date DEFAULT sysdate, -- 업로드날짜
 review_comment VARCHAR2(800) not null -- 리뷰 댓글
+
+
 );
 
 commit;

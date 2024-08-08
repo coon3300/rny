@@ -13,6 +13,6 @@ public class QnaListVO {
 	private String qnaAnswer; // 답변
 	private String qnaImage; // 사진 
 	private Date qnaDate; // 업로드 날짜
-	private Date qnaAnserDate; // 답변 업로드 날짜
+	private Date qnaAnswerDate; // 답변 업로드 날짜
 
 }

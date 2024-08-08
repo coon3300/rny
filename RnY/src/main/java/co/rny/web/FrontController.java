@@ -23,6 +23,8 @@ import co.rny.control.MemberListControl;
 import co.rny.control.OrderControl;
 import co.rny.control.QnaControl;
 import co.rny.control.QnaListControl;
+import co.rny.control.QnaReplyControl;
+import co.rny.control.QnaReplyListControl;
 import co.rny.control.WishControl;
 import co.rny.control.loginControl;
 import co.rny.control.NoticeControl;
@@ -84,7 +86,10 @@ public class FrontController extends HttpServlet {
 		map.put("/qnaList.do", new QnaListControl());
 		// QnA 상세
 		map.put("/qna.do",new QnaControl());
-		
+		// QnA 댓글
+		map.put("/qnaReply.do", new QnaReplyControl());
+		// QnA 댓글목록
+		map.put("/qnaReplyList.do", new QnaReplyListControl());
 
 	}
 
