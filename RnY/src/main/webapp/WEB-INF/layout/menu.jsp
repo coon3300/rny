@@ -52,7 +52,7 @@
   integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css" href="css/vendor.css">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="css/main/style.css">
 
 <link href="https://webfontworld.github.io/cookierun/CookieRun.css" rel="stylesheet">
 
@@ -143,7 +143,7 @@
         <ul class="list-group mb-3">
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
-              <h6 class="my-0">회색 후드 티</h6>
+              <h6 class="my-0">${itemName}</h6>
               <small class="text-body-secondary">간단한 설명</small>
             </div>
             <span class="text-body-secondary">12,000원</span>
@@ -168,7 +168,7 @@
           </li>
         </ul>
 
-        <button class="w-100 btn btn-primary btn-lg" type="submit">주문하기</button>
+        <button class="w-100 btn btn-primary btn-lg" type="submit"><a href="order.do">주문하기</a></button>
       </div>
     </div>
   </div>
@@ -241,7 +241,8 @@
     <div class="container-fluid">
       <hr class="m-0">
     </div>
-
+${logid}
+${msg}
     <div class="container">
       <nav class="main-menu d-flex navbar navbar-expand-lg ">
 
@@ -256,7 +257,7 @@
               </a>
             </li>
             <li>
-              <a href="addMember.do" class="mx-3">
+              <a href="wish.do" class="mx-3">
                 <iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
               </a>
             </li>
@@ -347,9 +348,10 @@
 		          		<a class="nav-link mx-3" href="loginForm.do" data-bs-toggle="modal" data-bs-target="#loginModal">
                     <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
                   </a>
+                  
                 </li>
                 <li>
-                  <a class="nav-link mx-3" href="#">
+                  <a class="nav-link mx-3" href="wish.do">
                   
                     <iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
                   </a>
@@ -377,12 +379,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
+        
         <h1 class="modal-title fs-5" id="loginModalLabel">로그인 화면</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      
-			  <form action="#">
+			  <form action="login.do">
 			    <img class="mb-4" src="assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
 			    <h1 class="h3 mb-3 fw-normal">로그인 하세요</h1>
 			

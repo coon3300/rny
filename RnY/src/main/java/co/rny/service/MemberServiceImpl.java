@@ -12,6 +12,7 @@ import co.rny.vo.MemberVO;
 public class MemberServiceImpl implements MemberService {
 	SqlSession sqlSession = DataSource.getInstance().openSession(true); // true 넣으면 자동 커밋됨.
 	MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+	
 
 	@Override
 	public List<MemberVO> memberList() {
@@ -20,12 +21,18 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void addMember(MemberVO mvo) {
+		System.out.println("userBirth in Service: " + mvo.getUserBirth());
 		mapper.insertMember(mvo);
 	}
 
 	@Override
 	public MemberVO userinfo(String userNo) {
 		return mapper.userinfo(userNo);
+	}
+
+	@Override
+	public MemberVO loginCheck(String id, String pw) {
+		return mapper.selectMember(id, pw);
 	}
 
 }

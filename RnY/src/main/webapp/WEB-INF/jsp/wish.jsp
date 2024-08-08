@@ -14,7 +14,8 @@
     <div class="container pb-5">
 
       <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
-        <h2 class="display-3 fw-normal">WISHLIST</h2>
+       
+        <h2 class="display-3 fw-normal">${mvo.userName}님의 WISHLIST</h2>
         
       </div>
 
@@ -39,13 +40,8 @@
                   <h3 class="secondary-font text-primary">${wish.itemPrice}</h3> <!-- 이거 넣고 화면 안나옴 -->
 
                   <div class="d-flex flex-wrap mt-3">
-                   
-                    
                   </div>
-
-
                 </div>
-
               </div>
             </div>
             </c:forEach>
@@ -60,113 +56,30 @@
     </div>
   </section>
 
-  <section id="register" style="background: url('images/background-img.png') no-repeat;">
-    <div class="container ">
-      <div class="row my-5 py-5">
-        <div class="offset-md-3 col-md-6 my-5 ">
-          <h2 class="display-3 fw-normal text-center">지금 회원가입 하시면<span class="text-primary">20% 할인 쿠폰 증정</span>
-          </h2>
-          <form>
-            <div class="mb-3">
-              <input type="email" class="form-control form-control-lg" name="email" id="email"
-                placeholder="이메일 주소를 입력하세요">
-            </div>
-            <div class="mb-3">
-              <input type="password" class="form-control form-control-lg" name="email" id="password1"
-                placeholder="비밀번호 입력">
-            </div>
-            <div class="mb-3">
-              <input type="password" class="form-control form-control-lg" name="email" id="password2"
-                placeholder="비밀번호 재입력">
-            </div>
-
-            <div class="d-grid gap-2">
-              <button type="submit" class="btn btn-dark btn-lg rounded-1">회원가입</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+ 
 
   <section id="latest-blog" class="my-5">
     <div class="container py-5 my-5">
-      <div class="row mt-5">
-        <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
-          <h2 class="display-3 fw-normal">최신 블로그</h2>
-          <div>
-            <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
-              전체 읽기
-              <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
-                <use xlink:href="#arrow-right"></use>
-              </svg></a>
-          </div>
-        </div>
-      </div>
+       <c:forEach var="item" items="${itemList}" varStatus="status">
       <div class="row">
         <div class="col-md-4 my-4 my-md-0">
-          <div class="z-1 position-absolute rounded-3 m-2 px-3 pt-1 bg-light">
-            <h3 class="secondary-font text-primary m-0">1일</h3>
-            <p class="secondary-font fs-6 m-0">8월</p>
-
-          </div>
           <div class="card position-relative">
-            <a href="single-post.html"><img src="images/blog1.jpg" class="img-fluid rounded-4" alt="image"></a>
+            <a href="single-post.html"><img src="images/${item.itemImage}.jpg" class="img-fluid rounded-4" alt="image"></a>
             <div class="card-body p-0">
               <a href="single-post.html">
-                <h3 class="card-title pt-4 pb-3 m-0">R&Y 스토어에서 구매해야하는 이유 10가지</h3>
+                <h3 class="card-title pt-4 pb-3 m-0">${item.itemName}</h3>
               </a>
-
               <div class="card-text">
-                <p class="blog-paragraph fs-6">지금부터 만들어 보겠습니다.</p>
-                <a href="single-post.html" class="blog-read">더 보기</a>
+                <a href="single-post.html" class="blog-read">삭제</a>
               </div>
 
             </div>
           </div>
         </div>
-        <div class="col-md-4 my-4 my-md-0">
-          <div class="z-1 position-absolute rounded-3 m-2 px-3 pt-1 bg-light">
-            <h3 class="secondary-font text-primary m-0">2일</h3>
-            <p class="secondary-font fs-6 m-0">8월</p>
-
-          </div>
-          <div class="card position-relative">
-            <a href="single-post.html"><img src="images/blog2.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="single-post.html">
-                <h3 class="card-title pt-4 pb-3 m-0">강아지랑 놀기</h3>
-              </a>
-
-              <div class="card-text">
-                <p class="blog-paragraph fs-6">일단 빈 그릇부터 채우자.</p>
-                <a href="single-post.html" class="blog-read">더 보기</a>
-              </div>
-
-            </div>
-          </div>
+       
+    
         </div>
-        <div class="col-md-4 my-4 my-md-0">
-          <div class="z-1 position-absolute rounded-3 m-2 px-3 pt-1 bg-light">
-            <h3 class="secondary-font text-primary m-0">3일</h3>
-            <p class="secondary-font fs-6 m-0">8월</p>
-
-          </div>
-          <div class="card position-relative">
-            <a href="single-post.html"><img src="images/blog3.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="single-post.html">
-                <h3 class="card-title pt-4 pb-3 m-0">애완동물을 위한 최고의 집</h3>
-              </a>
-
-              <div class="card-text">
-                <p class="blog-paragraph fs-6">에어콘 풀가동!!</p>
-                <a href="single-post.html" class="blog-read">더보기</a>
-              </div>
-
-            </div>
-          </div>
-        </div>
+        </c:forEach>
       </div>
     </div>
   </section>

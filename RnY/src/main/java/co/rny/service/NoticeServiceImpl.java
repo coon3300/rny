@@ -18,8 +18,9 @@ public class NoticeServiceImpl implements NoticeService {
 		return mapper.noticeList();
 	}
 
-	@Override
+
 	public NoticeVO selectNotice(int noticeNum) {
 		return mapper.selectNotice(noticeNum);
+
 	}
 }
