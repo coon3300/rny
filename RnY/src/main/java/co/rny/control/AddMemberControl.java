@@ -26,7 +26,11 @@ public class AddMemberControl implements Control {
 		String userBirth = req.getParameter("userBirth");
 		String userEmail = req.getParameter("userEmail");
 		String userPhone = req.getParameter("userPhone");
-		String userAdd = req.getParameter("userAdd");
+		String userAdd1 = req.getParameter("userAdd1");
+		String userAdd2 = req.getParameter("userAdd2");
+		String userAdd3 = req.getParameter("userAdd3");
+		String userAdd4 = req.getParameter("userAdd4");
+		String userAdd = userAdd1+userAdd2+userAdd3+userAdd4;
 		String responsibility = req.getParameter("responsibility");
 		
 		System.out.println("userBirth: " + userBirth);
