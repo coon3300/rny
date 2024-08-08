@@ -14,6 +14,7 @@ import co.rny.common.Control;
 import co.rny.control.AddMemberControl;
 import co.rny.control.ItemInfoControl;
 import co.rny.control.ItemListControl;
+import co.rny.control.ItemListJsonControl;
 import co.rny.control.MemberListControl;
 
 import co.rny.control.OrderControl;
@@ -25,6 +26,7 @@ import co.rny.control.NoticeListControl;
 import co.rny.control.UserControl;
 
 import co.rny.control.mainControl;
+import co.rny.control.testControl;
 
 public class FrontController extends HttpServlet {
 
@@ -37,12 +39,19 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 
+		// test
+		map.put("/test.do", new testControl());
+		
 		// 메인
 		map.put("/main.do", new mainControl());
 		// 아이템 리스트
 		map.put("/itemList.do", new ItemListControl());
+		// 아이템 리스트 json
+		map.put("/itemListJson.do", new ItemListJsonControl());
 		// 아이템 정보
 		map.put("/itemInfo.do", new ItemInfoControl());
+		
+		
 
 		
 		// 회원목록 출력
@@ -63,6 +72,7 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeList.do", new NoticeListControl());
 		// 공지사항 상세
 		map.put("/notice.do", new NoticeControl());
+		
 
 	}
 

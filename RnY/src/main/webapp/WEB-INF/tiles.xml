@@ -18,7 +18,7 @@
 
 	<definition name="myapp.user"
 		template="/WEB-INF/layout/template.jsp">
-		<put-attribute name="title" value="일반 사용자용 템플릿 예제." />
+		<put-attribute name="title" value="RnY Pet에 오신걸 환영합니다." />
 		<put-attribute name="menu"
 			value="/WEB-INF/layout/menu.jsp" />
 		<put-attribute name="body"
@@ -29,7 +29,11 @@
 
 	<!-- 메인 -->
 	<definition name="WILDCARD:RnY/*" extends="myapp.user">
-		<put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp" /> <!-- 정해지지 않은 값(?) {1}{2} -->
+		<put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp" />
+	</definition>
+		
+	<definition name="WILDCARD:member/*" extends="myapp.user">
+		<put-attribute name="body" value="/WEB-INF/jsp/member/{1}.jsp" />
 	</definition>
 	
 	<!-- 회원목록 -->

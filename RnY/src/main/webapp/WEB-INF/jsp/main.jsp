@@ -15,7 +15,7 @@
                 <h2 class="banner-title display-1 fw-normal">골든리트리버 Pick!<span class="text-primary">최애의
                     인형</span>
                 </h2>
-                <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+                <a href="itemList.do?lineNo=18" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
                   장난감 스토어 바로가기
                   <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
                     <use xlink:href="#arrow-right"></use>
@@ -34,8 +34,8 @@
                 <h2 class="banner-title display-1 fw-normal">고양이가 눈을 떼지 못하는 이유는
                 	<span class="text-primary"> ?</span>
                 </h2>
-                <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
-                   장난감 스토어 바로가기
+                <a href="itemList.do?lineNo=12" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+                   사료 스토어 바로가기
                   <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
                     <use xlink:href="#arrow-right"></use>
                   </svg></a>
@@ -53,7 +53,7 @@
                 <h2 class="banner-title display-1 fw-normal">Must Have Item! 
                 	<span class="text-primary">베이비 핑크색 출시!</span>
                 </h2>
-                <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+                <a href="itemList.do?lineNo=11" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
                   간식 스토어 바로가기
                   <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
                     <use xlink:href="#arrow-right"></use>
@@ -70,6 +70,7 @@
     </div>
   </section>
 
+	<!-- 
   <section id="categories">
     <div class="container my-3 py-5">
       <div class="row my-5">
@@ -106,10 +107,11 @@
       </div>
     </div>
   </section>
+ 	-->
 
+	<!-- 
   <section id="clothing" class="my-5 overflow-hidden">
     <div class="container pb-5">
-
       <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
         <h2 class="display-3 fw-normal">애완동물용 옷</h2>
         <div>
@@ -161,9 +163,7 @@
             </div>
           </div>
           <div class="swiper-slide">
-            <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
               New
-            </div> -->
             <div class="card position-relative">
               <a href="#"><img src="images/item2.jpg" class="img-fluid rounded-4" alt="image"></a>
               <div class="card-body p-0">
@@ -233,9 +233,9 @@
             </div>
           </div>
           <div class="swiper-slide">
-            <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
+            <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
               New
-            </div> -->
+            </div>
             <div class="card position-relative">
               <a href="#"><img src="images/item4.jpg" class="img-fluid rounded-4" alt="image"></a>
               <div class="card-body p-0">
@@ -268,9 +268,9 @@
             </div>
           </div>
           <div class="swiper-slide">
-            <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
+            <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
               New
-            </div> -->
+            </div>
             <div class="card position-relative">
               <a href="#"><img src="images/item7.jpg" class="img-fluid rounded-4" alt="image"></a>
               <div class="card-body p-0">
@@ -297,17 +297,14 @@
                       <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
                     </a>
                   </div>
-
-
                 </div>
-
               </div>
             </div>
           </div>
           <div class="swiper-slide">
-            <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
+            <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
               New
-            </div> -->
+            </div>
             <div class="card position-relative">
               <a href="#"><img src="images/item8.jpg" class="img-fluid rounded-4" alt="image"></a>
               <div class="card-body p-0">
@@ -344,338 +341,249 @@
 
         </div>
       </div>
-      <!-- / products-carousel -->
-
-
     </div>
   </section>
+ 	-->
 
   <section id="foodies" class="my-5">
     <div class="container my-5 py-5">
-
       <div class="section-header d-md-flex justify-content-between align-items-center">
-        <h2 class="display-3 fw-normal">애완동물용 음식</h2>
+        <h2 class="display-3 fw-normal">R&Y </h2>
         <div class="mb-4 mb-md-0">
-          <p class="m-0">
-            <button class="filter-button me-4  active" data-filter="*">전체</button>
-            <button class="filter-button me-4 " data-filter=".cat">고양이</button>
-            <button class="filter-button me-4 " data-filter=".dog">강아지</button>
-            <button class="filter-button me-4 " data-filter=".bird">새</button>
+	        <p class="m-0">
+	            <button class="filter-button me-4 " onclick="getMainItemList('11')">간식</button>
+            <button class="filter-button me-4 " onclick="getMainItemList('12')">사료</button>
+            <button class="filter-button me-4 " onclick="getMainItemList('13')">패션용품</button>
+            <button class="filter-button me-4 " onclick="getMainItemList('14')">위생용품</button>
+            <button class="filter-button me-4 " onclick="getMainItemList('15')">식기/급수기</button>
+            <button class="filter-button me-4 " onclick="getMainItemList('16')">미용용품</button>
+            <button class="filter-button me-4 " onclick="getMainItemList('17')">외출용품</button>
+            <button class="filter-button me-4 " onclick="getMainItemList('18')">장난감/훈련용품</button>
           </p>
         </div>
         <div>
           <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
-            스토어 바로가기
+            맨 위로 바로가기
             <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
               <use xlink:href="#arrow-right"></use>
             </svg></a>
         </div>
       </div>
 
-      <div class="isotope-container row">
-
-        <div class="item cat col-md-4 col-lg-3 my-4">
-          <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            New
-          </div> -->
-          <div class="card position-relative">
-            <a href="#"><img src="images/item9.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="#">
-                <h3 class="card-title pt-4 m-0">허니 버터 과자</h3>
-              </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-
-                  1.0</span>
-
-                <h3 class="secondary-font text-primary">33,000원</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">장바구니 담기</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
-                </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="item dog col-md-4 col-lg-3 my-4">
-          <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            New
-          </div>
-          <div class="card position-relative">
-            <a href="#"><img src="images/item10.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="#">
-                <h3 class="card-title pt-4 m-0">휴대용 통조림</h3>
-              </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-
-                  2.0</span>
-
-                <h3 class="secondary-font text-primary">22,000원</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">장바구니 담기</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
-                </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="item dog col-md-4 col-lg-3 my-4">
-          <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            New
-          </div> -->
-          <div class="card position-relative">
-            <a href="#"><img src="images/item11.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="#">
-                <h3 class="card-title pt-4 m-0">에너지 바</h3>
-              </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  4.0</span>
-
-                <h3 class="secondary-font text-primary">21,000원</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">장바구니 담기</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
-                </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="item cat col-md-4 col-lg-3 my-4">
-          <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            Sold
-          </div>
-          <div class="card position-relative">
-            <a href="#"><img src="images/item12.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="#">
-                <h3 class="card-title pt-4 m-0">원터치 캔</h3>
-              </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  5.0</span>
-
-                <h3 class="secondary-font text-primary">77,000원</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">장바구니 담기</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
-                </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="item bird col-md-4 col-lg-3 my-4">
-          <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            New
-          </div> -->
-          <div class="card position-relative">
-            <a href="#"><img src="images/item13.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="#">
-                <h3 class="card-title pt-4 m-0">고양이표 스낵</h3>
-              </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  3.0</span>
-
-                <h3 class="secondary-font text-primary">88,000원</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">장바구니 담기</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
-                </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="item bird col-md-4 col-lg-3 my-4">
-          <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            New
-          </div> -->
-          <div class="card position-relative">
-            <a href="#"><img src="images/item14.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="#">
-                <h3 class="card-title pt-4 m-0">최애의 간식</h3>
-              </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  2.0</span>
-
-                <h3 class="secondary-font text-primary">180,000원</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">장바구니 담기</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
-                </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="item dog col-md-4 col-lg-3 my-4">
-          <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            Sale
-          </div>
-          <div class="card position-relative">
-            <a href="#"><img src="images/item15.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="#">
-                <h3 class="card-title pt-4 m-0">치즈</h3>
-              </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  5.0</span>
-
-                <h3 class="secondary-font text-primary">78,000원</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">장바구니 담기</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
-                </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="item cat col-md-4 col-lg-3 my-4">
-          <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            New
-          </div> -->
-          <div class="card position-relative">
-            <a href="#"><img src="images/item16.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="#">
-                <h3 class="card-title pt-4 m-0">치즈 큐브</h3>
-              </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  5.0</span>
-
-                <h3 class="secondary-font text-primary">10,000원</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">장바구니 담기</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
-                </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-
+			<!-- <div class="isotope-container row"> -->
+      <div class="row" id="mainItemDiv">
+				<!-- ajax -->
+					<div class="item cat col-md-4 col-lg-3 my-4">
+			    <!--<div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
+			    New
+			    </div>
+			    -->
+			    <div class="card position-relative">
+			      <a href="itemInfo.do?itemNo=50"><img src="images/image5.jpg" class="img-fluid rounded-4" alt="image"></a>
+			      <div class="card-body p-0">
+			        <a href="#"><h3 class="card-title pt-4 m-0">강아지 공</h3></a>
+			        <div class="card-text">
+			          <span class="rating secondary-font">
+			            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+			            1
+			          </span>
+			          <h3 class="secondary-font text-primary">10000</h3>
+			          <div class="d-flex flex-wrap mt-3">
+			            <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
+			              <h5 class="text-uppercase m-0">장바구니 담기</h5>
+			            </a>
+			            <a href="#" class="btn-wishlist px-4 pt-3">
+			              <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
+			            </a>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </div><div class="item cat col-md-4 col-lg-3 my-4">
+			    <!--<div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
+			    New
+			    </div>
+			    -->
+			    <div class="card position-relative">
+			      <a href="itemInfo.do?itemNo=51"><img src="images/image6.jpg" class="img-fluid rounded-4" alt="image"></a>
+			      <div class="card-body p-0">
+			        <a href="#"><h3 class="card-title pt-4 m-0">강아지 인형</h3></a>
+			        <div class="card-text">
+			          <span class="rating secondary-font">
+			            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+			            3
+			          </span>
+			          <h3 class="secondary-font text-primary">15000</h3>
+			          <div class="d-flex flex-wrap mt-3">
+			            <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
+			              <h5 class="text-uppercase m-0">장바구니 담기</h5>
+			            </a>
+			            <a href="#" class="btn-wishlist px-4 pt-3">
+			              <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
+			            </a>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </div><div class="item cat col-md-4 col-lg-3 my-4">
+			    <!--<div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
+			    New
+			    </div>
+			    -->
+			    <div class="card position-relative">
+			      <a href="itemInfo.do?itemNo=52"><img src="images/image7.jpg" class="img-fluid rounded-4" alt="image"></a>
+			      <div class="card-body p-0">
+			        <a href="#"><h3 class="card-title pt-4 m-0">강아지 터널</h3></a>
+			        <div class="card-text">
+			          <span class="rating secondary-font">
+			            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+			            5
+			          </span>
+			          <h3 class="secondary-font text-primary">30000</h3>
+			          <div class="d-flex flex-wrap mt-3">
+			            <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
+			              <h5 class="text-uppercase m-0">장바구니 담기</h5>
+			            </a>
+			            <a href="#" class="btn-wishlist px-4 pt-3">
+			              <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
+			            </a>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </div><div class="item cat col-md-4 col-lg-3 my-4">
+			    <!--<div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
+			    New
+			    </div>
+			    -->
+			    <div class="card position-relative">
+			      <a href="itemInfo.do?itemNo=53"><img src="images/image8.jpg" class="img-fluid rounded-4" alt="image"></a>
+			      <div class="card-body p-0">
+			        <a href="#"><h3 class="card-title pt-4 m-0">강아지 훈련용 클리커</h3></a>
+			        <div class="card-text">
+			          <span class="rating secondary-font">
+			            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+			            2
+			          </span>
+			          <h3 class="secondary-font text-primary">8000</h3>
+			          <div class="d-flex flex-wrap mt-3">
+			            <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
+			              <h5 class="text-uppercase m-0">장바구니 담기</h5>
+			            </a>
+			            <a href="#" class="btn-wishlist px-4 pt-3">
+			              <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
+			            </a>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </div><div class="item cat col-md-4 col-lg-3 my-4">
+			    <!--<div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
+			    New
+			    </div>
+			    -->
+			    <div class="card position-relative">
+			      <a href="itemInfo.do?itemNo=54"><img src="images/image9.jpg" class="img-fluid rounded-4" alt="image"></a>
+			      <div class="card-body p-0">
+			        <a href="#"><h3 class="card-title pt-4 m-0">강아지 노즈워크 매트</h3></a>
+			        <div class="card-text">
+			          <span class="rating secondary-font">
+			            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+			            4
+			          </span>
+			          <h3 class="secondary-font text-primary">25000</h3>
+			          <div class="d-flex flex-wrap mt-3">
+			            <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
+			              <h5 class="text-uppercase m-0">장바구니 담기</h5>
+			            </a>
+			            <a href="#" class="btn-wishlist px-4 pt-3">
+			              <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
+			            </a>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </div><div class="item cat col-md-4 col-lg-3 my-4">
+			    <!--<div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
+			    New
+			    </div>
+			    -->
+			    <div class="card position-relative">
+			      <a href="itemInfo.do?itemNo=55"><img src="images/image1.jpg" class="img-fluid rounded-4" alt="image"></a>
+			      <div class="card-body p-0">
+			        <a href="#"><h3 class="card-title pt-4 m-0">고양이 캣타워</h3></a>
+			        <div class="card-text">
+			          <span class="rating secondary-font">
+			            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+			            1
+			          </span>
+			          <h3 class="secondary-font text-primary">150000</h3>
+			          <div class="d-flex flex-wrap mt-3">
+			            <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
+			              <h5 class="text-uppercase m-0">장바구니 담기</h5>
+			            </a>
+			            <a href="#" class="btn-wishlist px-4 pt-3">
+			              <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
+			            </a>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </div><div class="item cat col-md-4 col-lg-3 my-4">
+			    <!--<div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
+			    New
+			    </div>
+			    -->
+			    <div class="card position-relative">
+			      <a href="itemInfo.do?itemNo=56"><img src="images/image2.jpg" class="img-fluid rounded-4" alt="image"></a>
+			      <div class="card-body p-0">
+			        <a href="#"><h3 class="card-title pt-4 m-0">고양이 스크래쳐</h3></a>
+			        <div class="card-text">
+			          <span class="rating secondary-font">
+			            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+			            3
+			          </span>
+			          <h3 class="secondary-font text-primary">20000</h3>
+			          <div class="d-flex flex-wrap mt-3">
+			            <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
+			              <h5 class="text-uppercase m-0">장바구니 담기</h5>
+			            </a>
+			            <a href="#" class="btn-wishlist px-4 pt-3">
+			              <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
+			            </a>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </div><div class="item cat col-md-4 col-lg-3 my-4">
+			    <!--<div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
+			    New
+			    </div>
+			    -->
+			    <div class="card position-relative">
+			      <a href="itemInfo.do?itemNo=57"><img src="images/image3.jpg" class="img-fluid rounded-4" alt="image"></a>
+			      <div class="card-body p-0">
+			        <a href="#"><h3 class="card-title pt-4 m-0">고양이 낚시대</h3></a>
+			        <div class="card-text">
+			          <span class="rating secondary-font">
+			            <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
+			            5
+			          </span>
+			          <h3 class="secondary-font text-primary">12000</h3>
+			          <div class="d-flex flex-wrap mt-3">
+			            <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
+			              <h5 class="text-uppercase m-0">장바구니 담기</h5>
+			            </a>
+			            <a href="#" class="btn-wishlist px-4 pt-3">
+			              <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
+			            </a>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+        <!-- ajax -->
       </div>
-
-
     </div>
   </section>
 
@@ -689,8 +597,8 @@
           <div class="secondary-font text-primary text-uppercase mb-3 fs-4">최대 40% 할인</div>
           <h2 class="banner-title display-1 fw-normal">클리어런스 SALE !!!
           </h2>
-          <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
-            스토어 바로가기
+          <a href="itemList.do?lineNo=14" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+            패션 스토어 바로가기
             <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
               <use xlink:href="#arrow-right"></use>
             </svg></a>
@@ -1213,3 +1121,6 @@
       </div>
     </div>
   </section>
+<Script src='js/mainItemList.js'></Script>
+<Script src='js/mainItemListService.js'></Script>
+

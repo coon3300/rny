@@ -2,9 +2,7 @@ package co.rny.common;
 
 import org.apache.ibatis.session.SqlSession;
 
-import co.rny.mapper.ItemMapper;
-import co.rny.mapper.LineMapper;
-import co.rny.mapper.MemberMapper;
+import co.rny.mapper.OrderMapper;
 
 public class AppTest {
 
@@ -39,15 +37,29 @@ public class AppTest {
 		System.out.println(mapper.selectLineName(11));
 		 * 
 		 */
+		
+		/*
 		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
 		MemberMapper mapper = sqlSession.getMapper(MemberMapper	.class);
 
-			System.out.println(mapper.userinfo("A100"));
+		System.out.println(mapper.userinfo("A100"));
+		 * 
+		 */
 		
+		/*
 		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
 		ItemMapper mapper = sqlSession.getMapper(ItemMapper	.class);
 		mapper.selectList(11).forEach(line -> {
 			System.out.println(line);
+		});
+		 * 
+		 */
+		
+		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
+		OrderMapper mapper = sqlSession.getMapper(OrderMapper.class);
+		mapper.buy().forEach(buy -> {
+			
+			System.out.println(buy);
 		});
 		
 	}
