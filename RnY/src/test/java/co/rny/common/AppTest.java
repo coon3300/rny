@@ -3,7 +3,6 @@ package co.rny.common;
 import org.apache.ibatis.session.SqlSession;
 
 import co.rny.mapper.OrderMapper;
-import co.rny.mapper.NoticeMapper;
 
 public class AppTest {
 
@@ -74,10 +73,5 @@ public class AppTest {
 //		mapper.selectList(11).forEach(line -> {
 //			System.out.println(line);
 //		});
-		
-		
-
->>>>>>> master
-		
 	}
 }
