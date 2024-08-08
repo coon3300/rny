@@ -45,7 +45,13 @@
     <put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp" /> <!-- 정해지지 않은 값(?) {1}{2} -->
   </definition>
   
+  <!-- 공지사항 -->
    <definition name="WILDCARD:notice/*" extends="myapp.user">
+    <put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp" /> <!-- 정해지지 않은 값(?) {1}{2} -->
+  </definition>
+  
+  <!-- QnA -->
+  <definition name="WILDCARD:qna/*" extends="myapp.user">
     <put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp" /> <!-- 정해지지 않은 값(?) {1}{2} -->
   </definition>
   

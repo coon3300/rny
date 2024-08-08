@@ -15,15 +15,13 @@ public class NoticeControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String nno = req.getParameter("nno");
-		String page = req.getParameter("page");
+		String noticeNum = req.getParameter("noticeNum");
 		
 		NoticeService nvc = new NoticeServiceImpl();
-		NoticeVO notice = nvc.getBoard(Integer.parseInt(nno));
+		NoticeVO nvo = nvc.selectNotice(Integer.parseInt(noticeNum));
 		
-		req.setAttribute("notice", notice);
-		req.setAttribute("page", page);
-		
+		req.setAttribute("nvo", nvo);
+	
 		req.getRequestDispatcher("notice/notice.tiles")//
 		.forward(req, resp); // 페이지 재지정.
 		

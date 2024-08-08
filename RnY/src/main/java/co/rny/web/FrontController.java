@@ -19,6 +19,8 @@ import co.rny.control.ItemListControl;
 import co.rny.control.MemberListControl;
 
 import co.rny.control.OrderControl;
+import co.rny.control.QnaControl;
+import co.rny.control.QnaListControl;
 import co.rny.control.WishControl;
 import co.rny.control.loginControl;
 import co.rny.control.NoticeControl;
@@ -73,6 +75,11 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeList.do", new NoticeListControl());
 		// 공지사항 상세
 		map.put("/notice.do", new NoticeControl());
+		// QnA 목록
+		map.put("/qnaList.do", new QnaListControl());
+		// QnA 상세
+		map.put("/qna.do",new QnaControl());
+		
 
 	}
 

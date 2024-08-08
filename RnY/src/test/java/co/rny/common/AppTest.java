@@ -2,9 +2,7 @@ package co.rny.common;
 
 import org.apache.ibatis.session.SqlSession;
 
-import co.rny.mapper.ItemMapper;
-import co.rny.mapper.LineMapper;
-import co.rny.mapper.MemberMapper;
+import co.rny.mapper.NoticeMapper;
 
 public class AppTest {
 
@@ -39,6 +37,7 @@ public class AppTest {
 		System.out.println(mapper.selectLineName(11));
 		 * 
 		 */
+
 		//나중에 주석풀기
 //		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
 //		MemberMapper mapper = sqlSession.getMapper(MemberMapper	.class);
@@ -52,6 +51,7 @@ public class AppTest {
 //		});
 		
 		
+
 		
 	}
 }
