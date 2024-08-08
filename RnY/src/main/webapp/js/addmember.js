@@ -19,3 +19,4 @@
             return true;
           }
     }
+<script type="text/javascript" src="src/main/webapp/js/addmember.js"></script>

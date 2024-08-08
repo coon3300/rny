@@ -22,7 +22,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void addMember(MemberVO mvo) {
-		System.out.println("userBirth in Service: " + mvo.getUserBirth());
+//		System.out.println("userBirth in Service: " + mvo.getUserBirth());
 		mapper.insertMember(mvo);
 	}
 
@@ -35,9 +35,20 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO loginCheck(String id, String pw) {
 		return mapper.selectMember(id, pw);
 	}
+
 	@Override
 	public String userNick(String id) {
 		return mapper.usernick(id);
 	}
-
+	
+	@Override
+	public int selectId(String userId) {
+		 return mapper.selectId(userId);
+	}
+	
+	@Override
+	public int selectEmail(String email) {
+		 return mapper.selectEmail(email);
+	}
+  
 }

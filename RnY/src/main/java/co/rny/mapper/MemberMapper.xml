@@ -5,11 +5,13 @@
 
 <mapper namespace="co.rny.mapper.MemberMapper">
 
+	<!-- 회원목록조회 -->
 	<select id="selectList" resultType="co.rny.vo.MemberVO">
 		select *
 		from rny_member
 	</select>
 	
+	<!-- user_no기준 회원상세조회 -->
 	<select id="userinfo" resultType="co.rny.vo.MemberVO">
 		select *
 		from rny_member
@@ -21,6 +23,8 @@
 		from rny_member
 		where user_id = #{id}
 	</select>
+	
+	<!-- 로그인 -->
 
 	<select id="selectMember" resultType="co.rny.vo.MemberVO">
 		select *
@@ -29,7 +33,7 @@
 		and user_pw = #{pw}
 	</select>
 
-
+  <!-- 회원가입 -->
 	<insert id="insertMember" parameterType="co.rny.vo.MemberVO">
 		insert into rny_member
 		(user_no, user_id, user_pw, user_name, user_nick, user_birth,
@@ -37,6 +41,18 @@
 		values('A' || seq_member.nextval,
 		#{userId}, #{userPw}, #{userName}, #{userNick}, #{userBirth},
 		#{userEmail}, #{userPhone}, #{userAdd})
-
 	</insert>
+	
+	<!-- 회원가입(ID중복체크) -->
+	<select id="selectId" resultType="int">
+    SELECT COUNT(*)
+    FROM rny_member
+    WHERE user_id = #{id}
+  </select>
+  
+  <select id="selectEmail" resultType="int">
+    SELECT COUNT(*)
+    FROM rny_member
+    WHERE user_email = #{email}
+  </select>
 </mapper>

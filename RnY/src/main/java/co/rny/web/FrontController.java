@@ -14,6 +14,8 @@ import co.rny.common.Control;
 import co.rny.control.AddFormControl;
 import co.rny.control.AddMemberControl;
 import co.rny.control.CartControl;
+import co.rny.control.EmailCheckControl;
+import co.rny.control.IdCheckControl;
 import co.rny.control.ItemInfoControl;
 import co.rny.control.ItemListControl;
 import co.rny.control.MemberListControl;
@@ -57,6 +59,9 @@ public class FrontController extends HttpServlet {
 		map.put("/addform.do", new AddFormControl());
 		// 회원가입
 		map.put("/addMember.do", new AddMemberControl());
+		// 회원가입(ID중복체크)
+		map.put("/idCheck.do", new IdCheckControl());
+		map.put("/emailCheck.do", new EmailCheckControl());
 		// 로그인
 		map.put("/login.do", new loginControl());
 		
