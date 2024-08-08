@@ -19,7 +19,7 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public NoticeVO getBoard(int noticeNum) {
-		return mapper.selectNotice(noticeNum); // 여기부터 시작
+	public NoticeVO selectNotice(int noticeNum) {
+		return mapper.selectNotice(noticeNum);
 	}
 }
