@@ -8,10 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.rny.common.Control;
-import co.rny.common.LineCache;
 import co.rny.service.NoticeService;
 import co.rny.service.NoticeServiceImpl;
-import co.rny.vo.LineVO;
 import co.rny.vo.NoticeVO;
 
 public class NoticeListControl implements Control {

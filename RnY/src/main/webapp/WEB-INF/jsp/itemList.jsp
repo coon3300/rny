@@ -3,8 +3,10 @@
   <section id="foodies" class="my-5">
     <div class="container my-5 py-5">
 
+
       <div class="section-header d-md-flex justify-content-between align-items-center">
         <h2 class="display-3 fw-normal">${lineName}</h2>
+        <!-- 
         <div class="mb-4 mb-md-0">
           <p class="m-0">
             <button class="filter-button me-4  active" data-filter="*">전체</button>
@@ -13,6 +15,7 @@
             <button class="filter-button me-4 " data-filter=".bird">새</button>
           </p>
         </div>
+         -->
         <div>
           <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
             스토어 바로가기

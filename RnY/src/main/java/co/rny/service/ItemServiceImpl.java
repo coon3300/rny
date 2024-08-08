@@ -1,6 +1,7 @@
 package co.rny.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -28,6 +29,12 @@ public class ItemServiceImpl implements ItemService{
 	public ItemVO itemSelected(int itemNo) {
 		return mapper.selectOne(itemNo);
 
+	}
+
+	@Override
+	public List<Map<String, Object>> itemMapList(int itemNo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
