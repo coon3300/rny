@@ -16,6 +16,12 @@
 		where user_no = #{userNo}
 	</select>
 
+	<select id="usernick" resultType="String">
+		select user_nick
+		from rny_member
+		where user_id = #{id}
+	</select>
+
 	<select id="selectMember" resultType="co.rny.vo.MemberVO">
 		select *
 		from rny_member

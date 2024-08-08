@@ -11,6 +11,6 @@ public interface MemberMapper {
 	MemberVO userinfo(String userNo); // 회원상세목록
 	int insertMember(MemberVO mvo); // 회원가입
 	MemberVO selectMember(@Param("id") String id, @Param("pw") String pw);//로그인 체크
-	
+	String usernick(String id); //닉네임
 	
 }
