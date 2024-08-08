@@ -8,5 +8,14 @@
 	select *
 	from tbl_order
 	</select>
+	
+	<select id="order" resultType="co.rny.vo.OrderVO">
+	select *
+	from tbl_order o JOIN rny_member m
+	ON o.user_no = m.user_no
+	JOIN tbl_item i
+	ON o.item_no = i.item_no
+	where user_id = #{id}
+	</select>
 
 </mapper>

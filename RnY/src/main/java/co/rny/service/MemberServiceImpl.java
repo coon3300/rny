@@ -8,6 +8,7 @@ import co.rny.common.DataSource;
 import co.rny.mapper.MemberMapper;
 import co.rny.service.MemberService;
 import co.rny.vo.MemberVO;
+import co.rny.vo.WishVO;
 
 public class MemberServiceImpl implements MemberService {
 	SqlSession sqlSession = DataSource.getInstance().openSession(true); // true 넣으면 자동 커밋됨.
@@ -34,6 +35,11 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO loginCheck(String id, String pw) {
 		return mapper.selectMember(id, pw);
 	}
+
+	@Override
+	public String userNick(String id) {
+		return mapper.usernick(id);
+	}
 	
 	@Override
 	public int selectId(String userId) {
@@ -44,4 +50,5 @@ public class MemberServiceImpl implements MemberService {
 	public int selectEmail(String email) {
 		 return mapper.selectEmail(email);
 	}
+  
 }

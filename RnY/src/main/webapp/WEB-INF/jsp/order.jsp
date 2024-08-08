@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html lang="zxx">
+<%
+String logNick = (String) session.getAttribute("logNick");
+%>
 
 <head>
     <meta charset="UTF-8">
@@ -37,20 +38,23 @@
         <div class="container">
            
             <div class="checkout__form">
-                <h4>${mvo.userNick}주문</h4>
+                <h4>${logNick}님의 주문</h4>
+                
                 <form action="#">
                     <div class="row">
+ 										<c:forEach var="order" items="${order}" varStatus="status">
+                    
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>받는사람<span>*</span></p>
-                                        <input type="text" value="${mvo.userName }">
+                                        <input type="text" value="${order.userName}">
                                     </div>
                                 </div>
                                 <div class="checkout__input">
                                 <p>주소<span>*</span></p>
-                                <input type="text" placeholder="${mvo.userAdd }" class="checkout__input__add">
+                                <input type="text" placeholder="${order.userAdd}" class="checkout__input__add">
                                 <div class="checkout__input__checkbox">
                                 <label for="acc">
                                     선택사항) 다른 주소
@@ -133,7 +137,7 @@
                                     placeholder="Notes about your order, e.g. special notes for delivery.">
                             </div>
                         </div>
-                        
+                        </c:forEach>
                         
                         
                         
@@ -144,7 +148,7 @@
                         <!-- 주문총액 -->
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
-                                <h4>${mvo.userNick}님의 주문</h4>
+                                <h4>${logNick}님의 주문</h4>
                                 <div class="checkout__order__products">상품<span>총액</span></div>
                                 <ul>
                                <!--  --> <c:forEach var="order" items="${ovo.orderList}" varStatus="status">
@@ -203,4 +207,3 @@
 
 </body>
 
-</html>
