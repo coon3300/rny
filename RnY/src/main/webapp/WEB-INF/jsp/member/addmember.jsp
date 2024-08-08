@@ -191,15 +191,16 @@
     }
 </script>
 
+<div class="container" style="max-width: 600px; margin: auto;">
 
-	<div class="container ">
+	
 	<form  action="addMember.do" name="join" >
 			<div class="py-5 text-center">
 				<h1>회원가입</h1>
 				<h1>─────</h1>
 			  	</div>
 			  	  <div>
-							<div class="col-sm-6"  onmouseenter="mouseenterHandler()" onmouseleave="mouseleaveHandler()">
+							<div class="col-sm-12"  onmouseenter="mouseenterHandler()" onmouseleave="mouseleaveHandler()">
     						<label class="form-label"> ID </label>
     							<div style="display: flex;" id="id">
         						<input type="text" class="form-control" id="userId" name="userId" placeholder="" value="" required>
@@ -208,7 +209,7 @@
    							  </div>&nbsp;
 							</div>
 
-							<div class="col-sm-6" onmouseenter="mouseenterHandler1()" onmouseleave="mouseleaveHandler1()">
+							<div class="col-sm-12" onmouseenter="mouseenterHandler1()" onmouseleave="mouseleaveHandler1()">
 								<label class="form-label"> PASSWORD </label>
 							<div style="display: flex;" >
 									<input type="password" class="form-control" id="userPw" onchange="check_pw()" name="userPw" placeholder="" required>
@@ -218,7 +219,7 @@
 									</svg>
 							</div></div>&nbsp;
 							
-							<div class="col-6" >
+							<div class="col-sm-12" >
 								<label class="form-label"> PASSWORD 확인 </label>
 								<div style="display: flex;" >
 									<input type="password" class="form-control" id="userPw2" onchange="check_pw()" name="userPw2" placeholder="" required>&nbsp;
@@ -228,32 +229,32 @@
 								  </svg>
 							</div></div>&nbsp;
 							
-							<div class="col-6">
+							<div class="col-sm-12">
 								<label class="form-label"> 이름 </label>
 									<input type="text" class="form-control" id="userName" name="userName" required>&nbsp;
 							</div>
 							
-							<div class="col-6">
+							<div class="col-sm-12">
 								<label class="form-label"> 닉네임 </label>
 									<input type="text" class="form-control" id="userNick"  name="userNick" required>&nbsp;
 							</div>
 							
-							<div class="col-6">
+							<div class="col-sm-12">
 								<label class="form-label"> 생년월일 </label>
 									<input type="text" class="form-control" id="userBirth" name="userBirth" placeholder="1995-11-10" required>&nbsp;
 							</div>
 							
-							<div class="col-6">
+							<div class="col-sm-12">
 								<label class="form-label"> 이메일 </label>
 									<input type="text" class="form-control" id="userEmail" name="userEmail" onchange="check_email()" placeholder="abc@naver.com" required>&nbsp;
 							</div>
 							
-							<div class="col-6">
+							<div class="col-sm-12">
 								<label class="form-label"> 전화번호 </label>
 									<input type="text" class="form-control" id="userPhone" name="userPhone" placeholder="010-0000-0000" required>&nbsp;
 							</div>
 							
-								<div class="col-6">
+								<div class="col-sm-12">
 								<label class="form-label"> 주소 </label>
 								<div style="display: flex;">
 								  <input type="text" class="form-control" id="sample6_postcode" name="userAdd1" placeholder="우편번호" required>&nbsp;
