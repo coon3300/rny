@@ -20,21 +20,19 @@ import co.rny.control.ItemInfoControl;
 import co.rny.control.ItemListControl;
 import co.rny.control.ItemListJsonControl;
 import co.rny.control.MemberListControl;
-
+import co.rny.control.MyPageControl;
+import co.rny.control.NoticeControl;
+import co.rny.control.NoticeListControl;
 import co.rny.control.OrderControl;
 import co.rny.control.QnaControl;
 import co.rny.control.QnaListControl;
 import co.rny.control.QnaReplyControl;
 import co.rny.control.QnaReplyListControl;
+import co.rny.control.UpdateUserControl;
+import co.rny.control.UserControl;
 import co.rny.control.WishControl;
 import co.rny.control.loginControl;
-import co.rny.control.NoticeControl;
-import co.rny.control.NoticeListControl;
-
-import co.rny.control.UserControl;
-
 import co.rny.control.mainControl;
-import co.rny.control.testControl;
 
 public class FrontController extends HttpServlet {
 
@@ -48,7 +46,7 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 		// test
-		map.put("/test.do", new testControl());
+//		map.put("/test.do", new testControl());
 		
 		// 메인
 		map.put("/main.do", new mainControl());
@@ -62,10 +60,11 @@ public class FrontController extends HttpServlet {
 		
 
 		
-		// 회원목록 출력
+		// (관리자)회원목록 출력
 		map.put("/memberList.do", new MemberListControl());
-		// 회원상세목록
+		// (관리자)회원상세목록
 		map.put("/user.do", new UserControl());
+		
 		// 회원가입
 		map.put("/addform.do", new AddFormControl());
 		// 회원가입
@@ -76,6 +75,10 @@ public class FrontController extends HttpServlet {
 		// 로그인
 		map.put("/login.do", new loginControl());
 		
+		// 마이페이지
+		map.put("/mypage.do", new MyPageControl());
+		// 회원정보수정
+		map.put("/updateuser.do", new UpdateUserControl());
 		
 		
 		// 주문
