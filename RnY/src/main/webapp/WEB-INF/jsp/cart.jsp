@@ -1,120 +1,247 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+
 <head>
-<title>Footwear - Free Bootstrap 4 Template by Colorlib</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
 
-<link
-	href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700"
-	rel="stylesheet">
-<link
-	href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700"
-	rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
-<!-- Animate.css -->
-<link rel="stylesheet" href="css/yerim/cart/animate.css">
-<!-- Icomoon Icon Fonts-->
-<link rel="stylesheet" href="css/yerim/cart/icomoon.css">
-<!-- Ion Icon Fonts-->
-<link rel="stylesheet" href="css/yerim/cart/ionicons.min.css">
-<!-- Bootstrap  -->
-<link rel="stylesheet" href="css/yerim/cart/bootstrap.min.css">
-<!-- Magnific Popup -->
-<link rel="stylesheet" href="css/yerim/cart/magnific-popup.css">
-<!-- Flexslider  -->
-<link rel="stylesheet" href="css/yerim/cart/flexslider.css">
-<!-- Owl Carousel -->
-<link rel="stylesheet" href="css/yerim/cart/owl.carousel.min.css">
-<link rel="stylesheet" href="css/yerim/cart/owl.theme.default.min.css">
-<!-- Date Picker -->
-<link rel="stylesheet" href="css/yerim/cart/bootstrap-datepicker.css">
-<!-- Flaticons  -->
-<!-- <link rel="stylesheet" href="fonts/yerim/cart/flaticon/font/flaticon.css"> -->
-<!-- Theme style  -->
-<link rel="stylesheet" href="css/yerim/cart/style.css">
-
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/yerim/cart/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/yerim/cart/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/yerim/cart/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/yerim/cart/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/yerim/cart/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/yerim/cart/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/yerim/cart/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/yerim/cart/style.css" type="text/css">
 </head>
 
-<!-- Google Font -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
-	rel="stylesheet">
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
 
-<br/><br/><br/>
-<div class="col-md-12">
-						<div class="product-name d-flex">
-					
-  <c:forEach var="cart" items="${cartList}" varStatus="status">
-							<div class="one-forth text-left px-4">
-								<span>상품내용</span>
-							</div>
-							<div class="one-eight text-center">
-								<span>가격</span>
-							</div>
-							<div class="one-eight text-center">
-								<span>개수</span>
-							</div>
-							<div class="one-eight text-center">
-								<span>금액</span>
-							</div>
-							<div class="one-eight text-center px-4">
-								<span>삭제</span>
-							</div>
-						</div>
-						<div class="product-cart d-flex">
-							<div class="one-forth">
-								<div class="product-img" style="background-image: url(images/item-6.jpg);">
-								</div>
-								<div class="display-tc">
-									<h3>${ivo.itemName}</h3>
-									<p>${cart.cartNo}</p>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">${ivo.itemPrice}</span>
-								</div>
-							</div>
-							
-							</c:forEach>
-							
-							<div class="col-md-12">
-					<button type="button" class="btn btn-info">주문하기</button>
-							</div>
-			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-						</div>
-						</div>
-						
-						
+    
 
+   
 
-<!-- jQuery -->
-<script src="js/yerim/cart/jquery.min.js"></script>
-<!-- popper -->
-<script src="js/yerim/cart/popper.min.js"></script>
-<!-- bootstrap 4.1 -->
-<script src="js/yerim/cart/bootstrap.min.js"></script>
-<!-- jQuery easing -->
-<script src="js/yerim/cart/jquery.easing.1.3.js"></script>
-<!-- Waypoints -->
-<script src="js/yerim/cart/jquery.waypoints.min.js"></script>
-<!-- Flexslider -->
-<script src="js/yerim/cart/jquery.flexslider-min.js"></script>
-<!-- Owl carousel -->
-<script src="js/yerim/cart/owl.carousel.min.js"></script>
-<!-- Magnific Popup -->
-<script src="js/yerim/cart/jquery.magnific-popup.min.js"></script>
-<script src="js/yerim/cart/magnific-popup-options.js"></script>
-<!-- Date Picker -->
-<script src="js/yerim/cart/bootstrap-datepicker.js"></script>
-<!-- Stellar Parallax -->
-<script src="js/yerim/cart/jquery.stellar.min.js"></script>
-<!-- Main -->
-<script src="js/yerim/cart/main.js"></script>
+    
+
+    <!-- Shoping Cart Section Begin -->
+    <section class="shoping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="shoping__product">상품</th>
+                                    <th>가격</th>
+                                    <th>개수</th>
+                                    <th>합계</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="ct" items="${logCart}" varStatus="status">
+                                <tr>
+                                    <td class="shoping__cart__item">
+                                        <img src="imges/${ct.itemImages}" alt="">
+                                        <h5>${ct.itemNames}</h5>
+                                    </td>
+                                    <td class="shoping__cart__price">
+                                        ${ct.itemPrice}
+                                    </td>
+                                    <td class="shoping__cart__quantity">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="${ct.orderCnt}">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="shoping__cart__total">
+                                        ${ct.itemPrice}
+                                    </td>
+                                    <td class="shoping__cart__item__close">
+                                        <span class="icon_close"></span>
+                                    </td>
+                                </tr>
+                                </c:forEach>
+                                
+                                
+                                
+                                
+                                <tr>
+                                    <td class="shoping__cart__item">
+                                        <img src="img/cart/cart-2.jpg" alt="">
+                                        <h5>Fresh Garden Vegetable</h5>
+                                    </td>
+                                    <td class="shoping__cart__price">
+                                        $39.00
+                                    </td>
+                                    <td class="shoping__cart__quantity">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="shoping__cart__total">
+                                        $39.99
+                                    </td>
+                                    <td class="shoping__cart__item__close">
+                                        <span class="icon_close"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="shoping__cart__item">
+                                        <img src="img/cart/cart-3.jpg" alt="">
+                                        <h5>Organic Bananas</h5>
+                                    </td>
+                                    <td class="shoping__cart__price">
+                                        $69.00
+                                    </td>
+                                    <td class="shoping__cart__quantity">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="shoping__cart__total">
+                                        $69.99
+                                    </td>
+                                    <td class="shoping__cart__item__close">
+                                        <span class="icon_close"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__btns">
+                        <a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
+                            Upadate Cart</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="shoping__continue">
+                        <div class="shoping__discount">
+                            <h5>Discount Codes</h5>
+                            <form action="#">
+                                <input type="text" placeholder="Enter your coupon code">
+                                <button type="submit" class="site-btn">APPLY COUPON</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="shoping__checkout">
+                        <h5>Cart Total</h5>
+                        <ul>
+                            <li>Subtotal <span>$454.98</span></li>
+                            <li>Total <span>$454.98</span></li>
+                        </ul>
+                        <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shoping Cart Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Address: 60-49 Road 11378 New York</li>
+                            <li>Phone: +65 11.188.888</li>
+                            <li>Email: hello@colorlib.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h6>Useful Links</h6>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">About Our Shop</a></li>
+                            <li><a href="#">Secure Shopping</a></li>
+                            <li><a href="#">Delivery infomation</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Our Sitemap</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">Who We Are</a></li>
+                            <li><a href="#">Our Services</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Innovation</a></li>
+                            <li><a href="#">Testimonials</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__widget">
+                        <h6>Join Our Newsletter Now</h6>
+                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <form action="#">
+                            <input type="text" placeholder="Enter your mail">
+                            <button type="submit" class="site-btn">Subscribe</button>
+                        </form>
+                        <div class="footer__widget__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="js/yerim/cart/jquery-3.3.1.min.js"></script>
+    <script src="js/yerim/cart/bootstrap.min.js"></script>
+    <script src="js/yerim/cart/jquery.nice-select.min.js"></script>
+    <script src="js/yerim/cart/jquery-ui.min.js"></script>
+    <script src="js/yerim/cart/jquery.slicknav.js"></script>
+    <script src="js/yerim/cart/mixitup.min.js"></script>
+    <script src="js/yerim/cart/owl.carousel.min.js"></script>
+    <script src="js/yerim/cart/main.js"></script>
+
 
 </body>
+
 </html>

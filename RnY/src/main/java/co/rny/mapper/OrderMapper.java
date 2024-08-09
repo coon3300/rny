@@ -6,5 +6,5 @@ import co.rny.vo.OrderVO;
 
 public interface OrderMapper {
 	List<OrderVO> buy();
-	List<OrderVO> order(String id);
+	List<OrderVO> orderList(String id);
 }

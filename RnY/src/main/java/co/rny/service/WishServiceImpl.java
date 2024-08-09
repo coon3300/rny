@@ -18,10 +18,7 @@ public class WishServiceImpl implements WishService {
 		public String wishname(String wishnm) {
 			return mapper.wish(wishnm);
 		}
-		@Override
-		public List<WishListVO> wishItem(String id) {
-			return mapper.wishItemList(id);
-		}
+		
 	@Override
 	public List<WishVO> wishheart(String id) {
 		return mapper.wishheart(id);

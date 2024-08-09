@@ -14,10 +14,6 @@
 	</select>
 	
 	
-	<select id="wishItemList" resultType="co.rny.vo.WishListVO">
-	select *
-	from tbl_wish_list
-	</select>
 	
 	<select id="wishheart" resultType="co.rny.vo.WishVO">
 	select *
