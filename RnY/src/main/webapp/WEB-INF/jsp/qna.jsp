@@ -25,11 +25,13 @@
 		</div>
 	</div>
 </div>
-<!-- 댓글관련.. -->
+<!-- 댓글관련. -->
 <div class="container reply">
 	<!-- 등록. -->
 	<div class="header">
-		<input class="col-sm-8" id="content">
+		<input type="hidden" name="qno" id="qno" value="${qvo.qnaNum}" /> 
+		<input type="hidden" name="writer" id="writer" value="${logid}" /> 
+		<input type = "text" class="col-sm-8" id="content">
 		<button class="col-sm-3" id="addReply">댓글등록</button>
 	</div>
 </div>

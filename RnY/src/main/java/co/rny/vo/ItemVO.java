@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemVO {
+public class ItemVO   {
     private int itemNo;          // 상품 번호
     private int lineNo;          // 라인 번호
     private String itemCode;     // 상품 코드
