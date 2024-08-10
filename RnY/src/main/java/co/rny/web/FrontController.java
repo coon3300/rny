@@ -14,27 +14,24 @@ import co.rny.common.Control;
 import co.rny.control.AddFormControl;
 import co.rny.control.AddMemberControl;
 import co.rny.control.CartControl;
+import co.rny.control.ContactControl;
 import co.rny.control.EmailCheckControl;
 import co.rny.control.IdCheckControl;
 import co.rny.control.ItemInfoControl;
 import co.rny.control.ItemListControl;
 import co.rny.control.ItemListJsonControl;
 import co.rny.control.MemberListControl;
-
+import co.rny.control.NoticeControl;
+import co.rny.control.NoticeListControl;
 import co.rny.control.OrderControl;
 import co.rny.control.QnaControl;
 import co.rny.control.QnaListControl;
 import co.rny.control.QnaReplyControl;
 import co.rny.control.QnaReplyListControl;
+import co.rny.control.UserControl;
 import co.rny.control.WishControl;
 import co.rny.control.loginControl;
-import co.rny.control.NoticeControl;
-import co.rny.control.NoticeListControl;
-
-import co.rny.control.UserControl;
-
 import co.rny.control.mainControl;
-import co.rny.control.testControl;
 
 public class FrontController extends HttpServlet {
 
@@ -46,9 +43,6 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-
-		// test
-		map.put("/test.do", new testControl());
 		
 		// 메인
 		map.put("/main.do", new mainControl());
@@ -58,6 +52,8 @@ public class FrontController extends HttpServlet {
 		map.put("/itemListJson.do", new ItemListJsonControl());
 		// 아이템 정보
 		map.put("/itemInfo.do", new ItemInfoControl());
+		// 메인 -> Contact Us
+		map.put("/contact.do", new ContactControl());
 		
 		
 

@@ -1,7 +1,7 @@
 /**
  * 
  *//**
- * boardService.js 
+ * mainItemListService.js 
  * 목록, 등록, 삭제 기능을 정의.
  */
 
