@@ -14,6 +14,7 @@ import co.rny.common.Control;
 import co.rny.control.AddFormControl;
 import co.rny.control.AddMemberControl;
 import co.rny.control.CartControl;
+import co.rny.control.ContactControl;
 import co.rny.control.EmailCheckControl;
 import co.rny.control.IdCheckControl;
 import co.rny.control.ItemInfoControl;
@@ -46,7 +47,7 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 
-		// 메인
+    // 메인
 		map.put("/main.do", new mainControl());
 		// 아이템 리스트
 		map.put("/itemList.do", new ItemListControl());
@@ -54,6 +55,8 @@ public class FrontController extends HttpServlet {
 		map.put("/itemListJson.do", new ItemListJsonControl());
 		// 아이템 정보
 		map.put("/itemInfo.do", new ItemInfoControl());
+		// 메인 -> Contact Us
+		map.put("/contact.do", new ContactControl());
 		
 		
 

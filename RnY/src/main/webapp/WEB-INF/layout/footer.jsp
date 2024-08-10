@@ -57,7 +57,7 @@
                 <a href="#" class="nav-link">서비스</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="nav-link">연락하기</a>
+                <a href="contact.do" class="nav-link">Contact Us</a>
               </li>
             </ul>
           </div>

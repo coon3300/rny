@@ -285,48 +285,243 @@ ${msg}
               <option>R&Y 스토어</option>
             </select>
 
-            <!-- <ul class="navbar-nav menu-list list-unstyled d-flex gap-md-3 mb-0"> -->
-            <ul class="navbar-nav list-unstyled d-flex gap-md-3 mb-0">
-                <!-- 2레벨 시작 -->
-                <c:forEach var="line" items="${lineList}">
-                    <c:if test="${line.level == 2}">
-                        <!-- 2레벨 확인 -->
-                        <c:set var="isLevel2" value="false"/>
-                        <c:forEach var="level2" items="${lineList}">
-                            <c:if test="${level2.lineParentNo == line.lineNo}">
-                                <c:set var="isLevel2" value="true"/>
-                            </c:if>
-                        </c:forEach>
-                        <li class="nav-item dropdown">
-                            <a href="itemList.do?lineNo=${line.lineNo}" class="nav-link dropdown-toggle"  id="navbarDropdown${line.lineNo}" role="button" aria-expanded="false">
-                                ${line.lineName}
-                            </a>
-                            <!-- 3레벨 드롭다운 메뉴 생성 -->
-                            <c:if test="${isLevel2}">
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown${line.lineNo}">
-                                    <!-- 3레벨 시작 -->
-                                    <c:forEach var="level2" items="${lineList}">
-                                        <c:if test="${level2.lineParentNo == line.lineNo}">
-                                            <!-- 3레벨 확인 -->
-                                            <c:set var="isLevel3" value="false"/>
-                                            <c:forEach var="level3" items="${lineList}">
-                                                <c:if test="${level3.lineParentNo == level2.lineNo}">
-                                                    <c:set var="isLevel3" value="true"/>
-                                                </c:if>
-                                            </c:forEach>
-                                            <li class="dropdown-submenu">
-                                                <!-- 3레벨 dropdown-toggle 클래스 추가 -->
-                                                <a class="dropdown-item nav-link <c:if test="${isLevel3}">dropdown-toggle</c:if>" 
-                                                href="itemList.do?lineNo=${level2.lineNo}">${level2.lineName}</a>
-                                            </li>
-                                        </c:if>
-                                    </c:forEach>
-                                </ul>
-                            </c:if>
-                        </li>
-                    </c:if>
-                </c:forEach>
-            </ul>
+						<ul class="navbar-nav list-unstyled d-flex gap-md-3 mb-0">
+						  <li class="nav-item dropdown">
+						    <a href="itemList.do?lineNo=11" class="nav-link dropdown-toggle" id="navbarDropdown11" role="button"
+						      aria-expanded="false">
+						      간식
+						    </a>
+						    <ul class="dropdown-menu" aria-labelledby="navbarDropdown11">
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=101">강아지껌</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=102">비스켓/스낵</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=103">수제간식</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=104">육포/사사미</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=105">캔/파우치</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=106">기타간식</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=107">고양이간식</a>
+						      </li>
+						    </ul>
+						  </li>
+						  <li class="nav-item dropdown">
+						    <a href="itemList.do?lineNo=12" class="nav-link dropdown-toggle" id="navbarDropdown12" role="button"
+						      aria-expanded="false">
+						      사료
+						    </a>
+						    <ul class="dropdown-menu" aria-labelledby="navbarDropdown12">
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=201">건식사료</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=202">습식사료</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=203">우유/분유</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=204">강아지영양제</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=205">고양이사료</a>
+						      </li>
+						    </ul>
+						  </li>
+						  <li class="nav-item dropdown">
+						    <a href="itemList.do?lineNo=13" class="nav-link dropdown-toggle" id="navbarDropdown13" role="button"
+						      aria-expanded="false">
+						      미용용품
+						    </a>
+						    <ul class="dropdown-menu" aria-labelledby="navbarDropdown13">
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=301">드라이기</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=302">발톱관리용품</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=303">브러시</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=304">샤워기/타월</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=305">이발기/가위</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=306">기타미용용품</a>
+						      </li>
+						    </ul>
+						  </li>
+						  <li class="nav-item dropdown">
+						    <a href="itemList.do?lineNo=14" class="nav-link dropdown-toggle" id="navbarDropdown14" role="button"
+						      aria-expanded="false">
+						      패션용품
+						    </a>
+						    <ul class="dropdown-menu" aria-labelledby="navbarDropdown14">
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=401">레인코트</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=402">신발/양말</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=403">외투</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=404">원피스/올인원</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=405">코스튬</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=406">셔츠/상의</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=407">기타패션용품</a>
+						      </li>
+						    </ul>
+						  </li>
+						  <li class="nav-item dropdown">
+						    <a href="itemList.do?lineNo=15" class="nav-link dropdown-toggle" id="navbarDropdown15" role="button"
+						      aria-expanded="false">
+						      위생용품
+						    </a>
+						    <ul class="dropdown-menu" aria-labelledby="navbarDropdown15">
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=501">구강위생용품</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=502">기저귀</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=503">배변봉투</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=504">배변판</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=505">배변패드</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=506">탈취/소독제</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=507">눈/귀 위생용품</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=508">넥카라</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=509">해충방지용품</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=510">고양이화장실</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=511">고양이모래</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=512">기타고양이위생용품</a>
+						      </li>
+						    </ul>
+						  </li>
+						  <li class="nav-item dropdown">
+						    <a href="itemList.do?lineNo=16" class="nav-link dropdown-toggle" id="navbarDropdown16" role="button"
+						      aria-expanded="false">
+						      식기/급수기
+						    </a>
+						    <ul class="dropdown-menu" aria-labelledby="navbarDropdown16">
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=601">급수기</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=602">급식기</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=603">정수기</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=604">사료보관통</a>
+						      </li>
+						    </ul>
+						  </li>
+						  <li class="nav-item dropdown">
+						    <a href="itemList.do?lineNo=17" class="nav-link dropdown-toggle" id="navbarDropdown17" role="button"
+						      aria-expanded="false">
+						      외출용품
+						    </a>
+						    <ul class="dropdown-menu" aria-labelledby="navbarDropdown17">
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=701">가슴줄</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=702">리드줄</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=703">목걸이/인식표</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=704">목줄</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=705">유모차</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=706">이동가방/이동장</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=707">차량용캐리어/시트</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=708">입마개</a>
+						      </li>
+						    </ul>
+						  </li>
+						  <li class="nav-item dropdown">
+						    <a href="itemList.do?lineNo=18" class="nav-link dropdown-toggle" id="navbarDropdown18" role="button"
+						      aria-expanded="false">
+						      장난감/훈련용품
+						    </a>
+						    <ul class="dropdown-menu" aria-labelledby="navbarDropdown18">
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=801">공/원반</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=802">인형</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=803">터널/큐브</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=804">훈련용품</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=805">기타장난감</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=806">캣타워</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=807">고양이스크래쳐</a>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="dropdown-item nav-link " href="itemList.do?lineNo=808">고양이장난감</a>
+						      </li>
+						    </ul>
+						  </li>
+						</ul>
 
             <div class="d-none d-lg-flex align-items-end">
               <ul class="d-flex justify-content-end list-unstyled m-0">
