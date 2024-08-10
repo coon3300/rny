@@ -63,7 +63,7 @@ public class loginControl implements Control {
 		session.setAttribute("logWish", wishlist);
 		session.setAttribute("logOrder", ordering);
 		session.setAttribute("logCart", cartIn);
-		session.setAttribute("order", orderlist);
+		//session.setAttribute("order", orderlist);
 		// !
 		
 		

@@ -16,6 +16,6 @@
 	JOIN tbl_item i
 	ON o.item_no = i.item_no
 	where user_id = #{id}
-	</select> -->
+	</select>
 
 </mapper>
