@@ -138,37 +138,23 @@
       <div class="order-md-last">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-primary">장바구니</span>
-          <span class="badge bg-primary rounded-circle pt-2">3</span>
+          <a href="cart.do"><span class="badge bg-primary rounded-circle pt-2">></span></a>
         </h4>
+        
         <ul class="list-group mb-3">
+        <c:forEach var="od" items="${logOrder}" varStatus="status">
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
-              <h6 class="my-0">${itemName}</h6>
-              <small class="text-body-secondary">간단한 설명</small>
+              <h6 class="my-0">${od.itemName}</h6>
+              <small class="text-body-secondary">${od.itemDesc}</small>
             </div>
-            <span class="text-body-secondary">12,000원</span>
+            <span class="text-body-secondary">${od.itemPrice}원</span>
           </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">강아지 음식</h6>
-              <small class="text-body-secondary">간단한 설명</small>
-            </div>
-            <span class="text-body-secondary">8,000원</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">부드러운 장난감</h6>
-              <small class="text-body-secondary">간단한 설명</small>
-            </div>
-            <span class="text-body-secondary">5,000원</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span class="fw-bold">합계</span>
-            <strong>20,000원</strong>
-          </li>
+         </c:forEach>
+          
         </ul>
 
-        <button class="w-100 btn btn-primary btn-lg" type="submit"><a href="order.do">주문하기</a></button>
+        <a href="order.do"><button class="w-100 btn btn-primary btn-lg" type="submit">주문하기</button></a>
       </div>
     </div>
   </div>
@@ -599,6 +585,7 @@ ${msg}
 			      </label>
 			    </div>
 			    <button class="btn btn-primary w-100 py-2" type="submit">로그인</button>
+			    <button class="btn btn-warning w-100 py-2" type="submit" href="addform.do" >회원가입</button>
 			    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
 			  </form>      
       </div>

@@ -10,6 +10,10 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 
+<div class="py-5 text-center">
+			<h1>회원리스트</h1>
+			<h1>──────</h1>
+		</div>
 <section class="cart_area padding_top">
 	<div class="container">
 		<div class="cart_inner">

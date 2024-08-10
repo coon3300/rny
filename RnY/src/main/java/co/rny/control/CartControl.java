@@ -21,13 +21,7 @@ public class CartControl implements Control {
 		
 		CartService cs = new CartServiceImpl();
 		
-		List<CartVO> list = cs.cartList();
-		req.setAttribute("cartList", list);
 		
-		MemberVO mvo = new MemberVO();
-		req.setAttribute("mvo", mvo);
-		ItemVO ivo = new ItemVO();
-		req.setAttribute("ivo", ivo);
 		
 		req.getRequestDispatcher("RnY/cart.tiles").forward(req, resp);
 	}

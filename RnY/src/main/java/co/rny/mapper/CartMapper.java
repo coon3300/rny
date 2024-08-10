@@ -5,5 +5,5 @@ import java.util.List;
 import co.rny.vo.CartVO;
 
 public interface CartMapper {
-	List<CartVO> cart();
+	List<CartVO> cart(String id);
 }

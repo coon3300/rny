@@ -1,209 +1,337 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String logNick = (String) session.getAttribute("logNick");
 %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
-    <meta name="keywords" content="Ogani, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css/yerim/order/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/yerim/order/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/yerim/order/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/yerim/order/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/yerim/order/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/yerim/order/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/yerim/order/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/yerim/order/style.css" type="text/css">
-</head>
+<!-- Bootstrap CSS -->
+<link href="css/yerim/order/bootstrap.min.css" rel="stylesheet">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+	rel="stylesheet">
+<link href="css/yerim/order/tiny-slider.css" rel="stylesheet">
+<link href="css/yerim/order/style.css" rel="stylesheet">
+
+
+
+
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
 
-    <!-- Checkout Section Begin -->
-    <section class="checkout spad">
-        <div class="container">
-           
-            <div class="checkout__form">
-                <h4>${logNick}님의 주문</h4>
-                
-                <form action="#">
-                    <div class="row">
- 										<c:forEach var="order" items="${order}" varStatus="status">
-                    
-                        <div class="col-lg-8 col-md-6">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>받는사람<span>*</span></p>
-                                        <input type="text" value="${order.userName}">
-                                    </div>
-                                </div>
-                                <div class="checkout__input">
-                                <p>주소<span>*</span></p>
-                                <input type="text" placeholder="${order.userAdd}" class="checkout__input__add">
-                                <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    선택사항) 다른 주소
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                                <input type="text" placeholder="기본배송지 외 다른배송지 선택">
-                            </div>
-                                <div class="col-lg-12">
-                                    <div class="checkout__input">
-                                        <p>휴대전화<span>*</span></p>
-                                        <input type="text" value="010" class="col-sm-3"> - 
-                                        <input type="text" class="col-sm-3"> - 
-                                        <input type="text" class="col-sm-3">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input">
-                                <p>이메일<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>메시지<span></span></p>
-                                <input type="textarea">
-                            </div>
-                            
-                            <h4><br/>주문상품</h4>
-                            <ul>
-                            <img src="images/${ivo.itemImage}.jpg" class="img-fluid rounded-4" alt="image">
-                            <p>상품번호:${ivo.itemNo }</p>
-                            <p>상품이름:${ivo.itemName }</p>
-                            <p>상품가격:${ivo.itemPrice }원</p>
-                            </ul>
-                            <div class="checkout__input">
-                                <p>Country/State<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Postcode / ZIP<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    Create an account?
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
-                            <div class="checkout__input">
-                                <p>Account Password<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="diff-acc">
-                                    Ship to a different address?
-                                    <input type="checkbox" id="diff-acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Order notes<span>*</span></p>
-                                <input type="text"
-                                    placeholder="Notes about your order, e.g. special notes for delivery.">
-                            </div>
-                        </div>
-                        </c:forEach>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <!-- 주문총액 -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="checkout__order">
-                                <h4>${logNick}님의 주문</h4>
-                                <div class="checkout__order__products">상품<span>총액</span></div>
-                                <ul>
-                               <!--  --> <c:forEach var="order" items="${ovo.orderList}" varStatus="status">
-                                    <li> <span></span></li>
-                                    <li>${ivo.itemName} <span>${ivo.itemPrice}</span></li>
-                                    </c:forEach>
-                                </ul>
-                                <div class="checkout__order__subtotal">총액<span>${ovo.orderPrice}</span></div>
-                                <div class="checkout__order__total">할인금액 <span>${ovo.orderPrice}</span></div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="acc-or">
-                                        Create an account?
-                                        <input type="checkbox" id="acc-or">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                    ut labore et dolore magna aliqua.</p>
-                                <div class="checkout__input__checkbox">
-                                    <label for="payment">
-                                        Check Payment
-                                        <input type="checkbox" id="payment">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Paypal
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <button type="submit" class="site-btn">PLACE ORDER</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-    <!-- Checkout Section End -->
+	<div class="untree_co-section">
+		<div class="container">
+			<h1 class="h1 mb-3 text-black">${logNick}님의주문페이지</h1>
+			<br>
+			<div class="row">
+				<div class="col-md-6 mb-5 mb-md-0">
+					<h2 class="h3 mb-3 text-black">주문</h2>
+					<div class="p-3 p-lg-5 border bg-white">
+
+						<div class="form-group row">
+							<div class="col-md-12">
+								<label for="c_companyname" class="text-black">받는사람<span
+									class="text-danger">*</span></label> <input type="text"
+									class="form-control" id="c_companyname" name="c_companyname">
+							</div>
+						</div>
+						<br>
+
+
+						<div class="form-group row">
+							<div class="col-md-12">
+								<br>
+								<h2>--주소 api 넣기--</h2>
+								<br>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<div class="col-md-12">
+								<label for="c_address" class="text-black">전화번호<span
+									class="text-danger">*</span></label> <input type="text"
+									class="form-control" id="c_companyname" name="c_companyname"
+									placeholder="번호만 입력하세요.">
+							</div>
+						</div>
+						<br>
+
+						<div class="form-group row">
+							<div class="col-md-12">
+								<label for="c_address" class="text-black">이메일<span
+									class="text-danger">*</span></label> <input type="text"
+									class="form-control" id="c_companyname" name="c_companyname">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<select id="c_country" class="form-control">
+								<option value="1">--이메일 선택--</option>
+								<option value="2">@naver.com</option>
+								<option value="3">@daum.net</option>
+								<option value="4">@gamil.com</option>
+								<option value="5">@hanmail.com</option>
+								<option value="6">@nate.com</option>
+							</select>
+						</div>
+						<br>
+
+
+						<div class="form-group row">
+							<div class="col-md-12">
+								<label for="c_address" class="text-black">배송메시지<span
+									class="text-danger">*</span></label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<select id="c_country" class="form-control">
+								<option value="1">--메시지 선택 (선택사항)--</option>
+								<option value="2">문 앞에 놔주세요</option>
+								<option value="3">경비실에 맡겨주세요</option>
+								<option value="4">택배함에 넣어주세요</option>
+								<option value="5">배송 전에 연락 주세요</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="c_order_notes" class="text-black">직접입력</label>
+							<textarea name="c_order_notes" id="c_order_notes" cols="30"
+								rows="5" class="form-control" placeholder="메시지를 입력하세요."></textarea>
+						</div>
 
 
 
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
 
- 
+
+
+
+
+
+
+
+
+
+
+
+						<!-- 시작)여기 필요없는데 지우면 스타일 이상해짐 지우지 말기!! -->
+
+
+						<div class="form-group">
+							<!-- 폼시작 -->
+							<div class="collapse" id="ship_different_address">
+								<div class="py-2">
+
+									<div class="form-group">
+										<label for="c_diff_country" class="text-black">Country
+											<span class="text-danger">*</span>
+										</label> <select id="c_diff_country" class="form-control">
+											<option value="1">Select a country</option>
+											<option value="2">bangladesh</option>
+											<option value="3">Algeria</option>
+											<option value="4">Afghanistan</option>
+											<option value="5">Ghana</option>
+											<option value="6">Albania</option>
+											<option value="7">Bahrain</option>
+											<option value="8">Colombia</option>
+											<option value="9">Dominican Republic</option>
+										</select>
+									</div>
+
+
+									<div class="form-group row">
+										<div class="col-md-6">
+											<label for="c_diff_fname" class="text-black">First
+												Name <span class="text-danger">*</span>
+											</label> <input type="text" class="form-control" id="c_diff_fname"
+												name="c_diff_fname">
+										</div>
+										<div class="col-md-6">
+											<label for="c_diff_lname" class="text-black">Last
+												Name <span class="text-danger">*</span>
+											</label> <input type="text" class="form-control" id="c_diff_lname"
+												name="c_diff_lname">
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<div class="col-md-12">
+											<label for="c_diff_companyname" class="text-black">Company
+												Name </label> <input type="text" class="form-control"
+												id="c_diff_companyname" name="c_diff_companyname">
+										</div>
+									</div>
+
+									<div class="form-group row  mb-3">
+										<div class="col-md-12">
+											<label for="c_diff_address" class="text-black">Address
+												<span class="text-danger">*</span>
+											</label> <input type="text" class="form-control" id="c_diff_address"
+												name="c_diff_address" placeholder="Street address">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<input type="text" class="form-control"
+											placeholder="Apartment, suite, unit etc. (optional)">
+									</div>
+
+									<div class="form-group row">
+										<div class="col-md-6">
+											<label for="c_diff_state_country" class="text-black">State
+												/ Country <span class="text-danger">*</span>
+											</label> <input type="text" class="form-control"
+												id="c_diff_state_country" name="c_diff_state_country">
+										</div>
+										<div class="col-md-6">
+											<label for="c_diff_postal_zip" class="text-black">Posta
+												/ Zip <span class="text-danger">*</span>
+											</label> <input type="text" class="form-control"
+												id="c_diff_postal_zip" name="c_diff_postal_zip">
+										</div>
+									</div>
+
+									<div class="form-group row mb-5">
+										<div class="col-md-6">
+											<label for="c_diff_email_address" class="text-black">Email
+												Address <span class="text-danger">*</span>
+											</label> <input type="text" class="form-control"
+												id="c_diff_email_address" name="c_diff_email_address">
+										</div>
+										<div class="col-md-6">
+											<label for="c_diff_phone" class="text-black">Phone <span
+												class="text-danger">*</span></label> <input type="text"
+												class="form-control" id="c_diff_phone" name="c_diff_phone"
+												placeholder="Phone Number">
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+						<!-- 폼시작 -->
+
+						<div class="form-group"></div>
+
+					</div>
+				</div>
+				<!-- 끝)여기 필요없는데 지우면 스타일 이상해짐 지우지 말기!! -->
+
+
+
+
+
+
+				<!-- 쿠폰영역 -->
+				<div class="col-md-6">
+
+					<div class="row mb-5">
+						<div class="col-md-12">
+							<h2 class="h3 mb-3 text-black">쿠폰 입력하기</h2>
+							<div class="p-3 p-lg-5 border bg-white">
+
+								<label for="c_code" class="text-black mb-3">쿠폰번호를 입력하세요.</label>
+								<div class="input-group w-75 couponcode-wrap">
+									<input type="text" class="form-control me-2" id="c_code"
+										placeholder="숫자 8자리" aria-label="Coupon Code"
+										aria-describedby="button-addon2">
+									<div class="input-group-append">
+										<button class="btn btn-black btn-sm" type="button"
+											id="button-addon2">등록</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!-- 쿠폰영역 -->
+
+
+
+
+					<!-- 주문상세영역 -->
+					<div class="row mb-5">
+						<div class="col-md-12">
+							<h2 class="h3 mb-3 text-black">주문내용</h2>
+							<div class="p-3 p-lg-5 border bg-white">
+								<table class="table site-block-order-table mb-5">
+									<thead>
+										<th>상품명</th>
+										<th>가격</th>
+										<th>개수</th>
+										<th>합계</th>
+									</thead>
+									<tbody>
+
+
+
+										<c:set var="total" value="0" />
+										<c:forEach var="od" items="${logOrder}" varStatus="status">
+											<tr>
+												<td>${od.itemName}</td>
+												<td>${od.itemPrice}원</td>
+												<td>${od.orderCnt}</td>
+												<td>${od.itemPrice * od.orderCnt}원</td>
+											</tr>
+											<c:set var= "total" value="${total + (od.itemPrice * od.orderCnt)}"/>
+										</c:forEach>
+
+
+
+										<tr>
+											<td class="text-black font-weight-bold"><strong>총
+													결제금액</strong></td>
+											<td class="text-black font-weight-bold"><strong></strong></td>
+											<td class="text-black font-weight-bold"><strong></strong></td>
+											<td class="text-black font-weight-bold"><strong>${total}원</strong></td>
+										</tr>
+									</tbody>
+								</table>
+
+								<div class="border p-3 mb-3">
+									<h3 class="h6 mb-0">
+										<a class="d-block" data-bs-toggle="collapse"
+											href="#collapsebank" role="button" aria-expanded="false"
+											aria-controls="collapsebank">결제안내</a>
+									</h3>
+
+									<div class="collapse" id="collapsebank">
+										<div class="py-2">
+											<p class="mb-0">결제안내내용 뭐넣을지 생각</p>
+										</div>
+									</div>
+								</div>
+
+
+
+
+
+								<div class="form-group">
+									<a href="pay.do"><button class="btn btn-black btn-lg py-3 btn-block"
+									>주문하기</button></a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- </form> -->
+		</div>
+	</div>
+	
+
 
 </body>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+	<script src="js/yerim/order/bootstrap.bundle.min.js"></script>
+	<script src="js/yerim/order/tiny-slider.js"></script>
+	<script src="js/yerim/order/custom.js"></script>
+
+
 
