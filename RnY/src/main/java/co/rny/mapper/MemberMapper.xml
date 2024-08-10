@@ -9,6 +9,7 @@
 	<select id="selectList" resultType="co.rny.vo.MemberVO">
 		select *
 		from rny_member
+		order by user_date
 	</select>
 	
 	<!-- user_no기준 회원상세조회 -->
