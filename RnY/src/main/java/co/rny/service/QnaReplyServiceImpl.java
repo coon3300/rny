@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import co.rny.common.DataSource;
 import co.rny.mapper.QnaReplyMapper;
+import co.rny.vo.QnaListVO;
 import co.rny.vo.QnaReplyVO;
 
 public class QnaReplyServiceImpl implements QnaReplyService{
@@ -14,11 +15,11 @@ public class QnaReplyServiceImpl implements QnaReplyService{
 
 	@Override
 	public boolean qnaReply(QnaReplyVO qvo) {
-		return mapper.qnareply(qvo) == 1;
+		return mapper.qnareply(qvo) == 1; // 댓글 등록
 	}
 	@Override
-	public List<QnaReplyVO> qreplyList(QnaReplyVO qre) {
-		return mapper.qreplyList(qre);
+	public List<QnaReplyVO> qreplyList(QnaListVO qre) {
+		return mapper.qreplyList(qre); //댓글 목록 
 	}
 }
 

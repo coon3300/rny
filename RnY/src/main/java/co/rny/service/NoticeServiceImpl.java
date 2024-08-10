@@ -14,13 +14,18 @@ public class NoticeServiceImpl implements NoticeService {
 	NoticeMapper mapper = sqlSession.getMapper(NoticeMapper.class);
 
 	@Override
-	public List<NoticeVO> noticeList() {
-		return mapper.noticeList();
+	public List<NoticeVO> noticeList(String page) {
+		return mapper.noticeList(page);
 	}
 
 
 	public NoticeVO selectNotice(int noticeNum) {
 		return mapper.selectNotice(noticeNum);
 
+		
+	}
+	@Override
+	public int totalCnt() {
+		return mapper.totalCnt();
 	}
 }

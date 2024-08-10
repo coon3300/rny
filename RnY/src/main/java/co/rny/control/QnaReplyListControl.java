@@ -13,6 +13,7 @@ import com.google.gson.GsonBuilder;
 import co.rny.common.Control;
 import co.rny.service.QnaReplyService;
 import co.rny.service.QnaReplyServiceImpl;
+import co.rny.vo.QnaListVO;
 import co.rny.vo.QnaReplyVO;
 
 public class QnaReplyListControl implements Control {
@@ -20,19 +21,16 @@ public class QnaReplyListControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
 		String qno = req.getParameter("qno");
-		
-		QnaReplyVO qre = new QnaReplyVO();
+
+		QnaListVO qre = new QnaListVO();
 		qre.setQnaNum(Integer.parseInt(qno));
-		
+
 		QnaReplyService qvc = new QnaReplyServiceImpl();
 		List<QnaReplyVO> list = qvc.qreplyList(qre);
-		
 		Gson gson = new GsonBuilder().create();
 		String json = gson.toJson(list);
 
 		resp.getWriter().print(json);
-		
-		
 
 	}
 
