@@ -21,9 +21,9 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public void addMember(MemberVO mvo) {
+	public boolean addMember(MemberVO mvo) {
 //		System.out.println("userBirth in Service: " + mvo.getUserBirth());
-		mapper.insertMember(mvo);
+		return mapper.insertMember(mvo) == 1;
 	}
 
 	@Override

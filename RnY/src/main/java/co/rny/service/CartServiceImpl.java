@@ -14,7 +14,7 @@ public class CartServiceImpl implements CartService {
 	CartMapper mapper = sqlSession.getMapper(CartMapper.class);
 	
 	@Override
-	public List<CartVO> cartList() {
-		return mapper.cart();
+	public List<CartVO> cartList(String id) {
+		return mapper.cart(id);
 	}
 }

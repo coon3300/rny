@@ -28,23 +28,23 @@ public class AddMemberControl implements Control {
 		String userPhone = req.getParameter("userPhone");
 		String userAdd1 = req.getParameter("userAdd1");
 		String userAdd2 = req.getParameter("userAdd2");
-		String userAdd3 = req.getParameter("userAdd3");
+//		String userAdd3 = req.getParameter("userAdd3");
 		String userAdd4 = req.getParameter("userAdd4");
-		String userAdd = userAdd1+userAdd2+userAdd3+userAdd4;
+//		String userAdd = userAdd1+userAdd2+userAdd3+userAdd4;
+		String userAdd = userAdd1 + userAdd2 + userAdd4;
 		String responsibility = req.getParameter("responsibility");
-		
-		System.out.println("userBirth: " + userBirth);
+
+//		System.out.println("userBirth: " + userBirth);
 
 //	    // userBirth가 null인지 확인
 //	    if (userBirth == null || userBirth.isEmpty()) {
 //	        // 에러 처리 또는 기본값 설정
 //	        userBirth = "2000-01-01"; // 예시 기본값
 //	    }
-		
-		MemberService svc = new MemberServiceImpl();
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
+		MemberService svc = new MemberServiceImpl();
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 		MemberVO mvo = new MemberVO();
 		mvo.setUserId(userId);
@@ -62,7 +62,8 @@ public class AddMemberControl implements Control {
 		mvo.setResponsibility(responsibility);
 
 		svc.addMember(mvo);
-		
 		resp.sendRedirect("main.do");
+
 	}
+
 }

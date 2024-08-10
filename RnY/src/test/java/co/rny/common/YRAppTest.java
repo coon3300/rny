@@ -17,7 +17,7 @@ public class YRAppTest {
 		
 		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
 		WishMapper mapper = sqlSession.getMapper(WishMapper.class);
-		System.out.println(mapper.wishheart("user02"));
+//		System.out.println(mapper.wishheart("user02"));
 		
 		
 	}

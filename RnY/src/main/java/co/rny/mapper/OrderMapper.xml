@@ -9,7 +9,7 @@
 	from tbl_order
 	</select>
 	
-	<!-- <select id="order" resultType="co.rny.vo.OrderVO">
+	<select id="orderList" resultType="co.rny.vo.OrderVO">
 	select *
 	from tbl_order o JOIN rny_member m
 	ON o.user_no = m.user_no

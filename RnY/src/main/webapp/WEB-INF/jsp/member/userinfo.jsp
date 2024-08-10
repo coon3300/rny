@@ -12,7 +12,6 @@
 </head>
 
 <section class="cart_area padding_top">
-	<div class="container">
 		<div class="cart_inner">
 			<div class="table-responsive">
 				<table class="table" style="text-align: center">
@@ -34,7 +33,7 @@
 							<td class="col-sm-3">${mvo.userNick}</td></tr>
 							
 							<tr><th class="col-sm-2">생년월일</th>
-							<td class="col-sm-3">${mvo.userBirth}</td></tr>
+							<td class="col-sm-3"><fmt:formatDate pattern="yyyy-MM-dd" value="${mvo.userBirth}"/></td></tr>
 							
 							<tr><th class="col-sm-2">전화번호</th>
 							<td class="col-sm-3">${mvo.userPhone}</td></tr>
@@ -52,7 +51,7 @@
 							<td class="col-sm-3">${mvo.userCoupon}</td></tr>
 							
 							<tr><th class="col-sm-1">가입일자</th>
-							<td class="col-sm-3">${mvo.userDate}</td></tr>
+							<td class="col-sm-3"><fmt:formatDate pattern="yyyy-MM-dd" value="${mvo.userDate}"/></td></tr>
 							
 							<tr><th class="col-sm-1">권한</th>
 							<td class="col-sm-3">${mvo.responsibility}</td></tr>
@@ -65,6 +64,6 @@
 						
 				</table>
 			</div>
-		</div>
+
 	</div>
 </section>

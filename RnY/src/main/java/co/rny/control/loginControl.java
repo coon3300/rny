@@ -9,12 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import co.rny.common.Control;
+import co.rny.service.CartService;
+import co.rny.service.CartServiceImpl;
 import co.rny.service.MemberService;
 import co.rny.service.MemberServiceImpl;
 import co.rny.service.OrderService;
 import co.rny.service.OrderServiceImpl;
 import co.rny.service.WishService;
 import co.rny.service.WishServiceImpl;
+import co.rny.vo.CartVO;
 import co.rny.vo.MemberVO;
 import co.rny.vo.OrderVO;
 import co.rny.vo.WishListVO;
@@ -36,7 +39,9 @@ public class loginControl implements Control {
 		WishService wsv = new WishServiceImpl();
 		List<WishVO> wishlist = wsv.wishheart(id);
 		OrderService osv = new OrderServiceImpl();
-		//List<OrderVO> orderlist = osv.ordering(id);
+		List<OrderVO> ordering = osv.listOrder(id);
+		CartService csv = new CartServiceImpl();
+		List<CartVO> cartIn = csv.cartList(id);
 		// ***예림***
 		
 		
@@ -56,7 +61,9 @@ public class loginControl implements Control {
 		// ***예림***
 		session.setAttribute("logNick", nick);
 		session.setAttribute("logWish", wishlist);
-		//session.setAttribute("order", orderlist);
+		session.setAttribute("logOrder", ordering);
+		session.setAttribute("logCart", cartIn);
+		session.setAttribute("order", orderlist);
 		// !
 		
 		
