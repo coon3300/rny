@@ -6,7 +6,6 @@ import co.rny.vo.WishListVO;
 import co.rny.vo.WishVO;
 
 public interface WishMapper {
-//	String wish(String no);
-//	List<WishListVO> wishItemList(String id);
-//	List<WishVO> wishheart(String id);
+	String wish(String no);
+	List<WishVO> wishheart(String id);
 }

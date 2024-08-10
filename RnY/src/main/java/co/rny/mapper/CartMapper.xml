@@ -6,7 +6,11 @@
 
 <select id="cart" resultType="co.rny.vo.CartVO">
 	select *
-	from tbl_cart
+	from tbl_cart c JOIN rny_member m
+	ON c.user_no = m.user_no
+	JOIN tbl_item i
+	ON c.item_no = i.item_no
+	where user_id = #{id}
 	</select>
 
 </mapper>

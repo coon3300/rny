@@ -24,6 +24,7 @@ import co.rny.control.MyPageControl;
 import co.rny.control.NoticeControl;
 import co.rny.control.NoticeListControl;
 import co.rny.control.OrderControl;
+import co.rny.control.PayControl;
 import co.rny.control.QnaControl;
 import co.rny.control.QnaListControl;
 import co.rny.control.QnaReplyControl;
@@ -45,9 +46,6 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 
-		// test
-//		map.put("/test.do", new testControl());
-		
 		// 메인
 		map.put("/main.do", new mainControl());
 		// 아이템 리스트
@@ -83,6 +81,8 @@ public class FrontController extends HttpServlet {
 		
 		// 주문
 		map.put("/order.do", new OrderControl());
+		// 결제페이지
+		map.put("/pay.do", new PayControl());
 		// 위시리스트
 		map.put("/wish.do", new WishControl());
 		// 장바구니

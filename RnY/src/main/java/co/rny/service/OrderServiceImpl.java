@@ -18,7 +18,7 @@ public class OrderServiceImpl implements OrderService {
 		return mapper.buy();
 	}
 	@Override
-	public List<OrderVO> ordering(String id) {
-		return mapper.order(id);
+	public List<OrderVO> listOrder(String id) {
+		return mapper.orderList(id);
 	}
 }
