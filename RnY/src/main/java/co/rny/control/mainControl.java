@@ -16,15 +16,14 @@ public class mainControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		/*
 		LineService svc = new LineServiceImpl();
-
     	List<LineVO> lineList = svc.lineList();
-    	
     	req.setAttribute("lineList", lineList);
+		 * 
+		 */
     	
     	req.getRequestDispatcher("RnY/main.tiles").forward(req, resp);
-
 	}
 
 }
