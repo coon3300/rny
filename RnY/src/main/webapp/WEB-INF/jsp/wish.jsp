@@ -8,6 +8,9 @@ String logNick = (String) session.getAttribute("logNick");
 %>
 
 
+<link rel="stylesheet" href="css/yerim/wish/style.css" type="text/css">
+
+
 <div class="untree_co-section product-section before-footer-section">
 		    <div class="container">
 		      	<div class="row">
@@ -24,9 +27,9 @@ String logNick = (String) session.getAttribute("logNick");
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
 							<img src="images/${wish.itemImage}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">${wish.itemName}</h3>
+							<h3 class="product-title">(No.${wish.wishNo})${wish.itemName}</h3>
 							<strong class="product-price">${wish.itemPrice}원</strong>
-
+							<a href="deleteWish.do?wno=${wish.wishNo}"><button class="btn btn-danger" id="removebtn">해제</button></a>
 							
 						</a>
 					</div> 
@@ -38,3 +41,6 @@ String logNick = (String) session.getAttribute("logNick");
 		      	</div>
 		    </div>
 		</div>
+
+		
+		

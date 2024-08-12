@@ -9,12 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import co.rny.common.Control;
+import co.rny.service.CartService;
+import co.rny.service.CartServiceImpl;
 import co.rny.service.MemberService;
 import co.rny.service.MemberServiceImpl;
 import co.rny.service.OrderService;
 import co.rny.service.OrderServiceImpl;
 import co.rny.service.WishService;
 import co.rny.service.WishServiceImpl;
+import co.rny.vo.CartVO;
 import co.rny.vo.ItemVO;
 import co.rny.vo.MemberVO;
 import co.rny.vo.OrderVO;
@@ -25,24 +28,21 @@ public class OrderControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		// parameter
-		OrderService ovc = new OrderServiceImpl();
-		String id = req.getParameter("id");
 				
-		// 세션객체(attribute)
+		// parameter
+		MemberService svc = new MemberServiceImpl();
 		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("logid");
 		
+		// 세션객체(attribute)
+		OrderService ovc = new OrderServiceImpl();
+		//List<OrderVO> list = ovc.listOrder(id);
+		CartService csv = new CartServiceImpl();
+		List<CartVO> cartlist = csv.cartList(id);
 		
-		List<OrderVO> list = ovc.orderList();
-		req.setAttribute("orderList", list);
-		
-		MemberVO mvo = new MemberVO();
-		req.setAttribute("mvo", mvo);
-		ItemVO ivo = new ItemVO();
-		req.setAttribute("ivo", ivo);
-		OrderVO ovo = new OrderVO();
-		req.setAttribute("ovo", ovo);
-		
+		//req.setAttribute("orderList", list);
+		req.setAttribute("logCart", cartlist);
+		//req.setAttribute("logOrder", list);
 		req.getRequestDispatcher("RnY/order.tiles").forward(req, resp);
 	}
 	

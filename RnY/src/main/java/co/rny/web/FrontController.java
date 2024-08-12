@@ -15,6 +15,8 @@ import co.rny.control.AddFormControl;
 import co.rny.control.AddMemberControl;
 import co.rny.control.CartControl;
 import co.rny.control.ContactControl;
+import co.rny.control.DeleteCartControl;
+import co.rny.control.DeleteWish;
 import co.rny.control.EmailCheckControl;
 import co.rny.control.IdCheckControl;
 import co.rny.control.ItemInfoControl;
@@ -84,8 +86,11 @@ public class FrontController extends HttpServlet {
 		map.put("/pay.do", new PayControl());
 		// 위시리스트
 		map.put("/wish.do", new WishControl());
+		map.put("/deleteWish.do", new DeleteWish()); // 삭제
 		// 장바구니
 		map.put("/cart.do", new CartControl());
+		map.put("/deleteCart.do", new DeleteCartControl()); // 삭제
+
 
 		// 공지사항 목록
 		map.put("/noticeList.do", new NoticeListControl());
