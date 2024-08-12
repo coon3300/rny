@@ -12,5 +12,10 @@
 	ON c.item_no = i.item_no
 	where user_id = #{id}
 	</select>
+	
+	<delete id="deleteCart" parameterType="int">
+		delete from tbl_cart
+		where cart_no = #{cartNo}
+	</delete>
 
 </mapper>

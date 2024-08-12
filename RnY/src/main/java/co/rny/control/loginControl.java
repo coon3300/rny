@@ -34,6 +34,16 @@ public class loginControl implements Control {
 		MemberVO mem = svc.loginCheck(id, pw);
 		
 		
+		
+		if (mem == null) {
+			req.setAttribute("msg", "아이디와 비번 확인하세요");
+			req.getRequestDispatcher("member/loginForm.tiles") 
+			.forward(req, resp);
+			return;
+		}
+		
+		
+		
 		// ***예림***
 		String nick  = svc.userNick(id); 
 		WishService wsv = new WishServiceImpl();
@@ -46,13 +56,6 @@ public class loginControl implements Control {
 		
 		
 		
-		if (mem == null) {
-			req.setAttribute("msg", "아이디와 비번 확인하세요");
-			req.getRequestDispatcher("member/loginForm.tiles") 
-					.forward(req, resp);
-			return;
-		}
-		
 		
 		// 세션객체(attribute)
 		HttpSession session = req.getSession();
@@ -60,9 +63,9 @@ public class loginControl implements Control {
 		session.setMaxInactiveInterval(30 * 60);
 		// ***예림***
 		session.setAttribute("logNick", nick);
-		session.setAttribute("logWish", wishlist);
-		session.setAttribute("logOrder", ordering);
-		session.setAttribute("logCart", cartIn);
+//		session.setAttribute("logWish", wishlist);
+		//session.setAttribute("logOrder", ordering);
+		//session.setAttribute("logCart", cartIn);
 		//session.setAttribute("order", orderlist);
 		// !
 		

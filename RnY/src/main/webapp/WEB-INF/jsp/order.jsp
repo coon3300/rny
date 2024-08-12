@@ -269,14 +269,14 @@ String logNick = (String) session.getAttribute("logNick");
 
 
 										<c:set var="total" value="0" />
-										<c:forEach var="od" items="${logOrder}" varStatus="status">
+										<c:forEach var="od" items="${logCart}" varStatus="status">
 											<tr>
 												<td>${od.itemName}</td>
 												<td>${od.itemPrice}원</td>
-												<td>${od.orderCnt}</td>
-												<td>${od.itemPrice * od.orderCnt}원</td>
+												<td>${od.cartCnt}</td>
+												<td>${od.itemPrice * od.cartCnt}원</td>
 											</tr>
-											<c:set var= "total" value="${total + (od.itemPrice * od.orderCnt)}"/>
+											<c:set var= "total" value="${total + (od.itemPrice * od.cartCnt)}"/>
 										</c:forEach>
 
 

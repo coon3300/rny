@@ -15,6 +15,8 @@ import co.rny.control.AddFormControl;
 import co.rny.control.AddMemberControl;
 import co.rny.control.CartControl;
 import co.rny.control.ContactControl;
+import co.rny.control.DeleteCartControl;
+import co.rny.control.DeleteWish;
 import co.rny.control.EmailCheckControl;
 import co.rny.control.IdCheckControl;
 import co.rny.control.ItemInfoControl;
@@ -47,7 +49,7 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 
-    // 메인
+		// 메인
 		map.put("/main.do", new mainControl());
 		// 아이템 리스트
 		map.put("/itemList.do", new ItemListControl());
@@ -57,15 +59,12 @@ public class FrontController extends HttpServlet {
 		map.put("/itemInfo.do", new ItemInfoControl());
 		// 메인 -> Contact Us
 		map.put("/contact.do", new ContactControl());
-		
-		
 
-		
 		// (관리자)회원목록 출력
 		map.put("/memberList.do", new MemberListControl());
 		// (관리자)회원상세목록
 		map.put("/user.do", new UserControl());
-		
+
 		// 회원가입
 		map.put("/addform.do", new AddFormControl());
 		// 회원가입
@@ -75,33 +74,33 @@ public class FrontController extends HttpServlet {
 		map.put("/emailCheck.do", new EmailCheckControl());
 		// 로그인
 		map.put("/login.do", new loginControl());
-		
+
 		// 마이페이지
 		map.put("/mypage.do", new MyPageControl());
 		// 회원정보수정
 		map.put("/updateuser.do", new UpdateUserControl());
-		
-		
+
 		// 주문
 		map.put("/order.do", new OrderControl());
 		// 결제페이지
 		map.put("/pay.do", new PayControl());
 		// 위시리스트
 		map.put("/wish.do", new WishControl());
+		map.put("/deleteWish.do", new DeleteWish()); // 삭제
 		// 장바구니
 		map.put("/cart.do", new CartControl());
-		
+		map.put("/deleteCart.do", new DeleteCartControl()); // 삭제
 		
 
 		// 공지사항 목록
 		map.put("/noticeList.do", new NoticeListControl());
 		// 공지사항 상세
 		map.put("/notice.do", new NoticeControl());
-		
+
 		// QnA 목록
 		map.put("/qnaList.do", new QnaListControl());
 		// QnA 상세
-		map.put("/qna.do",new QnaControl());
+		map.put("/qna.do", new QnaControl());
 		// QnA 댓글
 		map.put("/qnaReply.do", new QnaReplyControl());
 		// QnA 댓글목록

@@ -6,4 +6,5 @@ import co.rny.vo.CartVO;
 
 public interface CartService {
 	List<CartVO> cartList(String id);
+	boolean removeCart(int CartNo);
 }
