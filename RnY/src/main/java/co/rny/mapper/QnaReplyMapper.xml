@@ -5,14 +5,13 @@
 <mapper namespace="co.rny.mapper.QnaReplyMapper"> <!--클래스 -->
 
 	<insert id="qnareply" parameterType="co.rny.vo.QnaReplyVO">
-		<selectKey keyProperty="qreply_num" resultType="int"
-			order="BEFORE">
+		<selectKey keyProperty="qreplyNum" resultType="int" order="BEFORE">
 			select reply_seq.nextval from dual
 		</selectKey>
-		insert into tbl_qnareply (user_no, qna_num, qreply_num, qreply_content,
+		insert into tbl_qnareply (user_id, qna_num, qreply_num, qreply_content,
 		qreply_date)
 		values
-		(#{userNo},#{qnaNum},#{qreplyNum},#{qreplyContent},#{qreplyDate});
+		(#{userId},#{qnaNum},#{qreplyNum},#{qreplyContent},#{qreplyDate})
 	</insert>
 		
 	<select id="qreplyList" parameterType="int"
@@ -22,4 +21,5 @@
 		where qna_num= #{qnaNum}
 		order by qreply_num
 	</select>
+	
 </mapper>

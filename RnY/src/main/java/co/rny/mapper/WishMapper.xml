@@ -15,27 +15,23 @@
 	 -->
 	
 	<select id="wishheart" resultType="co.rny.vo.WishVO">
-	select *
-	from tbl_wish w JOIN rny_member m
-	ON w.user_no = m.user_no
-	JOIN tbl_item i
-	ON w.item_no = i.item_no
-	where user_id = #{id}
+    select *
+    from tbl_wish w JOIN rny_member m
+    ON w.user_no = m.user_no
+    JOIN tbl_item i
+    ON w.item_no = i.item_no
+    where user_id = #{id}
 	</select>
-	
 	
 	<select id="selectWish" parameterType="int">
 		select wish_no
 		from tbl_wish
 		where wish_no = #{wishNo}
 	</select>
-	
-	
-		<delete id="deleteWish" parameterType="int">
+		
+	<delete id="deleteWish" parameterType="int">
 		delete from tbl_wish
 		where wish_no = #{wishNo}
 	</delete>
-	
-	
-	
+
 </mapper>

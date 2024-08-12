@@ -8,8 +8,7 @@
 		from(select rownum rn,a.*
 		from (select *
 		from tbl_notice
-		order
-		by notice_num desc ) a ) b
+		order by notice_num desc ) a ) b
 		where b.rn > (#{page} -1) * 3
     <![CDATA[
     and b.rn <= (#{page} *3 )
