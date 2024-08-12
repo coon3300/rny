@@ -17,4 +17,8 @@ public class CartServiceImpl implements CartService {
 	public List<CartVO> cartList(String id) {
 		return mapper.cart(id);
 	}
+	@Override
+	public boolean removeCart(int CartNo) {
+		return mapper.deleteCart(CartNo) == 1;
+	}
 }

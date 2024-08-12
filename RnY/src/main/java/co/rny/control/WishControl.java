@@ -13,34 +13,29 @@ import co.rny.service.MemberService;
 import co.rny.service.MemberServiceImpl;
 import co.rny.service.WishService;
 import co.rny.service.WishServiceImpl;
-import co.rny.vo.WishListVO;
+import co.rny.vo.WishVO;
 
 public class WishControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		String page = req.getParameter("page");
+
 		// parameter
 		MemberService svc = new MemberServiceImpl();
-		String id = req.getParameter("id");
-		
-		// 세션객체(attribute)
-		HttpSession session = req.getSession();
-		
-		
-		
-		WishService wsv = new WishServiceImpl();
-		WishListVO wlv = new WishListVO();
-		
-		
-		
-		
-		req.getRequestDispatcher("RnY/wish.tiles").forward(req, resp);
-		
-		
-		
-		
-	}
+		WishService wvc = new WishServiceImpl();
 
-	
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("logid");
+//		String wno = req.getParameter("wishNo");
+
+		// 세션객체(attribute)
+		WishService wsv = new WishServiceImpl();
+		List<WishVO> wishlist = wsv.wishheart(id);
+		// 찜삭제
+		req.setAttribute("logWish", wishlist);
+
+		req.getRequestDispatcher("RnY/wish.tiles").forward(req, resp);
+
+	}
 }
