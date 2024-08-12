@@ -55,5 +55,3 @@ function makeRow(item = {}) {
   `;
 	document.getElementById('mainItemDiv').appendChild(mainDiv);
 }
-
-console.log(window.location.pathname);
