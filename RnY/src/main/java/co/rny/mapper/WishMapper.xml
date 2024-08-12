@@ -15,12 +15,12 @@
 	 -->
 	
 	
-	<!-- <select id="wishheart" resultType="co.rny.vo.WishVO">
+	<select id="wishheart" resultType="co.rny.vo.WishVO">
 	select *
 	from tbl_wish w JOIN rny_member m
 	ON w.user_no = m.user_no
 	JOIN tbl_item i
 	ON w.item_no = i.item_no
 	where user_id = #{id}
-	</select> -->
+	</select>
 </mapper>

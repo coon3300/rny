@@ -209,28 +209,32 @@ function checkFormValidity() {
 	var idValid = document.getElementById('checkResultID').style.color === 'green';
 	var pwValid = document.getElementById('checkResultPW').style.color === 'green';
 	var pw2Valid = document.getElementById('checkResultPW2').style.color === 'green';
-	var birthValid = document.getElementById('checkResultBirth').style.color === 'green';
+  var birthValid = document.getElementById('checkResultBirth').style.color === 'green';
 	var emailValid = document.getElementById('checkResultEMAIL').style.color === 'green';
 	var phoneValid = document.getElementById('checkResultPhone').style.color === 'green';
 
 	var submitBtn = document.getElementById('submitBtn');
 
 	if (idValid && pwValid && pw2Valid && birthValid && emailValid && phoneValid) {
-		/*submitBtn.disabled = false;*/
+		submitBtn.disabled = false;
 		submitBtn.removeAttribute('disabled');
+		document.getElementById('successMessage').innerHTML = '';
 	} else {
 		submitBtn.disabled = true;
+		document.getElementById('successMessage').innerHTML = '모든 필드를 올바르게 입력하세요.';
+		document.getElementById('successMessage').style.color = 'red';
+		document.getElementById('successMessage').style.textAlign = 'center';
 	}
 }
 
 function submitForm() {
-	/*if (document.getElementById('submitBtn').disabled) {
-		alert('모든 필드를 올바르게 입력하세요.');
-	} else {*/
+	if (document.getElementById('submitBtn').disabled) {
+		document.getElementById('successMessage').style = 'block';
+	} else {
 		document.getElementById('successMessage');
 		alert('회원가입 완료');
 	}
-
+}
 
 
 

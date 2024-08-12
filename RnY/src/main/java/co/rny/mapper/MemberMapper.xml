@@ -3,20 +3,50 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="co.rny.mapper.MemberMapper">
+	<!-- 검색 -->
+	<mapper namespace="co.rny.mapper.MemberMapper">
+	<sql id="selrctCondition">
+		where
+		<choose>
+			<when test="searchCondition == 'N'.toString()">
+				user_name like '%'||#{keyword}||'%'
+			</when>
+			<when test="searchCondition == 'K'.toString()">
+				user_nick like '%'||#{keyword}||'%'
+			</when>
+			<when test="searchCondition == 'P'.toString()">
+				user_phone like '%'||#{keyword}||'%'
+			</when>
+			<otherwise> 1 = 1 </otherwise>
+		</choose>
+	</sql>
 
 	<!-- 회원목록조회 -->
 	<select id="selectList" resultType="co.rny.vo.MemberVO">
-		select *
-		from rny_member
-		order by user_date
+		SELECT *
+    FROM  rny_member
+    ORDER BY user_no
 	</select>
 	
+		<select id="selectListPaging" resultType="co.rny.vo.MemberVO" parameterType="int">
+		select b.*
+    from (select rownum rn, a.*
+          from (SELECT *
+                FROM  rny_member
+                <include refid="selrctCondition"></include>
+                ORDER BY user_no) a ) b
+    where b.rn > (#{page} - 1 ) * 15
+    <![CDATA[
+    and   b.rn <= (#{page} * 15)
+    ]]>
+	</select>
+
 	<!-- user_no기준 회원상세조회 -->
 	<select id="userinfo" resultType="co.rny.vo.MemberVO">
 		select *
 		from rny_member
-		where user_no = #{userNo}
+		where
+		user_no = #{userNo}
 	</select>
 
 	<select id="usernick" resultType="String">
@@ -24,7 +54,7 @@
 		from rny_member
 		where user_id = #{id}
 	</select>
-	
+
 	<!-- 로그인 -->
 
 	<select id="selectMember" resultType="co.rny.vo.MemberVO">
@@ -34,26 +64,37 @@
 		and user_pw = #{pw}
 	</select>
 
-  <!-- 회원가입 -->
+	<!-- 회원가입 -->
 	<insert id="insertMember" parameterType="co.rny.vo.MemberVO">
 		insert into rny_member
 		(user_no, user_id, user_pw, user_name, user_nick, user_birth,
-		 user_email, user_phone, user_add)
+		user_email, user_phone, user_add)
 		values('A' || seq_member.nextval,
 		#{userId}, #{userPw}, #{userName}, #{userNick}, #{userBirth},
 		#{userEmail}, #{userPhone}, #{userAdd})
 	</insert>
-	
+
 	<!-- 회원가입(ID중복체크) -->
 	<select id="selectId" resultType="int">
-    SELECT COUNT(*)
-    FROM rny_member
-    WHERE user_id = #{id}
-  </select>
-  
-  <select id="selectEmail" resultType="int">
-    SELECT COUNT(*)
-    FROM rny_member
-    WHERE user_email = #{email}
-  </select>
+		SELECT COUNT(*)
+		FROM rny_member
+		WHERE user_id = #{id}
+	</select>
+
+	<select id="selectEmail" resultType="int">
+		SELECT COUNT(*)
+		FROM
+		rny_member
+		WHERE user_email = #{email}
+	</select>
+
+	<!-- 페이징 계산용 전체건수 -->
+	<select id="selectTotalCount">
+		select count(1)
+		from rny_member
+		<include refid="selrctCondition"></include>
+	</select>
+	
+
+	
 </mapper>

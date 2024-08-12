@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import co.rny.common.DataSource;
+import co.rny.common.SearchVO;
 import co.rny.mapper.MemberMapper;
 import co.rny.service.MemberService;
 import co.rny.vo.MemberVO;
@@ -16,8 +17,8 @@ public class MemberServiceImpl implements MemberService {
 	
 
 	@Override
-	public List<MemberVO> memberList() {
-		return mapper.selectList();
+	public List<MemberVO> memberList(int page) {
+		return mapper.selectList(page);
 	}
 
 	@Override
@@ -50,5 +51,20 @@ public class MemberServiceImpl implements MemberService {
 	public int selectEmail(String email) {
 		 return mapper.selectEmail(email);
 	}
-  
+	
+	@Override
+	public MemberVO memberpage(int userNo) {
+		return mapper.selectBoard(userNo);
+	}
+
+	@Override
+	public int totalCount(SearchVO search) {
+		return mapper.selectTotalCount(search);
+    }
+
+	@Override
+	public List<MemberVO> memberList(SearchVO search) {
+		return mapper.selectListPaging(search);
+	}
+	
 }

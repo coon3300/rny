@@ -65,16 +65,20 @@ public class FrontController extends HttpServlet {
 		map.put("/memberList.do", new MemberListControl());
 		// (관리자)회원상세목록
 		map.put("/user.do", new UserControl());
+
+		
 		
 		// 회원가입
 		map.put("/addform.do", new AddFormControl());
 		// 회원가입
 		map.put("/addMember.do", new AddMemberControl());
-		// 회원가입(ID중복체크)
+		// 회원가입(중복체크)
 		map.put("/idCheck.do", new IdCheckControl());
 		map.put("/emailCheck.do", new EmailCheckControl());
 		// 로그인
 		map.put("/login.do", new loginControl());
+		// 로그인
+		map.put("/logout.do", new logOutControl());
 		
 		// 마이페이지
 		map.put("/mypage.do", new MyPageControl());
