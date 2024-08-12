@@ -3,22 +3,39 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.rny.mapper.QnaListMapper"> <!--클래스 -->
-	<select id="qnaList" resultType="co.rny.vo.QnaListVO">
+	<select id="qnaList" parameterType="co.rny.vo.QnaListVO">
 		select *
 		from tbl_QNA
 	</select>
+	<select id="qnaPaging" parameterType="int">
+		select b.*
+		from(select rownum rn,a.*
+			from (select *
+				from tbl_qna
+				order by
+			qna_num desc ) a ) b
+		where b.rn > (#{page} -1) * 3
+	    <![CDATA[
+	    and b.rn <= (#{page} *3 )
+	    ]]>
+	</select>
+
+	<select id="qnaCnt" parameterType="co.rny.vo.QnaListVO">
+		select count(1)
+		from tbl_qna
+	</select>
+
 	<select id="selectQna" resultType="co.rny.vo.QnaListVO"
-	parameterType="co.rny.vo.QnaListVO">
+		parameterType="co.rny.vo.QnaListVO">
 		select user_no,
-		qna_num,
-		qna_title,
-		qna_content,
-		qna_answer,
-		qna_image,
-		qna_date,
-		qna_answerdate
+			qna_num,
+			qna_title,
+			qna_content,
+			qna_answer,
+			qna_image,
+			qna_date,
+			qna_answerdate
 		from tbl_qna
 		where qna_num = #{qnaNum}
 	</select>
-
 </mapper>

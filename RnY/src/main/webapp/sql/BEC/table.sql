@@ -20,6 +20,7 @@ qna_answerdate date DEFAULT sysdate -- 답변업로드 날짜
 
 create table tbl_qnareply ( -- QnA 댓글 테이블
 user_no VARCHAR2(20) PRIMARY KEY, --회원 고유번호
+user_id VARCHAR2(20) not null, -- 회원 아이디
 qna_num number(38) not null, --게시판번호(댓글달리는)
 qreply_num number(38) not null, -- 댓글번호
 qreply_content VARCHAR2(3000) not null, -- 댓글 내용
@@ -41,6 +42,9 @@ review_comment VARCHAR2(800) not null -- 리뷰 댓글
 
 commit;
 
+select reply_seq.nextval from dual;
+create sequence reply_seq;
+
 insert into tbl_notice (user_no, notice_num, notice_title, notice_content, notice_image,notice_date)
 values ('admin01',01,'공지사항 테스트','공지사항 테스트내용','notice001.jpg',sysdate);
 
@@ -52,3 +56,20 @@ values ('admin03',03,'공지사항 테스트','공지사항 테스트내용','no
 
 insert into tbl_notice (user_no, notice_num, notice_title, notice_content, notice_image,notice_date)
 values ('admin04',04,'공지사항 테스트','공지사항 테스트내용','notice004.jpg',sysdate);
+
+insert into tbl_notice (user_no, notice_num, notice_title, notice_content, notice_image,notice_date)
+values ('admin05',05,'공지사항 테스트','공지사항 테스트내용','notice005.jpg',sysdate);
+
+insert into tbl_notice (user_no, notice_num, notice_title, notice_content, notice_image,notice_date)
+values ('admin06',06,'공지사항 테스트','공지사항 테스트내용','notice005.jpg',sysdate);
+
+insert into tbl_notice (user_no, notice_num, notice_title, notice_content, notice_image,notice_date)
+values ('admin07',07,'공지사항 테스트','공지사항 테스트내용','notice005.jpg',sysdate);
+
+
+
+
+
+
+
+
