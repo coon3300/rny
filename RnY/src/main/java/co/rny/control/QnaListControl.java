@@ -23,11 +23,12 @@ public class QnaListControl implements Control {
 		int qnaCnt = qvc.qnaCnt();
 		
 		PageDTO paging = new PageDTO(Integer.parseInt(page), qnaCnt,3);
+
 		List<QnaListVO> list = qvc.qnaPaging(Integer.parseInt(page));
 		req.setAttribute("qnaPaging", list); // QnA페이징
 		
-		System.out.println(paging);
-		req.setAttribute("page", paging);
+		//System.out.println(paging);
+		//req.setAttribute("page", paging);
 
 		req.getRequestDispatcher("qna/qnaList.tiles")//
 				.forward(req, resp); // 페이지 재지정.

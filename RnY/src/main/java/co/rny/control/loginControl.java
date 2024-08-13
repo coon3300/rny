@@ -38,20 +38,7 @@ public class loginControl implements Control {
 		MemberVO mem = svc.loginCheck(id, pw);
 
 		HttpSession session = req.getSession();
-//		if (mem == null) {
-//			// session.setAttribute("msg", "아이디와 비번 확인하세요");
-//			resp.sendRedirect("main.do");
-//			return;
-//		}
-//		session.removeAttribute("msg");
 
-		if (mem == null) {
-			req.setAttribute("msg", "아이디와 비번 확인하세요");
-			req.getRequestDispatcher("member/loginForm.tiles") 
-			.forward(req, resp);
-			return;
-		}
-		
 		// ***예림***
 		String nick = svc.userNick(id);
 		WishService wsv = new WishServiceImpl();
@@ -71,7 +58,7 @@ public class loginControl implements Control {
 		session.setAttribute("logOrder", ordering);
 		session.setAttribute("logCart", cartIn);
 		//session.setAttribute("order", orderlist);
-    //session.setAttribute("logWish", wishlist);
+        //session.setAttribute("logWish", wishlist);
 		//session.setAttribute("logOrder", ordering);
 		//session.setAttribute("logCart", cartIn);
 		//session.setAttribute("order", orderlist);
@@ -91,14 +78,7 @@ public class loginControl implements Control {
 			map.put("retVal", "admin");
 		}
 		resp.getWriter().print(gson.toJson(map));
-//
-//		if (mem.getResponsibility().equals("user")) {
-//			resp.sendRedirect("main.do");
-//		} else if (mem.getResponsibility().equals("admin")) {
-//			resp.sendRedirect("memberList.do");
-//		} else {
-//			System.out.println("권한을 지정하세요");
-//		}
+
 
 	}
 
