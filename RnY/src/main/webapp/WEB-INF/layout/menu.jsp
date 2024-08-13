@@ -241,17 +241,26 @@
 						</form>
 					</div>
 				</div>
-
-				<div
-					class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
+				<div class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
 					<div class="support-box text-end d-none d-xl-block">
+						<!-- 
 						<span class="fs-6 secondary-font text-muted">연락처</span>
 						<h5 class="mb-0">053-421-2460</h5>
+						 -->
+							<c:choose>
+								<c:when test="${!empty logid}">
+									<span class="fs-6 secondary-font text-muted">${logNick}님 환영합니다.</span>
+									<a class="mx-3" href="logout.do"><i	class="bi bi-box-arrow-right" style="font-size: 16px;"></i>로그아웃</a>
+								</c:when>
+								<c:otherwise>
+								</c:otherwise>
+							</c:choose>
 					</div>
-
 					<div class="support-box text-end d-none d-xl-block">
+						<!-- 
 						<span class="fs-6 secondary-font text-muted">이메일</span>
 						<h5 class="mb-0">yedam@ac.kr</h5>
+						 -->
 					</div>
 
 
@@ -267,14 +276,21 @@
 
 		<div class="container">
 			<nav class="main-menu d-flex navbar navbar-expand-lg ">
-
 				<div class="d-flex d-lg-none align-items-end mt-3">
 					<ul class="d-flex justify-content-end list-unstyled m-0">
 						<c:choose>
 							<c:when test="${!empty logid}">
-								<li>${logNick}<a class="mx-3" href="logout.do"><i
-										class="bi bi-box-arrow-right" style="font-size: 20px;"></i>로그아웃</a>
+							
+								<li style="line-height:24px;">
+									${logNick}님 
+									<a href="logout.do">
+									&nbsp;&nbsp;&nbsp;&nbsp;로그아웃&nbsp;&nbsp;&nbsp;&nbsp;</a>
 								</li>
+								<!-- 
+									<span class="fs-6 secondary-font text-muted">${logNick}님<a href="logout.do">
+									<i class="bi bi-box-arrow-right" style="font-size: 30px;"></i>로그아웃</a>
+									</span>
+								 -->
 							</c:when>
 							<c:otherwise>
 								<li><a class="mx-3" href="loginForm.do"
@@ -303,7 +319,6 @@
 								</span>
 						</a></li>
 					</ul>
-
 				</div>
 
 				<button class="navbar-toggler" type="button"
@@ -553,9 +568,11 @@
 
 								<c:choose>
 									<c:when test="${!empty logid}">
+										<!-- 
 										<li>${logNick}<a class="nav-link mx-3" href="logout.do"><i
 												class="bi bi-box-arrow-right" style="font-size: 20px;"></i>로그아웃</a>
 										</li>
+										 -->
 									</c:when>
 									<c:otherwise>
 										<li><a class="nav-link mx-3" href="loginForm.do"
