@@ -3,6 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String logNick = (String) session.getAttribute("logNick");
+String logName = (String) session.getAttribute("logName");
 %>
 
 <%@ include file="/WEB-INF/layout/menu.jsp" %>
@@ -31,7 +32,7 @@ String logNick = (String) session.getAttribute("logNick");
 							<div class="col-md-12">
 								<label for="c_companyname" class="text-black">받는사람<span
 									class="text-danger">*</span></label> <input type="text"
-									class="form-control" id="c_companyname" name="c_companyname">
+									class="form-control" id="c_companyname" name="c_companyname" placeholder="${logName}">
 							</div>
 						</div>
 						<br>
@@ -48,9 +49,9 @@ String logNick = (String) session.getAttribute("logNick");
 						<div class="form-group row">
 							<div class="col-md-12">
 								<label for="c_address" class="text-black">전화번호<span
-									class="text-danger">*</span></label> <input type="text"
-									class="form-control" id="c_companyname" name="c_companyname"
-									placeholder="번호만 입력하세요.">
+									class="text-danger" style="color:red;">*</span></label> <input type="number"
+									class="form-control" id="phone" name="c_companyname"
+									placeholder="번호만 입력하세요." onkeypress="return checkNumber(event)">
 							</div>
 						</div>
 						<br>
@@ -308,8 +309,8 @@ String logNick = (String) session.getAttribute("logNick");
 
 
 								<div class="form-group">
-									<a href="pay.do"><button
-											class="btn btn-black btn-lg py-3 btn-block">주문하기</button></a>
+									<a href="pay.do?=${orderNo}"><button
+											 class="btn btn-black btn-lg py-3 btn-block" >주문하기</button></a>
 								</div>
 
 							</div>
@@ -324,7 +325,6 @@ String logNick = (String) session.getAttribute("logNick");
 
 
 
-</body>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
@@ -334,7 +334,18 @@ String logNick = (String) session.getAttribute("logNick");
 <script src="js/yerim/order/check.js"></script>
 
 <script>
-	
+//숫자 넘버타입만 출력
+function checkNumber(event) {
+  if(event.key === '.' 
+     || event.key === '-'
+     || event.key >= 0 && event.key <= 9) {
+    return true;
+  }
+  
+  return false;
+  return alert('숫자만 입력하세요!');
+}
 	
 </script>
+</body>
 

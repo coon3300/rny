@@ -73,6 +73,12 @@
 		where user_id = #{id}
 	</select>
 	
+	<select id="username" resultType="String">
+		select user_name
+		from rny_member
+		where user_id = #{id}
+	</select>
+    
 	<select id="userCheck" resultType="String">
 		select user_no
 		from rny_member

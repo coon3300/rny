@@ -18,6 +18,7 @@ public interface MemberMapper {
 	int selectEmail(String email); // 회원가입(중복체크)
 	MemberVO selectMember(@Param("id") String id, @Param("pw") String pw);//로그인 체크
 	String usernick(String id); //닉네임
+	String username(String id); //이름
 	String userCheck(String id); // 유저번호
 	
 	// 페이지

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.rny.common.Control;
 import co.rny.control.AddFormControl;
 import co.rny.control.AddMemberControl;
+import co.rny.control.AddWish;
 import co.rny.control.AddressControl;
 import co.rny.control.AddressFormControl;
 import co.rny.control.AdminPageControl;
@@ -32,6 +33,7 @@ import co.rny.control.MyAddressControl;
 import co.rny.control.MyPageControl;
 import co.rny.control.NoticeControl;
 import co.rny.control.NoticeListControl;
+import co.rny.control.OrderCheckControl;
 import co.rny.control.OrderControl;
 import co.rny.control.PayControl;
 import co.rny.control.QnaControl;
@@ -87,7 +89,7 @@ public class FrontController extends HttpServlet {
 		map.put("/login.do", new loginControl());
 		// 로그아웃
 		map.put("/logout.do", new logOutControl());
-		
+
 		// 마이페이지
 		map.put("/mypage.do", new MyPageControl());
 		// 회원정보수정
@@ -103,15 +105,16 @@ public class FrontController extends HttpServlet {
 
 		// 주문
 		map.put("/order.do", new OrderControl());
+		map.put("/ordercheck.do", new OrderCheckControl()); // 주문상세
 		// 결제페이지
 		map.put("/pay.do", new PayControl());
 		// 위시리스트
 		map.put("/wish.do", new WishControl());
-		map.put("/deleteWish.do", new DeleteWish()); // 삭제
+		map.put("/addWish.do", new AddWish()); // 찜 등록
+		map.put("/deleteWish.do", new DeleteWish()); // 찜 삭제
 		// 장바구니
 		map.put("/cart.do", new CartControl());
-		map.put("/deleteCart.do", new DeleteCartControl()); // 삭제
-
+		map.put("/deleteCart.do", new DeleteCartControl()); // 장바구니 삭제
 
 		// 공지사항 목록
 		map.put("/noticeList.do", new NoticeListControl());
@@ -141,4 +144,3 @@ public class FrontController extends HttpServlet {
 		sub.exec(req, resp);
 	}
 }
-

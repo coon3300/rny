@@ -28,5 +28,9 @@ public class WishServiceImpl implements WishService {
 	public boolean removeWish(int WishNo) {
 		return mapper.deleteWish(WishNo) == 1;
 	}
+	@Override
+	public boolean addWish(String userNo, int itemNo) {
+		return mapper.plusWish(userNo, itemNo) == 1;
+	}
 	
 }

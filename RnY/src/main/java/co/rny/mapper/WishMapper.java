@@ -9,4 +9,5 @@ public interface WishMapper {
 	List<WishVO> wishheart(String id);
 	WishVO selectWish(int wishNo);
 	int deleteWish(int wishNo);
+	int plusWish(String userNo, int itemNo);
 }

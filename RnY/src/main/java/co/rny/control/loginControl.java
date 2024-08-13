@@ -44,6 +44,7 @@ public class loginControl implements Control {
 
 		// ***예림***
 		String nick = svc.userNick(id);
+		String name = svc.userName(id);
 		WishService wsv = new WishServiceImpl();
 		List<WishVO> wishlist = wsv.wishheart(id);
 		OrderService osv = new OrderServiceImpl();
@@ -58,6 +59,7 @@ public class loginControl implements Control {
 		session.setMaxInactiveInterval(30 * 60);
 		// ***예림***
 		session.setAttribute("logNick", nick);
+		session.setAttribute("logName", name);
 		session.setAttribute("logWish", wishlist);
 		session.setAttribute("logOrder", ordering);
 		session.setAttribute("logCart", cartIn);
