@@ -5,15 +5,11 @@
 String logNick = (String) session.getAttribute("logNick");
 %>
 
+<%@ include file="/WEB-INF/layout/menu.jsp" %>
 
 
 <!-- Bootstrap CSS -->
-<link href="css/yerim/order/bootstrap.min.css" rel="stylesheet">
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-	rel="stylesheet">
-<link href="css/yerim/order/tiny-slider.css" rel="stylesheet">
-<link href="css/yerim/order/style.css" rel="stylesheet">
+<link href="css/yerim/order/order.css" rel="stylesheet">
 
 
 
@@ -23,7 +19,8 @@ String logNick = (String) session.getAttribute("logNick");
 
 	<div class="untree_co-section">
 		<div class="container">
-			<h1 class="h1 mb-3 text-black">${logNick}님의주문페이지</h1>
+			<h1 class="h1 mb-3 text-black"><a href="cart.do"><button class="btn btn-black btn-sm" type="button"
+											id="button-addon2" style="border-radius:50%;"> ◀ </button></a>${logNick}님의 주문페이지</h1>
 			<br>
 			<div class="row">
 				<div class="col-md-6 mb-5 mb-md-0">
@@ -276,7 +273,8 @@ String logNick = (String) session.getAttribute("logNick");
 												<td>${od.cartCnt}</td>
 												<td>${od.itemPrice * od.cartCnt}원</td>
 											</tr>
-											<c:set var= "total" value="${total + (od.itemPrice * od.cartCnt)}"/>
+											<c:set var="total"
+												value="${total + (od.itemPrice * od.cartCnt)}" />
 										</c:forEach>
 
 
@@ -310,8 +308,8 @@ String logNick = (String) session.getAttribute("logNick");
 
 
 								<div class="form-group">
-									<a href="pay.do"><button class="btn btn-black btn-lg py-3 btn-block"
-									>주문하기</button></a>
+									<a href="pay.do"><button
+											class="btn btn-black btn-lg py-3 btn-block">주문하기</button></a>
 								</div>
 
 							</div>
@@ -323,15 +321,20 @@ String logNick = (String) session.getAttribute("logNick");
 			<!-- </form> -->
 		</div>
 	</div>
-	
+
 
 
 </body>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
-	<script src="js/yerim/order/bootstrap.bundle.min.js"></script>
-	<script src="js/yerim/order/tiny-slider.js"></script>
-	<script src="js/yerim/order/custom.js"></script>
+<script src="js/yerim/order/bootstrap.bundle.min.js"></script>
+<script src="js/yerim/order/tiny-slider.js"></script>
+<script src="js/yerim/order/custom.js"></script>
+<script src="js/yerim/order/check.js"></script>
 
-
+<script>
+	
+	
+</script>
 
