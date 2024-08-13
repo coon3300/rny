@@ -16,6 +16,7 @@ import co.rny.control.AddMemberControl;
 import co.rny.control.CartControl;
 import co.rny.control.ContactControl;
 import co.rny.control.DeleteCartControl;
+import co.rny.control.DeleteReplyControl;
 import co.rny.control.DeleteWish;
 import co.rny.control.EmailCheckControl;
 import co.rny.control.IdCheckControl;
@@ -107,6 +108,8 @@ public class FrontController extends HttpServlet {
 		map.put("/qnaReply.do", new QnaReplyControl());
 		// QnA 댓글목록
 		map.put("/qnaReplyList.do", new QnaReplyListControl());
+		// QnA 댓글삭제
+		map.put("/deleteReply.do", new DeleteReplyControl());
 	}
 
 	@Override
