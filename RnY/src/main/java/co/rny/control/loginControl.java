@@ -33,9 +33,11 @@ public class loginControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
+		
 
 		MemberService svc = new MemberServiceImpl();
 		MemberVO mem = svc.loginCheck(id, pw);
+		String uno = svc.userCheck(id);
 
 		HttpSession session = req.getSession();
 		
@@ -52,6 +54,7 @@ public class loginControl implements Control {
 		
 		// 세션객체(attribute)
 		session.setAttribute("logid", id);
+		session.setAttribute("userNo", uno);
 		session.setMaxInactiveInterval(30 * 60);
 		// ***예림***
 		session.setAttribute("logNick", nick);

@@ -119,6 +119,8 @@
 }
 </style>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <div class="container">
     <div class="title-section">
         <h1>SHIPPING ADDRESS</h1>
@@ -141,24 +143,23 @@
                 <th>기본</th>
                 <th>배송지명</th>
                 <th>수령인</th>
-                <th>일반전화</th>
                 <th>휴대전화</th>
                 <th>주소</th>
                 <th>수정</th>
             </tr>
         </thead>
         <tbody>
+        <c:forEach var="add" items="${addList}">
             <tr>
-                <td><input type="checkbox"></td>
-                <td><span class="label-default">기본</span></td>
-                <td>집</td>
-                <td>홍길동</td>
-                <td>02-1234-5678</td>
-                <td>010-1234-5678</td>
-                <td>서울특별시 강남구 역삼동 123-45</td>
+            		<td>※</td>
+                <td>기본주소지체크</td>
+								<td>${add.addName }</td>
+								<td>${add.recipient }</td>
+								<td>${add.addPhone }</td>
+								<td>${add.newAddress }</td>
                 <td><button class="btn-edit">수정</button></td>
             </tr>
-            <!-- 다른 행들 추가 -->
+           </c:forEach>
         </tbody>
     </table>
 

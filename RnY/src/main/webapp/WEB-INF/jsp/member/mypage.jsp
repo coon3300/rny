@@ -143,7 +143,7 @@ body {
         <div class="myshop-nav">
             <ul>
                 <li><a href="#">마이쇼핑</a></li>
-                <li><a href="#">정보변경</a></li>
+                <li><a href="updateuserform.do">정보변경</a></li>
                 <li><a href="#">장바구니</a></li>
             </ul>
         </div>

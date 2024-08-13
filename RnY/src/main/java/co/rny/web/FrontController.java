@@ -14,6 +14,7 @@ import co.rny.common.Control;
 import co.rny.control.AddFormControl;
 import co.rny.control.AddMemberControl;
 import co.rny.control.AddressControl;
+import co.rny.control.AddressFormControl;
 import co.rny.control.AdminPageControl;
 import co.rny.control.CartControl;
 import co.rny.control.ContactControl;
@@ -37,6 +38,7 @@ import co.rny.control.QnaListControl;
 import co.rny.control.QnaReplyControl;
 import co.rny.control.QnaReplyListControl;
 import co.rny.control.UpdateUserControl;
+import co.rny.control.UpdateUserFormControl;
 import co.rny.control.UserControl;
 import co.rny.control.WishControl;
 import co.rny.control.loginControl;
@@ -87,8 +89,12 @@ public class FrontController extends HttpServlet {
 		map.put("/mypage.do", new MyPageControl());
 		// 회원정보수정
 		map.put("/updateuser.do", new UpdateUserControl());
+		// 회원정보수정
+		map.put("/updateuserform.do", new UpdateUserFormControl());
 		// 주소록등록
 		map.put("/address.do", new AddressControl());
+		// 주소록(값받는애)
+		map.put("/addressform.do", new AddressFormControl());
 		// 주소록
 		map.put("/myaddress.do", new MyAddressControl());
 
@@ -127,6 +133,7 @@ public class FrontController extends HttpServlet {
 		String uri = req.getRequestURI();
 		String context = req.getContextPath();
 		String path = uri.substring(context.length());
+		System.out.println(path);
 		Control sub = map.get(path);
 		sub.exec(req, resp);
 	}
