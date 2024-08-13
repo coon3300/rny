@@ -21,12 +21,7 @@
 						
 						</ul>
 						<p class="excert">${nvo.noticeContent}</p>
-						<p>MCSE boot camps have its supporters and its detractors.
-							Some people do not understand why you should have to spend money
-							on boot camp when you can get the MCSE study materials yourself
-							at a fraction of the camp price. However, who has the willpower
-							to actually sit through a self-imposed MCSE training. who has the
-							willpower to actually</p>
+						<p>나는 이승엽 나보다 잘생긴 사람은 이세상에 존재할 수 없지 훗</p>
 						
 						<p>MCSE boot camps have its supporters and its detractors.
 							Some people do not understand why you should have to spend money
