@@ -8,13 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.rny.common.Control;
 
-public class AdminPageControl implements Control {
+public class AddressFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("admin/adminpage.tiles") // tiles.xml "/WEB-INF/jsp/{1}.jsp"
+		req.getRequestDispatcher("member/address.tiles") // tiles.xml "/WEB-INF/jsp/{1}.jsp"
 		.forward(req, resp); // 페이지 재지정
-
 	}
 
 }

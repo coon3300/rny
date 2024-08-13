@@ -203,9 +203,9 @@
 				<div class="search-bar border rounded-2 border-dark-subtle">
 					<!-- search-form2 -->
 					<form id="search-form2"
-						class="text-center d-flex align-items-center" action="itemListSearch.do" method="">
+						class="text-center d-flex align-items-center" action="" method="">
 						<input type="text" class="form-control border-0 bg-transparent"
-							placeholder="검색어를 입력하세요." name="keyword"/>
+							placeholder="Search Here" />
 						<iconify-icon icon="tabler:search" class="fs-4 me-3"></iconify-icon>
 					</form>
 				</div>
@@ -230,16 +230,14 @@
 					<div class="search-bar border rounded-2 px-3 border-dark-subtle">
 						<!-- search-form1 -->
 						<form id="search-form1"
-							class="text-center d-flex align-items-center" action="itemListSearch.do" method="">
+							class="text-center d-flex align-items-center" action="" method="">
 							<input type="text" class="form-control border-0 bg-transparent"
-								placeholder="검색어를 입력하세요" name="keyword"/>
-								<button type="submit" class="border-0 bg-transparent">
+								placeholder="검색어를 입력하세요" />
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
 								viewBox="0 0 24 24">
 										<path fill="currentColor"
 									d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
 									</svg>
-								</button>
 						</form>
 					</div>
 				</div>

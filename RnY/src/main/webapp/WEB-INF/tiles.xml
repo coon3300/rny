@@ -26,16 +26,30 @@
 		<put-attribute name="footer"
 			value="/WEB-INF/layout/footer.jsp" />
 	</definition>
+	
+	<!-- 관리자 -->
+		<definition name="myapp.admin"
+		template="/WEB-INF/admlayout/template.jsp">
+		<put-attribute name="title" value="RnY Pet에 오신걸 환영합니다." />
+		<put-attribute name="menu"
+			value="/WEB-INF/admlayout/adminmenu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/admlayout/body.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/admlayout/footer.jsp" />
+	</definition>
+	
+	<!-- 관리자 -->
+	<definition name="WILDCARD:admin/*" extends="myapp.admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/{1}.jsp" /> 
+	</definition>
 
 	<!-- 메인 -->
 	<definition name="WILDCARD:RnY/*" extends="myapp.user">
 		<put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp" />
 	</definition>
 		
-	<definition name="WILDCARD:member/*" extends="myapp.user">
-		<put-attribute name="body" value="/WEB-INF/jsp/member/{1}.jsp" />
-	</definition>
-	
+
 	<!-- 회원목록 -->
 	<definition name="WILDCARD:member/*" extends="myapp.user">
 		<put-attribute name="body" value="/WEB-INF/jsp/member/{1}.jsp" /> 
