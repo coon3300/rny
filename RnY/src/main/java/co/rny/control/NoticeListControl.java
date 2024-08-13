@@ -39,9 +39,9 @@ public class NoticeListControl implements Control {
 		req.setAttribute("noticeList", list);
 		int totalCnt = nvc.totalCnt();
 
-//		PageDTO paging = new PageDTO(Integer.parseInt(page), totalCnt);
-//		System.out.println(paging);
-//		req.setAttribute("page", paging);
+		PageDTO paging = new PageDTO(Integer.parseInt(page), totalCnt, 3);
+		System.out.println(paging);
+		req.setAttribute("page", paging);
 
 		req.getRequestDispatcher("notice/noticeList.tiles")//
 				.forward(req, resp); // 페이지 재지정.
