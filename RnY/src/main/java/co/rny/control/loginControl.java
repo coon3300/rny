@@ -38,6 +38,7 @@ public class loginControl implements Control {
 		MemberVO mem = svc.loginCheck(id, pw);
 
 		HttpSession session = req.getSession();
+		
 
 		// ***예림***
 		String nick = svc.userNick(id);
