@@ -36,33 +36,62 @@
         ]]>						
 	</select>
 	
-	<select id="selectListRelated" >
-        select 
-        		a.prd_code prd_code
-				,a.prd_name prd_name
-				,a.prd_desc prd_desc
-				,a.origin_price origin_price
-				,a.sale_price sale_price
-				,a.star_point star_point
-				,a.prod_image prod_image
-				,a.creation_date creation_date
-        from
-        (
-		select 	 prd_code
-				,prd_name
-				,prd_desc
-				,origin_price
-				,sale_price
-				,star_point
-				,prod_image
-				,creation_date
-				
-		from	product_tbl
-		order by prd_code
-        )a
-    <![CDATA[
-    where rownum <= 4					
-    ]]>        
+	<select id="selectListSearched" parameterType="co.rny.common.SearchVO" >
+				select 	*
+				from		tbl_item
+				where 	item_name like '%${keyword}%'		
+				and			is_disabled = 0
+			    
 	</select>	
+	
+	<!-- 
+	<select id="selectListSearched" parameterType="String">
+				select 	*
+				from		tbl_item
+				where 	item_name like '%${keyword}%'		
+				and			is_disabled = 0
+        <![CDATA[
+        and 		rownum <= 8					
+        ]]>				    
+	</select>	
+	 -->
+	
+	<select id="selectListRelated" >
+
+	</select>	
+
+
+	<sql id="selectCondition">
+		where
+		<choose>
+			<when test="searchCondition == 'T'.toString()">
+			item_name like '%' || #{keyword} || '%'
+			</when>
+			<otherwise>
+			1 = 1
+			</otherwise>
+		</choose>	
+	</sql>
+
+	<!-- select id="selectListPaging" parameterType="int"-->
+	<select id="selectListPaging" parameterType="co.rny.common.SearchVO">
+            select b.*
+            from (select rownum rn, a.*
+                      from    (select *
+                               from tbl_item
+                               <include refid="selectCondition"></include>
+                               order by item_no desc) a ) b
+            where b.rn > (#{page} - 1) * 8
+            <![CDATA[
+            and   b.rn <= (#{page} * 8)
+            ]]>
+  </select>
+
+	<!-- 페이징 계산용 전체 건수. -->
+	<select id="selectTotalCount" parameterType="co.rny.common.SearchVO">
+		select count(1)	
+		from tbl_item
+    <include refid="selectCondition"></include>
+  </select>
 	
 </mapper>
