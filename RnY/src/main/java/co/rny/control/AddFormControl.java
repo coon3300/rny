@@ -12,7 +12,7 @@ public class AddFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("member/addmember.tiles") // tiles.xml "/WEB-INF/jsp/{1}.jsp"
+		req.getRequestDispatcher("member/addmember2.tiles") // tiles.xml "/WEB-INF/jsp/{1}.jsp"
 		.forward(req, resp); // 페이지 재지정
 
 	}
