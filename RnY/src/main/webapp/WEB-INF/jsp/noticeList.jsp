@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!-- body 파일. -->
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!-- 바디영역 -->
 <!--blog start -->
 <section id="blog" class="blog">
@@ -24,7 +25,7 @@
 								</h2>
 								<h4>
 									작성자 : <a href="notice.do?noticeNum=${notice.noticeNum}">${notice.userNo }</a><br>
-									작성일자 : <a href="notice.do?noticeNum=${notice.noticeNum}">${notice.noticeDate}</a>
+									작성일자 : <a href="notice.do?noticeNum=${notice.noticeNum}"><fmt:formatDate pattern="yyyy-MM-dd" value="${notice.noticeDate}"/> </a>
 								</h4>
 								<p>${notice.noticeContent}</p>
 							</div>

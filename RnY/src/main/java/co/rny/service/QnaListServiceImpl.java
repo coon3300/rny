@@ -23,4 +23,13 @@ public class QnaListServiceImpl implements QnaListService {
 		return mapper.selectQna(qnaNum);
 	}
 
+	@Override
+	public int qnaCnt() { // 페이징
+		return mapper.qnaCnt();
+	}
+
+	@Override
+	public List<QnaListVO> qnaPaging(int page) {
+		return mapper.qnaPaging(page);
+	}
 }

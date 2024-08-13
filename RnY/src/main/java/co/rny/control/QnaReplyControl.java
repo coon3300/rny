@@ -22,14 +22,15 @@ public class QnaReplyControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
-		String writer = req.getParameter("userNo");
+		String writer = req.getParameter("userId");
 		String content = req.getParameter("content");
 		String qno = req.getParameter("qno");
 
 		QnaReplyVO qvo = new QnaReplyVO();
 		qvo.setQnaNum(Integer.parseInt(qno));
 		qvo.setQreplyContent(content);
-		qvo.setUserNo(writer);
+		qvo.setUserId(writer);
+		qvo.setQreplyDate(new Date());
 
 		QnaReplyService qvc = new QnaReplyServiceImpl();
 		Map<String, Object> map = new HashMap<>();
@@ -42,6 +43,7 @@ public class QnaReplyControl implements Control {
 			}
 
 		} catch (Exception e) {
+			e.printStackTrace(); //예외발생시 오류표기
 			map.put("retCode", "Fail");
 			map.put("retVal", null);
 		}

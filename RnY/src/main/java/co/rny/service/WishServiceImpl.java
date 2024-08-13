@@ -7,8 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 
 import co.rny.common.DataSource;
 import co.rny.mapper.WishMapper;
-import co.rny.vo.OrderVO;
-import co.rny.vo.WishListVO;
 import co.rny.vo.WishVO;
 
 public class WishServiceImpl implements WishService {
@@ -21,6 +19,14 @@ public class WishServiceImpl implements WishService {
 	@Override
 	public List<WishVO> wishheart(String id) {
 		return mapper.wishheart(id);
+	}
+	@Override
+	public WishVO getWish(int wishNo) {
+		return mapper.selectWish(wishNo);
+	}
+	@Override
+	public boolean removeWish(int WishNo) {
+		return mapper.deleteWish(WishNo) == 1;
 	}
 	
 }

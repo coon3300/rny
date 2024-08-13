@@ -45,6 +45,13 @@ public class loginControl implements Control {
 //		}
 //		session.removeAttribute("msg");
 
+		if (mem == null) {
+			req.setAttribute("msg", "아이디와 비번 확인하세요");
+			req.getRequestDispatcher("member/loginForm.tiles") 
+			.forward(req, resp);
+			return;
+		}
+		
 		// ***예림***
 		String nick = svc.userNick(id);
 		WishService wsv = new WishServiceImpl();
@@ -54,7 +61,7 @@ public class loginControl implements Control {
 		CartService csv = new CartServiceImpl();
 		List<CartVO> cartIn = csv.cartList(id);
 		// ***예림***
-
+		
 		// 세션객체(attribute)
 		session.setAttribute("logid", id);
 		session.setMaxInactiveInterval(30 * 60);
@@ -63,7 +70,11 @@ public class loginControl implements Control {
 		session.setAttribute("logWish", wishlist);
 		session.setAttribute("logOrder", ordering);
 		session.setAttribute("logCart", cartIn);
-		// session.setAttribute("order", orderlist);
+		//session.setAttribute("order", orderlist);
+    //session.setAttribute("logWish", wishlist);
+		//session.setAttribute("logOrder", ordering);
+		//session.setAttribute("logCart", cartIn);
+		//session.setAttribute("order", orderlist);
 		// !
 		Gson gson = new GsonBuilder().create();
 		// gson.toJson(null)
