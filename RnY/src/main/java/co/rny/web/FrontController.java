@@ -69,12 +69,14 @@ public class FrontController extends HttpServlet {
 		map.put("/addform.do", new AddFormControl());
 		// 회원가입
 		map.put("/addMember.do", new AddMemberControl());
-		// 회원가입(ID중복체크)
+		// 회원가입(중복체크)
 		map.put("/idCheck.do", new IdCheckControl());
 		map.put("/emailCheck.do", new EmailCheckControl());
 		// 로그인
 		map.put("/login.do", new loginControl());
-
+		// 로그아웃
+		map.put("/logout.do", new logOutControl());
+		
 		// 마이페이지
 		map.put("/mypage.do", new MyPageControl());
 		// 회원정보수정
@@ -105,9 +107,7 @@ public class FrontController extends HttpServlet {
 		map.put("/qnaReply.do", new QnaReplyControl());
 		// QnA 댓글목록
 		map.put("/qnaReplyList.do", new QnaReplyListControl());
-
 	}
-
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) //
@@ -115,10 +115,8 @@ public class FrontController extends HttpServlet {
 		String uri = req.getRequestURI();
 		String context = req.getContextPath();
 		String path = uri.substring(context.length());
-
 		Control sub = map.get(path);
 		sub.exec(req, resp);
-
 	}
 }
 
