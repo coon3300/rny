@@ -13,9 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import co.rny.common.Control;
 import co.rny.control.AddFormControl;
 import co.rny.control.AddMemberControl;
+import co.rny.control.AddressControl;
+import co.rny.control.AdminPageControl;
 import co.rny.control.CartControl;
 import co.rny.control.ContactControl;
 import co.rny.control.DeleteCartControl;
+import co.rny.control.DeleteReplyControl;
 import co.rny.control.DeleteWish;
 import co.rny.control.EmailCheckControl;
 import co.rny.control.IdCheckControl;
@@ -23,6 +26,7 @@ import co.rny.control.ItemInfoControl;
 import co.rny.control.ItemListControl;
 import co.rny.control.ItemListJsonControl;
 import co.rny.control.MemberListControl;
+import co.rny.control.MyAddressControl;
 import co.rny.control.MyPageControl;
 import co.rny.control.NoticeControl;
 import co.rny.control.NoticeListControl;
@@ -60,6 +64,8 @@ public class FrontController extends HttpServlet {
 		// 메인 -> Contact Us
 		map.put("/contact.do", new ContactControl());
 
+		// 관리자 메인
+		map.put("/adminpage.do", new AdminPageControl());
 		// (관리자)회원목록 출력
 		map.put("/memberList.do", new MemberListControl());
 		// (관리자)회원상세목록
@@ -81,6 +87,10 @@ public class FrontController extends HttpServlet {
 		map.put("/mypage.do", new MyPageControl());
 		// 회원정보수정
 		map.put("/updateuser.do", new UpdateUserControl());
+		// 주소록등록
+		map.put("/address.do", new AddressControl());
+		// 주소록
+		map.put("/myaddress.do", new MyAddressControl());
 
 		// 주문
 		map.put("/order.do", new OrderControl());
@@ -107,6 +117,8 @@ public class FrontController extends HttpServlet {
 		map.put("/qnaReply.do", new QnaReplyControl());
 		// QnA 댓글목록
 		map.put("/qnaReplyList.do", new QnaReplyListControl());
+		// QnA 댓글삭제
+		map.put("/deleteReply.do", new DeleteReplyControl());
 	}
 
 	@Override

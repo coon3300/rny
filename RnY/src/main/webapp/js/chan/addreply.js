@@ -49,7 +49,7 @@ function showPage() {
 // reply => row 생성
 function makeRow(reply = {}) { // reply = {} 객체타입 표시
 	let cloned = document.querySelector('#replyList>li').cloneNode(true);
-	cloned.setAttribute('data-rno', reply.qreplynum)
+	cloned.setAttribute('data-rno', reply.qreplyNum)
 	cloned.style.display = 'block'; // <li style={}></li>
 	cloned.querySelector('span:nth-of-type(1)').innerText = reply.qreplyNum;
 	cloned.querySelector('span:nth-of-type(2)').innerText = reply.userId;
@@ -59,14 +59,17 @@ function makeRow(reply = {}) { // reply = {} 객체타입 표시
 	return cloned;
 }
 
+
 // 댓글 삭제 이벤트 핸들러
 function RemoveReplyFnc(e) {
-	let qno = e.target.parentElement.parentElement.dataset.rno;
-	svc.delReply(qno, function(e) {
+
+	let rno = e.target.closest('li').dataset.rno;
+	console.log(rno);
+	svc.delReply(rno, function(e) {
 		let result = JSON.parse(this.responseText);
 		if (result.retCode == 'Success') {
 			alert('삭제 성공')
-			//document.querySelector('li[data-rno="' + rno + '"]').remove();
+			document.querySelector('li[data-rno="' + rno + '"]').remove();
 			showPage();
 		} else {
 			alert('삭제 실패')

@@ -1,6 +1,7 @@
 package co.rny.control;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -28,6 +29,17 @@ public class WishControl implements Control {
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("logid");
 //		String wno = req.getParameter("wishNo");
+
+		// resp.sendRedirect("main.do");
+		resp.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+		if (id == null) {
+			out.println("<script language='javascript'>");
+			out.println("alert('위시리스트는 로그인 후 사용가능합니다!')");
+			out.println("location.href='main.do';");
+			out.println("</script>");
+			return;
+		}
 
 		// 세션객체(attribute)
 		WishService wsv = new WishServiceImpl();

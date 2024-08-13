@@ -39,6 +39,7 @@ public class loginControl implements Control {
 
 		HttpSession session = req.getSession();
 		
+
 		// ***예림***
 		String nick = svc.userNick(id);
 		WishService wsv = new WishServiceImpl();
@@ -58,7 +59,7 @@ public class loginControl implements Control {
 		session.setAttribute("logOrder", ordering);
 		session.setAttribute("logCart", cartIn);
 		//session.setAttribute("order", orderlist);
-    //session.setAttribute("logWish", wishlist);
+        //session.setAttribute("logWish", wishlist);
 		//session.setAttribute("logOrder", ordering);
 		//session.setAttribute("logCart", cartIn);
 		//session.setAttribute("order", orderlist);
@@ -78,14 +79,7 @@ public class loginControl implements Control {
 			map.put("retVal", "admin");
 		}
 		resp.getWriter().print(gson.toJson(map));
-//
-//		if (mem.getResponsibility().equals("user")) {
-//			resp.sendRedirect("main.do");
-//		} else if (mem.getResponsibility().equals("admin")) {
-//			resp.sendRedirect("memberList.do");
-//		} else {
-//			System.out.println("권한을 지정하세요");
-//		}
+
 
 	}
 

@@ -22,4 +22,10 @@
 		order by qreply_num
 	</select>
 	
+	<delete id="deleteReply" parameterType="int">
+		delete from tbl_qnareply
+		where qreply_num = #{qreplyNum}
+	</delete>
+	
+	
 </mapper>

@@ -173,7 +173,7 @@
 				</h4>
 
 				<ul class="list-group mb-3">
-					<c:forEach var="od" items="${logOrder}" varStatus="status">
+					<c:forEach var="od" items="${logCart}" varStatus="status">
 						<li class="list-group-item d-flex justify-content-between lh-sm">
 							<div>
 								<h6 class="my-0">${od.itemName}</h6>
@@ -581,6 +581,7 @@
 										</a></li>
 									</c:otherwise>
 								</c:choose>
+								
 								<!--  -->
 								<li><a class="nav-link mx-3" href="wish.do"> <iconify-icon
 											icon="mdi:heart" class="fs-4"></iconify-icon>
@@ -667,7 +668,7 @@
 		</div>
 	</div>
 	<script>
-document.querySelector('#joinBtn').onclick = function(e) {
+    document.querySelector('#joinBtn').onclick = function(e) {
     let id = document.querySelector('#floatingInput').value;
     let pw = document.querySelector('#floatingPassword').value;
     
