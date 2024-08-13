@@ -1,6 +1,7 @@
 package co.rny.control;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -15,36 +16,43 @@ import co.rny.service.MemberService;
 import co.rny.service.MemberServiceImpl;
 import co.rny.service.OrderService;
 import co.rny.service.OrderServiceImpl;
-import co.rny.service.WishService;
-import co.rny.service.WishServiceImpl;
 import co.rny.vo.CartVO;
-import co.rny.vo.ItemVO;
-import co.rny.vo.MemberVO;
-import co.rny.vo.OrderVO;
-import co.rny.vo.WishListVO;
 
 public class OrderControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-				
+
 		// parameter
-		MemberService svc = new MemberServiceImpl();
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("logid");
 		
+		resp.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+
+		//resp.sendRedirect("main.do");
+		if (id == null) {
+			out.println("<script language='javascript'>");
+			out.println("alert('주문은 로그인 후 사용가능합니다!')");
+			out.println("location.href='main.do';");
+			out.println("</script>");
+			return;
+		}
+
+		MemberService svc = new MemberServiceImpl();
 		// 세션객체(attribute)
 		OrderService ovc = new OrderServiceImpl();
-		//List<OrderVO> list = ovc.listOrder(id);
+		// List<OrderVO> list = ovc.listOrder(id);
 		CartService csv = new CartServiceImpl();
 		List<CartVO> cartlist = csv.cartList(id);
-		
-		//req.setAttribute("orderList", list);
+
+		// req.setAttribute("orderList", list);
 		req.setAttribute("logCart", cartlist);
-		//req.setAttribute("logOrder", list);
+		// req.setAttribute("logOrder", list);
+		// req.getRequestDispatcher("RnY/order.tiles").forward(req, resp);
+
 		req.getRequestDispatcher("RnY/order.tiles").forward(req, resp);
+
 	}
-	
 
 }

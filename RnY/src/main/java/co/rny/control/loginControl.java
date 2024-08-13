@@ -38,19 +38,8 @@ public class loginControl implements Control {
 		MemberVO mem = svc.loginCheck(id, pw);
 
 		HttpSession session = req.getSession();
-//		if (mem == null) {
-//			// session.setAttribute("msg", "아이디와 비번 확인하세요");
-//			resp.sendRedirect("main.do");
-//			return;
-//		}
-//		session.removeAttribute("msg");
 
-		if (mem == null) {
-			req.setAttribute("msg", "아이디와 비번 확인하세요");
-			req.getRequestDispatcher("member/loginForm.tiles") 
-			.forward(req, resp);
-			return;
-		}
+
 		
 		// ***예림***
 		String nick = svc.userNick(id);

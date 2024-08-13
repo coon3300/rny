@@ -23,10 +23,8 @@
 
 
 		<!-- Bootstrap CSS -->
-		<link href="css/yerim/cart/bootstrap.min.css" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-		<link href="css/yerim/cart/tiny-slider.css" rel="stylesheet">
-		<link href="css/yerim/cart/style.css" rel="stylesheet">
+		
+		<link href="css/yerim/cart/cart.css" rel="stylesheet">
 		<title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
 	</head>
 
