@@ -15,6 +15,7 @@ public interface MemberService {
 	
 	MemberVO loginCheck(String id, String pw); // 로그인
 	String userNick(String id); // 닉네임
+	String userName(String id); // 이름
 	
 	int totalCount(SearchVO search); // 페이징 계산용 건수
 	MemberVO memberpage(int userNo);

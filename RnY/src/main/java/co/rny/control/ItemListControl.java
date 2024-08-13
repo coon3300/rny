@@ -23,6 +23,7 @@ public class ItemListControl implements Control  {
 		
 		int lineNo = Integer.parseInt(req.getParameter("lineNo"));
 		
+		
 		List<ItemVO> list = svc.itemList(lineNo);
 		req.setAttribute("itemList", list);
 		

@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.rny.common.Control;
 
-public class PayControl implements Control {
+public class OrderCheckControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		req.getRequestDispatcher("RnY/pay.tiles").forward(req, resp);
+		
+		req.getRequestDispatcher("RnY/ordercheck.tiles").forward(req, resp);
 	}
 
 }

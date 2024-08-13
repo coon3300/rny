@@ -1,114 +1,162 @@
+/* General styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: white;
     margin: 0;
     padding: 0;
 }
 
+/* Container and section styles */
+.untree_co-section {
+    padding: 40px 0;
+}
+
 .container {
-    width: 80%;
+    width: 90%;
     margin: auto;
-    padding: 20px;
-    background: #fff;
+}
+
+/* Cart table styles */
+.site-blocks-table {
+    width: 100%;
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-.header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.header h1 {
-    margin: 0;
-    font-size: 2rem;
-    color: #333;
-}
-
-.cart-table table {
+.table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.cart-table th,
-.cart-table td {
-    padding: 10px;
+.table th, .table td {
+    padding: 15px;
     text-align: center;
+    vertical-align: middle; /* Ensure vertical alignment */
     border-bottom: 1px solid #ddd;
 }
 
-.cart-table th {
-    background-color: #f1f1f1;
-}
-
-.product-img img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
-.product-name {
+.table th {
+    background-color: #f8f9fa;
     font-weight: bold;
+    color: #333;
 }
 
-.quantity {
+.table td {
+    color: #555;
+}
+
+.product-thumbnail img {
+    width: 80px; /* Adjusted size */
+    height: 80px; /* Adjusted size */
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.product-name h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0;
+}
+
+.btn-outline-black {
+    border: 1px solid #333;
+    color: #333;
+}
+
+.btn-outline-black:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-black {
+    background-color: #333;
+    color: white;
+    border: none;
+}
+
+.btn-black:hover {
+    background-color: tomato;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+/* Quantity input styles */
+.quantity-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 5px; /* Added gap for spacing between buttons */
 }
 
-.btn {
-    background-color: #f1f1f1;
-    border: none;
-    padding: 5px 10px;
-    margin: 0 5px;
-    cursor: pointer;
+.input-group .btn {
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 1.2rem; /* Ensure button text size is appropriate */
 }
 
-.btn.minus {
-    background-color: #e74c3c;
-    color: #fff;
+.quantity-amount {
+    width: 60px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
 }
 
-.btn.plus {
-    background-color: #2ecc71;
-    color: #fff;
+/* Summary section styles */
+.col-md-6 {
+    margin-bottom: 20px;
 }
 
-.btn.remove-btn {
-    background-color: #e74c3c;
-    color: #fff;
+.text-right {
+    text-align: right;
 }
 
-.summary {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #f1f1f1;
-    border-radius: 8px;
+.border-bottom {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.summary-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+.btn-lg {
+    font-size: 1.2rem;
+    padding: 10px 20px;
 }
 
-.summary-item.total {
-    font-weight: bold;
-}
-
-.checkout-btn {
+.btn-block {
     display: block;
     width: 100%;
-    padding: 10px;
-    background-color: yellow;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
 }
 
-.checkout-btn:hover {
-    background-color: #2980b9;
+h2 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+input[type="text"] {
+    border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .col-md-6 {
+        margin-bottom: 20px;
+    }
+}
+#footer-bottom{
+	display: none;
+}
+.form-control text-center quantity-amount{
+	text-align:center;
 }

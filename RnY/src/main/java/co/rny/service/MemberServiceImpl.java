@@ -66,5 +66,9 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberVO> memberList(SearchVO search) {
 		return mapper.selectListPaging(search);
 	}
+	@Override
+	public String userName(String id) {
+		return mapper.username(id);
+	}
 	
 }

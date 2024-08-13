@@ -1,188 +1,178 @@
-/* Reset CSS */
-* {
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f9;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    color: #333;
 }
 
-body {
-    font-family: 'Noto Sans', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-    line-height: 1.6;
+/* Container Styles */
+.untree_co-section {
+    padding: 40px 0;
 }
 
 .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 
-.untree_co-section {
-    padding: 60px 0;
+/* Header Styles */
+h1 {
+    font-size: 2rem;
+    color: #444;
+    margin-bottom: 20px;
 }
 
+/* Button Styles */
+.btn-black {
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #333;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    text-align: center;
+    float: center;
+}
+
+.btn-black:hover {
+    background-color: #444;
+    border-color: #444;
+}
+
+.btn-black:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+
+/* Centering Button */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Form Styles */
+.bg-white {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.border {
+    border: 1px solid #ddd;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+
+input[type="text"] {
+    background-color: #f9f9f9;
+}
+
+/* Table Styles */
 .table {
     width: 100%;
-    margin-bottom: 20px;
     border-collapse: collapse;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #fff;
-}
-
-.table thead {
-    background-color: #007bff;
-    color: #fff;
+    margin-bottom: 20px;
 }
 
 .table th, .table td {
     padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #dee2e6;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
 }
 
 .table th {
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 14px;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
 }
 
 .table td {
-    vertical-align: middle;
-}
-
-.table .product-thumbnail img {
-    width: 100px;
-    border-radius: 8px;
-}
-
-.table .product-name h2 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 0;
-}
-
-.table .btn-black {
-    background-color: #343a40;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 14px;
-    text-align: center;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s ease;
-}
-
-.table .btn-black:hover {
-    background-color: #495057;
-}
-
-.quantity-container {
-    max-width: 120px;
-}
-
-.quantity-container .btn-outline-black {
-    border-color: #343a40;
-    color: #343a40;
     background-color: #fff;
-    padding: 5px 10px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    color: #555;
 }
 
-.quantity-container .btn-outline-black:hover {
-    background-color: #343a40;
-    color: #fff;
+.table .text-black {
+    color: #333;
+    font-weight: bold;
 }
 
-.quantity-container .form-control {
-    text-align: center;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    width: 60px;
-}
-
+/* Coupon Section */
 .couponcode-wrap {
     display: flex;
     align-items: center;
 }
 
 .couponcode-wrap input {
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    padding: 10px;
-    width: 100%;
+    flex: 1;
     margin-right: 10px;
 }
 
-.couponcode-wrap .btn-black {
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-size: 16px;
+.input-group-append .btn-black {
+    background-color: #007bff;
+    color: #fff;
+    border: 2px solid #007bff;
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
+.input-group-append .btn-black:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
 }
 
-.row .col-md-12, .row .col-md-6, .row .col-md-7, .row .col-md-8 {
-    padding: 15px;
+/* Order Details Section */
+.site-block-order-table thead th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
 }
 
-.text-right {
-    text-align: right;
+.site-block-order-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
 
-.border-bottom {
-    border-bottom: 1px solid #dee2e6;
+.site-block-order-table tbody tr:hover {
+    background-color: #f1f1f1;
 }
 
-.text-uppercase {
-    text-transform: uppercase;
-}
-
-h2, h3 {
-    color: #343a40;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-h4 {
-    color: #495057;
-}
-
-.btn-lg {
-    padding: 15px 30px;
-    font-size: 18px;
-    border-radius: 6px;
-}
-
-.btn-block {
-    width: 100%;
-    text-align: center;
-}
-
-.text-black {
-    color: #333;
-}
-
-a {
-    text-decoration: none;
+h2.h3 {
     color: #007bff;
-    transition: color 0.3s ease;
 }
 
-a:hover {
-    color: #0056b3;
+/* Button Styles */
+.btn-lg {
+    padding: 15px 25px;
+    font-size: 1.2rem;
 }
 
-input::placeholder, textarea::placeholder {
-    color: #868e96;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
 }
 header,footer{
 	display:none;

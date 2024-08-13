@@ -44,7 +44,7 @@
                           <th class="product-price">가격</th>
                           <th class="product-quantity">상품개수</th>
                           <th class="product-total">합계</th>
-                          <th class="product-remove">X</th>
+                          <th class="product-remove"></th>
                         </tr>
                       </thead>
                       <tbody>
@@ -114,7 +114,7 @@
                       <div class="row">
                         <div class="col-md-12">
                         <a href="order.do">
-                          <button class="btn btn-black btn-lg py-3 btn-block" style="width: 300px; height: 70px;">주문하기</button></a>
+                          <button class="btn btn-black" style="width:300px; height:70px;" ><h1>주문하기</h1></button></a>
                         </div>
                       </div>
                     </div>

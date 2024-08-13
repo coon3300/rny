@@ -2,8 +2,6 @@ package co.rny.service;
 
 import java.util.List;
 
-import co.rny.vo.OrderVO;
-import co.rny.vo.WishListVO;
 import co.rny.vo.WishVO;
 
 public interface WishService {
@@ -11,4 +9,5 @@ public interface WishService {
 	public List<WishVO> wishheart(String id);
 	WishVO getWish(int wishNo);
 	boolean removeWish(int WishNo);
+	boolean addWish(String userNo, int itemNo);
 }

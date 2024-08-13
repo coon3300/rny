@@ -33,5 +33,10 @@
 		delete from tbl_wish
 		where wish_no = #{wishNo}
 	</delete>
+	
+	<insert id="plusWish" parameterType="int">
+	insert into tbl_wish(wish_no, user_no, item_no)
+	values(seq_wish.nextval, #{userNo}, #{itemNo} )
+	</insert>
 
 </mapper>
