@@ -42,7 +42,7 @@ public class MemberListControl implements Control {
 		req.setAttribute("searchCondition", sc);
 		req.setAttribute("keyword", kw);
 
-		req.getRequestDispatcher("member/memberList.tiles") // tiles.xml "/WEB-INF/jsp/{1}.jsp"
+		req.getRequestDispatcher("admin/memberList.tiles") // tiles.xml "/WEB-INF/jsp/{1}.jsp"
 				.forward(req, resp); // 페이지 재지정
 
 	}

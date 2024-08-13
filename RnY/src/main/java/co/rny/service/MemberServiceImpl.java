@@ -8,6 +8,7 @@ import co.rny.common.DataSource;
 import co.rny.common.SearchVO;
 import co.rny.mapper.MemberMapper;
 import co.rny.service.MemberService;
+import co.rny.vo.AddressVO;
 import co.rny.vo.MemberVO;
 import co.rny.vo.WishVO;
 
@@ -23,7 +24,6 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public boolean addMember(MemberVO mvo) {
-//		System.out.println("userBirth in Service: " + mvo.getUserBirth());
 		return mapper.insertMember(mvo) == 1;
 	}
 
@@ -70,5 +70,27 @@ public class MemberServiceImpl implements MemberService {
 	public String userName(String id) {
 		return mapper.username(id);
 	}
+
+	@Override
+	public boolean address(AddressVO avo) {
+		return mapper.insertAddress(avo) == 1;
+	}
+
+	@Override
+	public String userCheck(String id) {
+		return mapper.userCheck(id);
+	}
+
+	@Override
+	public List<AddressVO> myaddressList(AddressVO avo) {
+		return mapper.selectAddress(avo);
+	}
+
+	@Override
+	public boolean modifymember(MemberVO mvo) {
+		return mapper.updateList(mvo)==1;
+	}
+	
 	
 }
+

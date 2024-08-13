@@ -28,6 +28,24 @@
     ORDER BY user_no
 	</select>
 	
+	<update id="updateList" >
+		UPDATE rny_member
+		SET user_pw = #{userPw},
+    user_nick = #{userNick},
+    user_birth = #{userBirth},
+    user_phone = #{userPhone},
+    user_email = #{userEmail}
+		WHERE user_no = #{userNo}
+	</update>
+	
+	<!-- 주소록목록조회 -->
+	<select id="selectAddress" resultType="co.rny.vo.AddressVO">
+		SELECT *
+    FROM  rny_address
+    where user_no = #{userNo}
+	</select>
+	
+	
 		<select id="selectListPaging" resultType="co.rny.vo.MemberVO" parameterType="int">
 		select b.*
     from (select rownum rn, a.*
@@ -60,6 +78,13 @@
 		from rny_member
 		where user_id = #{id}
 	</select>
+    
+	<select id="userCheck" resultType="String">
+		select user_no
+		from rny_member
+		where user_id = #{id}
+	</select>
+	
 
 	<!-- 로그인 -->
 
@@ -78,6 +103,13 @@
 		values('A' || seq_member.nextval,
 		#{userId}, #{userPw}, #{userName}, #{userNick}, #{userBirth},
 		#{userEmail}, #{userPhone}, #{userAdd})
+	</insert>
+	
+	<!-- 주소록등록 -->
+	<insert id="insertAddress" parameterType="co.rny.vo.AddressVO">
+		insert into rny_address
+		(user_no, add_name, recipient, add_phone, new_address)
+		values(#{userNo}, #{addName}, #{recipient}, #{addPhone}, #{newAddress})
 	</insert>
 
 	<!-- 회원가입(ID중복체크) -->
