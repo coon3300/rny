@@ -26,9 +26,9 @@ ADD CONSTRAINT fk_tbl_line_line_parent_no FOREIGN KEY (line_parent_no) REFERENCE
 CREATE TABLE tbl_item (
     item_no NUMBER,
     line_no NUMBER,
-    item_code VARCHAR2(100) DEFAULT '0' NOT NULL,
+    item_code VARCHAR2(100) DEFAULT '0',
     item_name VARCHAR2(100) NOT NULL,
-    item_desc VARCHAR2(500) NOT NULL,
+    item_desc VARCHAR2(500),
     item_price NUMBER(10) NOT NULL,
     item_image VARCHAR2(200),
     item_pet_size VARCHAR2(20),

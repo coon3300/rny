@@ -15,11 +15,10 @@ import co.rny.service.ItemService;
 import co.rny.service.ItemServiceImpl;
 import co.rny.vo.ItemVO;
 
-public class ItemListSearchControl implements Control {
+public class ItemManageControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		String page = req.getParameter("page");
 		page = page == null ? "1" : page;
 		
@@ -27,6 +26,7 @@ public class ItemListSearchControl implements Control {
 //		String sc = req.getParameter("searchCondition");
 		String sc = "T";
 		String kw = req.getParameter("keyword");
+		kw = kw == null ? "" : kw;
 
 		SearchVO search = new SearchVO();
 		search.setKeyword(kw);
@@ -51,8 +51,7 @@ public class ItemListSearchControl implements Control {
 		req.setAttribute("keyword", kw);
 		req.setAttribute("searchCondition", sc);		
 		
-    	req.getRequestDispatcher("RnY/itemList.tiles").forward(req, resp);
-
+    	req.getRequestDispatcher("RnY/itemManage.tiles").forward(req, resp);
 	}
 
 }
