@@ -19,9 +19,9 @@ const svc = {
 		xhtp.onload = loadCallback
 	}, //addReply 끝
 	//삭제
-	delReply(qno = 1, loadCallback) {
+	delReply(rno = 1, loadCallback) {
 		const xhtp = new XMLHttpRequest();
-		xhtp.open('get', 'deleteReply.do?dno=' + qno);
+		xhtp.open('get', 'deleteReply.do?rvo=' + rno);
 		xhtp.send();
 		xhtp.onload = loadCallback
 },

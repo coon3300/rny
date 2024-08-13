@@ -23,4 +23,8 @@ public class QnaReplyServiceImpl implements QnaReplyService {
 		return mapper.qreplyList(qre); // 댓글 목록
 	}
 
+	@Override
+	public boolean deleteReply(int qreplyNum) {
+		return mapper.deleteReply(qreplyNum) == 1; // 댓글 삭제
+	}
 }

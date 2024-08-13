@@ -36,7 +36,7 @@
 												<ul class="post__widget">
 													<li style="list-style-type: none">작성자 <span>${qna.userNo}</span></li>
 													<li style="list-style-type: none">작성일자 <span><fmt:formatDate pattern="yyyy-MM-dd" value="${qna.qnaDate}"/></span></li>
-													<li style="list-style-type: none">답변일자 <span><fmt:formatDate pattern="yyyy-MM-dd" value="${qna.qnaAnswerDate}"/></span></li>
+													<!--  <li style="list-style-type: none">답변일자 <span><fmt:formatDate pattern="yyyy-MM-dd" value="${qna.qnaAnswerDate}"/></span></li-->
 												</ul>
 												<p>${qna.qnaContent}</p>
 											</div>

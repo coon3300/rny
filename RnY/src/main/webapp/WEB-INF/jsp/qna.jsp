@@ -36,7 +36,7 @@
 		<!-- 목록. -->
 		<div class="content justify-content-center">
 			<ul id="replyList">
-				<li style="display: none;">
+				<li style="display: none;" >
 					<span class="col-sm-11">${qvc.qreplyNum}</span>
 					<span class="col-sm-5">${qvc.qreplyContent}</span>
 					<span class="col-sm-11">${qvc.userId}</span>
