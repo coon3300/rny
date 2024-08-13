@@ -22,7 +22,7 @@ public class QnaListControl implements Control {
 		QnaListService qvc = new QnaListServiceImpl();
 		int qnaCnt = qvc.qnaCnt();
 		
-		PageDTO paging = new PageDTO(Integer.parseInt(page), qnaCnt);
+		PageDTO paging = new PageDTO(Integer.parseInt(page), qnaCnt, 3);
 		List<QnaListVO> list = qvc.qnaPaging(Integer.parseInt(page));
 		req.setAttribute("qnaPaging", list); // QnA페이징
 		
