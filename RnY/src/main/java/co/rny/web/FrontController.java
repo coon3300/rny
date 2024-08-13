@@ -28,6 +28,7 @@ import co.rny.control.ItemInfoControl;
 import co.rny.control.ItemListControl;
 import co.rny.control.ItemListJsonControl;
 import co.rny.control.ItemListSearchControl;
+import co.rny.control.ItemManageControl;
 import co.rny.control.MemberListControl;
 import co.rny.control.MyAddressControl;
 import co.rny.control.MyPageControl;
@@ -72,6 +73,8 @@ public class FrontController extends HttpServlet {
 		map.put("/contact.do", new ContactControl());
 		// 아이템 검색
 		map.put("/itemListSearch.do", new ItemListSearchControl());
+		// 아이템 관리
+		map.put("/itemManage.do", new ItemManageControl());
 
 		// 관리자 메인
 		map.put("/adminpage.do", new AdminPageControl());
