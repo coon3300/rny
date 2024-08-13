@@ -30,15 +30,15 @@ qreply_date date DEFAULT sysdate -- 업로드 날짜
 
 create table tbl_review ( --리뷰테이블
 user_no VARCHAR2(20) PRIMARY KEY, --회원 고유번호
+user_id VARCHAR2(20) not null, -- 회원 아이디
 review_num number(38) not null, -- 리뷰 번호
 review_title VARCHAR2(300) not null, -- 리뷰제목
 review_content VARCHAR2(3000) not null,-- 리뷰 내용
 review_image VARCHAR2(300),-- 사진
 review_date date DEFAULT sysdate, -- 업로드날짜
-review_comment VARCHAR2(800) not null -- 리뷰 댓글
-
-
+review_like number(38) -- 좋아요
 );
+
 
 commit;
 
@@ -65,6 +65,36 @@ values ('admin06',06,'공지사항 테스트','공지사항 테스트내용','no
 
 insert into tbl_notice (user_no, notice_num, notice_title, notice_content, notice_image,notice_date)
 values ('admin07',07,'공지사항 테스트','공지사항 테스트내용','notice005.jpg',sysdate);
+
+create sequence review_num_seq;
+select review_num_seq.nextval from dual;
+create sequence review_like_seq;
+select review_like_seq.nextval from dual;
+
+insert into tbl_review (user_id, review_num, review_title, review_content, review_image, review_date,review_like)
+values ('admin01',01,'리뷰 테스트1','리뷰 테스트내용1','review001.jpg',sysdate,02);
+
+insert into tbl_review (user_id, review_num, review_title, review_content, review_image, review_date,review_like)
+values ('admin01',02,'리뷰 테스트2','리뷰 테스트내용2','review001.jpg',sysdate,02);
+
+insert into tbl_review (user_id, review_num, review_title, review_content, review_image, review_date,review_like)
+values ('admin01',03,'리뷰 테스트3','리뷰 테스트내용3','review001.jpg',sysdate,02);
+
+insert into tbl_review (user_id, review_num, review_title, review_content, review_image, review_date,review_like)
+values ('admin01',04,'리뷰 테스트4','리뷰 테스트내용4','review001.jpg',sysdate,02);
+
+insert into tbl_review (user_id, review_num, review_title, review_content, review_image, review_date,review_like)
+values ('admin01',05,'리뷰 테스트5','리뷰 테스트내용5','review001.jpg',sysdate,02);
+
+insert into tbl_review (user_id, review_num, review_title, review_content, review_image, review_date,review_like)
+values ('admin01',06,'리뷰 테스트6','리뷰 테스트내용6','review001.jpg',sysdate,02);
+
+insert into tbl_review (user_id, review_num, review_title, review_content, review_image, review_date,review_like)
+values ('admin01',07,'리뷰 테스트7','리뷰 테스트내용7','review001.jpg',sysdate,02);
+
+insert into tbl_review (user_id, review_num, review_title, review_content, review_image, review_date,review_like)
+values ('admin01',08,'리뷰 테스트8','리뷰 테스트내용8','review001.jpg',sysdate,02);
+
 
 
 

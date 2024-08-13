@@ -52,36 +52,36 @@
 	</div>
 </section>
 <nav aria-label="Page navigation example">
-	<ul class="pagination justify-content-center">
-		<!-- PREV 페이지 존재 -->
-		<c:if test="${page.prev}">
-			<li class="page-item"><a class="page-link"
-				href="qnaList.do?page=${page.page-1}>" aria-label="Previous"> <span
-					aria-hidden="true">&laquo;</span>
-			</a></li>
-		</c:if>
+		<ul class="pagination justify-content-center">
+			<!-- PREV 페이지 존재 -->
+			<c:if test="${page.prev}">
+				<li class="page-item"><a class="page-link"
+					href="qnaList.do?page=${page.page-1}>" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+				</a></li>
+			</c:if>
 
-		<!-- 페이지 갯수만큼 링크생성 -->
-		<c:forEach var="p" begin="${page.startPage }" end="${page.endPage }">
-			<c:choose>
-				<c:when test="${page.page == p }">
-					<li class="page-item active" aria-current="page"><span
-						class="page-link">${p }</span></li>
-				</c:when>
-				<c:otherwise>
-					<li class="page-item"><a class="page-link"
-						href="qnaList.do?page=${p}">${p}</a></li>
-				</c:otherwise>
-			</c:choose>
-		</c:forEach>
+			<!-- 페이지 갯수만큼 링크생성 -->
+			<c:forEach var="p" begin="${page.startPage }" end="${page.endPage }">
+				<c:choose>
+					<c:when test="${page.page == p }">
+						<li class="page-item active" aria-current="page">
+						<span class="page-link">${p }</span></li>
+					</c:when>
+					<c:otherwise>
+						<li class="page-item"><a class="page-link"
+							href="qnaList.do?page=${p}">${p}</a></li>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
 
-		<!-- NEXT 페이지 존재 -->
-		<c:if test="${page.next}">
-			<li class="page-item"><a class="page-link"
-				href="qnaList.do?page=${page.endPage + 1}" aria-label="Next"> <span
-					aria-hidden="true">&raquo;</span>
-			</a></li>
-		</c:if>
-	</ul>
-</nav>
-<!-- 페이징 -->
+			<!-- NEXT 페이지 존재 -->
+			<c:if test="${page.next}">
+				<li class="page-item"><a class="page-link"
+					href="qnaList.do?page=${page.endPage + 1}" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+				</a></li>
+			</c:if>
+		</ul>
+	</nav>
+	<!-- 페이징 -->

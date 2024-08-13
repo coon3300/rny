@@ -40,6 +40,8 @@ import co.rny.control.QnaControl;
 import co.rny.control.QnaListControl;
 import co.rny.control.QnaReplyControl;
 import co.rny.control.QnaReplyListControl;
+import co.rny.control.ReviewLikeControl;
+import co.rny.control.ReviewListControl;
 import co.rny.control.UpdateUserControl;
 import co.rny.control.UpdateUserFormControl;
 import co.rny.control.UserControl;
@@ -131,6 +133,11 @@ public class FrontController extends HttpServlet {
 		map.put("/qnaReplyList.do", new QnaReplyListControl());
 		// QnA 댓글삭제
 		map.put("/deleteReply.do", new DeleteReplyControl());
+		
+		//Review 목록
+		map.put("/reviewList.do", new ReviewListControl());
+		//Review 좋아요.........싫어요.......
+		map.put("/reviewLike.do", new ReviewLikeControl());
 	}
 
 	@Override
