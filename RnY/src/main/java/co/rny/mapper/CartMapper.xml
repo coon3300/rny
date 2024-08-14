@@ -17,5 +17,10 @@
 		delete from tbl_cart
 		where cart_no = #{cartNo}
 	</delete>
+	
+	<insert id="plusCart" parameterType="co.rny.vo.MemberVO">
+	insert into tbl_cart(cart_no, user_no, item_no)
+	values(seq_cart.nextval, #{userNo}, #{itemNo} )
+	</insert>
 
 </mapper>

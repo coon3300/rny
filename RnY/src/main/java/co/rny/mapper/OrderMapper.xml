@@ -15,7 +15,42 @@
 	ON o.user_no = m.user_no
 	JOIN tbl_item i
 	ON o.item_no = i.item_no
+	Join tbl_cart c
+	ON o.cart_no = c.cart_no
 	where user_id = #{id}
 	</select>
+	
+	<!-- <insert id="ordered" parameterType="co.rny.vo.OrderVO">
+	insert into tbl_order(order_no, user_no, item_no, cart_no)
+	values(seq_ord.nextval, #{userNo}, #{itemNo}, #{cartNo} )
+	</insert> -->
+	
+	<insert id="ordered" parameterType="co.rny.vo.OrderVO">
+		insert into tbl_order (order_no, user_no, item_no, cart_no,
+													order_name, order_add,
+													order_phone, order_email, order_message)
+		values(seq_ord.nextval, #{userNo}, #{itemNo}, #{cartNo},
+						#{orderName}, #{orderAdd}, #{orderPhone}, #{orderEmail},
+						#{orderMessage})
+	</insert>
+	
+  <insert id="insertOrder" parameterType="co.rny.vo.OrderVO">
+    <selectKey keyProperty="orderNo" resultType="string" order="BEFORE">
+      select seq_ord.nextval from dual
+    </selectKey>
+    insert into tbl_order (order_no, user_no, order_name, order_add, order_phone, order_email, order_message)
+    values(#{orderNo}, #{userNo}, '배은찬', '특별준문입니다', '010-1111-2222', 'order@email.com', '특별해주세요')
+  </insert>
 
+  <insert id="insertOrderDetail" parameterType="co.rny.vo.OrderVO">
+    insert into tbl_order_detail (order_detail_no, order_no, item_no, item_qty)
+    select seq_ord_detail.nextval, #{orderNo}, item_no, cart_cnt
+    from tbl_cart
+    where user_no = #{userNo}
+  </insert>
+
+  <delete id="deleteCart" parameterType="string">
+    delete from tbl_cart
+    where user_no = #{userNo}
+  </delete>
 </mapper>

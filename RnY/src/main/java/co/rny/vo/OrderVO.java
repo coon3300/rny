@@ -6,5 +6,9 @@ import lombok.Data;
 public class OrderVO extends CartVO {
 	private String orderNo;
 	private String orderDate;
-	private int orderCnt;
+	private String orderName;
+	private String orderAdd;
+	private String orderPhone;
+	private String orderEmail;
+	private String orderMessage;
 }

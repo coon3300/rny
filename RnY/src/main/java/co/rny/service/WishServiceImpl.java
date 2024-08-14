@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 
 import co.rny.common.DataSource;
 import co.rny.mapper.WishMapper;
+import co.rny.vo.ItemVO;
+import co.rny.vo.MemberVO;
 import co.rny.vo.WishVO;
 
 public class WishServiceImpl implements WishService {
@@ -28,9 +30,21 @@ public class WishServiceImpl implements WishService {
 	public boolean removeWish(int WishNo) {
 		return mapper.deleteWish(WishNo) == 1;
 	}
+//	@Override
+//	public boolean addWish(ItemVO ivo, MemberVO mvo) {
+//		return mapper.plusWish(ivo, mvo) == 1;
+//	}
+//	@Override
+//	public boolean addWish(String userNo, int itemNO) {
+//		return mapper.plusWish(userNo, itemNO) == 1;
+//	}
+//	@Override
+//	public boolean addWish(int itemNO) {
+//		return mapper.plusWish(itemNO);
+//	}
 	@Override
-	public boolean addWish(String userNo, int itemNo) {
-		return mapper.plusWish(userNo, itemNo) == 1;
+	public boolean addWish(MemberVO mvo) {
+		return mapper.plusWish(mvo) == 1;
 	}
 	
 }
