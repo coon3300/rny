@@ -942,36 +942,6 @@
 	</div>
 </section>
 
-<section id="register"
-	style="background: url('images/background-img.png') no-repeat;">
-	<div class="container ">
-		<div class="row my-5 py-5">
-			<div class="offset-md-3 col-md-6 my-5 ">
-				<h2 class="display-3 fw-normal text-center">
-					지금 회원가입 하시면<span class="text-primary">20% 할인 쿠폰 증정</span>
-				</h2>
-				<form>
-					<div class="mb-3">
-						<input type="email" class="form-control form-control-lg"
-							name="email" id="email" placeholder="이메일 주소를 입력하세요">
-					</div>
-					<div class="mb-3">
-						<input type="password" class="form-control form-control-lg"
-							name="email" id="password1" placeholder="비밀번호 입력">
-					</div>
-					<div class="mb-3">
-						<input type="password" class="form-control form-control-lg"
-							name="email" id="password2" placeholder="비밀번호 재입력">
-					</div>
-
-					<div class="d-grid gap-2">
-						<button type="submit" class="btn btn-dark btn-lg rounded-1">회원가입</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</section>
 
 <section id="latest-blog" class="my-5">
 	<div class="container py-5 my-5">
