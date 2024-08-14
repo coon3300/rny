@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import co.rny.common.DataSource;
 import co.rny.mapper.CartMapper;
 import co.rny.vo.CartVO;
+import co.rny.vo.MemberVO;
 
 public class CartServiceImpl implements CartService {
 	SqlSession sqlSession = //
@@ -20,5 +21,9 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public boolean removeCart(int CartNo) {
 		return mapper.deleteCart(CartNo) == 1;
+	}
+	@Override
+	public boolean addCart(MemberVO mvo) {
+		return mapper.plusCart(mvo) == 1;
 	}
 }

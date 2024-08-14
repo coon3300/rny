@@ -4,24 +4,23 @@ create table tbl_order(
     order_no varchar2(30), --주문번호(*pk)
     user_no varchar2(30) not null, --회원고유번호(*fk)
     item_no number(30), --상품고유번호(*fk)
-    order_date date default sysdate, --주문날짜
-    order_cnt number(20) -- 주문갯수
+    order_date date default sysdate --주문날짜
     );
     
 alter table tbl_order add constraint pk_order_no primary key (order_no); --프라이머리키
 alter table tbl_order add CONSTRAINT fk_order_user_no FOREIGN KEY(user_no) REFERENCES rny_member(user_no);
 alter table tbl_order add CONSTRAINT fk_order_item_no FOREIGN KEY(item_no) REFERENCES tbl_item(item_no);
 
+create sequence seq_ord;
 
-
-insert into tbl_order(order_no, user_no, item_no, order_cnt)
-values(seq_ord.nextval, 'A101', 1, 3);
-insert into tbl_order(order_no, user_no, item_no, order_cnt)
-values(seq_ord.nextval, 'A101', 2, 1);
-insert into tbl_order(order_no, user_no, item_no, order_cnt)
-values(seq_ord.nextval, 'A101', 3, 10);
-insert into tbl_order(order_no, user_no, item_no, order_cnt)
-values(seq_ord.nextval, 'A101', 4, 3);
+insert into tbl_order(order_no, user_no, item_no)
+values(seq_ord.nextval, 'A101', 1);
+insert into tbl_order(order_no, user_no, item_no)
+values(seq_ord.nextval, 'A101', 2);
+insert into tbl_order(order_no, user_no, item_no)
+values(seq_ord.nextval, 'A101', 3);
+insert into tbl_order(order_no, user_no, item_no)
+values(seq_ord.nextval, 'A101', 4);
 
 commit;
 
@@ -45,13 +44,13 @@ create sequence seq_wish;
 
 --위시리스트테이블 데이터삽입
 insert into tbl_wish(wish_no, user_no, item_no)
-values(seq_wish.nextval, '5', 53);
+values(seq_wish.nextval, 'A101', 53);
 insert into tbl_wish(wish_no, user_no, item_no)
-values(seq_wish.nextval, '3', 10);
+values(seq_wish.nextval, 'A101', 10);
 insert into tbl_wish(wish_no, user_no, item_no)
-values(seq_wish.nextval, '2', 12);
+values(seq_wish.nextval, 'A101', 12);
 insert into tbl_wish(wish_no, user_no, item_no)
-values(seq_wish.nextval, '1', 14);
+values(seq_wish.nextval, 'A101', 14);
 
 
 commit;
