@@ -11,6 +11,7 @@ notice_date date DEFAULT sysdate -- 업로드 날짜
 create table tbl_QNA ( -- QnA테이블
 user_no VARCHAR2(20) PRIMARY KEY, --회원 고유번호
 user_id VARCHAR2(20)  not null, --회원 아이디
+qna_type VARCHAR2(100) not null, -- 문의 타입
 qna_num number(38) not null, --게시판 번호
 qna_title VARCHAR2(300) not null, --게시판 제목
 qna_content VARCHAR2(3000) not null, -- 게시판 내용
@@ -94,26 +95,26 @@ values ('A107','user8',08,'리뷰 테스트8','리뷰 테스트내용8','review0
 
 commit;
 
-insert into tbl_QNA (user_no,user_id, qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
-values ('A104','admin01',01,'QnA 테스트01','QnA 테스트내용01','QnA 테스트내용01','qna001.jpg',sysdate,sysdate);
+insert into tbl_QNA (user_no,user_id, qna_type ,qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
+values ('A104','user1','상품문의',01,'QnA 테스트01','QnA 테스트내용01','QnA 테스트내용01','qna001.jpg',sysdate,sysdate);
 
-insert into tbl_QNA (user_no,user_id,qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
-values ('A105','admin02',02,'QnA 테스트02','QnA 테스트내용02','QnA 테스트내용02','qna001.jpg',sysdate,sysdate);
+insert into tbl_QNA (user_no,user_id, qna_type ,qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
+values ('A105','user2','상품문의',02,'QnA 테스트02','QnA 테스트내용02','QnA 테스트내용02','qna001.jpg',sysdate,sysdate);
 
-insert into tbl_QNA (user_no,user_id,qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
-values ('A106','admin03', 03,'QnA 테스트03','QnA 테스트내용03','QnA 테스트내용03','qna001.jpg',sysdate,sysdate);
+insert into tbl_QNA (user_no,user_id, qna_type ,qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
+values ('A106','user3','기타문의', 03,'QnA 테스트03','QnA 테스트내용03','QnA 테스트내용03','qna001.jpg',sysdate,sysdate);
 
-insert into tbl_QNA (user_no,user_id,qna_num, qna_title, qna_content, qna_answer,qna_image,qna_date,qna_answerdate)
-values ('A107','admin04',04,'QnA 테스트04','QnA 테스트내용04','QnA 테스트내용03','qna001.jpg',sysdate,sysdate);
+insert into tbl_QNA (user_no,user_id, qna_type ,qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
+values ('A107','user4','배송문의',04,'QnA 테스트04','QnA 테스트내용04','QnA 테스트내용03','qna001.jpg',sysdate,sysdate);
 
-insert into tbl_QNA (user_no,user_id,qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
-values ('A108','admin05',05,'QnA 테스트05','QnA 테스트내용05','QnA 테스트내용05','qna001.jpg',sysdate,sysdate);
+insert into tbl_QNA (user_no,user_id, qna_type ,qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
+values ('A108','user5','환불문의',05,'QnA 테스트05','QnA 테스트내용05','QnA 테스트내용05','qna001.jpg',sysdate,sysdate);
 
-insert into tbl_QNA (user_no,user_id,qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
-values ('A109','admin06',06,'QnA 테스트06','QnA 테스트내용06','QnA 테스트내용06','qna001.jpg',sysdate,sysdate);
+insert into tbl_QNA (user_no,user_id, qna_type ,qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
+values ('A109','user6','배송문의',06,'QnA 테스트06','QnA 테스트내용06','QnA 테스트내용06','qna001.jpg',sysdate,sysdate);
 
-insert into tbl_QNA (user_no,user_id,qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
-values ('A110','admin07',07,'QnA 테스트07','QnA 테스트내용07','QnA 테스트내용07','qna001.jpg',sysdate,sysdate);
+insert into tbl_QNA (user_no,user_id, qna_type ,qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
+values ('A110','user7','기타문의',07,'QnA 테스트07','QnA 테스트내용07','QnA 테스트내용07','qna001.jpg',sysdate,sysdate);
 
-insert into tbl_QNA (user_no,user_id,qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
-values ('A101','user2',08,'QnA 테스트08','QnA 테스트내용08','QnA 테스트내용08','qna002.jpg',sysdate,sysdate);
+insert into tbl_QNA (user_no,user_id, qna_type ,qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
+values ('A101','user2','환불문의',08,'QnA 테스트08','QnA 테스트내용08','QnA 테스트내용08','qna002.jpg',sysdate,sysdate);
