@@ -8,6 +8,7 @@ import lombok.Data;
 public class NoticeVO {
 
 	private String userNo; // 회원고유번호
+	private String userId; // 회원 아이디
 	private int noticeNum; // 공지사항 번호
 	private String noticeTitle; // 공지사항 제목
 	private String noticeContent; // 공지사항 내용

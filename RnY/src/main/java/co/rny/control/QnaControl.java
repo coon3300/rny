@@ -16,15 +16,13 @@ public class QnaControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String qnaNum = req.getParameter("qnaNum");
-		
+
 		QnaListService qvc = new QnaListServiceImpl();
 		QnaListVO qvo = qvc.selectQna(Integer.parseInt(qnaNum));
-		
+
 		req.setAttribute("qvo", qvo);
-		
-		req.getRequestDispatcher("qna/qna.tiles")//
-		.forward(req, resp); // 페이지 재지정.
-		
+
+		req.getRequestDispatcher("qna/qna.tiles").forward(req, resp); // 페이지 재지정.
 
 	};
 

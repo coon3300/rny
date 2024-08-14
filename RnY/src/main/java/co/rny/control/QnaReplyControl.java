@@ -1,6 +1,7 @@
 package co.rny.control;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,14 +26,24 @@ public class QnaReplyControl implements Control {
 		String writer = req.getParameter("userId");
 		String content = req.getParameter("content");
 		String qno = req.getParameter("qno");
+	
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
 
 		QnaReplyVO qvo = new QnaReplyVO();
+		try {
+			qvo.setQreplyDate(new Date());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		qvo.setQnaNum(Integer.parseInt(qno));
 		qvo.setQreplyContent(content);
 		qvo.setUserId(writer);
-		qvo.setQreplyDate(new Date());
 
 		QnaReplyService qvc = new QnaReplyServiceImpl();
+
 		Map<String, Object> map = new HashMap<>();
 
 		try {
@@ -43,7 +54,7 @@ public class QnaReplyControl implements Control {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace(); //예외발생시 오류표기
+			e.printStackTrace(); // 예외발생시 오류표기
 			map.put("retCode", "Fail");
 			map.put("retVal", null);
 		}

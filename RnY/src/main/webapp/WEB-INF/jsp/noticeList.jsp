@@ -24,7 +24,7 @@
 									<a href="notice.do?noticeNum=${notice.noticeNum}">${notice.noticeTitle}</a>
 								</h2>
 								<h4>
-									작성자 : <a href="notice.do?noticeNum=${notice.noticeNum}">${notice.userNo }</a><br>
+									작성자 : <a href="notice.do?noticeNum=${notice.noticeNum}">${notice.userId}</a><br>
 									작성일자 : <a href="notice.do?noticeNum=${notice.noticeNum}"><fmt:formatDate pattern="yyyy-MM-dd" value="${notice.noticeDate}"/> </a>
 								</h4>
 								<p>${notice.noticeContent}</p>

@@ -13,7 +13,7 @@
 				<div class="about-wrap">
 					<p>${qvo.qnaNum}</p>
 					<h2>${qvo.qnaTitle}</h2>
-					<p style="text-align: left">작성자 ${qvo.userNo}</p>
+					<p style="text-align: left">작성자 ${qvo.userId}</p>
 					<p style="text-align: left">작성일시 <fmt:formatDate pattern="yyyy-MM-dd" value="${qvo.qnaDate}"/></p>
 					<p>${qvo.qnaContent}</p>
 					<br>
@@ -29,7 +29,8 @@
     <div class="row">
 		<!-- 등록. -->
 		<div class="header">
-			<input type="hidden" name="qno" id="qno" value="${qvo.qnaNum}" /> <input type="hidden" name="writer"
+		
+			<input type="hidden" name="qno" id="a" value="${qvo.qnaNum}" /> <input type="hidden" name="writer"
 				id="writer" value="${logid}" /> <input type="text" class="col-sm-11" id="content">
 			<button type="button" class="btn btn-outline-info" id="addReply">댓글등록</button>
 		</div>
@@ -40,7 +41,7 @@
 					<span class="col-sm-11">${qvc.qreplyNum}</span>
 					<span class="col-sm-5">${qvc.qreplyContent}</span>
 					<span class="col-sm-11">${qvc.userId}</span>
-					<span class="col-sm-11">${qvc.qreplyDate}</span>
+					<span class="col-sm-11"><fmt:formatDate pattern="yyyy-MM-dd" value="${qvc.qreplyDate}" /></span>
 					<button type="button" class="btn btn-outline-info">삭제</button>
 				</li>
 			</ul>

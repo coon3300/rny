@@ -18,14 +18,28 @@ public class NoticeServiceImpl implements NoticeService {
 		return mapper.noticeList(page);
 	}
 
-
 	public NoticeVO selectNotice(int noticeNum) {
 		return mapper.selectNotice(noticeNum);
 
-		
 	}
+
 	@Override
 	public int totalCnt() {
 		return mapper.totalCnt();
+	}
+
+	@Override
+	public List<NoticeVO> noticeAdm(String page) {
+		return mapper.noticeAdm(page);
+	}
+
+	@Override
+	public NoticeVO noticeAdmDetail(int noticeNum) {
+		return mapper.noticeAdmDetail(noticeNum); // 관리자 상세보기
+	}
+
+	@Override
+	public boolean noticeAdmAdd(NoticeVO notice) {
+		return mapper.noticeAdmAdd(notice);
 	}
 }
