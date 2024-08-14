@@ -23,7 +23,7 @@ public class UserControl implements Control {
 
 		req.setAttribute("mvo", mvo);
 
-		req.getRequestDispatcher("member/userinfo.tiles").forward(req, resp);
+		req.getRequestDispatcher("admin/userinfo.tiles").forward(req, resp);
 
 	}
 

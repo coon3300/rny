@@ -110,7 +110,17 @@
     font-size: 14px;
 }
 
-.button-section .btn-delete {
+.btn-delete{
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-delete {
     background-color: #ff4d4d;
 }
 
@@ -139,7 +149,6 @@
     <table class="address-table">
         <thead>
             <tr>
-                <th>고정</th>
                 <th>기본</th>
                 <th>배송지명</th>
                 <th>수령인</th>
@@ -151,20 +160,20 @@
         <tbody>
         <c:forEach var="add" items="${addList}">
             <tr>
-            		<td>※</td>
-                <td>기본주소지체크</td>
+                <td><input name="mainAddr" type="radio" ${add.isMainAdd == 'Y' ? 'checked' : '' }></td>
 								<td>${add.addName }</td>
 								<td>${add.recipient }</td>
 								<td>${add.addPhone }</td>
 								<td>${add.newAddress }</td>
-                <td><button class="btn-edit">수정</button></td>
+                <td>
+                <a href="adddelete.do?mainAdd=${add.mainAdd}" class="btn-delete" onclick="return confirm('정말로 삭제하시겠습니까?');">삭제</a>
+								</td>
             </tr>
            </c:forEach>
         </tbody>
     </table>
 
     <div class="button-section">
-        <button class="btn-delete">삭제하기</button>
-        <button class="btn-add">배송지 등록</button>
-    </div>
+    <a href="addressform.do" class="btn-add">배송지 등록</a>
+</div>
 </div>

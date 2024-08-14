@@ -1,6 +1,8 @@
 package co.rny.control;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -17,19 +19,25 @@ public class UpdateUserControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String uno = req.getParameter("uno");
+		String userNo = req.getParameter("userNo");
 		String userPw = req.getParameter("userPw");
 		String userNick = req.getParameter("userNick");
 		String userBirth = req.getParameter("userBirth");
 		String userPhone = req.getParameter("userPhone");
 		String userEmail = req.getParameter("userEmail");
 		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
 		MemberVO mvo = new MemberVO();
 		
-		mvo.setUserNo(userNick);
+		mvo.setUserNo(userNo);
 		mvo.setUserPw(userPw);
 		mvo.setUserNick(userNick);
-		mvo.setUserBirth(null);
+		try {
+			mvo.setUserBirth(sdf.parse(userBirth));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		mvo.setUserPhone(userPhone);
 		mvo.setUserEmail(userEmail);
 		
@@ -37,7 +45,7 @@ public class UpdateUserControl implements Control {
 		if(svc.modifymember(mvo)) {
 			resp.sendRedirect("mypage.do");
 		}else {
-			resp.sendRedirect("updateuser.do");
+			resp.sendRedirect("updateuserform.do");
 		}
 
 		

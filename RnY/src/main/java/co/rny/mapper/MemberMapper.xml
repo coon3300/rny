@@ -40,11 +40,18 @@
 	
 	<!-- 주소록목록조회 -->
 	<select id="selectAddress" resultType="co.rny.vo.AddressVO">
-		SELECT *
-    FROM  rny_address
+		SELECT case (select count(1) from rny_member m where m.user_no = a.user_no and m.main_add = a.main_add) when 1 then 'Y'
+                                                                                                        else 'N'
+           end as "is_main_add",  a.*
+    FROM  rny_address a
     where user_no = #{userNo}
 	</select>
 	
+	<update id="updateaddress" parameterType="co.rny.vo.AddressVO">
+		update rny_member
+		set main_add = #{mainAdd}
+		where user_no = #{userNo}
+	</update>
 	
 		<select id="selectListPaging" resultType="co.rny.vo.MemberVO" parameterType="int">
 		select b.*
@@ -66,6 +73,17 @@
 		where
 		user_no = #{userNo}
 	</select>
+	
+	<delete id="deletemember" parameterType="string">
+	 	delete from rny_member
+		where user_no = #{userNo}
+	</delete>
+	
+	<delete id="adddelete" parameterType="string">
+	 	delete from rny_address
+		where main_add = #{mainAdd}
+	</delete>
+	
 
 	<select id="usernick" resultType="String">
 		select user_nick
@@ -97,19 +115,17 @@
 
 	<!-- 회원가입 -->
 	<insert id="insertMember" parameterType="co.rny.vo.MemberVO">
-		insert into rny_member
-		(user_no, user_id, user_pw, user_name, user_nick, user_birth,
-		user_email, user_phone, user_add)
-		values('A' || seq_member.nextval,
-		#{userId}, #{userPw}, #{userName}, #{userNick}, #{userBirth},
-		#{userEmail}, #{userPhone}, #{userAdd})
+		insert into rny_member (user_no, user_id, user_pw, user_name, user_nick, user_birth, user_email, user_phone, user_add)
+		values('A' || seq_member.nextval, #{userId}, #{userPw}, #{userName}, #{userNick}, #{userBirth}, #{userEmail}, #{userPhone}, #{userAdd})
 	</insert>
 	
 	<!-- 주소록등록 -->
 	<insert id="insertAddress" parameterType="co.rny.vo.AddressVO">
-		insert into rny_address
-		(user_no, add_name, recipient, add_phone, new_address)
-		values(#{userNo}, #{addName}, #{recipient}, #{addPhone}, #{newAddress})
+	  <selectKey keyProperty="mainAdd" resultType="string" order="BEFORE">
+	    select 'B' || seq_address.nextval from dual
+	  </selectKey>
+		insert into rny_address(main_add, user_no, add_name, recipient, add_phone, new_address)
+		values(#{mainAdd}, #{userNo}, #{addName}, #{recipient}, #{addPhone}, #{newAddress})
 	</insert>
 
 	<!-- 회원가입(ID중복체크) -->

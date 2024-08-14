@@ -15,7 +15,6 @@ import co.rny.vo.WishVO;
 public class MemberServiceImpl implements MemberService {
 	SqlSession sqlSession = DataSource.getInstance().openSession(true); // true 넣으면 자동 커밋됨.
 	MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
-	
 
 	@Override
 	public List<MemberVO> memberList(int page) {
@@ -41,17 +40,17 @@ public class MemberServiceImpl implements MemberService {
 	public String userNick(String id) {
 		return mapper.usernick(id);
 	}
-	
+
 	@Override
 	public int selectId(String userId) {
-		 return mapper.selectId(userId);
+		return mapper.selectId(userId);
 	}
-	
+
 	@Override
 	public int selectEmail(String email) {
-		 return mapper.selectEmail(email);
+		return mapper.selectEmail(email);
 	}
-	
+
 	@Override
 	public MemberVO memberpage(int userNo) {
 		return mapper.selectBoard(userNo);
@@ -60,12 +59,13 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int totalCount(SearchVO search) {
 		return mapper.selectTotalCount(search);
-    }
+	}
 
 	@Override
 	public List<MemberVO> memberList(SearchVO search) {
 		return mapper.selectListPaging(search);
 	}
+
 	@Override
 	public String userName(String id) {
 		return mapper.username(id);
@@ -88,9 +88,22 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public boolean modifymember(MemberVO mvo) {
-		return mapper.updateList(mvo)==1;
+		return mapper.updateList(mvo) == 1;
 	}
-	
-	
-}
 
+	@Override
+	public boolean modifyaddress(AddressVO avo) {
+		return mapper.updateaddress(avo) == 1;
+	}
+
+	@Override
+	public boolean removemember(String userNo) {
+		return mapper.deletemember(userNo) == 1;
+	}
+
+	@Override
+	public boolean removeadd(String mainAdd) {
+		return mapper.adddelete(mainAdd)==1;
+	}
+
+}
