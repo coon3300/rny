@@ -13,10 +13,6 @@
 	select *
 	from tbl_order o JOIN rny_member m
 	ON o.user_no = m.user_no
-	JOIN tbl_item i
-	ON o.item_no = i.item_no
-	Join tbl_cart c
-	ON o.cart_no = c.cart_no
 	where user_id = #{id}
 	</select>
 	

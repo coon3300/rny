@@ -15,6 +15,7 @@ import co.rny.control.AddCartControl;
 import co.rny.control.AddDeleteControl;
 import co.rny.control.AddFormControl;
 import co.rny.control.AddMemberControl;
+import co.rny.control.AddUpdateControl;
 import co.rny.control.AddWish;
 import co.rny.control.AddressControl;
 import co.rny.control.AddressFormControl;
@@ -126,6 +127,8 @@ public class FrontController extends HttpServlet {
 		map.put("/myaddress.do", new MyAddressControl());
 		// 주소록 삭제
 		map.put("/adddelete.do", new AddDeleteControl());
+		// 주소록 수정
+		map.put("/addupdate.do", new AddUpdateControl());
 		// 하린아=================================================================
 		
 		

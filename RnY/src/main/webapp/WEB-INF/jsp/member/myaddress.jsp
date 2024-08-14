@@ -157,10 +157,10 @@
                 <th>수정</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="main-add">
         <c:forEach var="add" items="${addList}">
-            <tr>
-                <td><input name="mainAddr" type="radio" ${add.isMainAdd == 'Y' ? 'checked' : '' }></td>
+            <tr data-main-add='${add.mainAdd }'>
+                <td><input onchange="changeMainAdd('${add.mainAdd }')" name="mainAddr" type="radio" ${add.isMainAdd == 'Y' ? 'checked' : '' }></td>
 								<td>${add.addName }</td>
 								<td>${add.recipient }</td>
 								<td>${add.addPhone }</td>
@@ -177,3 +177,26 @@
     <a href="addressform.do" class="btn-add">배송지 등록</a>
 </div>
 </div>
+
+<script>
+  
+  function changeMainAdd(mainAdd) {
+	 console.log(document.querySelectorAll('.main-add tr td input:checked')[0].dataset.mainAdd);
+	 let targetAdd = document.querySelectorAll('.main-add tr td input:checked')[0].dataset.mainAdd;
+	  if(!confirm('변경하겠습니까?')) {
+		  document.querySelector('tr[data-main-add="'+targetAdd+'"] input').checked = true;
+		  location.reload();
+		  return;
+	  }
+	  console.log(mainAdd)
+	  // 사용자번호, 메인주소.
+	  fetch('addupdate.do?mainAdd='+mainAdd+'&userNo=${userNo}')
+	  .then(result=>result.json())
+	  .then(result=>{
+		  console.log(result)
+	  })
+	  .catch(err=>console.log(err))
+  }
+
+
+</script>
