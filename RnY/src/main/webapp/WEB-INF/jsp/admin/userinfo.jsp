@@ -4,12 +4,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 <link rel="stylesheet" href="css/style.css">
-</head>
+
 
 <section class="cart_area padding_top">
 		<div class="cart_inner">
@@ -52,7 +49,7 @@
 							<td class="col-sm-3">${mvo.responsibility}</td></tr>
 							
 							<tr>
-							<th class="col" colspan=2><a class="btn_1" href="#" style="width: 100px;">정보수정</a>
+							<th class="col" colspan=2>
 							<a class="btn_1" href="memberList.do" style="width: 100px;">뒤로가기</a>
 							</tr>
 						
