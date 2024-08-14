@@ -17,6 +17,8 @@ public class AddressControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		String mainAddr = req.getParameter("defaultAddress");
+
 		HttpSession session = req.getSession();
 		String userNo = (String) session.getAttribute("userNo");
 
@@ -38,6 +40,11 @@ public class AddressControl implements Control {
 		avo.setNewAddress(newAddress);
 
 		svc.address(avo);
+		if (mainAddr != null) {
+			// 기본배송지를 변경하는 서비스, 매퍼.
+			svc.modifyaddress(avo);
+			
+		}
 		resp.sendRedirect("myaddress.do");
 
 	}

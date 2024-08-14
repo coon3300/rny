@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.rny.common.Control;
+import co.rny.control.AddDeleteControl;
 import co.rny.control.AddFormControl;
 import co.rny.control.AddMemberControl;
 import co.rny.control.AddWish;
@@ -20,6 +21,7 @@ import co.rny.control.AdminPageControl;
 import co.rny.control.CartControl;
 import co.rny.control.ContactControl;
 import co.rny.control.DeleteCartControl;
+import co.rny.control.DeleteMemberControl;
 import co.rny.control.DeleteReplyControl;
 import co.rny.control.DeleteWish;
 import co.rny.control.EmailCheckControl;
@@ -76,12 +78,17 @@ public class FrontController extends HttpServlet {
 		// 아이템 관리
 		map.put("/itemManage.do", new ItemManageControl());
 
+		
+		// 하린아=================================================================
 		// 관리자 메인
 		map.put("/adminpage.do", new AdminPageControl());
-		// (관리자)회원목록 출력
+		// 회원목록 출력
 		map.put("/memberList.do", new MemberListControl());
-		// (관리자)회원상세목록
+		// 회원목록 삭제
+		map.put("/deletemember.do", new DeleteMemberControl());
+		// )회원상세목록
 		map.put("/user.do", new UserControl());
+		
 
 		// 회원가입
 		map.put("/addform.do", new AddFormControl());
@@ -90,6 +97,8 @@ public class FrontController extends HttpServlet {
 		// 회원가입(중복체크)
 		map.put("/idCheck.do", new IdCheckControl());
 		map.put("/emailCheck.do", new EmailCheckControl());
+		
+		
 		// 로그인
 		map.put("/login.do", new loginControl());
 		// 로그아웃
@@ -101,12 +110,19 @@ public class FrontController extends HttpServlet {
 		map.put("/updateuser.do", new UpdateUserControl());
 		// 회원정보수정
 		map.put("/updateuserform.do", new UpdateUserFormControl());
+		
+		
 		// 주소록등록
 		map.put("/address.do", new AddressControl());
 		// 주소록(값받는애)
 		map.put("/addressform.do", new AddressFormControl());
 		// 주소록
 		map.put("/myaddress.do", new MyAddressControl());
+		// 주소록 삭제
+		map.put("/adddelete.do", new AddDeleteControl());
+		// 하린아=================================================================
+		
+		
 
 		// 주문
 		map.put("/order.do", new OrderControl());

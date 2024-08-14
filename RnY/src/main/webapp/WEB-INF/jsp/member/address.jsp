@@ -134,13 +134,13 @@ form button {
 
 <div class="container">
 
-    <h1>Shipping Register</h1>
     
     <form action="address.do">
         <div class="notice">
 			<div class="py-5 text-center">
-				<h1>회원가입</h1>
-				<h1>─────</h1>
+    <h1>Shipping Register</h1>
+				<h1>주소록 등록</h1>
+				<h1>───────</h1>
 			</div>
 			<p>배송 주소록 유의사항</p>
             <ul>
@@ -184,6 +184,8 @@ form button {
             <input type="checkbox" id="defaultAddress" name="defaultAddress">
             <label for="defaultAddress">이 배송지를 기본 배송지로 저장</label>
         </div>
+        
+        
 
         <div class="buttons">
             <input type="submit" value="등록">

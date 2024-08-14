@@ -252,7 +252,7 @@
 							<c:choose>
 								<c:when test="${!empty logid}">
 									<span class="fs-6 secondary-font text-muted">${logNick}님 환영합니다.</span>
-									<a class="mx-3" href="logout.do"><i	class="bi bi-box-arrow-right" style="font-size: 16px;"></i>로그아웃</a>
+										<a class="mx-3" href="mypage.do"><i	class="bi bi-person-fill-gear" style="font-size: 25px;"></i></a>
 								</c:when>
 								<c:otherwise>
 								</c:otherwise>
@@ -570,11 +570,11 @@
 
 								<c:choose>
 									<c:when test="${!empty logid}">
-										<!-- 
-										<li>${logNick}<a class="nav-link mx-3" href="logout.do"><i
-												class="bi bi-box-arrow-right" style="font-size: 20px;"></i>로그아웃</a>
+										
+										<li>
+									<a class="mx-3" href="logout.do"><i	class="bi bi-box-arrow-right" style="font-size: 16px;"></i>로그아웃</a>
 										</li>
-										 -->
+										
 									</c:when>
 									<c:otherwise>
 										<li><a class="nav-link mx-3" href="loginForm.do"

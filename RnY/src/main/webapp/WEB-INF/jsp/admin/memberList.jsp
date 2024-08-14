@@ -47,11 +47,10 @@
 							<th class="col-sm-1">이름</th>
 							<th class="col-sm-2">생년월일</th>
 							<th class="col-sm-2">폰번호</th>
-							<th class="col-sm-1">포인트</th>
-							<th class="col-sm-1">쿠폰</th>
 							<th class="col-sm-2">가입일자</th>
 							<th class="col-sm-1">권한</th>
-							<th class="col-sm-3">□</th>
+							<th class="col-sm-3">상세</th>
+							<th class="col-sm-3">삭제</th>
 
 						</tr>
 					</thead>
@@ -65,16 +64,15 @@
 								<td>${member.userNo }</td>
 								<td>${member.userId }</td>
 								<td>${member.userName }</td>
-								<td><fmt:formatDate pattern="yyyy-MM-dd"
-										value="${member.userBirth}" /></td>
+								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${member.userBirth}" /></td>
 								<td>${member.userPhone }</td>
-								<td>${member.userPoint }</td>
-								<td>${member.userCoupon }</td>
-								<td><fmt:formatDate pattern="yyyy-MM-dd"
-										value="${member.userDate}" /></td>
+								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${member.userDate}" /></td>
 								<td>${member.responsibility }</td>
-								<td class="col-sm-1"><a class="btn_1"
-									href="user.do?uno=${member.userNo}">상세</a></td>
+								<td class="col-sm-1"><a class="btn_1" href="user.do?uno=${member.userNo}">상세</a></td>
+								<%-- <td class="col-sm-1"><a class="btn_1" value="${member.userNo}">삭제</a></td> --%>
+								<td class="col-sm-1">
+                <a href="deletemember.do?userNo=${member.userNo}" class="btn_1" onclick="return confirm('정말로 삭제하시겠습니까?');">삭제</a>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
