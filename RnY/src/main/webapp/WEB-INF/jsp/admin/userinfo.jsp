@@ -44,11 +44,6 @@
 							<tr><th class="col-sm-1">주소</th>
 							<td class="col-sm-3">${mvo.userAdd}</td></tr>
 							
-							<tr><th class="col-sm-1">보유포인트</th>
-							<td class="col-sm-3">${mvo.userPoint}</td></tr>
-							
-							<tr><th class="col-sm-2">쿠폰</th>
-							<td class="col-sm-3">${mvo.userCoupon}</td></tr>
 							
 							<tr><th class="col-sm-1">가입일자</th>
 							<td class="col-sm-3"><fmt:formatDate pattern="yyyy-MM-dd" value="${mvo.userDate}"/></td></tr>
@@ -56,12 +51,12 @@
 							<tr><th class="col-sm-1">권한</th>
 							<td class="col-sm-3">${mvo.responsibility}</td></tr>
 							
-							
-						</tr>
-					</thead>
+							<tr>
 							<th class="col" colspan=2><a class="btn_1" href="#" style="width: 100px;">정보수정</a>
 							<a class="btn_1" href="memberList.do" style="width: 100px;">뒤로가기</a>
+							</tr>
 						
+					</thead>
 				</table>
 			</div>
 
