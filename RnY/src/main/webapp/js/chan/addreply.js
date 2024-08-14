@@ -1,6 +1,7 @@
 /**
  board.js
 */
+
 let page = 1;
 // 댓글 등록 버튼에 클릭이벤트 등록
 document.querySelector('#addReply').addEventListener('click', function() {
@@ -10,7 +11,6 @@ document.querySelector('#addReply').addEventListener('click', function() {
 	if (!writer || !content) {
 		alert('로그인 후 댓글 작성이 가능합니다.');
 		return;
-
 	}
 	let param = { qno, writer, content }
 	console.log(param);
@@ -46,19 +46,29 @@ function showPage() {
 		// 실제 데이터값으로 페이지 출력
 	});
 }
+
+// 년월일 포맷으로 출력하는 메소드.
+Date.prototype.yyyymmdd = function() {
+	let yyyy = this.getFullYear();
+	let MM = this.getMonth() + 1;
+	let dd = this.getDate();
+
+	return yyyy + "-" + ('0' + MM).slice(-2) + "-" + ('0' + dd).slice(-2);
+}
+
 // reply => row 생성
-function makeRow(reply = {}) { // reply = {} 객체타입 표시
+function makeRow(reply = {}) { // reply = {} 객체타입 표시 
+	console.log(new Date(reply.qreplyDate))
 	let cloned = document.querySelector('#replyList>li').cloneNode(true);
 	cloned.setAttribute('data-rno', reply.qreplyNum)
 	cloned.style.display = 'block'; // <li style={}></li>
 	cloned.querySelector('span:nth-of-type(1)').innerText = reply.qreplyNum;
 	cloned.querySelector('span:nth-of-type(2)').innerText = reply.userId;
 	cloned.querySelector('span:nth-of-type(3)').innerText = reply.qreplyContent;
-	cloned.querySelector('span:nth-of-type(4)').innerText = reply.qreplyDate;
+	cloned.querySelector('span:nth-of-type(4)').innerText = new Date(reply.qreplyDate).yyyymmdd();
 	cloned.querySelector('button').addEventListener('click', RemoveReplyFnc)
 	return cloned;
 }
-
 
 // 댓글 삭제 이벤트 핸들러
 function RemoveReplyFnc(e) {

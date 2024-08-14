@@ -10,7 +10,7 @@
 	</div>
 	<nav>
 		<ul>
-			<li><a href="#">공지사항</a></li>
+			<li><a href="noticeAdm.do">공지사항</a></li>
 			<li><a href="#">이벤트</a></li>
 			<li><a href="#">팝업</a></li>
 			<li><a href="memberList.do">정보수정</a></li>

@@ -1,6 +1,8 @@
 package co.rny.control;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -23,7 +25,16 @@ public class QnaReplyListControl implements Control {
 		resp.setContentType("text/json;charset=utf-8");
 		String qno = req.getParameter("qno");
 
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+
 		QnaListVO qre = new QnaListVO();
+
+		try {
+			qre.setQnaAnswerDate(new Date());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		qre.setQnaNum(Integer.parseInt(qno));
 
 		QnaReplyService qvc = new QnaReplyServiceImpl();

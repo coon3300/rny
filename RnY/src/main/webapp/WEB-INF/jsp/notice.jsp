@@ -16,7 +16,7 @@
 						<ul class="blog-info-link mt-3 mb-4">
 						
 							<p><a href="#"> 글번호 : ${nvo.noticeNum}</a><br>
-						    <a href="#"> 작성자 : ${nvo.userNo}</a><br>
+						    <a href="#"> 작성자 : ${nvo.userId}</a><br>
 							<a href="#"> 작성일자 : <fmt:formatDate pattern="yyyy-MM-dd" value= "${nvo.noticeDate}"/></a><br></p>
 						
 						</ul>

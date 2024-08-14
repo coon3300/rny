@@ -32,6 +32,7 @@ import co.rny.control.ItemManageControl;
 import co.rny.control.MemberListControl;
 import co.rny.control.MyAddressControl;
 import co.rny.control.MyPageControl;
+import co.rny.control.NoticeAdmControl;
 import co.rny.control.NoticeControl;
 import co.rny.control.NoticeListControl;
 import co.rny.control.OrderCheckControl;
@@ -41,6 +42,7 @@ import co.rny.control.QnaControl;
 import co.rny.control.QnaListControl;
 import co.rny.control.QnaReplyControl;
 import co.rny.control.QnaReplyListControl;
+import co.rny.control.ReviewControl;
 import co.rny.control.ReviewLikeControl;
 import co.rny.control.ReviewListControl;
 import co.rny.control.UpdateUserControl;
@@ -49,6 +51,9 @@ import co.rny.control.UserControl;
 import co.rny.control.WishControl;
 import co.rny.control.loginControl;
 import co.rny.control.mainControl;
+import co.rny.control.noticeAdmAddControl;
+import co.rny.control.noticeAdmDetailControl;
+import co.rny.control.noticeFormControl;
 
 public class FrontController extends HttpServlet {
 
@@ -125,6 +130,15 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeList.do", new NoticeListControl());
 		// 공지사항 상세
 		map.put("/notice.do", new NoticeControl());
+		
+		//(관리자) 공지사항
+		map.put("/noticeAdm.do", new NoticeAdmControl());
+		//(관리자) 공지사항 상세
+		map.put("/noticeAdmDetail.do", new noticeAdmDetailControl());
+		//(관리자) 공지사항 등록
+		map.put("/noticeForm.do", new noticeFormControl());
+		map.put("/noticeAdmAdd.do", new noticeAdmAddControl());
+			
 
 		// QnA 목록
 		map.put("/qnaList.do", new QnaListControl());
@@ -141,6 +155,8 @@ public class FrontController extends HttpServlet {
 		map.put("/reviewList.do", new ReviewListControl());
 		//Review 좋아요.........싫어요.......
 		map.put("/reviewLike.do", new ReviewLikeControl());
+		//Review 상세
+		map.put("/review.do", new ReviewControl());
 	}
 
 	@Override
