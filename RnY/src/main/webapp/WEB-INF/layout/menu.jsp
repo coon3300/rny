@@ -568,9 +568,9 @@
 								<!--  -->
 
 
-								<li><a href="noticeList.do" class="bi bi-card-checklist" style="font-size: 20px; bold;"></a></li>
 								<c:choose>
 									<c:when test="${!empty logid}">
+										
 										<li>
 									<a class="mx-3" href="logout.do"><i	class="bi bi-box-arrow-right" style="font-size: 16px;"></i>로그아웃</a>
 										</li>
@@ -588,9 +588,8 @@
 								<li><a class="nav-link mx-3" href="wish.do"> <iconify-icon
 											icon="mdi:heart" class="fs-4"></iconify-icon>
 								</a></li>
-								
 
-								<li class=""><a href="cart.do" class="nav-link mx-3"
+								<li class=""><a href="#" class="nav-link mx-3"
 									data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
 									aria-controls="offcanvasCart"> <iconify-icon
 											icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
