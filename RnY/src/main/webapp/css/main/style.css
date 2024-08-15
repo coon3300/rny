@@ -117,9 +117,14 @@ CSS STRUCTURE:
 
 /* Fonts */
 :root {
+/*
   --body-font: 'CookieRun', cursive;
   --heading-font: 'CookieRun', cursive;
   --secondary-font: 'CookieRun', sans-serif;
+*/	
+  --body-font: 'Poppins', cursive;
+  --heading-font: 'Poppins', cursive;
+  --secondary-font: 'Poppins', sans-serif;
 }
 
 

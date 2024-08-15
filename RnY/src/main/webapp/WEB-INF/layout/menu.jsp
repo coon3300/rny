@@ -51,6 +51,15 @@
 .nav-link {
 	color: #000;
 }
+
+/* 폰트 변경 */
+body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, td, th, input, button, select, textarea {
+/*
+    font-family: 'Noto Sans KR', sans-serif !important;
+*/
+    font-family: 'Poppins', sans-serif !important;
+}
+
 </style>
 
 <link rel="stylesheet"
@@ -65,9 +74,21 @@
 
 <link rel="stylesheet" type="text/css" href="css/vendor.css">
 <link rel="stylesheet" type="text/css" href="css/main/style.css">
-
+<!-- 
 <link href="https://webfontworld.github.io/cookierun/CookieRun.css"
 	rel="stylesheet">
+ -->
+ 
+<!-- Noto Sans KR 폰트
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">	
+ -->
+
+<!-- 폰트 변경 Poppins -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 </head>
 
