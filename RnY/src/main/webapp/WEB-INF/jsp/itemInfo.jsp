@@ -10,7 +10,13 @@
 	<!-- Core theme CSS (includes Bootstrap)-->
 	<link href="css/main/styles.css" rel="stylesheet" />
 	<link href="css/styles.css" rel="stylesheet" />
-	<link href="../css/styles.css" rel="stylesheet" />
+<style>
+#buttons {
+    padding: 0 !important;
+}
+</style>
+	
+	
 </head>
 
 
@@ -24,22 +30,95 @@
 					src="images/${ivo.getItemImage() }" />
 			</div>
 			<div class="col-md-6">
-				<div class="fs-5 mb-5">${ivo.getItemDesc() }</div>
-				<h1 class="display-5 fw-bolder">${ivo.getItemName() }</h1>
-				<div class="fs-5 mb-5">
-					<span class="text-decoration-line-through">100,000원</span> <span><fmt:formatNumber value="${ivo.getItemPrice()}" pattern="#,###" />원</span>
-				</div>
-				<p class="lead">배송비 3,000원 (50,000원 이상 구매 시 무료)</p>
-				
-				<p class="lead">적립금 <fmt:formatNumber value="${Math.round(ivo.itemPrice * 0.1)}" pattern="#,###" />원 (10%)</p>
-				<div class="d-flex">
-					<input class="form-control text-center me-3" id="inputQuantity"
-						type="num" value="1" style="max-width: 3rem" />
-					<button class="btn btn-outline-dark flex-shrink-0" type="button">
-						<i class="bi-cart-fill me-1"></i> 장바구니 담기
-					</button>
+				<ul style="list-style-type: none; margin: 0; padding: 0;">
+					<li>
+						<h1>${ivo.getItemName() }</h1>
+					</li>
+				</ul>
+				<ul style="list-style-type: none; margin: 0; padding: 0;">
+					<li>
+						<h6>&nbsp;</h6>
+					</li>
+				</ul>				
+				<ul style="list-style-type: none; margin: 0; padding: 0;">
+					<li>
+						<h3><fmt:formatNumber value="${ivo.getItemPrice()}" pattern="#,###" />원</h3>
+					</li>
+				</ul>
+				<ul style="list-style-type: none; margin: 0; padding: 0;">
+					<li>
+						<h6>&nbsp;</h6>
+					</li>
+				</ul>				
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="home" role="tabpanel"
+						aria-labelledby="home-tab">
+					<div class="table-responsive">
+						<table class="table"> 
+							<tbody>
+								<tr>
+									<td>
+										<h5>쿠폰적용가</h5>
+									</td>
+									<td>
+										<h5><fmt:formatNumber value="${ivo.getItemPrice() - 1000}" pattern="#,###" />원(1,000원 할인)
+										    <select class="form-select d-inline-block w-auto" style="margin-left: 10px;">
+	                        <option value="1000">1,000원 할인</option>
+                    		</select>
+										</h5>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>배송비</h5>
+									</td>
+									<td>
+										<h5>3,000원 (50,000원 이상 구매 시 무료)</h5>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>적립금 </h5>
+									</td>
+									<td>
+										<h5><fmt:formatNumber value="${ivo.getItemPrice() * 0.01}" pattern="#,###" />원(1%)</h5>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>상품코드</h5>
+									</td>
+									<td>
+										<h5>L-${ivo.getLineNo() }I-${ivo.getItemNo() }</h5>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>제조사</h5>
+									</td>
+									<td>
+										<h5>(주)R&Y Pet</h5>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<h6>주문 수량 안내 : 최수 주문 수량 1개 이상</h6>
+										<h6>수량을 선택해주세요.</h6>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						
+						<div id="buttons" class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex justify-content-between list-unstyled m-0" style="margin: 0; padding: 0;">
+						    <div class="text-center flex-grow-1"><a class="btn btn-outline-primary w-100 mt-auto" href="#">주문하기</a></div>
+						    <div class="text-center flex-grow-1 mx-2"><a class="btn btn-outline-dark w-100 mt-auto" href="#"><i class="bi bi-cart2"></i></a></div>
+						    <div class="text-center flex-grow-1"><a class="btn btn-outline-success w-100 mt-auto" href="#"><i class="bi bi-heart"></i></a></div>
+						</div>
+
+					</div>
 				</div>
 			</div>
+			</div>		
 		</div>
 	</div>
 	
