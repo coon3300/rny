@@ -174,5 +174,35 @@ on      i.line_no = l.line_no
 where   (l.line_no = #{lineNo} OR l.line_parent_no = #{lineNo})
 order by i.line_no
   </select>
+
+
+<update id="updateItem" parameterType="co.rny.vo.ItemVO">
+  UPDATE tbl_item
+  <set>
+    <if test="lineNo != null">
+      line_no = #{lineNo},
+    </if>
+    <if test="itemCode != null">
+      item_code = #{itemCode},
+    </if>
+    <if test="itemName != null">
+      item_name = #{itemName},
+    </if>
+    <if test="itemDesc != null">
+      item_desc = #{itemDesc},
+    </if>
+    <if test="itemPrice != null">
+      item_price = #{itemPrice},
+    </if>
+    <if test="itemStock != null">
+      item_stock = #{itemStock},
+    </if>
+    <if test="itemImage != null">
+      item_image = #{itemImage},
+    </if>
+    updated_date = SYSDATE
+  </set>
+  WHERE item_no = #{itemNo}
+</update>
 	
 </mapper>

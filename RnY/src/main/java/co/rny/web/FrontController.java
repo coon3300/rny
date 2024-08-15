@@ -34,6 +34,10 @@ import co.rny.control.ItemListJsonControl;
 import co.rny.control.ItemListLineControl;
 import co.rny.control.ItemListSearchControl;
 import co.rny.control.ItemManageControl;
+import co.rny.control.ItemModifyControl;
+import co.rny.control.ItemRemoveControl;
+import co.rny.control.ItemUpdateControl;
+import co.rny.control.LineManageControl;
 import co.rny.control.MemberListControl;
 import co.rny.control.MyAddressControl;
 import co.rny.control.MyPageControl;
@@ -87,6 +91,14 @@ public class FrontController extends HttpServlet {
 		map.put("/itemListLine.do", new ItemListLineControl());
 		// 아이템 관리
 		map.put("/itemManage.do", new ItemManageControl());
+		// 아이템 수정 form
+		map.put("/itemModify.do", new ItemModifyControl());
+		// 아이템 업데이트
+		map.put("/itemUpdate.do", new ItemUpdateControl());
+		// 아이템 업데이트
+		map.put("/itemRemove.do", new ItemRemoveControl());
+		// 라인 관리
+		map.put("/lineManage.do", new LineManageControl());
 
 		
 		// 하린아=================================================================
