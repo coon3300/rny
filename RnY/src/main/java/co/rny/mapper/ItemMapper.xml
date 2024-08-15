@@ -68,6 +68,23 @@
             and   b.rn <= (#{page} * 8)
             ]]>
 	</select>	
+	<select id="selectItemRelated" >
+		select 	*
+		from		tbl_item
+		where 	line_no between (
+                    select  floor(line_no / 100) * 100
+                    from    tbl_item
+                    where   item_no = #{itemNO}     
+                ) and (
+                    select  (floor(line_no / 100) + 1) * 100
+                    from    tbl_item
+                    where   item_no = #{itemNO}             
+                )
+		and			is_disabled = 0
+    <![CDATA[
+    and rownum <= 4					
+    ]]>        
+	</select>	
 
 
 	<sql id="selectCondition">

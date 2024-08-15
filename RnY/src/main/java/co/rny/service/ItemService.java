@@ -11,6 +11,8 @@ public interface ItemService {
 
 	List<ItemVO> itemListRelated();
 	
+	List<ItemVO> itemInfoRelated(int lineNo);
+	
 	//List<ItemVO> itemListSearched(String keyword);
 	
 	List<ItemVO> itemListSearched(SearchVO search);

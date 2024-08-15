@@ -25,6 +25,12 @@ public class ItemServiceImpl implements ItemService{
 		return mapper.selectListRelated();
 
 	}
+	
+	@Override
+	public List<ItemVO> itemInfoRelated(int lineNo) {
+		return mapper.selectItemRelated(lineNo);
+		
+	}
 
 	@Override
 	public ItemVO itemSelected(int itemNo) {

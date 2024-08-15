@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <section id="banner" style="background: #F9F3EC;">
@@ -403,7 +404,7 @@
 									icon="clarity:star-solid" class="text-primary"></iconify-icon>
 								1
 							</span>
-							<h3 class="secondary-font text-primary">10000</h3>
+							<h3 class="secondary-font text-primary"><fmt:formatNumber value="10000" pattern="#,###" />원원</h3>
 							<div class="d-flex flex-wrap mt-3">
 								<a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
 									<h5 class="text-uppercase m-0">장바구니 담기</h5>
@@ -430,7 +431,7 @@
 									icon="clarity:star-solid" class="text-primary"></iconify-icon>
 								3
 							</span>
-							<h3 class="secondary-font text-primary">15000</h3>
+							<h3 class="secondary-font text-primary"><fmt:formatNumber value="15000" pattern="#,###" />원</h3>
 							<div class="d-flex flex-wrap mt-3">
 								<a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
 									<h5 class="text-uppercase m-0">장바구니 담기</h5>
@@ -457,7 +458,7 @@
 									icon="clarity:star-solid" class="text-primary"></iconify-icon>
 								5
 							</span>
-							<h3 class="secondary-font text-primary">30000</h3>
+							<h3 class="secondary-font text-primary"><fmt:formatNumber value="30000" pattern="#,###" />원</h3>
 							<div class="d-flex flex-wrap mt-3">
 								<a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
 									<h5 class="text-uppercase m-0">장바구니 담기</h5>
@@ -484,7 +485,7 @@
 									icon="clarity:star-solid" class="text-primary"></iconify-icon>
 								2
 							</span>
-							<h3 class="secondary-font text-primary">8000</h3>
+							<h3 class="secondary-font text-primary"><fmt:formatNumber value="8000" pattern="#,###" />원</h3>
 							<div class="d-flex flex-wrap mt-3">
 								<a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
 									<h5 class="text-uppercase m-0">장바구니 담기</h5>
@@ -511,7 +512,7 @@
 									icon="clarity:star-solid" class="text-primary"></iconify-icon>
 								4
 							</span>
-							<h3 class="secondary-font text-primary">25000</h3>
+							<h3 class="secondary-font text-primary"><fmt:formatNumber value="25000" pattern="#,###" />원</h3>
 							<div class="d-flex flex-wrap mt-3">
 								<a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
 									<h5 class="text-uppercase m-0">장바구니 담기</h5>
@@ -538,7 +539,7 @@
 									icon="clarity:star-solid" class="text-primary"></iconify-icon>
 								1
 							</span>
-							<h3 class="secondary-font text-primary">150000</h3>
+							<h3 class="secondary-font text-primary"><fmt:formatNumber value="150000" pattern="#,###" />원</h3>
 							<div class="d-flex flex-wrap mt-3">
 								<a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
 									<h5 class="text-uppercase m-0">장바구니 담기</h5>
@@ -565,7 +566,7 @@
 									icon="clarity:star-solid" class="text-primary"></iconify-icon>
 								3
 							</span>
-							<h3 class="secondary-font text-primary">20000</h3>
+							<h3 class="secondary-font text-primary"><fmt:formatNumber value="20000" pattern="#,###" />원</h3>
 							<div class="d-flex flex-wrap mt-3">
 								<a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
 									<h5 class="text-uppercase m-0">장바구니 담기</h5>
@@ -592,7 +593,7 @@
 									icon="clarity:star-solid" class="text-primary"></iconify-icon>
 								5
 							</span>
-							<h3 class="secondary-font text-primary">12000</h3>
+							<h3 class="secondary-font text-primary"><fmt:formatNumber value="12000" pattern="#,###" />원</h3>
 							<div class="d-flex flex-wrap mt-3">
 								<a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
 									<h5 class="text-uppercase m-0">장바구니 담기</h5>
