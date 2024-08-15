@@ -69,14 +69,16 @@
   </section>
 
 		<!-- 라인 이동 과 검색 이동 구분 : 검색 시 하단 페이징 보이기 -->
+		<!-- 
 	  <c:if test="${lineName == '' }">
+		 -->
 	    <!-- 페이지부분. -->
 	    <nav aria-label="Page navigation example">
 	  	<ul class="pagination justify-content-center">
 		  <!-- 이전 페이지. -->
 		  <c:if test="${paging.prev }">
 		    <li class="page-item">
-		      <a class="page-link" href="itemListSearch.do?keyword=${keyword}&page=${paging.startPage - 1}" aria-label="Previous">
+		      <a class="page-link" href="itemListLine.do?lineNo=${lineNo}&page=${paging.startPage - 1}" aria-label="Previous">
 		        <span aria-hidden="true">&laquo;</span>
 		      </a>
 		    </li>
@@ -90,7 +92,7 @@
 						</li>
 					</c:when>
 					<c:otherwise>
-					  <li class="page-item"><a class="page-link" href="itemListSearch.do?page=${p}&keyword=${keyword}">${p}</a>
+					  <li class="page-item"><a class="page-link" href="itemListLine.do?page=${p}&lineNo=${lineNo}">${p}</a>
 					  </li>
 					</c:otherwise>	  
 		  	</c:choose>
@@ -99,7 +101,7 @@
 		  <%--		if(paging.isNext()){ --%>
 		  <c:if test="${paging.next}">
 			  <li class="page-item">
-			    <a class="page-link" href="itemListSearch.do?keyword=${keyword}&page=${paging.endPage + 1}" aria-label="Next">
+			    <a class="page-link" href="itemListLine.do?lineNo=${lineNo}&page=${paging.endPage + 1}" aria-label="Next">
 			      <span aria-hidden="true">&raquo;</span>
 			    </a>	
 			  </li>
@@ -107,5 +109,7 @@
 		  <%-- 		} --%>
 		  </ul>
 		</nav>
-	  <!-- 페이지 끝. -->  
+	  <!-- 페이지 끝. -->
+	  <!-- 
   </c:if>
+	   -->  

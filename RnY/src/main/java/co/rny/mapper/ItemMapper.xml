@@ -38,6 +38,51 @@
         ]]>						
 	</select>
 	
+	
+	<sql id="selectLine">
+		where
+		<choose>
+			<when test="searchCondition == 'T'.toString()">
+			item_no like '%' || #{keyword} || '%'
+			</when>
+			<otherwise>
+			1 = 1
+			</otherwise>
+		</choose>	
+	</sql>
+
+	
+	<select id="selectLinePaging" parameterType="co.rny.common.SearchVO">
+		select b.*
+		from	
+				(select		rownum rn
+									,a.item_no item_no
+									,a.item_name item_name
+									,a.item_price item_price
+									,a.item_image item_image
+									,a.line_no line_no
+        from
+        (
+            select 	 i.item_no
+                    ,i.item_name
+                    ,i.item_price
+                    ,i.item_image
+                    ,l.line_no
+            from	tbl_item    i
+            join    tbl_line    l
+            on      i.line_no = l.line_no
+            where   (l.line_no = #{lineNo} OR l.line_parent_no = #{lineNo})
+            and     i.is_disabled = 0
+            and     l.is_disabled = 0
+            order by i.line_no
+        )a )b
+        where b.rn > (#{page} - 1) * 8
+        <![CDATA[
+        and   b.rn <= (#{page} * 8)
+        ]]>	
+  </select>
+	
+	
 	<select id="selectListSearched" parameterType="co.rny.common.SearchVO" >
 				select 	*
 				from		tbl_item
@@ -120,6 +165,14 @@
 		select count(1)	
 		from tbl_item
     <include refid="selectCondition"></include>
+  </select>
+	<select id="selectTotalCountLine" parameterType="co.rny.common.SearchVO">
+select 	count(1)	
+from		tbl_item    i
+join    tbl_line    l
+on      i.line_no = l.line_no
+where   (l.line_no = #{lineNo} OR l.line_parent_no = #{lineNo})
+order by i.line_no
   </select>
 	
 </mapper>

@@ -55,10 +55,21 @@ public class ItemServiceImpl implements ItemService{
 		// TODO Auto-generated method stub
 		return mapper.selectListPaging(search);
 	}
+	
+	@Override
+	public List<ItemVO> itemListLine(SearchVO search) {
+		// TODO Auto-generated method stub
+		return mapper.selectLinePaging(search);
+	}
 
 	@Override
 	public int totalCount(SearchVO search) {
 		return mapper.selectTotalCount(search);
+	}
+	
+	@Override
+	public int totalCountLine(SearchVO search) {
+		return mapper.selectTotalCountLine(search);
 	}
 
 }

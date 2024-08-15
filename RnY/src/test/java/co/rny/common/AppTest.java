@@ -2,18 +2,22 @@ package co.rny.common;
 
 import org.apache.ibatis.session.SqlSession;
 
-import co.rny.mapper.MemberMapper;
+import co.rny.mapper.ItemMapper;
 
 public class AppTest {
 
 	public static void main(String[] args) {
-
 		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
-		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
-		mapper.selectList(2).forEach(buy -> {
-
-			System.out.println(buy);
+		ItemMapper mapper = sqlSession.getMapper(ItemMapper.class);
+		SearchVO search = new SearchVO();
+		search.setLineNo(11);
+		search.setPage(1);
+		mapper.selectLinePaging(search).forEach(ele -> {
+			
+			System.out.println(ele);
 		});
+
+		System.out.println("종료.");
 
 	}
 }

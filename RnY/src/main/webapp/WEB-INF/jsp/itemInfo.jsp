@@ -94,10 +94,12 @@
 								</tr>
 								<tr>
 									<td>
-										<h5>제조사</h5>
+										<h5>구매 수량</h5>
 									</td>
 									<td>
-										<h5>(주)R&Y Pet</h5>
+										<h5>
+											<input type="number" class="form-control form-control-sm text-center" min="1" value="1" style="width: 100px; height: 30px;" >
+										</h5>
 									</td>
 								</tr>
 								<tr>
