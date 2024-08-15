@@ -31,9 +31,11 @@
 			<c:forEach var="item" items="${itemList}" varStatus="status">
 
         <div class="item cat col-md-4 col-lg-3 my-4">
+        <!-- 
          <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
             New
           </div>
+         -->
           <div class="card position-relative">
             <a href="itemInfo.do?itemNo=${item.itemNo }"><img src="images/item${status.count}.jpg" class="img-fluid rounded-4" alt="image"></a>
             <div class="card-body p-0">
