@@ -395,7 +395,7 @@
 			    </div>
 			    -->
 				<div class="card position-relative">
-					<a href="itemInfo.do?itemNo=50"><img src="images/image5.jpg"
+					<a href="itemInfo.do?itemNo=50"><img src="images/line/801a.jpg"
 						class="img-fluid rounded-4" alt="image"></a>
 					<div class="card-body p-0">
 						<a href="#"><h3 class="card-title pt-4 m-0">강아지 공</h3></a>
@@ -422,7 +422,7 @@
 			    </div>
 			    -->
 				<div class="card position-relative">
-					<a href="itemInfo.do?itemNo=51"><img src="images/image6.jpg"
+					<a href="itemInfo.do?itemNo=51"><img src="images/line/802a.jpg"
 						class="img-fluid rounded-4" alt="image"></a>
 					<div class="card-body p-0">
 						<a href="#"><h3 class="card-title pt-4 m-0">강아지 인형</h3></a>
@@ -449,7 +449,7 @@
 			    </div>
 			    -->
 				<div class="card position-relative">
-					<a href="itemInfo.do?itemNo=52"><img src="images/image7.jpg"
+					<a href="itemInfo.do?itemNo=52"><img src="images/line/803a.jpg"
 						class="img-fluid rounded-4" alt="image"></a>
 					<div class="card-body p-0">
 						<a href="#"><h3 class="card-title pt-4 m-0">강아지 터널</h3></a>
@@ -476,7 +476,7 @@
 			    </div>
 			    -->
 				<div class="card position-relative">
-					<a href="itemInfo.do?itemNo=53"><img src="images/image8.jpg"
+					<a href="itemInfo.do?itemNo=53"><img src="images/line/804a.jpg"
 						class="img-fluid rounded-4" alt="image"></a>
 					<div class="card-body p-0">
 						<a href="#"><h3 class="card-title pt-4 m-0">강아지 훈련용 클리커</h3></a>
@@ -503,7 +503,7 @@
 			    </div>
 			    -->
 				<div class="card position-relative">
-					<a href="itemInfo.do?itemNo=54"><img src="images/image9.jpg"
+					<a href="itemInfo.do?itemNo=54"><img src="images/line/805a.jpg"
 						class="img-fluid rounded-4" alt="image"></a>
 					<div class="card-body p-0">
 						<a href="#"><h3 class="card-title pt-4 m-0">강아지 노즈워크 매트</h3></a>
@@ -530,7 +530,7 @@
 			    </div>
 			    -->
 				<div class="card position-relative">
-					<a href="itemInfo.do?itemNo=55"><img src="images/image1.jpg"
+					<a href="itemInfo.do?itemNo=55"><img src="images/line/806a.jpg"
 						class="img-fluid rounded-4" alt="image"></a>
 					<div class="card-body p-0">
 						<a href="#"><h3 class="card-title pt-4 m-0">고양이 캣타워</h3></a>
@@ -557,7 +557,7 @@
 			    </div>
 			    -->
 				<div class="card position-relative">
-					<a href="itemInfo.do?itemNo=56"><img src="images/image2.jpg"
+					<a href="itemInfo.do?itemNo=56"><img src="images/line/807a.jpg"
 						class="img-fluid rounded-4" alt="image"></a>
 					<div class="card-body p-0">
 						<a href="#"><h3 class="card-title pt-4 m-0">고양이 스크래쳐</h3></a>
@@ -584,7 +584,7 @@
 			    </div>
 			    -->
 				<div class="card position-relative">
-					<a href="itemInfo.do?itemNo=57"><img src="images/image3.jpg"
+					<a href="itemInfo.do?itemNo=57"><img src="images/line/808a.jpg"
 						class="img-fluid rounded-4" alt="image"></a>
 					<div class="card-body p-0">
 						<a href="#"><h3 class="card-title pt-4 m-0">고양이 낚시대</h3></a>
@@ -713,11 +713,11 @@
               New
             </div> -->
 					<div class="card position-relative">
-						<a href="#"><img src="images/item5.jpg"
+						<a href="itemInfo.do?itemNo=1"><img src="images/line/101a.jpg"
 							class="img-fluid rounded-4" alt="image"></a>
 						<div class="card-body p-0">
 							<a href="#">
-								<h3 class="card-title pt-4 m-0">원목 고양이 집</h3>
+								<h3 class="card-title pt-4 m-0">강아지용 덴탈껌</h3>
 							</a>
 
 							<div class="card-text">
@@ -730,7 +730,7 @@
 									5.0
 								</span>
 
-								<h3 class="secondary-font text-primary">58,000원</h3>
+								<h3 class="secondary-font text-primary">15,000원</h3>
 
 								<div class="d-flex flex-wrap mt-3">
 									<a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
@@ -751,11 +751,11 @@
               New
             </div> -->
 					<div class="card position-relative">
-						<a href="#"><img src="images/item6.jpg"
+						<a href="itemInfo.do?itemNo=2"><img src="images/line/102a.jpg"
 							class="img-fluid rounded-4" alt="image"></a>
 						<div class="card-body p-0">
 							<a href="#">
-								<h3 class="card-title pt-4 m-0">순한맛 통조림</h3>
+								<h3 class="card-title pt-4 m-0">강아지 비스켓</h3>
 							</a>
 
 							<div class="card-text">
@@ -767,7 +767,7 @@
 									4.0
 								</span>
 
-								<h3 class="secondary-font text-primary">118,000원</h3>
+								<h3 class="secondary-font text-primary">10,000원</h3>
 
 								<div class="d-flex flex-wrap mt-3">
 									<a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
@@ -787,11 +787,11 @@
 						class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
 						Sale</div>
 					<div class="card position-relative">
-						<a href="#"><img src="images/item7.jpg"
+						<a href="itemInfo.do?itemNo=10"><img src="images/line/203a.jpg"
 							class="img-fluid rounded-4" alt="image"></a>
 						<div class="card-body p-0">
 							<a href="#">
-								<h3 class="card-title pt-4 m-0">노란색 후드 티</h3>
+								<h3 class="card-title pt-4 m-0">강아지 우유</h3>
 							</a>
 
 							<div class="card-text">
@@ -804,7 +804,7 @@
 									5.0
 								</span>
 
-								<h3 class="secondary-font text-primary">44,000원</h3>
+								<h3 class="secondary-font text-primary">15,000원</h3>
 
 								<div class="d-flex flex-wrap mt-3">
 									<a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
@@ -825,11 +825,11 @@
               New
             </div> -->
 					<div class="card position-relative">
-						<a href="#"><img src="images/item8.jpg"
+						<a href="itemInfo.do?itemNo=19"><img src="images/line/401a.jpg"
 							class="img-fluid rounded-4" alt="image"></a>
 						<div class="card-body p-0">
 							<a href="#">
-								<h3 class="card-title pt-4 m-0">잠옷</h3>
+								<h3 class="card-title pt-4 m-0">강아지 레인코트</h3>
 							</a>
 
 							<div class="card-text">
@@ -841,7 +841,7 @@
 									3.0
 								</span>
 
-								<h3 class="secondary-font text-primary">33,000원</h3>
+								<h3 class="secondary-font text-primary">30,000원</h3>
 
 								<div class="d-flex flex-wrap mt-3">
 									<a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
@@ -968,17 +968,17 @@
 
 				</div>
 				<div class="card position-relative">
-					<a href="single-post.html"><img src="images/blog1.jpg"
+					<a href="#"><img src="images/blog1.jpg"
 						class="img-fluid rounded-4" alt="image"></a>
 					<div class="card-body p-0">
-						<a href="single-post.html">
+						<a href="#">
 							<h3 class="card-title pt-4 pb-3 m-0">R&Y 스토어에서 구매해야하는 이유
 								10가지</h3>
 						</a>
 
 						<div class="card-text">
 							<p class="blog-paragraph fs-6">지금부터 만들어 보겠습니다.</p>
-							<a href="single-post.html" class="blog-read">더 보기</a>
+							<a href="#" class="blog-read">더 보기</a>
 						</div>
 
 					</div>
@@ -991,16 +991,16 @@
 
 				</div>
 				<div class="card position-relative">
-					<a href="single-post.html"><img src="images/blog2.jpg"
+					<a href="#"><img src="images/blog2.jpg"
 						class="img-fluid rounded-4" alt="image"></a>
 					<div class="card-body p-0">
-						<a href="single-post.html">
+						<a href="#">
 							<h3 class="card-title pt-4 pb-3 m-0">강아지랑 놀기</h3>
 						</a>
 
 						<div class="card-text">
 							<p class="blog-paragraph fs-6">일단 빈 그릇부터 채우자.</p>
-							<a href="single-post.html" class="blog-read">더 보기</a>
+							<a href="#" class="blog-read">더 보기</a>
 						</div>
 
 					</div>
@@ -1013,16 +1013,16 @@
 
 				</div>
 				<div class="card position-relative">
-					<a href="single-post.html"><img src="images/blog3.jpg"
+					<a href="#"><img src="images/blog3.jpg"
 						class="img-fluid rounded-4" alt="image"></a>
 					<div class="card-body p-0">
-						<a href="single-post.html">
+						<a href="#">
 							<h3 class="card-title pt-4 pb-3 m-0">애완동물을 위한 최고의 집</h3>
 						</a>
 
 						<div class="card-text">
 							<p class="blog-paragraph fs-6">에어콘 풀가동!!</p>
-							<a href="single-post.html" class="blog-read">더보기</a>
+							<a href="#" class="blog-read">더보기</a>
 						</div>
 
 					</div>

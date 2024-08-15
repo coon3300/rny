@@ -17,12 +17,14 @@
 				,a.item_name item_name
 				,a.item_price item_price
 				,a.item_image item_image
+				,a.line_no line_no
         from
         (
             select 	 i.item_no
                     ,i.item_name
                     ,i.item_price
                     ,i.item_image
+                    ,l.line_no
             from	tbl_item    i
             join    tbl_line    l
             on      i.line_no = l.line_no

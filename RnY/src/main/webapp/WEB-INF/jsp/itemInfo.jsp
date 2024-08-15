@@ -27,7 +27,7 @@
 		<div class="row gx-4 gx-lg-5 align-items-center">
 			<div class="col-md-6">
 				<img class="card-img-top mb-5 mb-md-0"
-					src="images/${ivo.getItemImage() }" />
+					src="images/line/${ivo.getLineNo() }a.jpg" />
 			</div>
 			<div class="col-md-6">
 				<ul style="list-style-type: none; margin: 0; padding: 0;">
@@ -277,7 +277,13 @@
 	</div>
 </section>
 <!--================End Product Description Area =================-->
-
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5 ">
+            	<div class="row justify-content-center">
+			        	<img  class="fit-picture"  src="images/line/${ivo.getLineNo() }b.jpg"  alt="..." />
+			        </div>
+		        </div>
+        </section>
         <!-- Related items section-->
         <section class="py-5 bg-light">
             <div class="container px-4 px-lg-5 mt-5">
@@ -295,7 +301,7 @@
                              -->
                             <!-- Product image-->
                             <a href="itemInfo.do?itemNo=${item.itemNo }">
-                            	<img class="card-img-top" src="images/${item.itemImage}" alt="..." />
+                            	<img class="card-img-top" src="images/line/${item.lineNo}a.jpg" alt="..." />
                             </a>
                             <!-- Product details-->
                             <div class="card-body p-4">

@@ -1,14 +1,11 @@
 package co.rny.vo;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 import java.util.Date;
 
+import lombok.Data;
+
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class ItemVO   {
+public class ItemVO{
     private int itemNo;          // 상품 번호
     private int lineNo;          // 라인 번호
     private String itemCode;     // 상품 코드
