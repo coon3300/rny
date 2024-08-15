@@ -58,5 +58,42 @@
     where rownum <= 4					
     ]]>        
 	</select>	
-	
+
+
+
+	<sql id="selectCondition">
+		where
+		<choose>
+			<when test="searchCondition == 'T'.toString()">
+			line_name like '%' || #{keyword} || '%'
+			</when>
+			<otherwise>
+			1 = 1
+			</otherwise>
+		</choose>	
+	</sql>
+
+	<!-- select id="selectListPaging" parameterType="int"-->
+	<select id="selectListPaging" parameterType="co.rny.common.SearchVO">
+            select b.*
+            from (select rownum rn, a.*
+                      from    (select *
+                               from tbl_line
+                               <include refid="selectCondition"></include>
+                               order by line_no desc) a ) b
+            where b.rn > (#{page} - 1) * 8
+            <![CDATA[
+            and   b.rn <= (#{page} * 8)
+            ]]>
+  </select>
+
+	<!-- 페이징 계산용 전체 건수. -->
+	<select id="selectTotalCount" parameterType="co.rny.common.SearchVO">
+		select count(1)	
+		from tbl_line
+    <include refid="selectCondition"></include>
+  </select>
+  
+  
+  	
 </mapper>

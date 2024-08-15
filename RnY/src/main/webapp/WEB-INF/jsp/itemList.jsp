@@ -2,22 +2,38 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<style>
+  .card-title-container {
+    height: 60px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .card-title {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+</style>
+
   <section id="foodies" class="my-5">
     <div class="container my-5 py-5  bg-light">
 
 
       <div class="section-header d-md-flex justify-content-between align-items-center">
-        <h2 class="display-3 fw-normal">${lineName}</h2>
-        <!-- 
-        <div class="mb-4 mb-md-0">
-          <p class="m-0">
-            <button class="filter-button me-4  active" data-filter="*">전체</button>
-            <button class="filter-button me-4 " data-filter=".cat">고양이</button>
-            <button class="filter-button me-4 " data-filter=".dog">강아지</button>
-            <button class="filter-button me-4 " data-filter=".bird">새</button>
-          </p>
+      <!-- 
+        <h6 class="display-3 fw-normal">${lineName}</h6>
+       -->
+       <!-- 
+        <div>
+          <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+            ${lineName}
+					</a>
         </div>
-         -->
+        -->
+        <!-- 
         <div>
           <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
             스토어 바로가기
@@ -25,6 +41,7 @@
               <use xlink:href="#arrow-right"></use>
             </svg></a>
         </div>
+         -->
       </div>
  
       <div class="isotope-container row">
@@ -39,9 +56,11 @@
           <div class="card position-relative">
             <a href="itemInfo.do?itemNo=${item.itemNo }"><img src="images/line/${item.lineNo }a.jpg" class="img-fluid rounded-4" alt="image"></a>
             <div class="card-body p-0">
+            <div class="card-title-container">
               <a href="itemInfo.do?itemNo=${item.itemNo }">
                 <h3 class="card-title pt-4 m-0">${item.itemName }</h3>
               </a>
+            </div>
               <div class="card-text">
                 <span class="rating secondary-font">
                   <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>

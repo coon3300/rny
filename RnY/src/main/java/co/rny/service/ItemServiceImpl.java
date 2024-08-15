@@ -72,4 +72,10 @@ public class ItemServiceImpl implements ItemService{
 		return mapper.selectTotalCountLine(search);
 	}
 
+	@Override
+	public boolean modifyItem(ItemVO item) {
+		return mapper.updateItem(item) == 1;
+
+	}
+
 }

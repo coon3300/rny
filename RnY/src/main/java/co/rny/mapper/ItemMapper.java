@@ -18,4 +18,6 @@ public interface ItemMapper {
 	int selectTotalCountLine(SearchVO search);
 	ItemVO selectOne(int itemNo);
 	List<Map<String, Object>> itemMapList();
+	int updateItem(ItemVO item);
+	
 }

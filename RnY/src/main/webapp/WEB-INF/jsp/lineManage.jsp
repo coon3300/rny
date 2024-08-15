@@ -22,10 +22,10 @@ th, td {
 					class="col-md-12">
 					<div class="search-bar border rounded-2 px-3 border-dark-subtle">
 						<!-- search-form1 -->
-						<form id="search-form-item-manage"
-							class="text-center d-flex align-items-center" action="itemManage.do" method="">
+						<form id="search-form-line-manage"
+							class="text-center d-flex align-lines-center" action="lineManage.do" method="">
 							<input type="text" class="form-control border-0 bg-transparent"
-								placeholder="아이템명을 입력하세요" name="keyword"/>
+								placeholder="라인명을 입력하세요" name="keyword"/>
 								<button type="submit" class="border-0 bg-transparent">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
 								viewBox="0 0 24 24">
@@ -42,43 +42,43 @@ th, td {
 					<table class="table">
 						<thead>
 							<tr>
-								<th class="product-quantity">번호</th>
+								<th class="product-quantity">라인 번호</th>
 								<th class="product-thumbnail">이미지</th>
-								<th class="product-name">아이템명</th>
-								<th class="product-price">가격</th>
-								<th class="product-quantity">재고</th>
+								<th class="product-name">라인명</th>
+								<th class="product-name">부모 라인 번호</th>
+								<th class="product-name">설명</th>
 								<th class="product-name">등록일</th>
-								<th class="product-name">수정일</th>
+								<th class="product-name">삭제일</th>
 							</tr>
 						</thead>
 						<tbody class="justify-content-center">
-							<c:forEach var="item" items="${itemList}" varStatus="status">
+							<c:forEach var="line" items="${lineList}" varStatus="status">
 
 							<tr class="align-middle" >
 								
 								<td>
-										<a href="itemModify.do?itemNo=${item.itemNo}">${item.itemNo}</a>
+										<a href="lineInfo.do?lineNo=${line.lineNo}"><h2 class="h5 text-black">${line.lineNo}</h2></a>
 								</td>
 								
 								<td class="product-thumbnail">
-									<a href="itemModify.do?itemNo=${item.itemNo}">
-									<img src="images/line/${item.lineNo}a.jpg" alt="Image" height="50px">
+									<a href="lineInfo.do?lineNo=${line.lineNo}">
+									<img src="images/line/${line.lineNo}a.jpg" alt="Image" height="50px">
 									</a>
 								</td>
 								<td class="product-name">
-									<a href="itemModify.do?itemNo=${item.itemNo}">
-									<h2 class="h5 text-black">${item.itemName}</h2>
+									<a href="lineInfo.do?lineNo=${line.lineNo}">
+									<h2 class="h5 text-black">${line.lineName}</h2>
 									</a>
 								</td>
-								<td>${item.itemPrice}</td>
-								<td>
-								  <div class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100%;">
-								    <input type="text" class="form-control form-control-sm text-center py-0" style="max-width: 50px; height: 24px; font-size: 0.875rem;" aria-label="Quantity"
-								    value="${item.itemStock}">
-								  </div>
+								<td class="product-name">
+									<a href="lineInfo.do?lineNo=${line.lineParentNo}">
+									<h2 class="h5 text-black">${line.lineParentNo}</h2>
+									</a>
 								</td>
-								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${item.createdDate}"/></td>
-								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${item.updatedDate}"/></td>
+								<td><h2 class="h5 text-black">${line.lineDesc}</h2></td>
+
+								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${line.createdDate}"/></td></tr>
+								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${line.disabledDate}"/></td></tr>
 							</tr>
 							</c:forEach>
 						</tbody>
@@ -96,8 +96,8 @@ th, td {
 	  	<ul class="pagination justify-content-center">
 		  <!-- 이전 페이지. -->
 		  <c:if test="${paging.prev }">
-		    <li class="page-item">
-		      <a class="page-link" href="itemManage.do?keyword=${keyword}&page=${paging.startPage - 1}" aria-label="Previous">
+		    <li class="page-line">
+		      <a class="page-link" href="lineManage.do?keyword=${keyword}&page=${paging.startPage - 1}" aria-label="Previous">
 		        <span aria-hidden="true">&laquo;</span>
 		      </a>
 		    </li>
@@ -106,12 +106,12 @@ th, td {
 		  <c:forEach var="p" begin="${paging.startPage }" end="${paging.endPage }">
 		  	<c:choose>
 					<c:when test="${paging.page == p }">
-						<li class="page-item active" aria-current="page">
+						<li class="page-line active" aria-current="page">
 							<span class="page-link">${p}</span>
 						</li>
 					</c:when>
 					<c:otherwise>
-					  <li class="page-item"><a class="page-link" href="itemManage.do?page=${p}&keyword=${keyword}">${p}</a>
+					  <li class="page-line"><a class="page-link" href="lineManage.do?page=${p}&keyword=${keyword}">${p}</a>
 					  </li>
 					</c:otherwise>	  
 		  	</c:choose>
@@ -119,8 +119,8 @@ th, td {
 		  <!-- next 페이지. -->
 		  <%--		if(paging.isNext()){ --%>
 		  <c:if test="${paging.next}">
-			  <li class="page-item">
-			    <a class="page-link" href="itemManage.do?keyword=${keyword}&page=${paging.endPage + 1}" aria-label="Next">
+			  <li class="page-line">
+			    <a class="page-link" href="lineManage.do?keyword=${keyword}&page=${paging.endPage + 1}" aria-label="Next">
 			      <span aria-hidden="true">&raquo;</span>
 			    </a>	
 			  </li>

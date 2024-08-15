@@ -27,5 +27,5 @@ public interface ItemService {
 	
 	List<Map<String, Object>> itemMapList(int itemNo);
 
-
+	public boolean modifyItem(ItemVO item);
 }
