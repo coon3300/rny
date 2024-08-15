@@ -37,7 +37,7 @@
           </div>
          -->
           <div class="card position-relative">
-            <a href="itemInfo.do?itemNo=${item.itemNo }"><img src="images/item${status.count}.jpg" class="img-fluid rounded-4" alt="image"></a>
+            <a href="itemInfo.do?itemNo=${item.itemNo }"><img src="images/${item.itemImage }" class="img-fluid rounded-4" alt="image"></a>
             <div class="card-body p-0">
               <a href="itemInfo.do?itemNo=${item.itemNo }">
                 <h3 class="card-title pt-4 m-0">${item.itemName }</h3>

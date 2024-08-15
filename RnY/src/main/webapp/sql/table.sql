@@ -394,106 +394,68 @@ VALUES (seq_item_no.NEXTVAL, 808, '0', '고양이 낚시대', '재미있는 움�
 
 
 
-
-
-
-SELECT 
-        level,
-        lpad(' ', 4 * (LEVEL - 1)) || line_no as line,
-        line_no,
-        line_parent_no,
-        line_name,
-        line_desc,
-        is_disabled
-    FROM
-        tbl_line
-    WHERE   is_disabled = 0
-    START WITH line_parent_no IS NULL
-    CONNECT BY PRIOR line_no = line_parent_no
-    ORDER BY LEVEL, line_parent_no, line_no;
-    commit;
-    
-    		SELECT 
-		    level,
-		    line_no,
-		    line_parent_no,
-		    line_name
-		FROM
-		    tbl_line
-    WHERE   is_disabled = 0    
-		START WITH line_parent_no IS NULL
-		CONNECT BY PRIOR line_no = line_parent_no
-		ORDER BY LEVEL, line_parent_no, line_no  		;
-  
-    commit;
-
-
-
-
-
-
 -- 간식 카테고리 (11)
 -- 강아지용 덴탈껌 (line_no: 101)
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 S', '작은 견종을 위한 치아 건강 덴탈껌입니다.', 12000, 'image1_1.jpg', 'small', '전 연령', '소형견', 100);
+VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 S', '작은 견종을 위한 치아 건강 덴탈껌입니다.', 12000, 'image1.jpg', 'small', '전 연령', '소형견', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 M', '중형견을 위한 치아 건강 덴탈껌입니다.', 15000, 'image1_2.jpg', 'medium', '전 연령', '중형견', 100);
+VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 M', '중형견을 위한 치아 건강 덴탈껌입니다.', 15000, 'image1.jpg', 'medium', '전 연령', '중형견', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 L', '대형견을 위한 치아 건강 덴탈껌입니다.', 18000, 'image1_3.jpg', 'large', '전 연령', '대형견', 100);
+VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 L', '대형견을 위한 치아 건강 덴탈껌입니다.', 18000, 'image1.jpg', 'large', '전 연령', '대형견', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 치킨맛', '치킨 맛이 나는 치아 건강 덴탈껌입니다.', 16000, 'image1_4.jpg', 'free size', '전 연령', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 치킨맛', '치킨 맛이 나는 치아 건강 덴탈껌입니다.', 16000, 'image1.jpg', 'free size', '전 연령', '전 품종', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 비프맛', '소고기 맛이 나는 치아 건강 덴탈껌입니다.', 16000, 'image1_5.jpg', 'free size', '전 연령', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 비프맛', '소고기 맛이 나는 치아 건강 덴탈껌입니다.', 16000, 'image1.jpg', 'free size', '전 연령', '전 품종', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 양고기맛', '양고기 맛이 나는 치아 건강 덴탈껌입니다.', 17000, 'image1_6.jpg', 'free size', '전 연령', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 양고기맛', '양고기 맛이 나는 치아 건강 덴탈껌입니다.', 17000, 'image1.jpg', 'free size', '전 연령', '전 품종', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 채소맛', '채소 맛이 나는 치아 건강 덴탈껌입니다.', 15000, 'image1_7.jpg', 'free size', '전 연령', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 채소맛', '채소 맛이 나는 치아 건강 덴탈껌입니다.', 15000, 'image1.jpg', 'free size', '전 연령', '전 품종', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 퍼피', '어린 강아지를 위한 부드러운 덴탈껌입니다.', 14000, 'image1_8.jpg', 'free size', '퍼피', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 퍼피', '어린 강아지를 위한 부드러운 덴탈껌입니다.', 14000, 'image1.jpg', 'free size', '퍼피', '전 품종', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 시니어', '노령견을 위한 부드러운 덴탈껌입니다.', 16000, 'image1_9.jpg', 'free size', '시니어', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 시니어', '노령견을 위한 부드러운 덴탈껌입니다.', 16000, 'image1.jpg', 'free size', '시니어', '전 품종', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 저알러지', '알러지가 있는 강아지를 위한 덴탈껌입니다.', 18000, 'image1_10.jpg', 'free size', '전 연령', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 101, '0', '강아지용 덴탈껌 저알러지', '알러지가 있는 강아지를 위한 덴탈껌입니다.', 18000, 'image1.jpg', 'free size', '전 연령', '전 품종', 100);
 
 -- 강아지 비스켓 (line_no: 102)
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 오리지널', '클래식한 맛의 강아지 비스켓입니다.', 10000, 'image2_1.jpg', 'free size', '전 연령', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 오리지널', '클래식한 맛의 강아지 비스켓입니다.', 10000, 'image2.jpg', 'free size', '전 연령', '전 품종', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 치즈맛', '치즈 맛이 나는 강아지 비스켓입니다.', 11000, 'image2_2.jpg', 'free size', '전 연령', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 치즈맛', '치즈 맛이 나는 강아지 비스켓입니다.', 11000, 'image2.jpg', 'free size', '전 연령', '전 품종', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 고구마맛', '고구마 맛이 나는 강아지 비스켓입니다.', 11000, 'image2_3.jpg', 'free size', '전 연령', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 고구마맛', '고구마 맛이 나는 강아지 비스켓입니다.', 11000, 'image2.jpg', 'free size', '전 연령', '전 품종', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 연어맛', '연어 맛이 나는 강아지 비스켓입니다.', 12000, 'image2_4.jpg', 'free size', '전 연령', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 연어맛', '연어 맛이 나는 강아지 비스켓입니다.', 12000, 'image2.jpg', 'free size', '전 연령', '전 품종', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 당근맛', '당근 맛이 나는 강아지 비스켓입니다.', 10500, 'image2_5.jpg', 'free size', '전 연령', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 당근맛', '당근 맛이 나는 강아지 비스켓입니다.', 10500, 'image2.jpg', 'free size', '전 연령', '전 품종', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 미니', '작은 크기의 강아지 비스켓입니다.', 9500, 'image2_6.jpg', 'small', '전 연령', '소형견', 100);
+VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 미니', '작은 크기의 강아지 비스켓입니다.', 9500, 'image2.jpg', 'small', '전 연령', '소형견', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 대용량', '대용량 패키지의 강아지 비스켓입니다.', 18000, 'image2_7.jpg', 'free size', '전 연령', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 대용량', '대용량 패키지의 강아지 비스켓입니다.', 18000, 'image2.jpg', 'free size', '전 연령', '전 품종', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 저지방', '다이어트 중인 강아지를 위한 저지방 비스켓입니다.', 12000, 'image2_8.jpg', 'free size', '전 연령', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 저지방', '다이어트 중인 강아지를 위한 저지방 비스켓입니다.', 12000, 'image2.jpg', 'free size', '전 연령', '전 품종', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 곡물프리', '곡물 알러지가 있는 강아지를 위한 비스켓입니다.', 13000, 'image2_9.jpg', 'free size', '전 연령', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 곡물프리', '곡물 알러지가 있는 강아지를 위한 비스켓입니다.', 13000, 'image2.jpg', 'free size', '전 연령', '전 품종', 100);
 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
-VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 혼합맛', '다양한 맛이 섞인 강아지 비스켓 모음입니다.', 14000, 'image2_10.jpg', 'free size', '전 연령', '전 품종', 100);
+VALUES (seq_item_no.NEXTVAL, 102, '0', '강아지 비스켓 혼합맛', '다양한 맛이 섞인 강아지 비스켓 모음입니다.', 14000, 'image2.jpg', 'free size', '전 연령', '전 품종', 100);
 
 -- 수제간식 (line_no: 103)
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
