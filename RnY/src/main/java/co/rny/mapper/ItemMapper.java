@@ -13,7 +13,9 @@ public interface ItemMapper {
 	List<ItemVO> selectItemRelated(int lineNo);
 	//List<ItemVO> selectListSearched(String keyword);
 	List<ItemVO> selectListPaging(SearchVO search);
+	List<ItemVO> selectLinePaging(SearchVO search);
 	int selectTotalCount(SearchVO search);
+	int selectTotalCountLine(SearchVO search);
 	ItemVO selectOne(int itemNo);
 	List<Map<String, Object>> itemMapList();
 }

@@ -15,11 +15,13 @@ import co.rny.service.ItemService;
 import co.rny.service.ItemServiceImpl;
 import co.rny.vo.ItemVO;
 
-public class ItemListSearchControl implements Control {
+public class ItemListLineControl implements Control  {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		String lineNo = req.getParameter("lineNo");
+		lineNo = lineNo == null ? "11" : lineNo;
 		String page = req.getParameter("page");
 		page = page == null ? "1" : page;
 		
@@ -32,27 +34,28 @@ public class ItemListSearchControl implements Control {
 		search.setKeyword(kw);
 		search.setPage(Integer.parseInt(page));
 		search.setSearchCondition(sc);
+		search.setLineNo(Integer.parseInt(lineNo));
 		
 		resp.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = resp.getWriter();
 
 		
 		//List<ItemVO> list = svc.itemListSearched(keyword);
-		List<ItemVO> list = svc.itemListSearched(search);
+		List<ItemVO> list = svc.itemListLine(search);
 		
 		req.setAttribute("itemList", list);
-		//req.setAttribute("lineName", "검색 : "+ kw);
+		//req.setAttribute("lineName", "검색 : "+ keyword);
 		req.setAttribute("lineName", "");
 		
 		
-		int totalCnt = svc.totalCount(search);
+		int totalCnt = svc.totalCountLine(search);
 		PageDTO pageDTO = new PageDTO(Integer.parseInt(page),totalCnt, 8);
 		req.setAttribute("paging", pageDTO);
 		req.setAttribute("keyword", kw);
 		req.setAttribute("searchCondition", sc);		
+		req.setAttribute("lineNo", lineNo);		
 		
-    	req.getRequestDispatcher("RnY/itemListSearch.tiles").forward(req, resp);
-
+    	req.getRequestDispatcher("RnY/itemList.tiles").forward(req, resp);
 	}
 
 }
