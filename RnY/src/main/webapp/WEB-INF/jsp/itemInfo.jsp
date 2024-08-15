@@ -3,6 +3,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<head>
+	<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+	<!-- Bootstrap icons-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+	<!-- Core theme CSS (includes Bootstrap)-->
+	<link href="css/main/styles.css" rel="stylesheet" />
+	<link href="css/styles.css" rel="stylesheet" />
+	<link href="../css/styles.css" rel="stylesheet" />
+</head>
+
+
 <!-- 상품상세. -->
 <!-- Product section-->
 <section class="py-5 bg-light">
@@ -211,13 +222,19 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <a href="itemInfo.do?itemNo=${item.itemNo }">
+                                    <a href="itemInfo.do?itemNo=${item.itemNo }" style="text-decoration:none">
                                     	<h5 class="fw-bolder">${item.itemName}</h5>
                                    	</a>
                                     <!-- Product reviews-->
+                                    <!-- 
                                     <div class="d-flex justify-content-center small text-warning mb-2">
+                                     -->
+                                    <div class="d-flex justify-content-center small text-primary mb-2" style="color: yellow;">
 																		<c:forEach begin="1" end="${item.itemNo * 7 % 5 + 1}">
+																				<!-- 
                                         <div class="bi-star-fill"></div>
+																				 -->
+																				 <i class="bi bi-star-fill"></i>
 																		</c:forEach>
                                     </div>
                                     <!-- Product price-->
