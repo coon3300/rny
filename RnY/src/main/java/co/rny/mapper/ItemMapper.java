@@ -10,6 +10,7 @@ public interface ItemMapper {
 
 	List<ItemVO> selectList(int lineNo);
 	List<ItemVO> selectListRelated();
+	List<ItemVO> selectItemRelated(int lineNo);
 	//List<ItemVO> selectListSearched(String keyword);
 	List<ItemVO> selectListPaging(SearchVO search);
 	int selectTotalCount(SearchVO search);

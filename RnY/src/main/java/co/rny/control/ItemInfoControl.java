@@ -1,6 +1,7 @@
 package co.rny.control;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,10 @@ public class ItemInfoControl extends LineControl  {
 		
 		ItemVO ivo = svc.itemSelected(itemNo);
 		
+		List<ItemVO> list = svc.itemInfoRelated(itemNo);
+		
 		req.setAttribute("ivo", ivo);
+		req.setAttribute("itemList", list);
 		
     	req.getRequestDispatcher("RnY/itemInfo.tiles").forward(req, resp);
 	}

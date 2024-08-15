@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
   <section id="foodies" class="my-5">
-    <div class="container my-5 py-5">
+    <div class="container my-5 py-5  bg-light">
 
 
       <div class="section-header d-md-flex justify-content-between align-items-center">
@@ -42,9 +44,9 @@
                 <span class="rating secondary-font">
                   <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
 
-                  ${status.count}.0</span>
+                  ${status.count * item.itemNo % 5 + 1}</span>
 
-                <h3 class="secondary-font text-primary">${item.itemPrice }</h3>
+                <h3 class="secondary-font text-primary"><fmt:formatNumber value="${item.itemPrice}" pattern="#,###" />원</h3>
 
                 <div class="d-flex flex-wrap mt-3">
                   <a href="addCart.do?itemNo=${item.itemNo}&userNo=${userNo}" class="btn-cart me-3 px-4 pt-3 pb-3">
@@ -61,6 +63,7 @@
         
 				</c:forEach>
     </div>
+   </div>
   </section>
 
 		<!-- 라인 이동 과 검색 이동 구분 : 검색 시 하단 페이징 보이기 -->
