@@ -2,7 +2,7 @@ package co.rny.common;
 
 import org.apache.ibatis.session.SqlSession;
 
-import co.rny.mapper.QnaReplyMapper;
+import co.rny.mapper.QnaListMapper;
 
 public class AppTestBEC {
 
@@ -14,15 +14,14 @@ public class AppTestBEC {
 		 * mapper.qnaList().forEach(qna -> { System.out.println(qna); });
 		 *
 		 */
-		/*
-		*
+		
 		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
-		QnaReplyMapper mapper = sqlSession.getMapper(QnaReplyMapper.class);
+		QnaListMapper mapper = sqlSession.getMapper(QnaListMapper.class);
 
-		System.out.println(mapper.qreplyList());
-		*
-		*
-		/
+		System.out.println(mapper.qnaPaging(1));
+		
+		//mapper.qnaPaging(1).forEach(qna -> { System.out.println(qna); });
+
 		/*
 		 * 
 		 * SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.

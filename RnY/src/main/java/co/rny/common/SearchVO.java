@@ -9,4 +9,5 @@ public class SearchVO {
     private String keyword;
     private int bno;
     private int lineNo;
+    private int itemNo; //은찬 추가
 }

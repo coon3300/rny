@@ -36,7 +36,6 @@
 						aria-labelledby="home-tab">
 					<div class="table-responsive">
 						<form action="itemUpdate.do">
-						<input type="hidden" name="itemNo" value="${ivo.getItemNo() }">
 						<table class="table"> 
 							<tbody>
 								<tr>
@@ -46,7 +45,7 @@
 									<td>
 										<h5>
 										
-										<input class="form-control" type="text" name="itemNo" value="${ivo.getItemNo() } ">
+										<input class="form-control" type="text" name="itemNo" value="${ivo.getItemNo()}" readonly>
 										</h5>
 										
 									</td>

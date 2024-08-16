@@ -56,4 +56,15 @@ public class LineServiceImpl implements LineService{
 		return mapper.updateLineEnabled(line) == 1;
 
 	}
+
+	@Override
+	public boolean addLine(LineVO line) {
+		return mapper.insertLine(line) == 1;
+
+	}
+
+	@Override
+	public int lineCurrval() {
+		return mapper.selectCurrval();
+	}
 }

@@ -16,4 +16,6 @@ public interface LineService {
 	boolean modifyLine(LineVO line);
 	boolean deleteLine(LineVO line);
 	boolean deleteLineCancel(LineVO line);
+	boolean addLine(LineVO line);
+	int lineCurrval();
 }

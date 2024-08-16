@@ -128,4 +128,97 @@
 		  </ul>
 		</nav>
 	  <!-- 페이지 끝. -->  
+	 <body>
+    <div class="qa-container">
+        <h2>Q & A</h2>
+        <p>상품 Q&A입니다.</p>
+        <hr>
+
+        <!-- Q&A 테이블 -->
+        <table class="qa-table">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>문의유형</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일자</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="qna" items="${qnaPaging}">
+                    <tr>
+                        <td><a href="qna.do?qnaNum=${qna.qnaNum}&itemNo=${itemNo}">${qna.qnaNum}</a></td>
+                        <td>${qna.qnaType}</td>
+                        <td><a href="qna.do?qnaNum=${qna.qnaNum}&itemNo=${itemNo}"> <!-- 이미지가 있는 경우에만 표시 -->
+                                <c:if test="${!empty qna.qnaImage}">
+                                    <img src="images/chan/${qna.qnaImage}" alt="qna image">
+                                </c:if> ${qna.qnaTitle}
+                        </a></td>
+                        <td>${qna.userId}</td>
+                        <td><fmt:formatDate pattern="yyyy-MM-dd"
+                                value="${qna.qnaDate}" /></td>
+                    </tr>
+                    <!-- 답글 표시 -->
+                    <c:forEach var="reply" items="${qnaReplies[qna.qnaNum]}">
+                        <tr class="reply-row">
+                            <td></td>
+                            <!-- 답글이므로 번호 칸을 비워둠 -->
+                            <td colspan="4">
+                                <div class="reply-content">
+                                    <strong>답글:</strong> ${reply.qreplyContent} <br> <small>작성자:
+                                        ${reply.userId} | 작성일: <fmt:formatDate pattern="yyyy-MM-dd"
+                                            value="${reply.qreplyDate}" />
+                                    </small>
+                                </div>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </c:forEach>
+            </tbody>
+        </table>
+
+        <!-- Footer 버튼들 -->
+        <div class="qa-footer">
+            <button class="btn" onclick="location.href='shop.do?itemNo=${itemNo}'">쇼핑하기</button>
+            <button class="btn" onclick="location.href='writeQna.do?itemNo=${itemNo}'">글쓰기</button>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <!-- PREV 페이지 존재 -->
+            <c:if test="${page.prev}">
+                <li class="page-item"><a class="page-link"
+                    href="qnaList.do?page=${page.page-1}&itemNo=${itemNo}" aria-label="Previous"> <span
+                        aria-hidden="true">&laquo;</span>
+                </a></li>
+            </c:if>
+
+            <!-- 페이지 갯수만큼 링크 생성 -->
+            <c:forEach var="p" begin="${page.startPage }" end="${page.endPage }">
+                <c:choose>
+                    <c:when test="${page.page == p }">
+                        <li class="page-item active" aria-current="page"><span
+                            class="page-link">${p }</span></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item"><a class="page-link"
+                            href="qnaList.do?page=${p}&itemNo=${itemNo}">${p}</a></li>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+
+            <!-- NEXT 페이지 존재 -->
+            <c:if test="${page.next}">
+                <li class="page-item"><a class="page-link"
+                    href="qnaList.do?page=${page.endPage + 1}&itemNo=${itemNo}" aria-label="Next"> <span
+                        aria-hidden="true">&raquo;</span>
+                </a></li>
+            </c:if>
+        </ul>
+    </nav>
+    <!-- 페이징 -->
+</body>
   </c:if>

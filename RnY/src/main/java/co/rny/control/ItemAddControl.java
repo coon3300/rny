@@ -27,10 +27,6 @@ public class ItemAddControl implements Control {
 		String itemStock = req.getParameter("itemStock");
 		String itemImage = req.getParameter("itemImage");
 		
-		System.out.println("lineNo : " + lineNo);
-		System.out.println("lineNo : " + lineNo);
-		System.out.println("itemPrice : " + itemPrice);
-		
 		// 파일전송 multipart/form-data 방식. cos라이브러리.
 		// 1.파일업로도 (image) 2.DB입력.
 		String savePath = req.getServletContext().getRealPath("images");
@@ -48,14 +44,6 @@ public class ItemAddControl implements Control {
 		itemPrice = request.getParameter("itemPrice");
 		itemStock = request.getParameter("itemStock");
 		itemImage = request.getFilesystemName("itemImage");
-		
-		System.out.println("lineNo : " + lineNo);
-		System.out.println("itemCode : " + itemCode);
-		System.out.println("itemName : " + itemName);
-		System.out.println("itemDesc : " + itemDesc);
-		System.out.println("itemPrice : " + itemPrice);
-		System.out.println("itemStock : " + itemStock);
-		System.out.println("itemImage : " + itemImage);
 		
 		ItemService svc = new ItemServiceImpl();
 		ItemVO ivo = new ItemVO();

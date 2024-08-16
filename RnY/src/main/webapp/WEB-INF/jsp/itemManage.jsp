@@ -39,8 +39,8 @@ th, td {
 		
 			<form class="col-md-12" method="post">
 				<div class="site-blocks-table">
-					<table class="table">
-						<thead>
+					<table class="table table-striped">
+						<thead class="table-secondary">
 							<tr>
 								<th class="product-quantity">번호</th>
 								<th class="product-thumbnail">이미지</th>
