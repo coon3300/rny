@@ -66,16 +66,15 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, td, th, input, button,
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
-<!--
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3-alpha3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
 	crossorigin="anonymous">
--->
 
 <link rel="stylesheet" type="text/css" href="css/vendor.css">
 <link rel="stylesheet" type="text/css" href="css/main/style.css">
+
 <!-- 
 <link href="https://webfontworld.github.io/cookierun/CookieRun.css"
 	rel="stylesheet">
@@ -96,7 +95,6 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, td, th, input, button,
 
 </head>
 
-<body>
 
 	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 				<defs>
@@ -311,11 +309,10 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, td, th, input, button,
 			<nav class="main-menu d-flex navbar navbar-expand-lg ">
 				<div class="d-flex d-lg-none align-items-end mt-3">
 					<ul class="d-flex justify-content-end list-unstyled m-0">
-
+					<li><a class="mx-3" href="noticeList.do" class="bi bi-megaphone-fill" style="font-size: 20px; bold;" class="fs-4"></a></li>
 						<li><a class="mx-3" href="noticeList.do"
 							class="bi bi-megaphone-fill" style="font-size: 20px;"
 							class="fs-4"></a></li>
-
 						<c:choose>
 							<c:when test="${!empty logid}">
 								<li style="line-height: 24px;">${logNick}님<a
@@ -324,9 +321,8 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, td, th, input, button,
 								</li>
 							</c:when>
 							<c:otherwise>
-								<li><a class="mx-3" href="loginForm.do"
-									data-bs-toggle="modal" data-bs-target="#loginModal"> <iconify-icon
-											icon="healthicons:person" class="fs-4"></iconify-icon>
+								<li><a class="mx-3" href="loginForm.do" data-bs-toggle="modal" data-bs-target="#loginModal"> 
+								<iconify-icon 	icon="healthicons:person" class="fs-4"></iconify-icon>
 								</a></li>
 							</c:otherwise>
 						</c:choose>
@@ -601,8 +597,11 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, td, th, input, button,
 									class="bi bi-megaphone-fill" style="font-size: 20px;"
 									class="fs-4"></a></li>
 
+								<li><a href="noticeList.do" class="bi bi-megaphone-fill" style="font-size: 20px; bold;" class="fs-4">&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 								<c:choose>
 									<c:when test="${!empty logid}">
+										<li>
+									<a class="mx-3" href="logout.do"><i	class="bi bi-box-arrow-right" style="font-size: 16px;"></i>로그아웃</a>
 
 										<li><a class="mx-3" href="logout.do"><i
 												class="bi bi-box-arrow-right" style="font-size: 16px;"></i>로그아웃</a>
@@ -618,11 +617,11 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, td, th, input, button,
 								</c:choose>
 
 								<!--  -->
-								<li><a class="nav-link mx-3" href="wish.do"> <iconify-icon
-											icon="mdi:heart" class="fs-4"></iconify-icon>
+								<li><a class="nav-link mx-3" href="wish.do"> <iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
 								</a></li>
+								
 
-								<li class=""><a href="#" class="nav-link mx-3"
+								<li class=""><a href="cart.do" class="nav-link mx-3"
 									data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
 									aria-controls="offcanvasCart"> <iconify-icon
 											icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
