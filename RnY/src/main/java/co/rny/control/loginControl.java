@@ -33,14 +33,12 @@ public class loginControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
-		
 
 		MemberService svc = new MemberServiceImpl();
 		MemberVO mem = svc.loginCheck(id, pw);
 		String uno = svc.userCheck(id);
 
 		HttpSession session = req.getSession();
-		
 
 		// ***예림***
 		String nick = svc.userNick(id);
@@ -52,7 +50,10 @@ public class loginControl implements Control {
 		CartService csv = new CartServiceImpl();
 		List<CartVO> cartIn = csv.cartList(id);
 		// ***예림***
-		
+
+		// ***은찬***
+		session.setAttribute("responsibility", mem.getResponsibility()); // 관리자만 댓글 적용
+
 		// 세션객체(attribute)
 		session.setAttribute("logid", id);
 		session.setAttribute("userNo", uno);
@@ -63,17 +64,17 @@ public class loginControl implements Control {
 		session.setAttribute("logWish", wishlist);
 		//session.setAttribute("logOrder", ordering);
 		session.setAttribute("logCart", cartIn);
-		//session.setAttribute("order", orderlist);
-        //session.setAttribute("logWish", wishlist);
-		//session.setAttribute("logOrder", ordering);
-		//session.setAttribute("logCart", cartIn);
-		//session.setAttribute("order", orderlist);
+		// session.setAttribute("order", orderlist);
+		// session.setAttribute("logWish", wishlist);
+		// session.setAttribute("logOrder", ordering);
+		// session.setAttribute("logCart", cartIn);
+		// session.setAttribute("order", orderlist);
 		// !
 		Gson gson = new GsonBuilder().create();
 		// gson.toJson(null)
 		Map<String, Object> map = new HashMap<>();
 
-		if(mem == null) { // 로그인실패
+		if (mem == null) { // 로그인실패
 			map.put("recCode", "Fail");
 			map.put("retVal", null);
 		} else if (mem.getResponsibility().equals("user")) { // 로그인 성공인데 일반회원인경우
@@ -84,7 +85,6 @@ public class loginControl implements Control {
 			map.put("retVal", "admin");
 		}
 		resp.getWriter().print(gson.toJson(map));
-
 
 	}
 

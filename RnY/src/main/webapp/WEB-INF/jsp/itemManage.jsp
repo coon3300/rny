@@ -39,8 +39,8 @@ th, td {
 		
 			<form class="col-md-12" method="post">
 				<div class="site-blocks-table">
-					<table class="table">
-						<thead>
+					<table class="table table-striped">
+						<thead class="table-secondary">
 							<tr>
 								<th class="product-quantity">번호</th>
 								<th class="product-thumbnail">이미지</th>
@@ -70,7 +70,7 @@ th, td {
 									<h2 class="h5 text-black">${item.itemName}</h2>
 									</a>
 								</td>
-								<td>${item.itemPrice}</td>
+								<td><fmt:formatNumber value="${item.itemPrice}" pattern="#,###" />원</td>
 								<td>
 								  <div class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100%;">
 								    <input type="text" class="form-control form-control-sm text-center py-0" style="max-width: 50px; height: 24px; font-size: 0.875rem;" aria-label="Quantity"

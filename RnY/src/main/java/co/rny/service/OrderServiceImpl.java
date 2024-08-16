@@ -31,3 +31,14 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 }
+	public boolean ordered(OrderVO ovo) {
+	    try {
+	        mapper.insertOrder(ovo);
+	        mapper.insertOrderDetail(ovo);
+	        mapper.deleteCart(ovo.getUserNo());
+	        return true;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	}}
