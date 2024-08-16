@@ -48,6 +48,22 @@
 #buttons {
 	padding: 0 !important;
 }
+
+.card-title-container {
+  height: 24px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.card-title {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
 </style>
 <head>
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -369,21 +385,21 @@
 						<!-- 
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">할인</div>
                              -->
-						<!-- Product image-->
-						<a href="itemInfo.do?itemNo=${item.itemNo }"> <img
-							class="card-img-top" src="images/line/${item.lineNo}a.jpg"
-							alt="..." />
-						</a>
-						<!-- Product details-->
-						<div class="card-body p-4">
-							<div class="text-center">
-								<!-- Product name-->
-								<a href="itemInfo.do?itemNo=${item.itemNo }"
-									style="text-decoration: none">
-									<h5 class="fw-bolder">${item.itemName}</h5>
-								</a>
-								<!-- Product reviews-->
-								<!-- 
+                            <!-- Product image-->
+                            <a href="itemInfo.do?itemNo=${item.itemNo }">
+                            	<img class="card-img-top" src="images/line/${item.lineNo}a.jpg" alt="..." />
+                            </a>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <div class="card-title-container">
+                                    <a href="itemInfo.do?itemNo=${item.itemNo }" style="text-decoration:none">
+                                    	<h5 class="fw-bolder card-title">${item.itemName}</h5>
+                                   	</a>
+                                   	</div>
+                                    <!-- Product reviews-->
+                                    <!-- 
                                     <div class="d-flex justify-content-center small text-warning mb-2">
                                      -->
 								<div
