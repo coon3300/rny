@@ -345,12 +345,17 @@
 
 <!--================End Product Description Area =================-->
 <section class="py-5">
-	<div class="container px-4 px-lg-5 mt-5 ">
-		<div class="row justify-content-center">
-			<img class="fit-picture" src="images/line/${ivo.getLineNo() }b.jpg"
-				alt="..." />
-		</div>
-	</div>
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row justify-content-center">
+    <!-- 
+      <div class="col-md-8 col-lg-6">
+     -->
+      <div class="col-md-10 col-lg-8">
+      
+        <img class="img-fluid" src="images/line/${ivo.getLineNo()}b.jpg" alt="...">
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Related items section-->
