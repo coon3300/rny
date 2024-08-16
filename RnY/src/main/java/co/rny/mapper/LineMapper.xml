@@ -4,6 +4,43 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.rny.mapper.LineMapper">
 
+<update id="updateLine" parameterType="co.rny.vo.LineVO">
+  UPDATE tbl_line
+  <set>
+    <if test="lineNo != null">
+      line_no = #{lineNo},
+    </if>
+    <if test="lineParentNo != null">
+      line_parent_no = #{lineParentNo},
+    </if>
+    <if test="lineName != null">
+      line_name = #{lineName},
+    </if>
+    <if test="lineDesc != null">
+      line_desc = #{lineDesc},
+    </if>
+    updated_date = SYSDATE
+  </set>
+  WHERE line_no = #{lineNo}
+</update>
+
+<update id="updateLineDisabled" parameterType="co.rny.vo.LineVO">
+  UPDATE 	tbl_line
+  SET
+      		is_disabled = 1,
+    			disabled_date = SYSDATE
+  WHERE 	line_no = #{lineNo}
+</update>
+
+<update id="updateLineEnabled" parameterType="co.rny.vo.LineVO">
+  UPDATE 	tbl_line
+  SET
+      		is_disabled = 0,
+    			disabled_date = null,
+    			updated_date = SYSDATE
+  WHERE 	line_no = #{lineNo}
+</update>
+
 	<select id="selectOne">
 		
 	</select>
@@ -15,6 +52,12 @@
     AND		line_no = #{lineNo}    
 		
 	</select>
+	
+<select id="selectOneAll" resultType="co.rny.vo.LineVO">
+		select 	*
+		from		tbl_line
+		where 	line_no = #{lineNo}		
+	</select>	
 	
 	<select id="selectList" >
 		SELECT 

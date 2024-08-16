@@ -28,15 +28,14 @@
 		<div class="row gx-4 gx-lg-5 align-items-center">
 			<div class="col-md-6">
 				<img class="card-img-top mb-5 mb-md-0"
-					src="images/line/${ivo.getLineNo() }a.jpg" />
+					src="images/line/101a.jpg" />
 			</div>
 			<div class="col-md-6">
 				<div class="tab-content" id="myTabContent">
 					<div class="tab-pane fade show active" id="home" role="tabpanel"
 						aria-labelledby="home-tab">
 					<div class="table-responsive">
-						<form action="itemUpdate.do">
-						<input type="hidden" name="itemNo" value="${ivo.getItemNo() }">
+						<form action="itemAdd.do" method="post" enctype="multipart/form-data">
 						<table class="table"> 
 							<tbody>
 								<tr>
@@ -45,8 +44,7 @@
 									</td>
 									<td>
 										<h5>
-										
-										<input class="form-control" type="text" name="itemNo" value="${ivo.getItemNo() } ">
+											자동생성									
 										</h5>
 										
 									</td>
@@ -57,7 +55,7 @@
 									</td>
 									<td>
 										<h5>
-											<input class="form-control" type="text" name="lineNo" value="${ivo.getLineNo() }">
+											<input class="form-control" type="text" name="lineNo" >
 										</h5>
 									</td>
 								</tr>
@@ -66,7 +64,7 @@
 										<h5>아이템 코드</h5>
 									</td>
 									<td>
-										<h5><input class="form-control" type="text" name="itemCode" value="${ivo.getItemCode() }"></h5>
+										<h5><input class="form-control" type="text" name="itemCode" ></h5>
 									</td>
 								</tr>
 								<tr>
@@ -74,7 +72,7 @@
 										<h5>아이템명</h5>
 									</td>
 									<td>
-										<h5><input class="form-control" type="text" name="itemName" value="${ivo.getItemName() }"></h5>
+										<h5><input class="form-control" type="text" name="itemName" ></h5>
 									</td>
 								</tr>
 								<tr>
@@ -82,7 +80,7 @@
 										<h5>설명</h5>
 									</td>
 									<td>
-										<h5><input class="form-control" type="text" name="itemDesc" value="${ivo.getItemDesc() }"></h5>
+										<h5><input class="form-control" type="text" name="itemDesc"></h5>
 									</td>
 								</tr>
 								<tr>
@@ -90,7 +88,7 @@
 										<h5>가격</h5>
 									</td>
 									<td>
-										<h5><input class="form-control" type="text" name="itemPrice" value="${ivo.getItemPrice() }"></h5>
+										<h5><input class="form-control" type="text" name="itemPrice"></h5>
 									</td>
 								</tr>
 								<tr>
@@ -98,7 +96,7 @@
 										<h5>재고</h5>
 									</td>
 									<td>
-										<h5><input class="form-control" type="text" name="itemStock" value="${ivo.getItemStock() }"></h5>
+										<h5><input class="form-control" type="text" name="itemStock"></h5>
 									</td>
 								</tr>
 
@@ -108,18 +106,14 @@
 										<h5>이미지</h5>
 									</td>
 									<td>
-										<h5><input class="form-control" type="text" name="itemImage" value="${ivo.getItemImage() }"></h5>
+										<h5><input class="form-control" type="file" name="itemImage"></h5>
 									</td>
 								</tr>
 							</tbody>
 						</table>
 						
 						<div id="buttons" class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex justify-content-between list-unstyled m-0" style="margin: 0; padding: 0;">
-							<input class="btn btn-outline-primary w-100 mt-auto " type="submit" value="수정">
-							
-							<button class="btn btn-outline-danger w-100 mt-auto" type="button" id="removeItem" style="${ivo.getIsDisabled() == 1 ? 'display:none;' : ''}">삭제</button>
-							<button class="btn btn-outline-warning w-100 mt-auto" type="button" id="restoreItem" style="${ivo.getIsDisabled() == 1 ? '' : 'display:none;'}">삭제 취소</button>							
-							
+							<input class="btn btn-outline-primary w-100 mt-auto " type="submit" value="등록">
 						</div>
 						</form>
 					</div>
@@ -130,24 +124,3 @@
 		</div>
 	</div>
   </section>
-
-<!--================End Product Description Area =================-->
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5 ">
-            	<div class="row justify-content-center">
-			        	<img  class="fit-picture"  src="images/line/${ivo.getLineNo() }b.jpg"  alt="..." />
-			        </div>
-		        </div>
-        </section>
-
-	<script>
-		document.querySelector('#removeItem')
-				.addEventListener('click', function(e) {
-					location.href = 'itemRemove.do?itemNo=${ivo.getItemNo() }';
-				});
-		
-		document.getElementById('restoreItem')
-				.addEventListener('click', function(e) {
-					location.href = 'itemRestore.do?itemNo=${ivo.getItemNo() }';
-				});
-	</script>

@@ -37,6 +37,12 @@ public class ItemServiceImpl implements ItemService{
 		return mapper.selectOne(itemNo);
 
 	}
+	
+	@Override
+	public ItemVO itemSelectedAll(int itemNo) {
+		return mapper.selectOneAll(itemNo);
+		
+	}
 
 	@Override
 	public List<Map<String, Object>> itemMapList(int itemNo) {
@@ -54,6 +60,12 @@ public class ItemServiceImpl implements ItemService{
 	public List<ItemVO> itemListSearched(SearchVO search) {
 		// TODO Auto-generated method stub
 		return mapper.selectListPaging(search);
+	}
+	
+	@Override
+	public List<ItemVO> itemListSearchedAll(SearchVO search) {
+		// TODO Auto-generated method stub
+		return mapper.selectListPagingAll(search);
 	}
 	
 	@Override
@@ -78,4 +90,18 @@ public class ItemServiceImpl implements ItemService{
 
 	}
 
+	@Override
+	public boolean deleteItem(ItemVO item) {
+		return mapper.updateItemDisabled(item) == 1;
+	}
+	
+	@Override
+	public boolean deleteItemCancel(ItemVO item) {
+		return mapper.updateItemEnabled(item) == 1;
+	}
+
+	@Override
+	public boolean addItem(ItemVO item) {
+		return mapper.insertItem(item) == 1;
+	}
 }
