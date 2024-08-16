@@ -1,6 +1,7 @@
 package co.rny.control;
 
 import java.io.IOException;
+import java.util.List;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 import javax.servlet.ServletException;
@@ -16,50 +17,41 @@ public class CartControl implements Control {
 
     @Override
     public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        // 세션에서 사용자 ID를 가져옵니다.
         HttpSession session = req.getSession();
-        String id = (String) session.getAttribute("logid");
+        String userNo = (String) session.getAttribute("userNo"); // 사용자 번호 가져오기
 
-        resp.setContentType("text/html; charset=UTF-8");
-        PrintWriter out = resp.getWriter();
-
-        // 로그인이 필요한 경우
-        if (id == null) {
-            out.println("<script language='javascript'>");
-            out.println("alert('장바구니는 로그인 후 사용가능합니다!')");
-            out.println("location.href='main.do';");
-            out.println("</script>");
-            return;
-        }
-
-        // CartService를 이용해 장바구니 업데이트
         CartService cartService = new CartServiceImpl();
+        
+        // 장바구니 목록 가져오기
+        List<CartVO> cartList = cartService.cartList(userNo);
+        
+        // 요청 속성에 장바구니 목록 저장
+        req.setAttribute("cartList", cartList);
 
-        // 모든 파라미터를 읽어와서 cartNo와 수량을 처리합니다.
-        Enumeration<String> parameterNames = req.getParameterNames();
-        while (parameterNames.hasMoreElements()) {
-            String paramName = parameterNames.nextElement();
-            if (paramName.startsWith("quantity_")) {
-                String itemNo = paramName.substring("quantity_".length());
-                String quantityStr = req.getParameter(paramName);
+        // JSP 페이지로 포워딩
+        req.getRequestDispatcher("yourCartPage.jsp").forward(req, resp); // JSP 페이지 경로 설정
+    }
+}
 
-                int quantity = 1; // 기본값
-                try {
-                    quantity = Integer.parseInt(quantityStr);
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                }
+class UpdateCartQuantityControl implements Control {
 
-                // CartVO 객체를 생성하여 서비스 호출
-                CartVO cartVO = new CartVO();
-                cartVO.setItemNo(Integer.parseInt(itemNo));
-                cartVO.setCartCnt(quantity);
-                cartService.updateCartCount(cartVO);
-            }
-        }
+    @Override
+    public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        String userNo = (String) session.getAttribute("userNo");
+        int cartNo = Integer.parseInt(req.getParameter("cartNo"));
+        int quantity = Integer.parseInt(req.getParameter("quantity"));
 
-        // 장바구니 페이지로 리디렉션
-        req.getRequestDispatcher("RnY/cart.tiles").forward(req, resp);
+        CartService cartService = new CartServiceImpl();
+        
+        CartVO cartItem = new CartVO();
+        cartItem.setCartNo(cartNo);
+        cartItem.setUserNo(userNo);
+        cartItem.setQuantity(quantity);
+        
+        cartService.addOrUpdateCartItem(cartItem);
+
+        // 장바구니 목록으로 리다이렉트
+        resp.sendRedirect("cart.do");
     }
 }

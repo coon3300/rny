@@ -4,26 +4,5 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.rny.mapper.OrderMapper">
 
-    <!-- 장바구니에서 주문할 상품을 조회하는 쿼리 -->
-    <select id="getCartItems" parameterType="String" resultType="co.rny.vo.OrderVO">
-        SELECT * FROM tbl_cart WHERE user_no = #{userNo}
-    </select>
-
-    <!-- 주문을 저장하는 쿼리 -->
-    <insert id="saveOrder" parameterType="co.rny.vo.OrderVO">
-        INSERT INTO tbl_order (item_name, item_price, order_cnt, order_price, cart_no, user_no)
-        VALUES (#{itemName}, #{itemPrice}, #{orderCnt}, #{orderPrice}, #{cartNo}, #{userNo})
-    </insert>
-    
-    <!-- 사용자 ID에 따라 주문 내역을 조회하는 쿼리 -->
-    <select id="selectOrdersByUserId" resultType="co.rny.vo.OrderVO">
-        SELECT i.item_name AS itemName,
-               i.item_price AS itemPrice,
-               o.order_cnt AS orderCnt,
-               o.order_price AS orderPrice
-        FROM tbl_order o JOIN tbl_item i
-        ON o.item_no = i.item_no
-        WHERE user_no = #{userNo}
-    </select>
 
 </mapper>

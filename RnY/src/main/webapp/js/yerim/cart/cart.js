@@ -42,16 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
-
-
-
-
-
-
-
 document.getElementById('cartForm').addEventListener('submit', function() {
-    let cartCountInput = document.querySelector('input[name="cartCount"]').value;
-    document.querySelector('input[name="cartCount"]').value = cartCountInput;
+    let cartCountInput = document.querySelectorAll('input[name="cartCount"]');
+    let cartCounts = Array.from(cartCountInput).map(input => input.value);
+    
+    // 수량을 숨겨진 필드에 설정
+    document.querySelectorAll('input[name="cartCount"]').forEach((input, index) => {
+        input.value = cartCounts[index];
+    });
 });
-
