@@ -91,14 +91,14 @@
 										<h5>구매 수량</h5>
 									</td>
 										<td>
-    <div class="d-flex flex-column">
-      <div class="input-group" style="width: 200px;">
-        <input type="number" id="quantity" class="form-control form-control-sm text-center" min="1" max="${ivo.getItemStock()}" value="1">
-      	<div class="text-muted mt-1 ">
-					(재고: ${ivo.getItemStock()}개)
-      	</div>
-      </div>
-    </div>
+									    <div class="d-flex flex-column">
+									      <div class="input-group" style="width: 200px;">
+									        <input type="number" id="quantity" class="form-control form-control-sm text-center" min="1" max="${ivo.getItemStock()}" value="1">
+									      	<div class="text-muted mt-1 ">
+														(재고: ${ivo.getItemStock()}개)
+									      	</div>
+									      </div>
+									    </div>
 										</td>
 								</tr>
 								<tr>
@@ -148,7 +148,7 @@
 					<div class="tab-pane fade show active" id="home" role="tabpanel"
 						aria-labelledby="home-tab">
 					<div class="table-responsive">
-						<table class="table"> 
+						<table class="table table-striped">
 							<tbody>
 								<tr>
 									<td>
