@@ -88,9 +88,6 @@
   </section>
 
 		<!-- 라인 이동 과 검색 이동 구분 : 검색 시 하단 페이징 보이기 -->
-		<!-- 
-	  <c:if test="${lineName == '' }">
-		 -->
 	    <!-- 페이지부분. -->
 	    <nav aria-label="Page navigation example">
 	  	<ul class="pagination justify-content-center">
@@ -117,7 +114,6 @@
 		  	</c:choose>
 		  </c:forEach>
 		  <!-- next 페이지. -->
-		  <%--		if(paging.isNext()){ --%>
 		  <c:if test="${paging.next}">
 			  <li class="page-item">
 			    <a class="page-link" href="itemListLine.do?lineNo=${lineNo}&page=${paging.endPage + 1}" aria-label="Next">
@@ -125,10 +121,6 @@
 			    </a>	
 			  </li>
 		  </c:if>
-		  <%-- 		} --%>
 		  </ul>
 		</nav>
 	  <!-- 페이지 끝. -->
-	  <!-- 
-  </c:if>
-	   -->  
