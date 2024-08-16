@@ -9,4 +9,7 @@ public interface CartMapper {
 	List<CartVO> cart(String id);
 	int deleteCart(int cno);
 	int plusCart(MemberVO mvo);
+	CartVO selectCartItem(String userNo, String itemNo);
+    int updateCartCount(CartVO cart);
 }
+

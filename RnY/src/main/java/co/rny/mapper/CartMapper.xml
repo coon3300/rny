@@ -22,5 +22,16 @@
 	insert into tbl_cart(cart_no, user_no, item_no)
 	values(seq_cart.nextval, #{userNo}, #{itemNo} )
 	</insert>
+	
+	<insert id="insertCart" parameterType="co.rny.vo.CartVO">
+		INSERT INTO cart (user_no, item_no, cart_cnt)
+		VALUES (#{userNo}, #{itemNo}, #{cartCnt})
+	</insert>
+
+	<update id="updateCartCount" parameterType="co.rny.vo.CartVO">
+		UPDATE cart
+		SET cart_cnt = #{cartCnt}
+		WHERE user_no = #{userNo} AND item_no = #{itemNo}
+	</update>
 
 </mapper>

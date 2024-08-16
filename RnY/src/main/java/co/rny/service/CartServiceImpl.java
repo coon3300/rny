@@ -26,4 +26,13 @@ public class CartServiceImpl implements CartService {
 	public boolean addCart(MemberVO mvo) {
 		return mapper.plusCart(mvo) == 1;
 	}
+	@Override
+	public CartVO getCartItem(String userNo, String itemNo) {
+		return mapper.selectCartItem(userNo, itemNo);
+	}
+
+	@Override
+	public void updateCartCount(CartVO cart) {
+		mapper.updateCartCount(cart);
+	}
 }
