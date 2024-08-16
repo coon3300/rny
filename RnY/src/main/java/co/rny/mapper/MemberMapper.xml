@@ -28,15 +28,16 @@
     ORDER BY user_no
 	</select>
 	
-	<update id="updateList" >
-		UPDATE rny_member
-		SET user_pw = #{userPw},
-    user_nick = #{userNick},
-    user_birth = #{userBirth},
-    user_phone = #{userPhone},
-    user_email = #{userEmail}
-		WHERE user_no = #{userNo}
+	<update id="updateList">
+    UPDATE rny_member
+    SET user_pw = #{userPw},
+        user_nick = #{userNick},
+        user_birth = #{userBirth},
+        user_phone = #{userPhone},
+        user_email = #{userEmail}
+    WHERE user_no = #{userNo}
 	</update>
+
 	
 	<!-- 주소록목록조회 -->
 	<select id="selectAddress" resultType="co.rny.vo.AddressVO">

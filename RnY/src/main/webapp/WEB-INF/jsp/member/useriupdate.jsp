@@ -4,73 +4,164 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<link rel="stylesheet" href="css/style.css">
+<Script src='js/addmember2.js'></Script>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-<section class="cart_area padding_top">
-	<div class="cart_inner">
-		<div class="table-responsive">
-		
-		<form action="updateuser.do">
-			<input type="hidden" name="userNo" value="${userinfo.userNo}">
-			<table class="table" style="text-align: center">
-				<thead>
-				
-					<tr>
-						<th class="col-sm-1">고유번호</th>
-						<td class="col-sm-3">${userinfo.userNo}</td>
-					</tr>
+.container1 {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-					<tr>
-						<th class="col-sm-1">ID</th>
-						<td class="col-sm-3">${userinfo.userId}</td>
-					</tr>
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    letter-spacing: 2px;
+}
 
-					<tr>
-						<th class="col-sm-1">패스워드</th>
-						<td class="col-sm-3"><input type="password" name="userPw" value="${userinfo.userPw}"></td>
-					</tr>
+.form-group {
+    margin-bottom: 15px;
+}
 
-					<tr>
-						<th class="col-sm-2">닉네임</th>
-						<td class="col-sm-3"><input type="text" name="userNick" value="${userinfo.userNick}"></td>
-					</tr>
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
 
-					<tr>
-						<th class="col-sm-2">생년월일</th>
-						<td class="col-sm-3"><input type="text" name="userBirth" value="<fmt:formatDate pattern='yyyy-MM-dd' value='${userinfo.userBirth}'/>">
-						</td>
-					</tr>
+input[type="text"], 
+input[type="password"], 
+input[type="email"], 
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
 
-					<tr>
-						<th class="col-sm-2">전화번호</th>
-						<td class="col-sm-3"><input type="text" name="userPhone" value="${userinfo.userPhone}"></td>
-					</tr>
+input[type="text"]:disabled,
+input[type="password"]:disabled,
+input[type="email"]:disabled {
+    background-color: #f0f0f0;
+}
 
-					<tr>
-						<th class="col-sm-2">이메일</th>
-						<td class="col-sm-3"><input type="email" name="userEmail" value="${userinfo.userEmail}"></td>
-					</tr>
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-					<tr>
-						<th class="col-sm-1">주소</th>
-						<td class="col-sm-3">${userinfo.userAdd}"</td>
-					</tr>
+button:hover {
+    background-color: #555;
+}
 
-					<tr>
-						<th class="col-sm-1">가입일자</th>
-						<td class="col-sm-3"><fmt:formatDate pattern='yyyy-MM-dd' value='${userinfo.userDate}'/></td>
-					</tr>
+.note {
+    font-size: 12px;
+    color: #777;
+    margin-top: 20px;
+    text-align: center;
+}
 
-					<tr>
-						<th class="col" colspan=2>
-						<button class="btn_1" style="width: 100px;" type="submit">정보수정</button>
-						<a class="btn_1" href="mypage.do" style="width: 100px;">뒤로가기</a></th>
-					</tr>
-				</thead>
+button.cancel {
+    background-color: #ccc;
+    color: #333;
+    margin-top: 10px;
+}
 
-			</table>
-			</form>
+button.cancel:hover {
+    background-color: #aaa;
+}
+</style>
+
+<div class="container1">
+        <h1>MODIFY</h1>
+		<form action="updateuser.do" method="post">
+ 		   <input type="hidden" name="userNo" value="${userinfo.userNo}">
+
+    <div class="form-group">
+        <label for="id">아이디 *</label>
+        <input type="text" id="userId" name="userId" value="${userinfo.userId}" disabled>
+    </div>
+
+    <div class="form-group">
+        <label for="password">비밀번호 *</label>
+        <input type="password" id="userPw" onkeyup="check_pw()" name="userPw" placeholder="Password(변경시에만 입력)">
+        <span id="checkResultPW"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="confirm_password">비밀번호 확인 *</label>
+        <input type="password" id="userPw2" onkeyup="check_pw2()" name="userPw2"  placeholder="Confirm Password (변경시에만 입력)">
+        <span id="checkResultPW2"></span>
+    </div>
+
+	<div class="form-group">
+        <label for="name">이름 *</label>
+        <input type="text" id="userName" name="userName" value="${userinfo.userName}" disabled>
+    </div>
+    
+    <div class="form-group">
+        <label for="name">닉네임 *</label>
+        <input type="text" id="userNick" name="userNick" value="${userinfo.userNick}">
+    </div>
+
+    <div class="form-group">
+        <label for="birth">생년월일 *</label>
+        <input type="text" id="userBirth" name="userBirth" value="<fmt:formatDate pattern='yyyy-MM-dd' value='${userinfo.userBirth}'/>">
+        <span id="checkResultBirth"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="phone">전화번호 *</label>
+        <input type="text" id="userPhone" name="userPhone" onkeyup="check_phone()" value="${userinfo.userPhone}">
+    	<span id="checkResultPhone"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="email">이메일 *</label>
+        <input type="email" id="userEmail" name="userEmail" value="${userinfo.userEmail}">
+        <span id="checkResultEMAIL"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="address">주소</label>
+        <input type="text" id="userAdd" name="userAdd" value="${userinfo.userAdd}" disabled>
+    </div>
+
+    <div class="form-group">
+        <label for="date">가입일자 *</label>
+        <input type="text" id="userDate" name="userDate" value="<fmt:formatDate pattern='yyyy-MM-dd' value='${userinfo.userDate}'/>" disabled>
+    </div>
+
+    <p class="note">회원 정보를 입력하시면 하단의 버튼을 클릭하세요.</p>
+    
+    <button type="submit" class="btn btn-danger">정보수정</button>
+    <button type="button" class="btn btn-warning"> <a href="mypage.do">뒤로가기</a></button>
+    
+</form>
+
 		</div>
 
-	</div>
-</section>
