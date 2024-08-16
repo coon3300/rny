@@ -181,22 +181,6 @@
 						    <div class="text-center flex-grow-1 mx-2"><a class="btn btn-outline-dark w-100 mt-auto" href="#"><i class="bi bi-cart2"></i></a></div>
 						    <div class="text-center flex-grow-1"><a class="btn btn-outline-success w-100 mt-auto" href="#"><i class="bi bi-heart"></i></a></div>
 						</div>
-							<div id="buttons"
-								class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex justify-content-between list-unstyled m-0"
-								style="margin: 0; padding: 0;">
-								<div class="text-center flex-grow-1">
-									<a class="btn btn-outline-primary w-100 mt-auto" href="#">주문하기</a>
-								</div>
-								<div class="text-center flex-grow-1 mx-2">
-									<a class="btn btn-outline-dark w-100 mt-auto" href="#"><i
-										class="bi bi-cart2"></i></a>
-								</div>
-								<div class="text-center flex-grow-1">
-									<a class="btn btn-outline-success w-100 mt-auto" href="#"><i
-										class="bi bi-heart"></i></a>
-								</div>
-							</div>
-
 						</div>
 					</div>
 				</div>
