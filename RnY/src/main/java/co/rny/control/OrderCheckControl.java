@@ -45,7 +45,7 @@ public class OrderCheckControl implements Control {
 				
 				
 				OrderService osv = new OrderServiceImpl();
-				osv.ordered(ovo);
+				//osv.ordered(ovo);
 				
 				
 				
