@@ -3,6 +3,7 @@ package co.rny.mapper;
 import java.util.List;
 
 import co.rny.common.SearchVO;
+import co.rny.vo.ItemVO;
 import co.rny.vo.LineVO;
 
 public interface LineMapper {
@@ -15,4 +16,7 @@ public interface LineMapper {
 	int updateLine(LineVO line);
 	int updateLineDisabled(LineVO line);
 	int updateLineEnabled(LineVO line);
+	int insertLine(LineVO line);
+	int selectCurrval();
+	
 }

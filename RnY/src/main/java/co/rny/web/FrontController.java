@@ -40,6 +40,8 @@ import co.rny.control.ItemModifyControl;
 import co.rny.control.ItemRemoveControl;
 import co.rny.control.ItemRestoreControl;
 import co.rny.control.ItemUpdateControl;
+import co.rny.control.LineAddControl;
+import co.rny.control.LineFormControl;
 import co.rny.control.LineManageControl;
 import co.rny.control.LineModifyControl;
 import co.rny.control.LineRemoveControl;
@@ -120,6 +122,10 @@ public class FrontController extends HttpServlet {
 		map.put("/lineRemove.do", new LineRemoveControl());
 		// 라인 삭제 취소
 		map.put("/lineRestore.do", new LineRestoreControl());
+		// 라인 등록 form
+		map.put("/lineForm.do", new LineFormControl());
+		// 라인 등록
+		map.put("/lineAdd.do", new LineAddControl());
 
 		
 		// 하린아=================================================================
