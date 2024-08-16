@@ -30,31 +30,25 @@
 					src="images/line/${ivo.getLineNo() }a.jpg" />
 			</div>
 			<div class="col-md-6">
-				<ul style="list-style-type: none; margin: 0; padding: 0;">
-					<li>
-						<h1>${ivo.getItemName() }</h1>
-					</li>
-				</ul>
-				<ul style="list-style-type: none; margin: 0; padding: 0;">
-					<li>
-						<h6>&nbsp;</h6>
-					</li>
-				</ul>				
-				<ul style="list-style-type: none; margin: 0; padding: 0;">
-					<li>
-						<h3><fmt:formatNumber value="${ivo.getItemPrice()}" pattern="#,###" />원</h3>
-					</li>
-				</ul>
-				<ul style="list-style-type: none; margin: 0; padding: 0;">
-					<li>
-						<h6>&nbsp;</h6>
-					</li>
-				</ul>				
 				<div class="tab-content" id="myTabContent">
 					<div class="tab-pane fade show active" id="home" role="tabpanel"
 						aria-labelledby="home-tab">
 					<div class="table-responsive">
 						<table class="table"> 
+							<tr>
+								<th colspan="2"><h1>
+									${ivo.getItemName() }
+								</h1>
+								</th>
+							</tr>
+							<tr>
+								<th colspan="2"><h2>
+									<fmt:formatNumber value="${ivo.getItemPrice()}" pattern="#,###" />원
+								</h2>
+								</th>
+							</tr>
+						<thead>
+						</thead>
 							<tbody>
 								<tr>
 									<td>
@@ -96,11 +90,16 @@
 									<td>
 										<h5>구매 수량</h5>
 									</td>
-									<td>
-										<h5>
-											<input type="number" class="form-control form-control-sm text-center" min="1" value="1" style="width: 100px; height: 30px;" >
-										</h5>
-									</td>
+										<td>
+    <div class="d-flex flex-column">
+      <div class="input-group" style="width: 200px;">
+        <input type="number" id="quantity" class="form-control form-control-sm text-center" min="1" max="${ivo.getItemStock()}" value="1">
+      	<div class="text-muted mt-1 ">
+					(재고: ${ivo.getItemStock()}개)
+      	</div>
+      </div>
+    </div>
+										</td>
 								</tr>
 								<tr>
 									<td colspan="2">
@@ -108,6 +107,14 @@
 										<h6>수량을 선택해주세요.</h6>
 									</td>
 								</tr>
+					      <tr>
+					        <td>
+					          <h5>최종 결제금액</h5>
+					        </td>
+					        <td>
+					          <h5 id="totalPrice"><fmt:formatNumber value="${ivo.getItemPrice()}" pattern="#,###" />원</h5>
+					        </td>
+					      </tr>								
 							</tbody>
 						</table>
 						
@@ -340,3 +347,22 @@
                 </div>
             </div>
         </section>
+<script>
+  let itemPrice = ${ivo.getItemPrice()};
+  let itemStock = ${ivo.getItemStock()};
+  
+  let itemQuantity = document.getElementById('quantity');
+
+  function updateTotal() {
+  	itemQuantity = document.getElementById('quantity');
+	  if(itemQuantity.value > itemStock){
+		  document.getElementById('quantity').value = itemStock;
+	    alert('최대 주문 수량은 ${ivo.getItemStock()}개 입니다.');
+	  }
+	  
+    let quantity = itemQuantity.value;
+    let total = quantity * itemPrice;
+    document.getElementById('totalPrice').textContent = total.toLocaleString('ko-KR') + '원';
+  }
+  itemQuantity.addEventListener('change', updateTotal);
+</script>
