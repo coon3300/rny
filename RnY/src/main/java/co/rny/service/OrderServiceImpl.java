@@ -25,11 +25,13 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public boolean ordered(OrderVO ovo) {
-		mapper.insertOrder(ovo);
-		mapper.insertOrderDetail(ovo);
-		mapper.deleteCart(ovo.getUserNo());
-
-		return true;
-//		return mapper.ordered(ovo) == 1;
-	}
-}
+	    try {
+	        mapper.insertOrder(ovo);
+	        mapper.insertOrderDetail(ovo);
+	        mapper.deleteCart(ovo.getUserNo());
+	        return true;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	}}
