@@ -1,10 +1,138 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<style>
+/* 전체 페이지 컨테이너 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
 
+/* 헤더 스타일 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.header .logo {
+    flex: 1;
+}
+
+.header .contact-info {
+    flex: 2;
+    text-align: right;
+}
+
+.header .contact-info p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.header .menu {
+    display: flex;
+    justify-content: space-around;
+    flex: 2;
+}
+
+.header .menu a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+/* 메인 폼 스타일 */
+/* 폼 컨테이너 */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* 폼 스타일 */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; / 각 입력 요소 간의 간격 /
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="tel"],
+form select,
+form button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* 체크박스와 라벨을 같은 줄에 */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* 버튼 스타일 */
+.buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.buttons input[type="submit"],
+.buttons input[type="button"] {
+    width: auto;
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* 푸터 스타일 */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 12px;
+    color: #666;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header .contact-info {
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    .header .menu {
+        justify-content: flex-start;
+    }
+}
+</style>
 <Script src='js/address.js'></Script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
-<div class="container" style="max-width: 600px; margin: auto;">
+<div class="container">
 
     
     <form action="address.do">
