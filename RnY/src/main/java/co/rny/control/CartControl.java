@@ -1,7 +1,6 @@
 package co.rny.control;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,40 +11,47 @@ import javax.servlet.http.HttpSession;
 import co.rny.common.Control;
 import co.rny.service.CartService;
 import co.rny.service.CartServiceImpl;
-import co.rny.service.MemberService;
-import co.rny.service.MemberServiceImpl;
 import co.rny.vo.CartVO;
 
 public class CartControl implements Control {
 
-	@Override
-	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String page = req.getParameter("page");
+    @Override
+    public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        String userNo = (String) session.getAttribute("userNo"); // 사용자 번호 가져오기
 
-		// parameter
-		MemberService svc = new MemberServiceImpl();
+        CartService cartService = new CartServiceImpl();
+        
+        // 장바구니 목록 가져오기
+        List<CartVO> cartList = cartService.cartList(userNo);
+        
+        // 요청 속성에 장바구니 목록 저장
+        req.setAttribute("cartList", cartList);
 
-		HttpSession session = req.getSession();
-		String id = (String) session.getAttribute("logid");
-		resp.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = resp.getWriter();
-		if (id == null) {
-			out.println("<script language='javascript'>");
-			out.println("alert('장바구니는 로그인 후 사용가능합니다!')");
-			out.println("location.href='main.do';");
-			out.println("</script>");
-			return;
-			}
-		
-		
+        // JSP 페이지로 포워딩
+        req.getRequestDispatcher("yourCartPage.jsp").forward(req, resp); // JSP 페이지 경로 설정
+    }
+}
 
-		// 세션객체(attribute)
-		CartService csv = new CartServiceImpl();
-		List<CartVO> cartlist = csv.cartList(id);
-		// 찜삭제
-		req.setAttribute("logCart", cartlist);
+class UpdateCartQuantityControl implements Control {
 
-		req.getRequestDispatcher("RnY/cart.tiles").forward(req, resp);
-	}
+    @Override
+    public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        String userNo = (String) session.getAttribute("userNo");
+        int cartNo = Integer.parseInt(req.getParameter("cartNo"));
+        int quantity = Integer.parseInt(req.getParameter("quantity"));
 
+        CartService cartService = new CartServiceImpl();
+        
+        CartVO cartItem = new CartVO();
+        cartItem.setCartNo(cartNo);
+        cartItem.setUserNo(userNo);
+        cartItem.setQuantity(quantity);
+        
+        cartService.addOrUpdateCartItem(cartItem);
+
+        // 장바구니 목록으로 리다이렉트
+        resp.sendRedirect("cart.do");
+    }
 }
