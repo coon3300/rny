@@ -11,4 +11,5 @@ public class CartVO {
     private int itemPrice;     // 아이템 가격
     private String itemImage;         // 아이템 이미지 URL
     private int quantity;     // 장바구니 항목 수량
+    private String itemDesc;
 }

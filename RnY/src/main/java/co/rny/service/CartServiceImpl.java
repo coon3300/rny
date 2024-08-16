@@ -23,16 +23,16 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public void deleteCartItem(int cartNo) {
-    	mapper.deleteCartItem(cartNo);
+        mapper.deleteCartItem(cartNo);
     }
 
     @Override
     public void addOrUpdateCartItem(CartVO cartItem) {
         CartVO existingItem = mapper.selectCartItem(cartItem.getCartNo());
         if (existingItem != null) {
-        	mapper.updateCartItem(cartItem);
+            mapper.updateCartItem(cartItem);
         } else {
-        	mapper.insertCartItem(cartItem);
+            mapper.insertCartItem(cartItem);
         }
     }
 }
