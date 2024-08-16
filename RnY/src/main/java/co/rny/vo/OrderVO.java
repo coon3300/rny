@@ -9,6 +9,8 @@ public class OrderVO extends CartVO {
 	private String orderName;
 	private String orderAdd;
 	private String orderPhone;
+	private int orderPrice;
 	private String orderEmail;
 	private String orderMessage;
+	private int orderCnt;
 }
