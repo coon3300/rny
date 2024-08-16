@@ -13,7 +13,7 @@ import co.rny.vo.MemberVO;
 import co.rny.vo.WishVO;
 
 public class MemberServiceImpl implements MemberService {
-	SqlSession sqlSession = DataSource.getInstance().openSession(true); // true �ｌ�쇰㈃ ���� 而ㅻ���.
+	SqlSession sqlSession = DataSource.getInstance().openSession(true); // true 
 	MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
 
 	@Override

@@ -22,7 +22,7 @@ public class YRAppTest {
 		ovo.setUserNo("A102");
 
 		OrderService svc = new OrderServiceImpl();
-		svc.ordered(ovo);
+		//svc.ordered(ovo);
 //		System.out.println(mapper.wishheart("user02"));
 
 	}

@@ -29,7 +29,7 @@ public class CartControl implements Control {
         req.setAttribute("cartList", cartList);
 
         // JSP 페이지로 포워딩
-        req.getRequestDispatcher("yourCartPage.jsp").forward(req, resp); // JSP 페이지 경로 설정
+        req.getRequestDispatcher("RnY/cart.tiles").forward(req, resp); // JSP 페이지 경로 설정
     }
 }
 
@@ -42,14 +42,14 @@ class UpdateCartQuantityControl implements Control {
         int cartNo = Integer.parseInt(req.getParameter("cartNo"));
         int quantity = Integer.parseInt(req.getParameter("quantity"));
 
-        CartService cartService = new CartServiceImpl();
+        //CartService cartService = new CartServiceImpl();
         
         CartVO cartItem = new CartVO();
         cartItem.setCartNo(cartNo);
         cartItem.setUserNo(userNo);
         cartItem.setQuantity(quantity);
         
-        cartService.addOrUpdateCartItem(cartItem);
+       // cartService.addOrUpdateCartItem(cartItem);
 
         // 장바구니 목록으로 리다이렉트
         resp.sendRedirect("cart.do");
