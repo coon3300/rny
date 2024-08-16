@@ -1,5 +1,5 @@
 /**
- * boardService
+ * replyService
  * 목록,등록,삭제 기능을 정의
  */
 const svc = {
