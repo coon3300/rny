@@ -4,6 +4,22 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.rny.mapper.LineMapper">
 
+
+<insert id="insertLine">
+		insert into tbl_line(
+				line_no
+				,line_parent_no
+				,line_name
+				,line_desc
+		)values(
+				seq_line_no.nextval,
+				#{lineParentNo},
+				#{lineName},
+				#{lineDesc}		
+		)
+	</insert>
+
+
 <update id="updateLine" parameterType="co.rny.vo.LineVO">
   UPDATE tbl_line
   <set>
@@ -43,6 +59,11 @@
 
 	<select id="selectOne">
 		
+	</select>
+	
+	<select id="selectCurrval">
+		SELECT 	seq_line_no.currval
+		FROM		dual
 	</select>
 	
 	<select id="selectLineName">

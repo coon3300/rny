@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+
 <link rel="stylesheet" href="css/style.css">
 
 <div class="py-5 text-center">
@@ -12,8 +13,8 @@
 </div>
 
 
-<section class="cart_area padding_top">
-	<div class="container">
+<section>
+	<div class="container" style="text-align: center" >
 		<div class="cart_inner">
 			
 <form action="memberList.do">
