@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 public class ReviewVO {
 	private String userNo; // 회원 고유번호
+	private int itemNo; // 상품 번호
 	private String userId; // 회원 아이디
 	private int reviewNum; // 게시글 번호
 	private String reviewTitle; // 리뷰 제목
