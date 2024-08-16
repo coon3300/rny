@@ -11,7 +11,7 @@ import co.rny.service.ItemService;
 import co.rny.service.ItemServiceImpl;
 import co.rny.vo.ItemVO;
 
-public class ItemRemoveControl implements Control {
+public class ItemRestoreControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -23,13 +23,14 @@ public class ItemRemoveControl implements Control {
 		
 		ivo.setItemNo(Integer.parseInt(itemNo));
 
-		if(svc.deleteItem(ivo)) {
+		if(svc.deleteItemCancel(ivo)) {
 			// 목록으로 이동.
 			resp.sendRedirect("itemManage.do");
 		}else {
 			// 수정페이지로 이동.
 			resp.sendRedirect("itemModify.do?itemNo=" + itemNo);
-		}		
+		}
+
 	}
 
 }

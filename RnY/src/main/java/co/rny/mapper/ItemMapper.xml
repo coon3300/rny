@@ -4,11 +4,39 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.rny.mapper.ItemMapper">
 
+	<insert id="insertItem">
+		insert into tbl_item(
+				item_no
+				,line_no
+				,item_code
+				,item_name
+				,item_desc
+				,item_price
+				,item_stock
+				,item_image
+		)values(
+				seq_item_no.nextval,
+				#{lineNo},
+				#{itemCode},
+				#{itemName},		
+				#{itemDesc},		
+				#{itemPrice},		
+				#{itemStock},		
+				#{itemImage}		
+		)
+	</insert>
+
 	<select id="selectOne" resultType="co.rny.vo.ItemVO">
 		select 	*
 		from		tbl_item
 		where 	item_no = #{itemNo}		
 		and			is_disabled = 0
+	</select>
+	
+	<select id="selectOneAll" resultType="co.rny.vo.ItemVO">
+		select 	*
+		from		tbl_item
+		where 	item_no = #{itemNo}		
 	</select>
 	
 	<select id="selectList" >
@@ -143,7 +171,8 @@
 			<otherwise>
 			1 = 1
 			</otherwise>
-		</choose>	
+		</choose>
+		and			is_disabled = 0
 	</sql>
 
 	<!-- select id="selectListPaging" parameterType="int"-->
@@ -166,13 +195,51 @@
 		from tbl_item
     <include refid="selectCondition"></include>
   </select>
+  
+  
+  
+	<sql id="selectConditionAll">
+		where
+		<choose>
+			<when test="searchCondition == 'T'.toString()">
+			item_name like '%' || #{keyword} || '%'
+			</when>
+			<otherwise>
+			1 = 1
+			</otherwise>
+		</choose>
+	</sql>
+
+	<!-- select id="selectListPaging" parameterType="int"-->
+	<select id="selectListPagingAll" parameterType="co.rny.common.SearchVO">
+            select b.*
+            from (select rownum rn, a.*
+                      from    (select *
+                               from tbl_item
+                               <include refid="selectConditionAll"></include>
+                               order by item_no desc) a ) b
+            where b.rn > (#{page} - 1) * 8
+            <![CDATA[
+            and   b.rn <= (#{page} * 8)
+            ]]>
+  </select>
+
+	<!-- 페이징 계산용 전체 건수. -->
+	<select id="selectTotalCountAll" parameterType="co.rny.common.SearchVO">
+		select count(1)	
+		from tbl_item
+    <include refid="selectCondition"></include>
+  </select>
+  
 	<select id="selectTotalCountLine" parameterType="co.rny.common.SearchVO">
-select 	count(1)	
-from		tbl_item    i
-join    tbl_line    l
-on      i.line_no = l.line_no
-where   (l.line_no = #{lineNo} OR l.line_parent_no = #{lineNo})
-order by i.line_no
+		select 	count(1)	
+		from		tbl_item    i
+		join    tbl_line    l
+		on      i.line_no = l.line_no
+		where   (l.line_no = #{lineNo} OR l.line_parent_no = #{lineNo})
+		and			i.is_disabled = 0
+		and			l.is_disabled = 0
+		order by i.line_no
   </select>
 
 
@@ -203,6 +270,23 @@ order by i.line_no
     updated_date = SYSDATE
   </set>
   WHERE item_no = #{itemNo}
+</update>
+
+<update id="updateItemDisabled" parameterType="co.rny.vo.ItemVO">
+  UPDATE 	tbl_item
+  SET
+      		is_disabled = 1,
+    			disabled_date = SYSDATE
+  WHERE 	item_no = #{itemNo}
+</update>
+
+<update id="updateItemEnabled" parameterType="co.rny.vo.ItemVO">
+  UPDATE 	tbl_item
+  SET
+      		is_disabled = 0,
+    			disabled_date = null,
+    			updated_date = SYSDATE
+  WHERE 	item_no = #{itemNo}
 </update>
 	
 </mapper>

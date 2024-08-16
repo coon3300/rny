@@ -17,6 +17,8 @@ public interface ItemService {
 	
 	List<ItemVO> itemListSearched(SearchVO search);
 	
+	List<ItemVO> itemListSearchedAll(SearchVO search);
+	
 	List<ItemVO> itemListLine(SearchVO search);
 	
 	int totalCount(SearchVO search);
@@ -25,7 +27,15 @@ public interface ItemService {
 	
 	ItemVO itemSelected(int itemNo);
 	
+	ItemVO itemSelectedAll(int itemNo);
+	
 	List<Map<String, Object>> itemMapList(int itemNo);
 
-	public boolean modifyItem(ItemVO item);
+	boolean modifyItem(ItemVO item);
+	
+	boolean deleteItem(ItemVO item);
+	
+	boolean deleteItemCancel(ItemVO item);
+	
+	boolean addItem(ItemVO item);
 }

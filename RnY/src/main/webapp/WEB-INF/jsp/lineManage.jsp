@@ -47,7 +47,7 @@ th, td {
 								<th class="product-name">라인명</th>
 								<th class="product-name">부모 라인 번호</th>
 								<th class="product-name">설명</th>
-								<th class="product-name">등록일</th>
+								<th class="product-name">최근 수정일</th>
 								<th class="product-name">삭제일</th>
 							</tr>
 						</thead>
@@ -57,28 +57,28 @@ th, td {
 							<tr class="align-middle" >
 								
 								<td>
-										<a href="lineInfo.do?lineNo=${line.lineNo}"><h2 class="h5 text-black">${line.lineNo}</h2></a>
+										<a href="lineModify.do?lineNo=${line.lineNo}"><h2 class="h5 text-black">${line.lineNo}</h2></a>
 								</td>
 								
 								<td class="product-thumbnail">
-									<a href="lineInfo.do?lineNo=${line.lineNo}">
+									<a href="lineModify.do?lineNo=${line.lineNo}">
 									<img src="images/line/${line.lineNo}a.jpg" alt="Image" height="50px">
 									</a>
 								</td>
 								<td class="product-name">
-									<a href="lineInfo.do?lineNo=${line.lineNo}">
+									<a href="lineModify.do?lineNo=${line.lineNo}">
 									<h2 class="h5 text-black">${line.lineName}</h2>
 									</a>
 								</td>
 								<td class="product-name">
-									<a href="lineInfo.do?lineNo=${line.lineParentNo}">
+									<a href="lineModify.do?lineNo=${line.lineParentNo}">
 									<h2 class="h5 text-black">${line.lineParentNo}</h2>
 									</a>
 								</td>
 								<td><h2 class="h5 text-black">${line.lineDesc}</h2></td>
 
-								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${line.createdDate}"/></td></tr>
-								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${line.disabledDate}"/></td></tr>
+								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${line.updatedDate}"/></td>
+								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${line.disabledDate}"/></td>
 							</tr>
 							</c:forEach>
 						</tbody>

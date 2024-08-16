@@ -31,8 +31,29 @@ public class LineServiceImpl implements LineService{
 
 	@Override
 	public int totalCount(SearchVO search) {
-		// TODO Auto-generated method stub
 		return mapper.selectTotalCount(search);
 	}
-	
+
+	@Override
+	public LineVO lineSelectedAll(int lineNo) {
+		return mapper.selectOneAll(lineNo);
+	}
+
+	@Override
+	public boolean modifyLine(LineVO line) {
+		return mapper.updateLine(line) == 1;
+
+	}
+
+	@Override
+	public boolean deleteLine(LineVO line) {
+		return mapper.updateLineDisabled(line) == 1;
+
+	}
+
+	@Override
+	public boolean deleteLineCancel(LineVO line) {
+		return mapper.updateLineEnabled(line) == 1;
+
+	}
 }

@@ -38,7 +38,7 @@ public class ItemManageControl implements Control {
 
 		
 		//List<ItemVO> list = svc.itemListSearched(keyword);
-		List<ItemVO> list = svc.itemListSearched(search);
+		List<ItemVO> list = svc.itemListSearchedAll(search);
 		
 		req.setAttribute("itemList", list);
 		//req.setAttribute("lineName", "검색 : "+ keyword);

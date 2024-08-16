@@ -47,8 +47,8 @@ th, td {
 								<th class="product-name">아이템명</th>
 								<th class="product-price">가격</th>
 								<th class="product-quantity">재고</th>
-								<th class="product-name">등록일</th>
-								<th class="product-name">수정일</th>
+								<th class="product-name">최근 수정일</th>
+								<th class="product-name">삭제일</th>
 							</tr>
 						</thead>
 						<tbody class="justify-content-center">
@@ -77,8 +77,8 @@ th, td {
 								    value="${item.itemStock}">
 								  </div>
 								</td>
-								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${item.createdDate}"/></td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${item.updatedDate}"/></td>
+								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${item.disabledDate}"/></td>
 							</tr>
 							</c:forEach>
 						</tbody>

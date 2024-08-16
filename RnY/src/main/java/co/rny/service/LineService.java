@@ -9,8 +9,11 @@ import co.rny.vo.LineVO;
 public interface LineService {
 
 	List<LineVO> lineList();
-	String lineName(int LineNo);
+	String lineName(int lineNo);
 	List<LineVO> lineListSearched(SearchVO search);
 	int totalCount(SearchVO search);
-	
+	LineVO lineSelectedAll(int lineNo);
+	boolean modifyLine(LineVO line);
+	boolean deleteLine(LineVO line);
+	boolean deleteLineCancel(LineVO line);
 }

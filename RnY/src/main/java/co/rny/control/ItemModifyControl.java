@@ -21,7 +21,7 @@ public class ItemModifyControl implements Control {
 		
 		int itemNo = Integer.parseInt(req.getParameter("itemNo"));
 		
-		ItemVO ivo = svc.itemSelected(itemNo);
+		ItemVO ivo = svc.itemSelectedAll(itemNo);
 		
 		req.setAttribute("ivo", ivo);
 		

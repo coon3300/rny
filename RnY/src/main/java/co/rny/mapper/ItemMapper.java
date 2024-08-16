@@ -13,11 +13,18 @@ public interface ItemMapper {
 	List<ItemVO> selectItemRelated(int lineNo);
 	//List<ItemVO> selectListSearched(String keyword);
 	List<ItemVO> selectListPaging(SearchVO search);
+	List<ItemVO> selectListPagingAll(SearchVO search);
 	List<ItemVO> selectLinePaging(SearchVO search);
 	int selectTotalCount(SearchVO search);
 	int selectTotalCountLine(SearchVO search);
+	int selectTotalCountAll(SearchVO search);
 	ItemVO selectOne(int itemNo);
+	ItemVO selectOneAll(int itemNo);
 	List<Map<String, Object>> itemMapList();
 	int updateItem(ItemVO item);
+	int updateItemDisabled(ItemVO item);
+	int updateItemEnabled(ItemVO item);
+	int insertItem(ItemVO item);
+
 	
 }
