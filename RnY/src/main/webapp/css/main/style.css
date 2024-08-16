@@ -118,9 +118,9 @@ CSS STRUCTURE:
 /* Fonts */
 :root {
 /*
-  --body-font: 'CookieRun', cursive;
-  --heading-font: 'CookieRun', cursive;
-  --secondary-font: 'CookieRun', sans-serif;
+  --body-font: 'Poppins', cursive;
+  --heading-font: 'Poppins', cursive;
+  --secondary-font: 'Poppins', sans-serif;
 */	
   --body-font: 'Poppins', cursive;
   --heading-font: 'Poppins', cursive;
@@ -140,7 +140,7 @@ body {
 
   --bs-light-rgb: 248, 248, 248;
 
-  --bs-font-sans-serif: 'CookieRun', cursive;
+  --bs-font-sans-serif: 'Poppins', cursive;
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
