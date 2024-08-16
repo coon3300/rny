@@ -4,14 +4,14 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.rny.mapper.QnaReplyMapper"> <!--클래스 -->
 
-	<insert id="qnareply" parameterType="co.rny.vo.QnaReplyVO">
+<insert id="qnareply" parameterType="co.rny.vo.QnaReplyVO">
 		<selectKey keyProperty="qreplyNum" resultType="int" order="BEFORE">
 			select reply_seq.nextval from dual
 		</selectKey>
-		insert into tbl_qnareply (user_id, qna_num, qreply_num, qreply_content,
+		insert into tbl_qnareply (user_no, user_id, qna_num, qreply_num, qreply_content,
 		qreply_date)
 		values
-		(#{userId},#{qnaNum},#{qreplyNum},#{qreplyContent},#{qreplyDate})
+		('A' || seq_member.nextval,#{userId},#{qnaNum},#{qreplyNum},#{qreplyContent},#{qreplyDate})
 	</insert>
 		
 	<select id="qreplyList" parameterType="int"
