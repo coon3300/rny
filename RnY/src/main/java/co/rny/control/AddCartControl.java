@@ -18,7 +18,19 @@ public class AddCartControl implements Control {
         HttpSession session = req.getSession();
         String userNo = (String) session.getAttribute("userNo");
         int itemNo = Integer.parseInt(req.getParameter("itemNo"));
-        int quantity = Integer.parseInt(req.getParameter("quantity")); // 수량
+        
+        // 수량 수정
+        String quantityStr = req.getParameter("quantity");
+        if (quantityStr == null || quantityStr.isEmpty()) {
+            // 기본값을 설정하거나, 예외 처리
+            quantityStr = "1"; // 예: 기본 수량 1로 설정
+        }
+        int quantity = Integer.parseInt(quantityStr);
+
+        //int quantity = Integer.parseInt(req.getParameter("quantity")); // 수량(성철)
+       
+        
+        String id = (String) session.getAttribute("logid");
 
         CartService cartService = new CartServiceImpl();
         

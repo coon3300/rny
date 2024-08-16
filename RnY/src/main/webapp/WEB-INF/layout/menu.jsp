@@ -182,36 +182,35 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, td, th, input, button,
       <div class="preloader"></div>
    </div>
 
-   <div class="offcanvas offcanvas-end" data-bs-scroll="true"
-      tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
-      <div class="offcanvas-header justify-content-center">
-         <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-            aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-         <div class="order-md-last">
+ <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
+    <div class="offcanvas-header justify-content-center">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="order-md-last">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
-               <span class="text-primary">장바구니</span> <a href="cart.do"><span
-                  class="badge bg-primary rounded-circle pt-2">></span></a>
+                <span class="text-primary">장바구니</span>
+                <a href="cart.do">
+                    <span class="badge bg-primary rounded-circle pt-2">></span>
+                </a>
             </h4>
-
             <ul class="list-group mb-3">
-               <c:forEach var="od" items="${logCart}" varStatus="status">
-                  <li class="list-group-item d-flex justify-content-between lh-sm">
-                     <div>
-                        <h6 class="my-0">${od.itemName}</h6>
-                        <small class="text-body-secondary">${od.itemDesc}</small>
-                     </div> <span class="text-body-secondary">${od.itemPrice}원</span>
-                  </li>
-               </c:forEach>
-
+                <c:forEach var="od" items="${cartList}" varStatus="status">
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">${od.itemName}</h6>
+                            <small class="text-body-secondary">${od.itemDesc}</small>
+                        </div>
+                        <span class="text-body-secondary">${od.itemPrice}원</span>
+                    </li>
+                </c:forEach>
             </ul>
-
-            <a href="order.do"><button class="w-100 btn btn-primary btn-lg"
-                  type="submit">주문하기</button></a>
-         </div>
-      </div>
-   </div>
+            <a href="cart.do">
+                <button class="w-100 btn btn-primary btn-lg" type="submit">장바구니이동</button>
+            </a>
+        </div>
+    </div>
+</div>
 
    <div class="offcanvas offcanvas-end" data-bs-scroll="true"
       tabindex="-1" id="offcanvasSearch" aria-labelledby="Search">

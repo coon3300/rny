@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <%
 String logNick = (String) session.getAttribute("logNick");
 String logName = (String) session.getAttribute("logName");
@@ -12,6 +14,9 @@ String userNo = (String) session.getAttribute("userNo");
 <!-- Bootstrap CSS -->
 <link href="css/yerim/order/order.css" rel="stylesheet">
 
+
+
+
 <body>
 	<div class="untree_co-section">
 		<div class="container">
@@ -19,9 +24,9 @@ String userNo = (String) session.getAttribute("userNo");
 				<a href="cart.do"> <svg xmlns="http://www.w3.org/2000/svg"
 						width="40" height="40" fill="currentColor"
 						class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
-						<path
+                        <path
 							d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1" />
-					</svg>
+                    </svg>
 				</a> ${logNick}님의 주문페이지
 			</h1>
 			<br>
@@ -36,7 +41,7 @@ String userNo = (String) session.getAttribute("userNo");
 									<label for="orderName" class="text-black">받는사람<span
 										class="text-danger">*</span></label> <input type="text"
 										class="form-control" id="orderName" name="orderName"
-										placeholder="${logName}">
+										placeholder="${logName}" required>
 								</div>
 							</div>
 							<br>
@@ -45,29 +50,30 @@ String userNo = (String) session.getAttribute("userNo");
 									<label for="orderAdd" class="text-black">주소<span
 										class="text-danger">*</span></label> <input type="text"
 										class="form-control" id="sample6_postcode"
-										placeholder="우편번호 찾기" onclick="sample6_execDaumPostcode()">
-									<input type="text" class="form-control" id="sample6_address"
-										name="orderAdd" placeholder="주소"> <input type="text"
-										class="form-control" id="sample6_extraAddress" name="orderAdd"
+										placeholder="우편번호 찾기" onclick="sample6_execDaumPostcode()"
+										required> <input type="text" class="form-control"
+										id="sample6_address" name="orderAdd" placeholder="주소" required>
+									<input type="text" class="form-control"
+										id="sample6_extraAddress" name="orderExtraAdd"
 										placeholder="상세주소"> <br>
 								</div>
 							</div>
 							<div class="form-group row">
 								<div class="col-md-12">
 									<label for="orderPhone" class="text-black">전화번호<span
-										class="text-danger">*</span></label> <input type="number"
+										class="text-danger">*</span></label> <input type="text"
 										class="form-control" id="orderPhone" name="orderPhone"
 										placeholder="번호만 입력하세요."
-										onkeypress="return checkNumber(event)">
+										onkeypress="return checkNumber(event)" required>
 								</div>
 							</div>
 							<br>
 							<div class="form-group row">
 								<div class="col-md-12">
 									<label for="orderEmail" class="text-black">이메일<span
-										class="text-danger">*</span></label> <input type="text"
+										class="text-danger">*</span></label> <input type="email"
 										class="form-control" id="orderEmail" name="orderEmail"
-										placeholder="example@example.com">
+										placeholder="example@example.com" required>
 								</div>
 							</div>
 							<div class="form-group">
@@ -106,11 +112,21 @@ String userNo = (String) session.getAttribute("userNo");
 							</div>
 							<br>
 
+							<!-- Hidden fields for data passed from OrderControl -->
+							<input type="hidden" name="userNo" value="${userNo}">
+							<c:forEach var="item" items="${itemList}">
+								<input type="hidden" name="itemNo" value="${item.itemNo}">
+								<input type="hidden" name="itemName" value="${item.itemName}">
+								<input type="hidden" name="itemPrice" value="${item.itemPrice}">
+								<input type="hidden" name="itemQuantity"
+									value="${item.quantity}">
+							</c:forEach>
+							<br>
+							<button type="submit" class="btn btn-black btn-lg py-3 btn-block">주문하기</button>
 						</form>
 					</div>
 				</div>
 
-				<!-- 주문 내용 섹션 -->
 				<!-- 주문 내용 섹션 -->
 				<div class="col-md-6 mb-5 mb-md-0">
 					<h2 class="h3 mb-3 text-black">주문내용</h2>
@@ -126,15 +142,13 @@ String userNo = (String) session.getAttribute("userNo");
 							</thead>
 							<tbody>
 								<c:set var="total" value="0" />
-								<c:forEach var="od" items="${logCart}">
+								<c:forEach var="item" items="${itemList}">
 									<tr>
-										<td>${od.itemName}</td>
-										<td>${od.itemPrice}원</td>
-										<td>${od.cartCnt}</td>
-										<td>${od.itemPrice * od.cartCnt}원</td>
+										<td>${item.itemNo}</td>
+										<td>${item.itemName}</td>
+										<td>${item.itemPrice}</td>
+										<td>${item.quantity}</td>
 									</tr>
-									<c:set var="total"
-										value="${total + (od.itemPrice * od.cartCnt)}" />
 								</c:forEach>
 								<tr>
 									<td class="text-black font-weight-bold"><strong>총
@@ -157,12 +171,6 @@ String userNo = (String) session.getAttribute("userNo");
 								</div>
 							</div>
 						</div>
-						<!-- 주문하기 버튼 폼 추가 -->
-						<form action="order.do" method="post">
-							<!-- 주문 내용과 관련된 데이터는 필요에 따라 추가 -->
-							<input type="hidden" name="cartCount" value="${cart.cartCnt}">
-							<button type="submit" class="btn btn-black btn-lg py-3 btn-block">주문하기</button>
-						</form>
 					</div>
 				</div>
 			</div>
