@@ -21,7 +21,7 @@ public class YRAppTest {
 		OrderVO ovo = new OrderVO();
 		ovo.setUserNo("A102");
 
-		OrderService svc = new OrderServiceImpl();
+		//OrderService svc = new OrderServiceImpl();
 		//svc.ordered(ovo);
 //		System.out.println(mapper.wishheart("user02"));
 
