@@ -49,6 +49,9 @@ class MenuCartControl implements Control {
 
         // JSP 페이지로 포워딩
         req.getRequestDispatcher("RnY/menu.jsp").forward(req, resp); // 메뉴 페이지로 포워딩
+      
+        // 충돌 나서 주석 처리함. 필요 없으면 삭제
+        //req.getRequestDispatcher("RnY/cart.tiles").forward(req, resp); // JSP 페이지 경로 설정
     }
 }
 
@@ -61,14 +64,14 @@ class UpdateCartQuantityControl implements Control {
         int cartNo = Integer.parseInt(req.getParameter("cartNo"));
         int quantity = Integer.parseInt(req.getParameter("quantity"));
 
-        CartService cartService = new CartServiceImpl();
+        //CartService cartService = new CartServiceImpl();
         
         CartVO cartItem = new CartVO();
         cartItem.setCartNo(cartNo);
         cartItem.setUserNo(userNo);
         cartItem.setQuantity(quantity);
         
-        cartService.addOrUpdateCartItem(cartItem);
+       // cartService.addOrUpdateCartItem(cartItem);
 
         // 장바구니 목록으로 리다이렉트
         resp.sendRedirect("cart.do");

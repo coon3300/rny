@@ -16,7 +16,7 @@ public class CartServiceImpl implements CartService {
         this.mapper = sqlSession.getMapper(CartMapper.class);
     }
 
-    @Override
+   @Override
     public List<CartVO> cartList(String userNo) {
         return mapper.selectCartList(userNo);
     }
@@ -35,4 +35,5 @@ public class CartServiceImpl implements CartService {
             mapper.insertCartItem(cartItem);
         }
     }
+    
 }

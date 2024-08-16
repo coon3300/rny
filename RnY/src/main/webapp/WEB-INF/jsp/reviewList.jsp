@@ -126,6 +126,7 @@ table .rating {
 			</c:if>
 
 			<!-- 페이지 갯수만큼 링크생성 -->
+			
 			<c:forEach var="p" begin="${page.startPage }" end="${page.endPage }">
 				<c:choose>
 					<c:when test="${page.page == p }">
