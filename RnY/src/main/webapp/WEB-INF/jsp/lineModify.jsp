@@ -45,7 +45,7 @@
 									<td>
 										<h5>
 										
-										<input class="form-control" type="text" name="lineNo" value="${lvo.getLineNo() }">
+										<input class="form-control" type="text" name="lineNo" value="${lvo.getLineNo() }" readonly>
 										</h5>
 										
 									</td>

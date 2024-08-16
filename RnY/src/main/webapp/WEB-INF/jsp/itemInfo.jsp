@@ -14,6 +14,22 @@
 #buttons {
     padding: 0 !important;
 }
+
+.card-title-container {
+  height: 24px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.card-title {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
 </style>
 	
 	
@@ -316,9 +332,11 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
+                                    <div class="card-title-container">
                                     <a href="itemInfo.do?itemNo=${item.itemNo }" style="text-decoration:none">
-                                    	<h5 class="fw-bolder">${item.itemName}</h5>
+                                    	<h5 class="fw-bolder card-title">${item.itemName}</h5>
                                    	</a>
+                                   	</div>
                                     <!-- Product reviews-->
                                     <!-- 
                                     <div class="d-flex justify-content-center small text-warning mb-2">
