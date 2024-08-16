@@ -97,7 +97,7 @@ body {
 }
 
 .quantity-amount {
-    width: 60px;
+    width: 50px !important; /* Force width to 50px */
     text-align: center;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -154,9 +154,7 @@ input[type="text"] {
         margin-bottom: 20px;
     }
 }
-#footer-bottom{
-	display: none;
-}
-.form-control text-center quantity-amount{
-	text-align:center;
+
+#footer-bottom {
+    display: none;
 }

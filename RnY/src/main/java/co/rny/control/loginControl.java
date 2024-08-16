@@ -46,7 +46,7 @@ public class loginControl implements Control {
 		WishService wsv = new WishServiceImpl();
 		List<WishVO> wishlist = wsv.wishheart(id);
 		OrderService osv = new OrderServiceImpl();
-		List<OrderVO> ordering = osv.listOrder(id);
+		//List<OrderVO> ordering = osv.listOrder(id);
 		CartService csv = new CartServiceImpl();
 		List<CartVO> cartIn = csv.cartList(id);
 		// ***예림***
@@ -62,7 +62,7 @@ public class loginControl implements Control {
 		session.setAttribute("logNick", nick);
 		session.setAttribute("logName", name);
 		session.setAttribute("logWish", wishlist);
-		session.setAttribute("logOrder", ordering);
+		//session.setAttribute("logOrder", ordering);
 		session.setAttribute("logCart", cartIn);
 		// session.setAttribute("order", orderlist);
 		// session.setAttribute("logWish", wishlist);

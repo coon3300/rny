@@ -10,20 +10,27 @@ import co.rny.vo.OrderVO;
 
 public class OrderServiceImpl implements OrderService {
 	SqlSession sqlSession = //
-			DataSource.getInstance().openSession(true); // true 넣으면 자동 커밋됨.
+			DataSource.getInstance().openSession(true); //true 넣으면 자동 커밋됨.
 	OrderMapper mapper = sqlSession.getMapper(OrderMapper.class);
 
-	@Override
-	public List<OrderVO> orderList() {
-		return mapper.buy();
-	}
+	
 
 	@Override
-	public List<OrderVO> listOrder(String id) {
-		return mapper.orderList(id);
-	}
+	public List<OrderVO> getCartItems(String id) {
+			return mapper.getCartItems(id);
+		}
 
 	@Override
+    public void saveOrder(OrderVO order) {
+            mapper.saveOrder(order);
+        }
+        
+	@Override
+	public List<OrderVO> getOrdersByUserId(String id) {
+		return mapper.selectOrdersByUserId(id);
+	}
+
+}
 	public boolean ordered(OrderVO ovo) {
 	    try {
 	        mapper.insertOrder(ovo);
