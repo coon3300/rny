@@ -32,4 +32,8 @@ public class ReviewServiceImpl implements ReviewService {
 	public ReviewVO selectReview(int reviewNum) {
 		return mapper.selectReview(reviewNum);
 	}
+
+	public List<ReviewVO> getReviewsByItemNo(int itemNo) {
+		return mapper.selectReviewDetail(itemNo); //리뷰목록 상세페이지에 연결
+	}
 }

@@ -35,5 +35,12 @@
 		where review_num = #{reviewNum}
 	</select>
 
+	<!-- 리뷰 목록 상품상세 출력 -->
+	<select id="selectReviewDetail" parameterType="int"
+		resultType="co.rny.vo.ReviewVO">
+		SELECT *
+		from tbl_review
+		WHERE item_no = #{itemNo}
+	</select>
 
 </mapper>

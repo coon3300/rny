@@ -20,14 +20,14 @@ public class AddCartControl implements Control {
         int itemNo = Integer.parseInt(req.getParameter("itemNo"));
         int quantity = Integer.parseInt(req.getParameter("quantity")); // 수량
 
-        CartService cartService = new CartServiceImpl();
+        //CartService cartService = new CartServiceImpl();
         
         CartVO cartItem = new CartVO();
         cartItem.setUserNo(userNo);
         cartItem.setItemNo(itemNo);
         cartItem.setQuantity(quantity);
         
-        cartService.addOrUpdateCartItem(cartItem);
+        //cartService.addOrUpdateCartItem(cartItem);
 
         // 장바구니 목록으로 리다이렉트
         resp.sendRedirect("cart.do");

@@ -9,4 +9,5 @@ public interface ReviewService {
 	int totalCnt();
 	boolean reviewLike(int reviewNum);
 	ReviewVO selectReview(int reviewNum); //상세
+	List<ReviewVO> getReviewsByItemNo(int itemNo); // 아이템상세에 리뷰 목록 출력
 }

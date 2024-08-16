@@ -41,6 +41,37 @@ review_date date DEFAULT sysdate, -- 업로드날짜
 review_like number(38) -- 좋아요
 );
 
+--리뷰 데이터 삽입
+BEGIN
+    FOR i IN 1..632 LOOP  -- item_no 범위
+        FOR j IN 1..10 LOOP  -- 각 item_no에 대해 10개의 리뷰 생성
+            INSERT INTO tbl_review (
+                user_no, 
+                item_no, 
+                user_id, 
+                review_num, 
+                review_title, 
+                review_content, 
+                review_image, 
+                review_date, 
+                review_like
+            )
+            VALUES (
+                'A' || TO_CHAR(i * 10 + j),  -- user_no: A101, A102, ... 이런 형식으로 생성
+                i,  -- item_no: 1부터 632까지
+                'user' || TO_CHAR(i * 10 + j),  -- user_id: user101, user102, ... 이런 형식으로 생성
+                j,  -- review_num: 1부터 10까지 반복
+                '리뷰 테스트' || TO_CHAR(j),  -- review_title: 리뷰 테스트1, 리뷰 테스트2, ... 이런 형식으로 생성
+                '리뷰 테스트내용' || TO_CHAR(j),  -- review_content: 리뷰 테스트내용1, 리뷰 테스트내용2, ... 이런 형식으로 생성
+                NULL,  -- review_image: 이미지 없이 NULL로 설정
+                SYSDATE,  -- review_date: 현재 날짜
+                0  -- review_like: 초기 좋아요 수 0으로 설정
+            );
+        END LOOP;
+    END LOOP;
+END;
+/
+
 commit;
 
 select reply_seq.nextval from dual;
@@ -69,31 +100,6 @@ values ('A109','admin06','공지사항 테스트06','공지사항 테스트내�
 insert into tbl_notice (user_no,user_id, notice_num, notice_title, notice_content, notice_image,notice_date)
 values ('A110','admin07','공지사항 테스트07','공지사항 테스트내용07','notice005.jpg',sysdate);
 
-insert into tbl_review (user_no, user_id, review_num, review_title, review_content, review_image, review_date,review_like)
-values ('A100','user1',01,'리뷰 테스트1','리뷰 테스트내용1','review001.jpg',sysdate,02);
-
-insert into tbl_review (user_no,user_id, review_num, review_title, review_content, review_image, review_date,review_like)
-values ('A101','user2',02,'리뷰 테스트2','리뷰 테스트내용2','review001.jpg',sysdate,00);
-
-insert into tbl_review (user_no, user_id, review_num, review_title, review_content, review_image, review_date,review_like)
-values ('A102','user3',03,'리뷰 테스트3','리뷰 테스트내용3','review001.jpg',sysdate,00);
-
-insert into tbl_review (user_no, user_id, review_num, review_title, review_content, review_image, review_date,review_like)
-values ('A103','user4',04,'리뷰 테스트4','리뷰 테스트내용4','review001.jpg',sysdate,00);
-
-insert into tbl_review (user_no,user_id, review_num, review_title, review_content, review_image, review_date,review_like)
-values ('A104','user5',05,'리뷰 테스트5','리뷰 테스트내용5','review001.jpg',sysdate,00);
-
-insert into tbl_review (user_no,user_id, review_num, review_title, review_content, review_image, review_date,review_like)
-values ('A105','user6',06,'리뷰 테스트6','리뷰 테스트내용6','review001.jpg',sysdate,00);
-
-insert into tbl_review (user_no,user_id, review_num, review_title, review_content, review_image, review_date,review_like)
-values ('A106','user7',07,'리뷰 테스트7','리뷰 테스트내용7','review001.jpg',sysdate,00);
-
-insert into tbl_review (user_no,user_id, review_num, review_title, review_content, review_image, review_date,review_like)
-values ('A107','user8',08,'리뷰 테스트8','리뷰 테스트내용8','review001.jpg',sysdate,00);
-
-commit;
 
 insert into tbl_QNA (user_no,user_id, qna_type ,qna_num, qna_title, qna_content,qna_answer, qna_image,qna_date,qna_answerdate)
 values ('A104','user1','상품문의',01,'QnA 테스트01','QnA 테스트내용01','QnA 테스트내용01','qna001.jpg',sysdate,sysdate);
