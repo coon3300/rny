@@ -40,7 +40,8 @@
 		resultType="co.rny.vo.ReviewVO">
 		SELECT *
 		from tbl_review
-		WHERE item_no = #{itemNo}
+		<!-- item_no를 review_num으로 임시 수정함. -->
+		WHERE review_num = #{reviewNum}
 	</select>
 
 </mapper>
