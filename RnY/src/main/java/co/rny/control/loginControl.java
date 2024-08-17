@@ -52,7 +52,7 @@ public class loginControl implements Control {
 		// ***예림***
 
 		// ***은찬***
-		session.setAttribute("responsibility", mem.getResponsibility()); // 관리자만 댓글 적용
+		//session.setAttribute("responsibility", mem.getResponsibility()); // 관리자만 댓글 적용
 
 		// 세션객체(attribute)
 		session.setAttribute("logid", id);
@@ -62,8 +62,8 @@ public class loginControl implements Control {
 		session.setAttribute("logNick", nick);
 		session.setAttribute("logName", name);
 		session.setAttribute("logWish", wishlist);
-		//session.setAttribute("logOrder", ordering);
-		session.setAttribute("logCart", cartIn);
+		// session.setAttribute("logOrder", ordering);
+		// session.setAttribute("logCart", cartIn);
 		// session.setAttribute("order", orderlist);
 		// session.setAttribute("logWish", wishlist);
 		// session.setAttribute("logOrder", ordering);
@@ -89,3 +89,4 @@ public class loginControl implements Control {
 	}
 
 }
+

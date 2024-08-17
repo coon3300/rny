@@ -9,5 +9,7 @@ public interface ReviewMapper {
 	int totalCnt();
 	int reviewLike(int reviewNum);
 	ReviewVO selectReview(int reviewNum);
+	List<ReviewVO> selectReviewDetail(int itemNo); // 아이템상세에 리뷰 목록 출력
+	
 
 }

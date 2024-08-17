@@ -34,7 +34,7 @@ public class AddCartControl implements Control {
         
         String id = (String) session.getAttribute("logid");
 
-        CartService cartService = new CartServiceImpl();
+        //CartService cartService = new CartServiceImpl();
         
         CartVO cartItem = new CartVO();
         cartItem.setUserNo(userNo);

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.rny.mapper.CartMapper">
 
     <delete id="deleteCartItem" parameterType="int">
@@ -31,14 +31,13 @@
     <select id="selectCartItem" parameterType="int" resultType="co.rny.vo.CartVO">
         SELECT * FROM tbl_cart
         WHERE cart_no = #{cartNo}
-    </select>
+    </delete>
 
-    <!-- 장바구니 항목 업데이트 -->
-    <update id="updateCartItem" parameterType="co.rny.vo.CartVO">
+    <!-- 장바구니 항목을 업데이트하는 쿼리 -->
+    <update id="updateCartQuantity" parameterType="co.rny.vo.CartVO">
         UPDATE tbl_cart
-        SET quantity = #{quantity}
+        SET cart_quantity = #{cartQuantity}
         WHERE cart_no = #{cartNo}
     </update>
-
 
 </mapper>
