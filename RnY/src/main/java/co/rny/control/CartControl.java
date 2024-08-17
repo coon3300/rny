@@ -13,43 +13,43 @@ import co.rny.vo.CartVO;
 
 public class CartControl implements Control {
 
-	@Override
-	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession();
-		String userNo = (String) session.getAttribute("userNo"); // 사용자 번호 가져오기
+    @Override
+    public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        String userNo = (String) session.getAttribute("userNo"); // 사용자 번호 가져오기
 
-		CartService cartService = new CartServiceImpl();
+        CartService cartService = new CartServiceImpl();
+        
+        // 장바구니 목록 가져오기
+        List<CartVO> cartList = cartService.cartList(userNo);
+        
+        // 요청 속성에 장바구니 목록 저장
+        req.setAttribute("cartList", cartList);
 
-		// 장바구니 목록 가져오기
-		List<CartVO> cartList = cartService.cartList(userNo);
-
-		// 요청 속성에 장바구니 목록 저장
-		req.setAttribute("cartList", cartList);
-
-		// JSP 페이지로 포워딩
-		req.getRequestDispatcher("RnY/cart.tiles").forward(req, resp); // 장바구니 페이지로 포워딩
-	}
+        // JSP 페이지로 포워딩
+        req.getRequestDispatcher("RnY/cart.tiles").forward(req, resp); // 장바구니 페이지로 포워딩
+    }
 }
 
 // 장바구니 목록을 메뉴에서 간략히 보여주는 Control
 class MenuCartControl implements Control {
 
-	@Override
-	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession();
-		String userNo = (String) session.getAttribute("userNo"); // 사용자 번호 가져오기
+    @Override
+    public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        String userNo = (String) session.getAttribute("userNo"); // 사용자 번호 가져오기
 
-		CartService cartService = new CartServiceImpl();
+        CartService cartService = new CartServiceImpl();
+        
+        // 장바구니 목록 가져오기
+        List<CartVO> cartList = cartService.cartList(userNo);
+        
+        // 요청 속성에 장바구니 목록 저장
+        req.setAttribute("cartList", cartList);
 
-		// 장바구니 목록 가져오기
-		List<CartVO> cartList = cartService.cartList(userNo);
-
-		// 요청 속성에 장바구니 목록 저장
-		req.setAttribute("cartList", cartList);
-
-		// JSP 페이지로 포워딩
-		req.getRequestDispatcher("RnY/menu.jsp").forward(req, resp); // 메뉴 페이지로 포워딩
-	}
+        // JSP 페이지로 포워딩
+        req.getRequestDispatcher("RnY/menu.jsp").forward(req, resp); // 메뉴 페이지로 포워딩
+    }
 }
 
 class UpdateCartQuantityControl implements Control {

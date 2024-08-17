@@ -12,6 +12,8 @@ public class OrderVO {
     private int orderNo;          // 주문번호
     private String userNo;        // 주문자
     private int orderPrice;       // 주문금액
+    private int addressNo; 			// 배송지주소번호
+	private int deliveryPrice; 		// 배송비
     private Date orderDate;       // 주문일시
     private Date deliveryDate;    // 배송일시
     private Date cancelDate;      // 취소일시

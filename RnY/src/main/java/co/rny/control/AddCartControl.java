@@ -34,6 +34,11 @@ public class AddCartControl implements Control {
         
         String id = (String) session.getAttribute("logid");
 
+        //int quantity = Integer.parseInt(req.getParameter("quantity")); // 수량(성철)
+       
+        
+        String id = (String) session.getAttribute("logid");
+
         //CartService cartService = new CartServiceImpl();
         
         CartVO cartItem = new CartVO();

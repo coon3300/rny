@@ -204,6 +204,8 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, td, th, input, button,
                     </li>
                 </c:forEach>
             </ul>
+            <a href="cart.do">
+                <button class="w-100 btn btn-primary btn-lg" type="submit">장바구니이동</button>
             <a href="order.do">
                 <button class="w-100 btn btn-primary btn-lg" type="submit">주문하기</button>
             </a>

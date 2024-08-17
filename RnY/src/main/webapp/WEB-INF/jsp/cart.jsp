@@ -101,17 +101,19 @@
 							<div class="row mb-5"></div>
 							<div class="row">
 								<div class="col-md-12">
-									<form action="order.do" method="post" id="cartForm"
-										onsubmit="updateTotals()">
-										<input type="hidden" name="grandTotal" value="${grandTotal}">
-										<input type="hidden" name="shippingCost"
-											value="${shippingCost}"> <input type="hidden"
-											name="totalAmount" value="${totalAmount}">
-										<button class="btn btn-black" type="submit"
-											style="width: 300px; height: 70px;">
-											<h1>주문하기</h1>
-										</button>
+									<form id="cartForm" action="order.do" method="post">
+										<input type="hidden" name="userNo" value=""> <input
+											type="hidden" name="grandTotal" value=""> <input
+											type="hidden" name="shippingCost" value=""> <input
+											type="hidden" name="totalAmount" value=""> <input
+											type="hidden" name="itemNo" value=""> <input
+											type="hidden" name="itemName" value=""> <input
+											type="hidden" name="itemPrice" value=""> <input
+											type="hidden" name="quantity" value="">
+										<button type="submit">주문하기</button>
 									</form>
+
+
 								</div>
 							</div>
 						</div>
