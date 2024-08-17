@@ -80,7 +80,6 @@ COMMIT;
 select reply_seq.nextval from dual;
 create sequence reply_seq;
 
-drop table tbl_review purge; --테이블 지우기
 
 insert into tbl_notice (user_no,user_id,notice_num, notice_title, notice_content, notice_image,notice_date)
 values ('A104','admin01',01,'공지사항 테스트01','공지사항 테스트내용01','notice001.jpg',sysdate);
