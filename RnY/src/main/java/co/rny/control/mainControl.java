@@ -37,7 +37,7 @@ public class mainControl implements Control {
         
         // 요청 속성에 장바구니 목록을 설정합니다.
         req.setAttribute("cartList", cartList);
-    	req.getRequestDispatcher("RnY/main.tiles").forward(req, resp);
+    	  req.getRequestDispatcher("RnY/main.tiles").forward(req, resp);
 	}
 
 }

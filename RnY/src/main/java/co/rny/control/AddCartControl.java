@@ -1,6 +1,7 @@
 package co.rny.control;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +11,7 @@ import co.rny.common.Control;
 import co.rny.service.CartService;
 import co.rny.service.CartServiceImpl;
 import co.rny.vo.CartVO;
+import co.rny.vo.OrderVO;
 
 public class AddCartControl implements Control {
 
@@ -32,12 +34,18 @@ public class AddCartControl implements Control {
         
         String id = (String) session.getAttribute("logid");
 
-        CartService cartService = new CartServiceImpl();
+        //int quantity = Integer.parseInt(req.getParameter("quantity")); // 수량(성철)
+       
+        
+        String id = (String) session.getAttribute("logid");
+
+        //CartService cartService = new CartServiceImpl();
         
         CartVO cartItem = new CartVO();
         cartItem.setUserNo(userNo);
         cartItem.setItemNo(itemNo);
         cartItem.setQuantity(quantity);
+        
         
         cartService.addOrUpdateCartItem(cartItem);
 

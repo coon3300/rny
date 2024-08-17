@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="kr">
@@ -9,68 +9,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>R&Y 스토어</title>
 <link
-   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-   rel="stylesheet" type="text/css">
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css">
 <style>
 /* 드롭다운 메뉴 기본 스타일 */
 .dropdown-menu {
-   display: none;
-   position: absolute;
-   top: 100%;
-   left: 0;
-   z-index: 1000;
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1000;
 }
 
 /* 마우스 오버 시 드롭다운 메뉴 표시 */
 .nav-item:hover>.dropdown-menu {
-   display: block;
+	display: block;
 }
 
 /* 서브메뉴 포지셔닝 */
 .dropdown-submenu {
-   position: relative;
+	position: relative;
 }
 
 /* 서브메뉴의 드롭다운 메뉴 위치 조정 */
 .dropdown-submenu>.dropdown-menu {
-   top: 0;
-   left: 100%;
-   margin-top: -6px;
+	top: 0;
+	left: 100%;
+	margin-top: -6px;
 }
 
 /* 마우스 오버 시 서브메뉴의 드롭다운 메뉴 표시 */
 .dropdown-submenu:hover>.dropdown-menu {
-   display: block;
+	display: block;
 }
 
 /* 드롭다운 토글 화살표 제거 */
 .dropdown-toggle::after {
-   display: none;
+	display: none;
 }
 
 .nav-link {
-   color: #000;
+	color: #000;
 }
 
 /* 폰트 변경 */
 body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, td, th, input, button,
-   select, textarea {
-   /*
-    font-family: 'Noto Sans KR', sans-serif !important;
-*/
-   font-family: 'Poppins', sans-serif !important; 
-   /*font-family: 'Arial', sans-serif !important;*/
+	select, textarea {
+	/* font-family: 'Noto Sans KR', sans-serif !important;*/
+	/* font-family: 'Poppins', sans-serif !important; */
+	font-family: 'Arial', sans-serif !important;
+
 }
 </style>
 
 <link rel="stylesheet"
-   href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+	href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
 <link
-   href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3-alpha3/dist/css/bootstrap.min.css"
-   rel="stylesheet"
-   integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-   crossorigin="anonymous">
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3-alpha3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+	crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css" href="css/vendor.css">
 <link rel="stylesheet" type="text/css" href="css/main/style.css">
@@ -207,6 +206,8 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, td, th, input, button,
             </ul>
             <a href="cart.do">
                 <button class="w-100 btn btn-primary btn-lg" type="submit">장바구니이동</button>
+            <a href="order.do">
+                <button class="w-100 btn btn-primary btn-lg" type="submit">주문하기</button>
             </a>
         </div>
     </div>
@@ -261,472 +262,473 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, td, th, input, button,
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                            viewBox="0 0 24 24">
                               <path fill="currentColor"
-                              d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
+									d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
                            </svg>
-                     </button>
-                  </form>
-               </div>
-            </div>
-            <div
-               class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
-               <div class="support-box text-end d-none d-xl-block">
-                  <!-- 
+						</button>
+					</form>
+				</div>
+			</div>
+			<div
+				class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
+				<div class="support-box text-end d-none d-xl-block">
+					<!-- 
                   <span class="fs-6 secondary-font text-muted">연락처</span>
                   <h5 class="mb-0">053-421-2460</h5>
                    -->
+                   
 
-                  <c:choose>
-                     <c:when test="${!empty logid}">
-                        <span class="fs-6 secondary-font text-muted">${logNick}님
-                           환영합니다.</span>
-                        <a class="mx-3" href="mypage.do"><i
-                           class="bi bi-person-fill-gear" style="font-size: 25px;"></i></a>
-                     </c:when>
-                     <c:otherwise>
-                     </c:otherwise>
-                  </c:choose>
-               </div>
-               <div class="support-box text-end d-none d-xl-block">
-                  <!-- 
+					<c:choose>
+						<c:when test="${!empty logid}">
+							<span class="fs-6 secondary-font text-muted">${logNick}님 환영합니다</span>
+							<a class="mx-3" href="mypage.do"><i class="bi bi-person-fill-gear" style="font-size: 25px;" data-bs-toggle="tooltip" title="마이페이지"></i></a>
+						</c:when>
+						<c:otherwise>
+						</c:otherwise>
+					</c:choose>
+                   <a href="noticeList.do" class="bi bi-megaphone-fill fs-4" style="font-size: 20px;" data-bs-toggle="tooltip" title="공지사항"></a>
+
+
+                   
+				</div>
+				<div class="support-box text-end d-none d-xl-block">
+					<!-- 
                   <span class="fs-6 secondary-font text-muted">이메일</span>
                   <h5 class="mb-0">yedam@ac.kr</h5>
                    -->
-               </div>
+				</div>
 
 
 
-            </div>
-         </div>
-      </div>
+			</div>
+		</div>
+	</div>
 
-      <div class="container-fluid">
-         <hr class="m-0">
-      </div>
-
-
-      <div class="container">
-         <nav class="main-menu d-flex navbar navbar-expand-lg ">
-            <div class="d-flex d-lg-none align-items-end mt-3">
-               <ul class="d-flex justify-content-end list-unstyled m-0">
-               <li><a class="mx-3" href="noticeList.do" class="bi bi-megaphone-fill" style="font-size: 20px; bold;" class="fs-4"></a></li>
-                  <li><a class="mx-3" href="noticeList.do"
-                     class="bi bi-megaphone-fill" style="font-size: 20px;"
-                     class="fs-4"></a></li>
-                  <c:choose>
-                     <c:when test="${!empty logid}">
-                        <li style="line-height: 24px;">${logNick}님<a
-                           href="logout.do">
-                              &nbsp;&nbsp;&nbsp;&nbsp;로그아웃&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                        </li>
-                     </c:when>
-                     <c:otherwise>
-                        <li><a class="mx-3" href="loginForm.do" data-bs-toggle="modal" data-bs-target="#loginModal"> 
-                        <iconify-icon    icon="healthicons:person" class="fs-4"></iconify-icon>
-                        </a></li>
-                     </c:otherwise>
-                  </c:choose>
-
-                  <li><a href="wish.do" class="mx-3"> <iconify-icon
-                           icon="mdi:heart" class="fs-4"></iconify-icon>
+	<div class="container-fluid">
+		<hr class="m-0">
+	</div>
 
 
-                        <li><a href="#" class="mx-3" data-bs-toggle="offcanvas"
-                           data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
-                              <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
-                              <span
-                              class="position-absolute translate-middle badge rounded-circle bg-primary pt-2">
-                           </span>
-                        </a></li>
+	<div class="container">
+		<nav class="main-menu d-flex navbar navbar-expand-lg ">
+		
+		
+			<div class="d-flex d-lg-none align-items-end mt-3">
+				<ul class="d-flex justify-content-end list-unstyled m-0">
+				
+
+					<li><a href="wish.do" class="mx-3"> <iconify-icon icon="mdi:heart" class="fs-4"></a></iconify-icon>
 
 
-                        <li><a href="#" class="mx-3" data-bs-toggle="offcanvas"
-                           data-bs-target="#offcanvasSearch"
-                           aria-controls="offcanvasSearch"> <iconify-icon
-                                 icon="tabler:search" class="fs-4"></iconify-icon>
+							<li><a href="#" class="mx-3" data-bs-toggle="offcanvas"
+								data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+									<iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
+									<span
+									class="position-absolute translate-middle badge rounded-circle bg-primary pt-2">
+								</span>
+							</a></li>
 
-                        </a></li>
-               </ul>
-            </div>
 
-            <button class="navbar-toggler" type="button"
-               data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-               aria-controls="offcanvasNavbar">
-               <span class="navbar-toggler-icon"></span>
-            </button>
+							<li><a href="#" class="mx-3" data-bs-toggle="offcanvas"
+								data-bs-target="#offcanvasSearch"
+								aria-controls="offcanvasSearch"> <iconify-icon
+										icon="tabler:search" class="fs-4"></iconify-icon> </a></li>
+					<c:choose>
+						<c:when test="${!empty logid}">
+							<li><a class="mx-3" href="logout.do"
+								data-bs-toggle="tooltip" title="로그아웃"> <i
+									class="bi bi-box-arrow-right fs-4" style="font-size: 50px;"></i>
 
-            <div class="offcanvas offcanvas-end" tabindex="-1"
-               id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+							</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a class="nav-link mx-3" href="loginForm.do"
+								data-bs-toggle="modal" data-bs-target="#loginModal"> <iconify-icon
+										icon="healthicons:person" class="fs-4"
+										data-bs-toggle="tooltip" title="로그인">
+							</a></li>
+						</c:otherwise>
+					</c:choose>
+				</ul>
+			</div>
 
-               <div class="offcanvas-header justify-content-center">
-                  <button type="button" class="btn-close"
-                     data-bs-dismiss="offcanvas" aria-label="Close"></button>
-               </div>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+				aria-controls="offcanvasNavbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-               <div class="offcanvas-body justify-content-between ">
-                  <select class="filter-categories border-0 mb-0 me-5">
-                     <option>R&Y 스토어</option>
-                  </select>
-                  <ul class="navbar-nav list-unstyled d-flex gap-md-3 mb-0">
-                     <li class="nav-item dropdown"><a
-                        href="itemListLine.do?lineNo=11"
-                        class="nav-link dropdown-toggle" id="navbarDropdown11"
-                        role="button" aria-expanded="false"> 간식 </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown11">
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=101">강아지껌</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=102">비스켓/스낵</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=103">수제간식</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=104">육포/사사미</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=105">캔/파우치</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=106">기타간식</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=107">고양이간식</a></li>
-                        </ul></li>
-                     <li class="nav-item dropdown"><a
-                        href="itemListLine.do?lineNo=12"
-                        class="nav-link dropdown-toggle" id="navbarDropdown12"
-                        role="button" aria-expanded="false"> 사료 </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown12">
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=201">건식사료</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=202">습식사료</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=203">우유/분유</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=204">강아지영양제</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=205">고양이사료</a></li>
-                        </ul></li>
-                     <li class="nav-item dropdown"><a
-                        href="itemListLine.do?lineNo=13"
-                        class="nav-link dropdown-toggle" id="navbarDropdown13"
-                        role="button" aria-expanded="false"> 미용용품 </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown13">
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=301">드라이기</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=302">발톱관리용품</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=303">브러시</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=304">샤워기/타월</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=305">이발기/가위</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=306">기타미용용품</a></li>
-                        </ul></li>
-                     <li class="nav-item dropdown"><a
-                        href="itemListLine.do?lineNo=14"
-                        class="nav-link dropdown-toggle" id="navbarDropdown14"
-                        role="button" aria-expanded="false"> 패션용품 </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown14">
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=401">레인코트</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=402">신발/양말</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=403">외투</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=404">원피스/올인원</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=405">코스튬</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=406">셔츠/상의</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=407">기타패션용품</a></li>
-                        </ul></li>
-                     <li class="nav-item dropdown"><a
-                        href="itemListLine.do?lineNo=15"
-                        class="nav-link dropdown-toggle" id="navbarDropdown15"
-                        role="button" aria-expanded="false"> 위생용품 </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown15">
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=501">구강위생용품</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=502">기저귀</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=503">배변봉투</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=504">배변판</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=505">배변패드</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=506">탈취/소독제</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=507">눈/귀 위생용품</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=508">넥카라</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=509">해충방지용품</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=510">고양이화장실</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=511">고양이모래</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=512">기타고양이위생용품</a></li>
-                        </ul></li>
-                     <li class="nav-item dropdown"><a
-                        href="itemListLine.do?lineNo=16"
-                        class="nav-link dropdown-toggle" id="navbarDropdown16"
-                        role="button" aria-expanded="false"> 식기/급수기 </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown16">
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=601">급수기</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=602">급식기</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=603">정수기</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=604">사료보관통</a></li>
-                        </ul></li>
-                     <li class="nav-item dropdown"><a
-                        href="itemListLine.do?lineNo=17"
-                        class="nav-link dropdown-toggle" id="navbarDropdown17"
-                        role="button" aria-expanded="false"> 외출용품 </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown17">
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=701">가슴줄</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=702">리드줄</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=703">목걸이/인식표</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=704">목줄</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=705">유모차</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=706">이동가방/이동장</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=707">차량용캐리어/시트</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=708">입마개</a></li>
-                        </ul></li>
-                     <li class="nav-item dropdown"><a
-                        href="itemListLine.do?lineNo=18"
-                        class="nav-link dropdown-toggle" id="navbarDropdown18"
-                        role="button" aria-expanded="false"> 장난감/훈련용품 </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown18">
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=801">공/원반</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=802">인형</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=803">터널/큐브</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=804">훈련용품</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=805">기타장난감</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=806">캣타워</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=807">고양이스크래쳐</a></li>
-                           <li class="dropdown-submenu"><a
-                              class="dropdown-item nav-link "
-                              href="itemListLine.do?lineNo=808">고양이장난감</a></li>
-                        </ul></li>
-                  </ul>
+			<div class="offcanvas offcanvas-end" tabindex="-1"
+				id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 
-                  <div class="d-none d-lg-flex align-items-end">
-                     <ul class="d-flex justify-content-end list-unstyled m-0">
-                        <!--  -->
+				<div class="offcanvas-header justify-content-center">
+					<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+						aria-label="Close"></button>
+				</div>
 
-                        <li><a class="mx-3" href="noticeList.do"
-                           class="bi bi-megaphone-fill" style="font-size: 20px;"
-                           class="fs-4"></a></li>
+				<div class="offcanvas-body justify-content-between ">
+					<select class="filter-categories border-0 mb-0 me-5">
+						<option>R&Y 스토어</option>
+					</select>
+					<ul class="navbar-nav list-unstyled d-flex gap-md-3 mb-0">
+						<li class="nav-item dropdown"><a
+							href="itemListLine.do?lineNo=11" class="nav-link dropdown-toggle"
+							id="navbarDropdown11" role="button" aria-expanded="false"> 간식
+						</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown11">
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=101">강아지껌</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=102">비스켓/스낵</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=103">수제간식</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=104">육포/사사미</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=105">캔/파우치</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=106">기타간식</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=107">고양이간식</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							href="itemListLine.do?lineNo=12" class="nav-link dropdown-toggle"
+							id="navbarDropdown12" role="button" aria-expanded="false"> 사료
+						</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown12">
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=201">건식사료</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=202">습식사료</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=203">우유/분유</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=204">강아지영양제</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=205">고양이사료</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							href="itemListLine.do?lineNo=13" class="nav-link dropdown-toggle"
+							id="navbarDropdown13" role="button" aria-expanded="false">
+								미용용품 </a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown13">
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=301">드라이기</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=302">발톱관리용품</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=303">브러시</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=304">샤워기/타월</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=305">이발기/가위</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=306">기타미용용품</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							href="itemListLine.do?lineNo=14" class="nav-link dropdown-toggle"
+							id="navbarDropdown14" role="button" aria-expanded="false">
+								패션용품 </a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown14">
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=401">레인코트</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=402">신발/양말</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=403">외투</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=404">원피스/올인원</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=405">코스튬</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=406">셔츠/상의</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=407">기타패션용품</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							href="itemListLine.do?lineNo=15" class="nav-link dropdown-toggle"
+							id="navbarDropdown15" role="button" aria-expanded="false">
+								위생용품 </a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown15">
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=501">구강위생용품</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=502">기저귀</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=503">배변봉투</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=504">배변판</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=505">배변패드</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=506">탈취/소독제</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=507">눈/귀 위생용품</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=508">넥카라</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=509">해충방지용품</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=510">고양이화장실</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=511">고양이모래</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=512">기타고양이위생용품</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							href="itemListLine.do?lineNo=16" class="nav-link dropdown-toggle"
+							id="navbarDropdown16" role="button" aria-expanded="false">
+								식기/급수기 </a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown16">
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=601">급수기</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=602">급식기</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=603">정수기</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=604">사료보관통</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							href="itemListLine.do?lineNo=17" class="nav-link dropdown-toggle"
+							id="navbarDropdown17" role="button" aria-expanded="false">
+								외출용품 </a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown17">
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=701">가슴줄</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=702">리드줄</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=703">목걸이/인식표</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=704">목줄</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=705">유모차</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=706">이동가방/이동장</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=707">차량용캐리어/시트</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=708">입마개</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							href="itemListLine.do?lineNo=18" class="nav-link dropdown-toggle"
+							id="navbarDropdown18" role="button" aria-expanded="false">
+								장난감/훈련용품 </a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown18">
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=801">공/원반</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=802">인형</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=803">터널/큐브</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=804">훈련용품</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=805">기타장난감</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=806">캣타워</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=807">고양이스크래쳐</a></li>
+								<li class="dropdown-submenu"><a
+									class="dropdown-item nav-link "
+									href="itemListLine.do?lineNo=808">고양이장난감</a></li>
+							</ul></li>
+					</ul>
 
-                        <li><a href="noticeList.do" class="bi bi-megaphone-fill" style="font-size: 20px; bold;" class="fs-4">&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                        <c:choose>
-                           <c:when test="${!empty logid}">
-                              <li>
-                           <a class="mx-3" href="logout.do"><i   class="bi bi-box-arrow-right" style="font-size: 16px;"></i>로그아웃</a>
+					<div class="d-none d-lg-flex align-items-end">
+						<ul class="d-flex justify-content-end list-unstyled m-0">
+							
 
-     
+							<li><a class="nav-link mx-3" href="wish.do" data-bs-toggle="tooltip" title="위시리스트">
+							<i class="bi bi-chat-heart-fill" style="font-size: 1.5rem;"></i>
+							</a></li>
 
-                           </c:when>
-                           <c:otherwise>
-                              <li><a class="nav-link mx-3" href="loginForm.do"
-                                 data-bs-toggle="modal" data-bs-target="#loginModal"> <iconify-icon
-                                       icon="healthicons:person" class="fs-4"></iconify-icon>
-                              </a></li>
-                           </c:otherwise>
-                        </c:choose>
 
-                        <!--  -->
-                        <li><a class="nav-link mx-3" href="wish.do"> <iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
-                        </a></li>
-                        
+							<li class=""><a href="cart.do" class="nav-link mx-3" data-bs-toggle="tooltip" title="장바구니" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart"> 
+								<i class="bi bi-cart-check-fill" style="font-size: 1.5rem;"></i>
+							</a></li>
+							<c:choose>
+								<c:when test="${!empty logid}">
+									<li><a class="nav-link mx-3" href="logout.do" data-bs-toggle="tooltip" title="로그아웃"> 
+									<i class="bi bi-box-arrow-right" style="font-size: 1.5rem; color: cornflowerblue;"></i>
+									</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a class="nav-link mx-3"  href="loginForm.do"data-bs-toggle="modal" data-bs-target="#loginModal"> 
+									<i class="bi bi-person-fill" data-bs-toggle="tooltip" title="로그인" style="font-size: 1.5rem;"></i>
+									</a></li>
+								</c:otherwise>
+							</c:choose>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</div>
+</header>
 
-                        <li class=""><a href="cart.do" class="nav-link mx-3"
-                           data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
-                           aria-controls="offcanvasCart"> <iconify-icon
-                                 icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
-                              <span
-                              class="position-absolute translate-middle badge rounded-circle bg-primary pt-2">
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1"
+	aria-labelledby="loginModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header border-0">
+				<h1 class="modal-title fs-4 text-center w-100" id="loginModalLabel">로그인</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+					aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="text-center mb-4">
+					<img src="images/logoDog.png" alt="logo" class="img-fluid">
+				</div>
+				<form id="loginForm">
+					<div class="form-floating mb-3">
+						<input type="text" class="form-control" id="floatingInput"
+							placeholder="아이디를 입력하세요." name="id"> <label
+							for="floatingInput">아이디</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="password" class="form-control" id="floatingPassword"
+							placeholder="비밀번호를 입력하세요." name="pw"> <label
+							for="floatingPassword">비밀번호</label>
+					</div>
+					<div class="form-check text-start my-3">
+						<input class="form-check-input" type="checkbox"
+							value="remember-me" id="flexCheckDefault"> <label
+							class="form-check-label" for="flexCheckDefault">아이디 기억하기</label>
+					</div>
+					<button class="btn btn-primary w-100 py-2 mb-2" type="button"
+						id="loginBtn">로그인</button>
+				</form>
+				<a href="addform.do">
+					<button class="btn btn-outline-warning w-100 py-2" type="button">회원가입</button>
+				</a>
+				<p class="mt-5 mb-3 text-center text-muted">&copy; 2017–2024</p>
+			</div>
+		</div>
+	</div>
+</div>
 
-                           </span>
-                        </a></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </nav>
-      </div>
-   </header>
 
-   <!-- Modal -->
-   <div class="modal fade" id="loginModal" tabindex="-1"
-      aria-labelledby="loginModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-         <div class="modal-content">
-            <div class="modal-header">
 
-               <h1 class="modal-title fs-5" id="loginModalLabel">로그인 화면</h1>
-               <button type="button" class="btn-close" data-bs-dismiss="modal"
-                  aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-               <form action="">
-                  <img class="mb-4" src="assets/brand/bootstrap-logo.svg" alt=""
-                     width="72" height="57">
-                  <h1 class="h3 mb-3 fw-normal">로그인 하세요</h1>
-                  <!-- 
-                  <div id="msg">
-                     <c:if test="${!empty msg }">
-                        <script>
-                           /* alert("아이디와 비밀번호를 확인하세요"); */
-                           document.getElementById('loginModal').classList
-                                 .add('show');
-                           document.getElementById('loginModal')
-                                 .setAttribute('aria-modal', "true");
-                           document.getElementById('loginModal')
-                                 .setAttribute('role', 'dialog');
-                           document.getElementById('loginModal')
-                                 .removeAttribute('aria-hidden');
-                           document.getElementById('loginModal').style.display = 'block';
-                        </script>
-                        <p style="color: red;">${msg }</p>
-                     </c:if>
-                  </div>
- -->
-                  <div class="form-floating">
-                     <input type="text" class="form-control" id="floatingInput"
-                        placeholder="아이디를 입력하세요." name="id"> <label
-                        for="floatingInput">아이디</label>
-                  </div>
-                  <div class="form-floating">
-                     <input type="password" class="form-control" id="floatingPassword"
-                        placeholder="비밀번호를 입력하세요." name="pw"> <label
-                        for="floatingPassword">비밀번호</label>
-                  </div>
-
-                  <div class="form-check text-start my-3">
-                     <input class="form-check-input" type="checkbox"
-                        value="remember-me" id="flexCheckDefault"> <label
-                        class="form-check-label" for="flexCheckDefault"> 아이디
-                        기억하기. </label>
-                  </div>
-                  <button class="btn btn-primary w-100 py-2" type="button"
-                     id="joinBtn">로그인</button>
-               </form>
-               <a href="addform.do"><button class="btn btn-warning w-100 py-2"
-                     type="submit">회원가입</button></a>
-               <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
-
-            </div>
-         </div>
-      </div>
-   </div>
-   <script>
-    document.querySelector('#joinBtn').onclick = function(e) {
-    let id = document.querySelector('#floatingInput').value;
-    let pw = document.querySelector('#floatingPassword').value;
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const idInput = document.getElementById('floatingInput');
+    const pwInput = document.getElementById('floatingPassword');
+    const rememberMeCheckbox = document.getElementById('flexCheckDefault');
+    const loginBtn = document.getElementById('loginBtn');
     
-    let url = "login.do?id="+id+"&pw="+pw;
-    fetch(url) // promise객체. then(), catch() ,optionObj > fetch 옵션
-        .then(function(result) {
-            //console.log(result);    // Response 객체.
-            return result.json(); //json 문자열 형태로 반환.
-        })
-        .then(function(result) {
-            //console.log(result);
-            if (result.recCode == 'Fail'){ // 로그인실패
-                alert("로그인 실패 재시도하세요.");
-            }else{ // 로그인성공
-               if(result.retVal == "user"){// 회원인경우
-                location.href="main.do";
-               } else{   // 관리자인경우
-                location.href="adminpage.do";
-               }
-            }
-        })
-        .catch(function(err) {
-            console.err(err);
-        })
-}
+    // 페이지 로드 시 저장된 아이디를 로드
+    if (localStorage.getItem('rememberMe') === 'true') {
+        idInput.value = localStorage.getItem('savedId');
+        rememberMeCheckbox.checked = true;
+    }
+
+    // 로그인 버튼 클릭 시 처리
+    loginBtn.onclick = function(e) {
+        let id = idInput.value;
+        let pw = pwInput.value;
+        
+        let url = "login.do?id=" + id + "&pw=" + pw;
+        fetch(url)
+            .then(function(result) {
+                return result.json();
+            })
+            .then(function(result) {
+                console.log(result); // 서버의 응답을 콘솔에 출력하여 확인
+                if (result.recCode === 'Fail') { // 로그인 실패
+                } else { // 로그인 성공
+                    if (rememberMeCheckbox.checked) {
+                        localStorage.setItem('savedId', idInput.value);
+                        localStorage.setItem('rememberMe', 'true');
+                    } else {
+                        localStorage.removeItem('savedId');
+                        localStorage.setItem('rememberMe', 'false');
+                    }
+
+                    if (result.retVal === "user") { // 회원인 경우
+                        location.href = "main.do";
+                    } else { // 관리자인 경우
+                        location.href = "adminpage.do";
+                    }
+                }
+            })
+            .catch(function(err) {
+                console.error(err);
+                alert("로그인 실패 재시도하세요."); // 서버 통신 오류 발생 시 알림창 표시
+            });
+    }
+});
 </script>
-   <!--   <script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // 모든 툴팁 요소를 초기화
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+});
+</script>
+
+<!--   <script>
         new bootstrap.Modal(document.getElementById('loginModal')).show();
         </script> -->
 </body>

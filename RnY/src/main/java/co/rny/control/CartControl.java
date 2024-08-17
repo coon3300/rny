@@ -54,23 +54,23 @@ class MenuCartControl implements Control {
 
 class UpdateCartQuantityControl implements Control {
 
-    @Override
-    public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        String userNo = (String) session.getAttribute("userNo");
-        int cartNo = Integer.parseInt(req.getParameter("cartNo"));
-        int quantity = Integer.parseInt(req.getParameter("quantity"));
+	@Override
+	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		HttpSession session = req.getSession();
+		String userNo = (String) session.getAttribute("userNo");
+		int cartNo = Integer.parseInt(req.getParameter("cartNo"));
+		int quantity = Integer.parseInt(req.getParameter("quantity"));
 
-        CartService cartService = new CartServiceImpl();
-        
-        CartVO cartItem = new CartVO();
-        cartItem.setCartNo(cartNo);
-        cartItem.setUserNo(userNo);
-        cartItem.setQuantity(quantity);
-        
-        cartService.addOrUpdateCartItem(cartItem);
+		CartService cartService = new CartServiceImpl();
 
-        // 장바구니 목록으로 리다이렉트
-        resp.sendRedirect("cart.do");
-    }
+		CartVO cartItem = new CartVO();
+		cartItem.setCartNo(cartNo);
+		cartItem.setUserNo(userNo);
+		cartItem.setQuantity(quantity);
+
+		cartService.addOrUpdateCartItem(cartItem);
+
+		// 장바구니 목록으로 리다이렉트
+		resp.sendRedirect("cart.do");
+	}
 }

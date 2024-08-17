@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('grandTotalDisplay').textContent = Math.round(grandTotal);
     }
     
- 
    // 초기 데이터 설정
     const item_No = []; // 예시
     const item_Names = []; // 예시
@@ -77,4 +76,10 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('cartForm').addEventListener('submit', function(e) {
     e.preventDefault(); // 기본 제출 방지
     this.submit(); // 폼 제출
+  
+    // 충돌 부분. 확인 필요.
+    // 수량을 숨겨진 필드에 설정
+    document.querySelectorAll('input[name="cartCount"]').forEach((input, index) => {
+        input.value = cartCounts[index];
+    });
 });
