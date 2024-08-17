@@ -162,6 +162,29 @@ String userNo = (String) session.getAttribute("userNo");
 							<!-- 주문 내용과 관련된 데이터는 필요에 따라 추가 -->
 							<input type="hidden" name="cartCount" value="${cart.cartCnt}">
 							<button type="submit" class="btn btn-black btn-lg py-3 btn-block">주문하기</button>
+						<script>
+						IMP.request_pay(
+  {
+    pg: "kakaopay.{CID}",
+    pay_method: "card", // 생략가
+    merchant_uid: "store-791c0909-7d28-45dd-ae39-a45521e87d89", // 상점에서 생성한 고유 주문번호
+    name: "주문명:결제테스트",
+    amount: 1004,
+    buyer_email: "test@portone.io",
+    buyer_name: "박예담",
+    buyer_tel: "010-1234-5678",
+    buyer_addr: "서울특별시 강남구 삼성동",
+    buyer_postcode: "123-456",
+    m_redirect_url: "pay.do",
+  },
+  function (rsp) {
+    // callback 로직
+    /* ...중략... */
+  },
+);
+						</script>
+						
+						
 						</form>
 					</div>
 				</div>

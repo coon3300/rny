@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.rny.mapper.CartMapper">
 
-   <delete id="deleteCartItem" parameterType="String">
+    <delete id="deleteCartItem" parameterType="int">
         DELETE FROM tbl_cart 
         WHERE cart_no = #{cartNo}
     </delete>
@@ -25,7 +25,7 @@
 
     <insert id="insertCartItem" parameterType="co.rny.vo.CartVO">
         INSERT INTO tbl_cart(cart_no, item_no, user_no)
-        VALUES(cart_seq.NEXTVAL, #{itemNo}, #{userNo})
+        VALUES(seq_cart.NEXTVAL, #{itemNo}, #{userNo})
     </insert>
         <!-- 장바구니 항목 조회 (업데이트 시 사용) -->
     <select id="selectCartItem" parameterType="int" resultType="co.rny.vo.CartVO">
