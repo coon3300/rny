@@ -11,6 +11,8 @@ public interface ItemMapper {
 	List<ItemVO> selectList(int lineNo);
 	List<ItemVO> selectListRelated();
 	List<ItemVO> selectItemRelated(int lineNo);
+	List<ItemVO> selectListNew();
+	List<ItemVO> selectListBest();
 	//List<ItemVO> selectListSearched(String keyword);
 	List<ItemVO> selectListPaging(SearchVO search);
 	List<ItemVO> selectListPagingAll(SearchVO search);

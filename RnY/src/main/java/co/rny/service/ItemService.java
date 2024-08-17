@@ -21,6 +21,10 @@ public interface ItemService {
 	
 	List<ItemVO> itemListLine(SearchVO search);
 	
+	List<ItemVO> itemListNew();
+	
+	List<ItemVO> itemListBest();
+	
 	int totalCount(SearchVO search);
 	
 	int totalCountLine(SearchVO search);

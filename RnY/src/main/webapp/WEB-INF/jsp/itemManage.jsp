@@ -57,16 +57,16 @@ th, td {
 							<tr class="align-middle" >
 								
 								<td>
-										<a href="itemModify.do?itemNo=${item.itemNo}">${item.itemNo}</a>
+										<a href="itemModify.do?itemNo=${item.itemNo}&page=${paging.page}&keyword=${keyword}">${item.itemNo}</a>
 								</td>
 								
 								<td class="product-thumbnail">
-									<a href="itemModify.do?itemNo=${item.itemNo}">
+									<a href="itemModify.do?itemNo=${item.itemNo}&page=${paging.page}&keyword=${keyword}">
 									<img src="images/line/${item.lineNo}a.jpg" alt="Image" height="50px">
 									</a>
 								</td>
 								<td class="product-name">
-									<a href="itemModify.do?itemNo=${item.itemNo}">
+									<a href="itemModify.do?itemNo=${item.itemNo}&page=${paging.page}&keyword=${keyword}">
 									<h2 class="h5 text-black">${item.itemName}</h2>
 									</a>
 								</td>
