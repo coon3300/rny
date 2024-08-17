@@ -36,6 +36,8 @@
 						aria-labelledby="home-tab">
 					<div class="table-responsive">
 						<form action="itemUpdate.do">
+						<input type="hidden" name="page" value="${page}">
+						<input type="hidden" name="keyword" value="${keyword}">
 						<table class="table"> 
 							<tbody>
 								<tr>
@@ -142,11 +144,11 @@
 	<script>
 		document.querySelector('#removeItem')
 				.addEventListener('click', function(e) {
-					location.href = 'itemRemove.do?itemNo=${ivo.getItemNo() }';
+					location.href = 'itemRemove.do?itemNo=${ivo.getItemNo()}&page=${page}&keyword=${keyword}';
 				});
 		
 		document.getElementById('restoreItem')
 				.addEventListener('click', function(e) {
-					location.href = 'itemRestore.do?itemNo=${ivo.getItemNo() }';
+					location.href = 'itemRestore.do?itemNo=${ivo.getItemNo()}&page=${page}&keyword=${keyword}';
 				});
 	</script>

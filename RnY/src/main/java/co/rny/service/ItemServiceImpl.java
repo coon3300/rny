@@ -104,4 +104,14 @@ public class ItemServiceImpl implements ItemService{
 	public boolean addItem(ItemVO item) {
 		return mapper.insertItem(item) == 1;
 	}
+
+	@Override
+	public List<ItemVO> itemListNew() {
+		return mapper.selectListNew();
+	}
+	
+	@Override
+	public List<ItemVO> itemListBest() {
+		return mapper.selectListBest();
+	}
 }

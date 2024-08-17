@@ -41,6 +41,7 @@ function makeRow(item = {}) {
             ${item.itemNo * 7 % 5 + 1}
           </span>
           <h3 class="secondary-font text-primary">${item.itemPrice.toLocaleString('ko-KR')}원</h3>
+          <!--
           <div class="d-flex flex-wrap mt-3">
             <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
               <h5 class="text-uppercase m-0">장바구니 담기</h5>
@@ -49,6 +50,7 @@ function makeRow(item = {}) {
               <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
             </a>
           </div>
+          -->
         </div>
       </div>
     </div>

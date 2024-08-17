@@ -693,7 +693,10 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(function(result) {
                 console.log(result); // 서버의 응답을 콘솔에 출력하여 확인
-                if (result.recCode === 'Fail') { // 로그인 실패
+                if (result.recCode == 'Fail') { // 로그인 실패
+                	
+                    alert("로그인 실패 재시도하세요."); // 서버 통신 오류 발생 시 알림창 표시
+                	
                 } else { // 로그인 성공
                     if (rememberMeCheckbox.checked) {
                         localStorage.setItem('savedId', idInput.value);

@@ -11,10 +11,10 @@ import javax.servlet.http.HttpSession;
 import co.rny.common.Control;
 import co.rny.service.CartService;
 import co.rny.service.CartServiceImpl;
-import co.rny.service.LineService;
-import co.rny.service.LineServiceImpl;
+import co.rny.service.ItemService;
+import co.rny.service.ItemServiceImpl;
 import co.rny.vo.CartVO;
-import co.rny.vo.LineVO;
+import co.rny.vo.ItemVO;
 
 public class mainControl implements Control {
 
@@ -26,6 +26,14 @@ public class mainControl implements Control {
     	req.setAttribute("lineList", lineList);
 		 * 
 		 */
+		ItemService svc = new ItemServiceImpl();
+		List<ItemVO> itemListBest = svc.itemListBest();
+		req.setAttribute("itemListBest", itemListBest);
+		List<ItemVO> itemListNew = svc.itemListNew();
+		req.setAttribute("itemListNew", itemListNew);
+		
+		
+		
 		HttpSession session = req.getSession();
         String userNo = (String) session.getAttribute("userNo");
         
