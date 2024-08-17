@@ -31,7 +31,7 @@
     <select id="selectCartItem" parameterType="int" resultType="co.rny.vo.CartVO">
         SELECT * FROM tbl_cart
         WHERE cart_no = #{cartNo}
-    </delete>
+    </select>
 
     <!-- 장바구니 항목을 업데이트하는 쿼리 -->
     <update id="updateCartQuantity" parameterType="co.rny.vo.CartVO">

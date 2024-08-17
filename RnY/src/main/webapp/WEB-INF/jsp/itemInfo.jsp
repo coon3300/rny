@@ -177,7 +177,7 @@
                 </tbody>
               </table>
               
-              <div id="buttons" class="d-flex justify-content-between align-items-center mt-3" style="gap: 20px;">
+              <div id="buttons" class="d-flex justify-content-between align-items-center mt-4	" style="gap: 20px;">
                 <div class="flex-grow-1" style="max-width: 30%;">
                   <a id="buyButton" class="btn btn-outline-primary btn-sm w-100" href="#"><i class="bi bi-bootstrap"></i> BUY</a>
                 </div>
