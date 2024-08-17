@@ -121,7 +121,7 @@
                     </th>
                   </tr>
                   <tr>
-                    <td class="small text-muted">쿠폰적용가</td>
+                    <td class="small text-muted">· 쿠폰적용가</td>
                     <td class="small">
                       <fmt:formatNumber value="${ivo.getItemPrice() - 1000}" pattern="#,###" />원(1,000원 할인)
                       <select class="form-select form-select-sm d-inline-block w-auto" style="margin-left: 10px;">
@@ -130,19 +130,19 @@
                     </td>
                   </tr>
                   <tr>
-                    <td class="small text-muted">배송비</td>
+                    <td class="small text-muted">· 배송비</td>
                     <td class="small">3,000원 (50,000원 이상 구매 시 무료)</td>
                   </tr>
                   <tr>
-                    <td class="small text-muted">적립금</td>
+                    <td class="small text-muted">· 적립금</td>
                     <td class="small"><fmt:formatNumber value="${ivo.getItemPrice() * 0.01}" pattern="#,###" />원(1%)</td>
                   </tr>
                   <tr>
-                    <td class="small text-muted">상품코드</td>
+                    <td class="small text-muted">· 상품코드</td>
                     <td class="small">L-${ivo.getLineNo() }I-${ivo.getItemNo() }</td>
                   </tr>
                   <tr>
-                    <td class="small text-muted">구매 수량</td>
+                    <td class="small text-muted">· 구매 수량</td>
                     <td>
                       <div class="d-flex flex-column">
                         <div class="input-group" style="width: 200px;">
@@ -166,12 +166,12 @@
                     </td>
                   	 -->
                     <td colspan="2" class="small">
-                      <span class="text-muted">주문 수량 안내 : 최소 주문 수량 1개 이상</span><br>
-                      <span class="text-muted">수량을 선택해주세요.</span>
+                      <span class="text-muted">· 주문 수량 안내 : 최소 주문 수량 1개 이상</span><br>
+                      <span class="text-muted">· 수량을 선택해주세요.</span>
                     </td>
                   </tr>
                   <tr>
-                    <td class="small text-muted">최종 결제금액</td>
+                    <td class="small text-muted">· 최종 결제금액</td>
                     <td><strong class="h5" id="totalPrice"><fmt:formatNumber value="${ivo.getItemPrice()}" pattern="#,###" />원</strong></td>
                   </tr>
                 </tbody>
