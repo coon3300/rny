@@ -357,39 +357,52 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
+</section>
 
-	<!-- Related items section-->
-	<section class="py-5 bg-light">
-		<div class="container px-4 px-lg-5 mt-5">
-			<h2 class="fw-bolder mb-4">관련 상품</h2>
-			<div
-				class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-				<c:forEach var="item" items="${itemList }">
-					<div class="col mb-5">
-						<div class="card h-100">
-							<a href="itemInfo.do?itemNo=${item.itemNo }"> <img
-								class="card-img-top" src="images/line/${item.lineNo}a.jpg"
-								alt="..." />
-							</a>
-							<div class="card-body p-4">
-								<div class="text-center">
-									<div class="card-title-container">
-										<a href="itemInfo.do?itemNo=${item.itemNo }"
-											style="text-decoration: none">
-											<h5 class="fw-bolder card-title">${item.itemName}</h5>
-										</a>
-									</div>
-									<div
-										class="d-flex justify-content-center small text-primary mb-2">
-										<c:forEach begin="1" end="${item.itemNo * 7 % 5 + 1}">
-											<i class="bi bi-star-fill"></i>
-										</c:forEach>
-									</div>
-									<span class="text-muted text-decoration-line-through"><fmt:formatNumber
-											value="100000" pattern="#,###" />원</span>
-									<fmt:formatNumber value="${item.itemPrice}" pattern="#,###" />
-									원
+
+<!--================End Product Description Area =================-->
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row justify-content-center">
+    <!-- 
+      <div class="col-md-8 col-lg-6">
+     -->
+      <div class="col-md-10 col-lg-8">
+      
+        <img class="img-fluid" src="images/line/${ivo.getLineNo()}b.jpg" alt="...">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Related items section-->
+<section class="py-5 bg-light">
+	<div class="container px-4 px-lg-5 mt-5">
+		<h2 class="fw-bolder mb-4">관련 상품</h2>
+		<div
+			class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+			<c:forEach var="item" items="${itemList }">
+				<div class="col mb-5">
+					<div class="card h-100">
+						<!-- Sale badge-->
+						<!-- 
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">할인</div>
+                             -->
+						<!-- Product image-->
+						<a href="itemInfo.do?itemNo=${item.itemNo }"> <img
+							class="card-img-top" src="images/line/${item.lineNo}a.jpg"
+							alt="..." />
+						</a>
+						<!-- Product details-->
+						<div class="card-body p-4">
+							<div class="text-center">
+								<!-- Product name-->
+								<div class="card-title-container">
+									<a href="itemInfo.do?itemNo=${item.itemNo }"
+										style="text-decoration: none">
+										<h5 class="fw-bolder card-title">${item.itemName}</h5>
+									</a>
 								</div>
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">

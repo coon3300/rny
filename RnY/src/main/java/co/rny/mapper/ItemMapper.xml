@@ -59,7 +59,7 @@
             where   (l.line_no = #{lineNo} OR l.line_parent_no = #{lineNo})
             and     i.is_disabled = 0
             and     l.is_disabled = 0
-            order by i.line_no
+            order by i.updated_date desc
         )a
         <![CDATA[
         where rownum <= 8					
@@ -102,7 +102,7 @@
             where   (l.line_no = #{lineNo} OR l.line_parent_no = #{lineNo})
             and     i.is_disabled = 0
             and     l.is_disabled = 0
-            order by i.line_no
+            order by i.updated_date desc
         )a )b
         where b.rn > (#{page} - 1) * 8
         <![CDATA[
@@ -137,11 +137,32 @@
                       from    (select *
                                from tbl_item
                                <include refid="selectCondition"></include>
-                               order by item_no desc) a ) b
+                               order by updated_date desc) a ) b
             where b.rn > (#{page} - 1) * 8
             <![CDATA[
             and   b.rn <= (#{page} * 8)
             ]]>
+	</select>	
+	<select id="selectListNew" >
+    select 	a.*
+    from    (select *
+             from tbl_item
+             order by updated_date desc) a 
+    where is_disabled = 0
+    <![CDATA[
+    and     rownum <= 8
+    ]]>
+    
+	</select>	
+	<select id="selectListBest" >
+    select 	a.*
+    from    (select *
+             from tbl_item
+             order by created_date) a 
+    where is_disabled = 0
+    <![CDATA[
+    and     rownum <= 4
+    ]]>       
 	</select>	
 	<select id="selectItemRelated" >
 		select 	*
@@ -182,7 +203,7 @@
                       from    (select *
                                from tbl_item
                                <include refid="selectCondition"></include>
-                               order by item_no desc) a ) b
+                               order by updated_date desc) a ) b
             where b.rn > (#{page} - 1) * 8
             <![CDATA[
             and   b.rn <= (#{page} * 8)

@@ -2007,4 +2007,39 @@ VALUES (seq_item_no.NEXTVAL, 808, '0', '전동 나비 장난감', '나비처럼 
 INSERT INTO tbl_item (item_no, line_no, item_code, item_name, item_desc, item_price, item_image, item_pet_size, item_pet_age_range, item_pet_breed, item_stock)
 VALUES (seq_item_no.NEXTVAL, 808, '0', '캣닢 버블', '터지면 캣닢 향이 나는 비눗방울 장난감입니다.', 9000, 'image4.jpg', 'free size', '전 연령', '고양이', 150);
 
+UPDATE tbl_item
+SET item_image = 'line/' || line_no || 'a.jpg';
+
+UPDATE tbl_item
+SET    updated_date = SYSDATE
+WHERE  MOD(item_no, 19) = 0;
+
+UPDATE tbl_item
+SET    updated_date = SYSDATE
+WHERE  MOD(item_no, 27) = 0;
+
+UPDATE tbl_item
+SET    updated_date = SYSDATE
+WHERE  MOD(item_no, 13) = 0;
+
+UPDATE tbl_item
+SET    updated_date = SYSDATE
+WHERE  MOD(item_no, 57) = 0;
+
+UPDATE tbl_item
+SET    updated_date = SYSDATE
+WHERE  MOD(item_no, 41) = 0;
+
+UPDATE tbl_item
+SET    updated_date = SYSDATE
+WHERE  MOD(item_no, 31) = 0;
+
+UPDATE tbl_item
+SET    updated_date = SYSDATE
+WHERE  MOD(item_no, 5) = 0;
+
+UPDATE tbl_item
+SET    updated_date = SYSDATE
+WHERE  MOD(item_no, 11) = 0;
+
 commit;

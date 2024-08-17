@@ -15,6 +15,22 @@ public class ItemUpdateControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html; charset=UTF-8");
+		
+		String page = req.getParameter("page");
+		page = page == null ? "1" : page;
+		
+//		String sc = req.getParameter("searchCondition");
+		String sc = "T";
+		String kw = req.getParameter("keyword");
+		kw = kw == null ? "" : kw;
+
+		req.setAttribute("page", page);
+		req.setAttribute("keyword", kw);
+		
+		
 		String lineNo = req.getParameter("lineNo");
 		String itemNo = req.getParameter("itemNo");
 		String itemCode = req.getParameter("itemCode");
@@ -37,11 +53,12 @@ public class ItemUpdateControl implements Control {
 		ivo.setItemStock(Integer.parseInt(itemStock));
 		ivo.setItemImage(itemImage);
 		
-		System.out.println(ivo);
-		
 		if(svc.modifyItem(ivo)) {
 			// 목록으로 이동.
-			resp.sendRedirect("itemManage.do");
+			
+			//resp.sendRedirect("itemManage.do?page=" + page + "&keyword=" + kw);			
+	    	req.getRequestDispatcher("itemManage.do").forward(req, resp);
+
 		}else {
 			// 수정페이지로 이동.
 			resp.sendRedirect("itemModify.do?itemNo=" + itemNo);
