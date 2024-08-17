@@ -35,11 +35,12 @@ public class ReviewListControl implements Control {
 			e.printStackTrace();
 		}
 
-		List<ReviewVO> list = rvc.reviewList(page);
-		req.setAttribute("reviewList", list);
+        List<ReviewVO> list = rvc.reviewList(page); 
+        req.setAttribute("reviewList", list);	
+		
 		int totalCnt = rvc.totalCnt();
 
-		PageDTO paging = new PageDTO(Integer.parseInt(page), totalCnt, 5);
+		PageDTO paging = new PageDTO(Integer.parseInt(page), totalCnt, 10);
 		System.out.println(paging);
 		req.setAttribute("page", paging);
 

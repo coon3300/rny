@@ -66,7 +66,7 @@
 	</div>
 </div>
 <script type="text/javascript">
-    const responsibility = '<%=session.getAttribute("responsibility")%>';
+    const responsibility = '<%=session.getAttribute("responsibility") != null ? session.getAttribute("responsibility") : "" %>';
     console.log("JavaScript에서 확인된 responsibility 값:", responsibility);
 </script>
 <script src="js/chan/replyService.js"></script>

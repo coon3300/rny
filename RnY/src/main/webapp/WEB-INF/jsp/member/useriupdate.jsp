@@ -25,6 +25,13 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+hr.custom-hr {
+    border: none;  /* 기본 선 없애기 */
+    border-top: 2px solid #333;  /* 두께와 색상 설정 */
+    width: 20%;  /* 너비 설정 */
+    margin: 20px auto;  /* 위아래 여백과 중앙 정렬 */
+}
+
 h1 {
     text-align: center;
     font-size: 24px;
@@ -97,9 +104,13 @@ button.cancel:hover {
 </style>
 
 <div class="container1">
-        <h1>MODIFY</h1>
-		<form action="updateuser.do" method="post">
- 		   <input type="hidden" name="userNo" value="${userinfo.userNo}">
+	<div class="py-5">
+   	 	<h1>MODIFY</h1>
+    	<hr class="custom-hr">
+ 	</div>
+ 	
+  <form action="updateuser.do" method="post">
+ 	<input type="hidden" name="userNo" value="${userinfo.userNo}">
 
     <div class="form-group">
         <label for="id">아이디 *</label>
@@ -160,8 +171,8 @@ button.cancel:hover {
     
     <button type="submit" class="btn btn-danger">정보수정</button>
     <button type="button" class="btn btn-warning"> <a href="mypage.do">뒤로가기</a></button>
-    
-</form>
+  </form>
+</div>
 
-		</div>
+		
 

@@ -30,49 +30,52 @@ qreply_content VARCHAR2(3000) not null, -- 댓글 내용
 qreply_date date DEFAULT sysdate -- 업로드 날짜
 );
 
-create table tbl_review ( --리뷰테이블
-user_no VARCHAR2(20) PRIMARY KEY, --회원 고유번호
-user_id VARCHAR2(20) not null, -- 회원 아이디
-review_num number(38) not null, -- 리뷰 번호
-review_title VARCHAR2(300) not null, -- 리뷰제목
-review_content VARCHAR2(3000) not null,-- 리뷰 내용
-review_image VARCHAR2(300),-- 사진
-review_date date DEFAULT sysdate, -- 업로드날짜
-review_like number(38) -- 좋아요
+--리뷰테이블
+CREATE TABLE tbl_review (
+    review_num NUMBER PRIMARY KEY, -- 리뷰 번호 (고유 번호로 설정)
+    user_no VARCHAR2(20), -- 회원 고유번호
+    user_id VARCHAR2(20) NOT NULL, -- 회원 아이디
+    item_no NUMBER NOT NULL, -- 아이템 넘버
+    review_title VARCHAR2(300) NOT NULL, -- 리뷰제목
+    review_content VARCHAR2(3000) NOT NULL, -- 리뷰 내용
+    review_image VARCHAR2(300), -- 사진
+    review_date DATE DEFAULT SYSDATE, -- 업로드날짜
+    review_like NUMBER(38), -- 좋아요
+    CONSTRAINT fk_review_user_no FOREIGN KEY (user_no) REFERENCES rny_member(user_no) -- user_no 외래키 설정
 );
 
---리뷰 데이터 삽입
-BEGIN
-    FOR i IN 1..632 LOOP  -- item_no 범위
-        FOR j IN 1..10 LOOP  -- 각 item_no에 대해 10개의 리뷰 생성
-            INSERT INTO tbl_review (
-                user_no, 
-                item_no, 
-                user_id, 
-                review_num, 
-                review_title, 
-                review_content, 
-                review_image, 
-                review_date, 
-                review_like
-            )
-            VALUES (
-                'A' || TO_CHAR(i * 10 + j),  -- user_no: A101, A102, ... 이런 형식으로 생성
-                i,  -- item_no: 1부터 632까지
-                'user' || TO_CHAR(i * 10 + j),  -- user_id: user101, user102, ... 이런 형식으로 생성
-                j,  -- review_num: 1부터 10까지 반복
-                '리뷰 테스트' || TO_CHAR(j),  -- review_title: 리뷰 테스트1, 리뷰 테스트2, ... 이런 형식으로 생성
-                '리뷰 테스트내용' || TO_CHAR(j),  -- review_content: 리뷰 테스트내용1, 리뷰 테스트내용2, ... 이런 형식으로 생성
-                NULL,  -- review_image: 이미지 없이 NULL로 설정
-                SYSDATE,  -- review_date: 현재 날짜
-                0  -- review_like: 초기 좋아요 수 0으로 설정
-            );
-        END LOOP;
-    END LOOP;
-END;
-/
+CREATE SEQUENCE review_seq
+    START WITH 1        -- 시퀀스가 시작할 초기 값
+    INCREMENT BY 1      -- 시퀀스가 증가할 값
+    NOMAXVALUE          -- 최대값 없이 무한정 증가
+    NOCYCLE             -- 최대값에 도달했을 때 시퀀스가 다시 1로 돌아가지 않음
+    NOCACHE;            -- 시퀀스 값을 캐시하지 않음
 
-commit;
+
+--리뷰 데이터 삽입
+INSERT INTO tbl_review (
+    review_num, 
+    user_no, 
+    item_no, 
+    user_id, 
+    review_title, 
+    review_content, 
+    review_image, 
+    review_date, 
+    review_like
+)
+VALUES (
+    review_seq.nextval,  -- 시퀀스를 사용하여 고유 번호 생성
+    'A100', 
+    1, 
+    'user1', 
+    '리뷰 제목', 
+    '리뷰 내용', 
+    NULL, 
+    SYSDATE, 
+    10
+);
+COMMIT;
 
 select reply_seq.nextval from dual;
 create sequence reply_seq;

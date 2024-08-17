@@ -56,7 +56,31 @@
 .review-like span {
 	font-weight: bold;
 }
+
+/* 뒤로가기 버튼 스타일 */
+.back-button-container {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.back-button {
+	background-color: #007bff;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	margin-top: 20px; /* 상단 네모 영역과의 간격 */
+	display: inline-block; /* 버튼을 인라인 블록으로 설정 */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 버튼에 그림자 추가 */
+}
+
+.back-button:hover {
+	background-color: #0056b3;
+}
 </style>
+
 <section class="blog_area single-post-area padding_top">
 	<div class="container review-container">
 		<div class="row justify-content-center">
@@ -87,5 +111,18 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- 뒤로가기 버튼 추가 -->
+	<div class="back-button-container">
+		<button class="back-button" onclick="goBackAndRefresh()">뒤로가기</button>
+	</div>
 </section>
+
 <script src="js/chan/like.js"></script>
+
+<script>
+	function goBackAndRefresh() {
+		window.history.back(); // 뒤로가기
+		window.location.href = document.referrer; // 이전 페이지로 이동 후 새로고침
+	}
+</script>

@@ -3,18 +3,31 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.rny.mapper.ReviewMapper"> <!--클래스 -->
-	<select id="reviewList" parameterType="co.rny.vo.ReviewVO">
+	<select id="reviewList" parameterType="int" resultType="co.rny.vo.ReviewVO">
 		select b.*
 		from(select rownum rn,a.*
 		from (select *
 		from tbl_review
 		order
 		by review_num desc ) a ) b
-		where b.rn > (#{page} -1) * 6
+		where b.rn > (#{page} -1) * 10
     <![CDATA[
-    and b.rn <= (#{page} *6 )
+    and b.rn <= (#{page} *10 )
     ]]>
 	</select>
+	<!-- 데이터 기준으로 5개 출력 -->
+	<select id="getRecentReviews" resultType="co.rny.vo.ReviewVO">
+		SELECT *
+		FROM (
+		SELECT *
+		FROM tbl_review
+		ORDER BY review_date DESC
+		)
+		<![CDATA[
+		WHERE ROWNUM <= 5
+		 ]]>
+	</select>
+
 	<select id="totalCnt" parameterType="co.rny.vo.ReviewVO">
 		select count(1)
 		from
@@ -41,7 +54,30 @@
 		SELECT *
 		from tbl_review
 		<!-- item_no를 review_num으로 임시 수정함. -->
-		WHERE review_num = #{reviewNum}
+		WHERE item_no = #{itemNo}
 	</select>
+
+	<insert id="addReview" parameterType="co.rny.vo.ReviewVO">
+		<selectKey keyProperty="reviewNum" resultType="int"
+			order="BEFORE">
+			SELECT review_seq.nextval FROM dual
+		</selectKey>
+		INSERT INTO tbl_review (
+		user_no, user_id, item_no, review_num, review_title,
+		review_content, review_image, review_date, review_like
+		) VALUES (
+		#{userNo},
+		#{userId},
+		#{itemNo},
+		#{reviewNum},
+		#{reviewTitle},
+		#{reviewContent},
+		#{reviewImage},
+		DEFAULT, -- 리뷰 날짜는 기본값
+		0 -- 초기 좋아요 수는 0으로 설정
+		)
+	</insert>
+
+
 
 </mapper>

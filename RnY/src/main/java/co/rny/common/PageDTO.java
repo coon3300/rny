@@ -12,8 +12,8 @@ public class PageDTO {
 		// page: 3, totalCnt: 37
 		this.page = page;
 		this.endPage = (int) (Math.ceil(page / 10.0) * 10); // 2*10 10 10
-		this.startPage = this.endPage - 9; //
-
+//		this.startPage = this.endPage - 9; //
+		this.startPage = Math.max(this.endPage - 9, 1);
 
 		int realEnd = (int) Math.ceil(totalCnt * 1.0 / countPerPage); // 실제건수 계산한 마지막페이지
     

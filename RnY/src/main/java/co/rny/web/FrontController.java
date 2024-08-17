@@ -15,6 +15,7 @@ import co.rny.control.AddCartControl;
 import co.rny.control.AddDeleteControl;
 import co.rny.control.AddFormControl;
 import co.rny.control.AddMemberControl;
+import co.rny.control.AddReviewFormControl;
 import co.rny.control.AddUpdateControl;
 import co.rny.control.AddWish;
 import co.rny.control.AddressControl;
@@ -232,12 +233,15 @@ public class FrontController extends HttpServlet {
 		// QnA 댓글삭제
 		map.put("/deleteReply.do", new DeleteReplyControl());
 		
+		
 		//Review 목록
 		map.put("/reviewList.do", new ReviewListControl());
 		//Review 좋아요.........싫어요.......
 		map.put("/reviewLike.do", new ReviewLikeControl());
 		//Review 상세
 		map.put("/review.do", new ReviewControl());
+		//Review 등록
+		map.put("/reviewForm.do", new AddReviewFormControl());
 	}
 
 	@Override
