@@ -2012,6 +2012,34 @@ SET item_image = 'line/' || line_no || 'a.jpg';
 
 UPDATE tbl_item
 SET    updated_date = SYSDATE
-WHERE  MOD(item_no, 23) = 0;
+WHERE  MOD(item_no, 19) = 0;
+
+UPDATE tbl_item
+SET    updated_date = SYSDATE
+WHERE  MOD(item_no, 27) = 0;
+
+UPDATE tbl_item
+SET    updated_date = SYSDATE
+WHERE  MOD(item_no, 13) = 0;
+
+UPDATE tbl_item
+SET    updated_date = SYSDATE
+WHERE  MOD(item_no, 57) = 0;
+
+UPDATE tbl_item
+SET    updated_date = SYSDATE
+WHERE  MOD(item_no, 41) = 0;
+
+UPDATE tbl_item
+SET    updated_date = SYSDATE
+WHERE  MOD(item_no, 31) = 0;
+
+UPDATE tbl_item
+SET    updated_date = SYSDATE
+WHERE  MOD(item_no, 5) = 0;
+
+UPDATE tbl_item
+SET    updated_date = SYSDATE
+WHERE  MOD(item_no, 11) = 0;
 
 commit;
