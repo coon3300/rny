@@ -105,10 +105,11 @@ header, footer {
 
 <!-- Sidebar -->
 <div class="sidebar">
-	<div class="logo">
-		<img src="images/logoDog.png" alt="logo" class="img-fluid">
-
-	</div>
+<div class="logo">
+  <a href="main.do">
+    <img src="images/logoDog.png" alt="logo" class="img-fluid">
+  </a>
+</div>
 	<nav>
 		<ul>
 			<li><a href="noticeAdm.do">공지사항</a></li>
@@ -118,6 +119,6 @@ header, footer {
 		</ul>
 	</nav>
 	<div class="logout">
-		<a href="#">로그아웃</a>
+		<a href="main.do">로그아웃</a>
 	</div>
 </div>
