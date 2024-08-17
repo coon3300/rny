@@ -9,31 +9,18 @@
 			<div class="col-lg-8 posts-list">
 				<div class="single-post">
 					<div class="feature-img">
-						<img class="img-fluid" src="images/chan/${nvo.noticeImage}"
-							alt="notice" style="float: center;">
+						<img class="img-fluid" src="images/chan/${nvo.noticeImage}" alt="notice" style="float: center;">
 					</div>
 					<div class="blog_details">
 						<h2>${nvo.noticeTitle}</h2>
 						<ul class="blog-info-link mt-3 mb-4">
-							<p>
-								<a href="#"> 글번호 : ${nvo.noticeNum}</a><br> <a href="#">
-									작성자 : ${nvo.userId}</a><br> <a href="#"> 작성일자 : <fmt:formatDate
-										pattern="yyyy-MM-dd" value="${nvo.noticeDate}" /></a><br> 
-										<input class="col-lg-8" type="file" name="image"style="float: left;"><br>
-							</p>
-
+							<li><a href="#"> 글번호 : ${nvo.noticeNum}</a></li>
+						    <li><a href="#"> 작성자 : ${nvo.userId}</a><br></li>
+							<li><a href="#"> 작성일자 : <fmt:formatDate pattern="yyyy-MM-dd" value= "${nvo.noticeDate}"/></a></li>
+						
 						</ul>
-						<p class="excert">
-							<button type="button" class="btn btn-outline-info" id="addNotice">등록</button>
-							<button type="button" class="btn btn-outline-info"
-								id="modifyNotice">수정</button>
-
-							<button type="button" class="btn btn-outline-info"
-								id="deleteNotice" style="float: right;">삭제</button>
-						</p>
-
-
-
+						<p class="excert">${nvo.noticeContent}</p>
+				
 
 					</div>
 				</div>
