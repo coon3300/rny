@@ -72,7 +72,6 @@ table .rating {
 	background-color: #555;
 }
 </style>
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -99,11 +98,11 @@ table .rating {
 										${review.reviewTitle} </a> <br> <small> 작성자:
 										${review.userId} | 상품코드: ${review.itemNo} | 작성일자: <fmt:formatDate
 											pattern="yyyy-MM-dd" value="${review.reviewDate}" />
-								</small> </small></td>
+								</small></td>
 								<td><span class="addLike"
 									onclick="likeReview(${review.reviewNum})"> <i
 										class="bi bi-hand-thumbs-up"></i> 좋아요
-								</span> <span id="likeCount_${review.reviewNum}">${review.reviewLike}</span>
+								</span> <span class="likeCount" id="likeCount_${review.reviewNum}">${review.reviewLike}</span>
 									<input type="hidden" id="reviewNum_${review.reviewNum}"
 									value="${review.reviewNum}" /></td>
 							</tr>
@@ -126,12 +125,11 @@ table .rating {
 			</c:if>
 
 			<!-- 페이지 갯수만큼 링크생성 -->
-			
-			<c:forEach var="p" begin="${page.startPage }" end="${page.endPage }">
+			<c:forEach var="p" begin="${page.startPage}" end="${page.endPage}">
 				<c:choose>
-					<c:when test="${page.page == p }">
+					<c:when test="${page.page == p}">
 						<li class="page-item active" aria-current="page"><span
-							class="page-link">${p }</span></li>
+							class="page-link">${p}</span></li>
 					</c:when>
 					<c:otherwise>
 						<li class="page-item"><a class="page-link"
@@ -150,5 +148,5 @@ table .rating {
 		</ul>
 	</nav>
 </body>
-<script src="js/chan/like.js"></script>
+<script src="js/chan/reviewLike.js"></script>
 </html>

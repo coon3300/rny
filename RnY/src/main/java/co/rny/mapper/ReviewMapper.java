@@ -10,6 +10,7 @@ public interface ReviewMapper {
 	int reviewLike(int reviewNum);
 	ReviewVO selectReview(int reviewNum);
 	List<ReviewVO> selectReviewDetail(int itemNo); // 아이템상세에 리뷰 목록 출력
-	
+	int addReview(ReviewVO addReview); // 리뷰등록	
+	List<ReviewVO> getRecentReviews (String page);
 
 }

@@ -116,7 +116,6 @@
 				</c:choose>
 			</c:forEach>
 
-
 			<!-- next 페이지. -->
 			<c:choose>
 				<c:when test="${paging.next }">

@@ -52,7 +52,7 @@ public class loginControl implements Control {
 		// ***예림***
 
 		// ***은찬***
-		//session.setAttribute("responsibility", mem.getResponsibility()); // 관리자만 댓글 적용
+		session.setAttribute("responsibility", mem.getResponsibility()); // 관리자만 댓글 적용
 
 		// 세션객체(attribute)
 		session.setAttribute("logid", id);

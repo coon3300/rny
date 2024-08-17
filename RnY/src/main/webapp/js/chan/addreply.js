@@ -1,16 +1,12 @@
-/*
- addreply.js
-*/
-
 // 전역 범위에서 responsibility 선언
-let responsibility = "<%=session.getAttribute('responsibility')%>";
+let responsibility = "<%= session.getAttribute('responsibility') != null ? session.getAttribute('responsibility') : '' %>";
 
 document.addEventListener('DOMContentLoaded', function() {
 	console.log("JavaScript에서 확인된 responsibility 값:", responsibility);
 
-	// responsibility 값이 null일 경우 처리
-	if (responsibility === "null" || responsibility === "") {
-		console.error("responsibility 값이 null입니다. 로그인 상태를 확인하세요.");
+	// responsibility 값이 null이거나 빈 문자열일 경우 처리
+	if (!responsibility) {
+		console.error("responsibility 값이 null 또는 빈 문자열입니다. 로그인 상태를 확인하세요.");
 		alert("로그인 정보가 없습니다. 다시 로그인 해주세요.");
 		return; // 더 이상 진행하지 않음
 	}

@@ -2,6 +2,7 @@
  reviewLike.js
 */
 // 좋아요 버튼에 클릭 이벤트 추가
+
 document.addEventListener('DOMContentLoaded', function() {
 
 	document.querySelectorAll('.addLike').forEach(function(span, index) {
