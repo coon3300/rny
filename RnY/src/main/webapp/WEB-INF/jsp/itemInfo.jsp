@@ -68,25 +68,24 @@
 	-webkit-box-orient: vertical;
 }
 
-.table-custom-borders {
-	border-top: none;
-}
+  .table-custom-borders {
+    border-top: none;
+  }
+  .table-custom-borders tr {
+    border-bottom: 1px solid #dee2e6;
+  }
+  .table-custom-borders tr:first-child, 
+  .table-custom-borders tr:nth-child(7){
+    border-top: none;
+    border-bottom: 2px solid #dee2e6;
+  }
+  .table-custom-borders tr:nth-child(8) {
+    border-top: 2px solid #dee2e6;
+    border-bottom: 2px solid #dee2e6;
+    
+  }
 
-.table-custom-borders tr {
-	border-bottom: 1px solid #dee2e6;
-}
-
-.table-custom-borders tr:first-child, .table-custom-borders tr:nth-child(7)
-	{
-	border-top: none;
-	border-bottom: 2px solid #dee2e6;
-}
-
-.table-custom-borders tr:nth-child(8) {
-	border-top: 2px solid #dee2e6;
-	border-bottom: 2px solid #dee2e6;
-}
-}
+}  
 </style>
 <head>
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -104,67 +103,58 @@
 <!-- 상품상세. -->
 <!-- Product section-->
 <section class="bg-dark p-2" style="--bs-bg-opacity: .02;">
-	<div class="container px-4 px-lg-5 my-5">
-		<div class="row gx-4 gx-lg-5 align-items-center">
-			<div class="col-md-6">
-				<img class="card-img-top mb-5 mb-md-0"
-					src="images/line/${ivo.getLineNo() }a.jpg" />
-			</div>
-			<div class="col-md-6">
-				<div class="tab-content" id="myTabContent">
-					<div class="tab-pane fade show active" id="home" role="tabpanel"
-						aria-labelledby="home-tab">
-						<div class="table-responsive">
-							<table class="table table-custom-borders">
-								<tbody>
-									<tr>
-										<th colspan="2">
-											<h1>${ivo.getItemName() }</h1>
-											<h3>
-												<fmt:formatNumber value="${ivo.getItemPrice()}"
-													pattern="#,###" />
-												원
-											</h3>
-										</th>
-									</tr>
-									<tr>
-										<td class="small text-muted">· 쿠폰적용가</td>
-										<td class="small"><fmt:formatNumber
-												value="${ivo.getItemPrice() - 1000}" pattern="#,###" />원(1,000원
-											할인) <select
-											class="form-select form-select-sm d-inline-block w-auto"
-											style="margin-left: 10px;">
-												<option value="1000">1,000원 할인</option>
-										</select></td>
-									</tr>
-									<tr>
-										<td class="small text-muted">· 배송비</td>
-										<td class="small">3,000원 (50,000원 이상 구매 시 무료)</td>
-									</tr>
-									<tr>
-										<td class="small text-muted">· 적립금</td>
-										<td class="small"><fmt:formatNumber
-												value="${ivo.getItemPrice() * 0.01}" pattern="#,###" />원(1%)</td>
-									</tr>
-									<tr>
-										<td class="small text-muted">· 상품코드</td>
-										<td class="small">L-${ivo.getLineNo() }I-${ivo.getItemNo() }</td>
-									</tr>
-									<tr>
-										<td class="small text-muted">· 구매 수량</td>
-										<td>
-											<div class="d-flex flex-column">
-												<div class="input-group" style="width: 200px;">
-													<input type="number" id="quantity"
-														class="form-control form-control-sm text-center" min="1"
-														max="${ivo.getItemStock()}" value="1"> (재고:
-													${ivo.getItemStock()}개)
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<!-- 
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+      <div class="col-md-6">
+        <img class="card-img-top mb-5 mb-md-0" src="images/line/${ivo.getLineNo() }a.jpg" />
+      </div>
+      <div class="col-md-6">
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="table-responsive">
+              <table class="table table-custom-borders">
+                <tbody>
+                  <tr>
+                    <th colspan="2">
+                      <h1>${ivo.getItemName() }</h1>
+                      <h3><fmt:formatNumber value="${ivo.getItemPrice()}" pattern="#,###" />원</h3>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td class="small text-muted">· 쿠폰적용가</td>
+                    <td class="small">
+                      <fmt:formatNumber value="${ivo.getItemPrice() - 1000}" pattern="#,###" />원(1,000원 할인)
+                      <select class="form-select form-select-sm d-inline-block w-auto" style="margin-left: 10px;">
+                        <option value="1000">1,000원 할인</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="small text-muted">· 배송비</td>
+                    <td class="small">3,000원 (50,000원 이상 구매 시 무료)</td>
+                  </tr>
+                  <tr>
+                    <td class="small text-muted">· 적립금</td>
+                    <td class="small"><fmt:formatNumber value="${ivo.getItemPrice() * 0.01}" pattern="#,###" />원(1%)</td>
+                  </tr>
+                  <tr>
+                    <td class="small text-muted">· 상품코드</td>
+                    <td class="small">L-${ivo.getLineNo() }I-${ivo.getItemNo() }</td>
+                  </tr>
+                  <tr>
+                    <td class="small text-muted">· 구매 수량</td>
+                    <td>
+                      <div class="d-flex flex-column">
+                        <div class="input-group" style="width: 200px;">
+                          <input type="number" id="quantity" class="form-control form-control-sm text-center" 
+                                 min="1" max="${ivo.getItemStock()}" value="1" >
+                          (재고: ${ivo.getItemStock()}개)
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                  	<!-- 
                     <td class="small text-muted">사이즈 선택</td>
                     <td>
                       <select class="form-select form-select-sm" id="optionSelect" style="width: 102px; text-align: left;">
@@ -175,40 +165,35 @@
                       </select>
                     </td>
                   	 -->
-										<td colspan="2" class="small"><span class="text-muted">·
-												주문 수량 안내 : 최소 주문 수량 1개 이상</span><br> <span class="text-muted">·
-												수량을 선택해주세요.</span></td>
-									</tr>
-									<tr>
-										<td class="small text-muted">· 최종 결제금액</td>
-										<td><strong class="h5" id="totalPrice"><fmt:formatNumber
-													value="${ivo.getItemPrice()}" pattern="#,###" />원</strong></td>
-									</tr>
-								</tbody>
-							</table>
-
-							<div id="buttons"
-								class="d-flex justify-content-between align-items-center mt-4	"
-								style="gap: 20px;">
-								<div class="flex-grow-1" style="max-width: 30%;">
-									<a id="buyButton" class="btn btn-outline-primary btn-sm w-100"
-										href="#"><i class="bi bi-bootstrap"></i> BUY</a>
-								</div>
-								<div class="flex-grow-1" style="max-width: 30%;">
-									<a id="cartButton" class="btn btn-outline-dark btn-sm w-100"
-										href="#"><i class="bi bi-cart2"></i> CART</a>
-								</div>
-								<div class="flex-grow-1" style="max-width: 30%;">
-									<a id="wishButton" class="btn btn-outline-success btn-sm w-100"
-										href="#"><i class="bi bi-heart"></i> WISH</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                    <td colspan="2" class="small">
+                      <span class="text-muted">· 주문 수량 안내 : 최소 주문 수량 1개 이상</span><br>
+                      <span class="text-muted">· 수량을 선택해주세요.</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="small text-muted">· 최종 결제금액</td>
+                    <td><strong class="h5" id="totalPrice"><fmt:formatNumber value="${ivo.getItemPrice()}" pattern="#,###" />원</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <div id="buttons" class="d-flex justify-content-between align-items-center mt-4	" style="gap: 20px;">
+                <div class="flex-grow-1" style="max-width: 30%;">
+                  <a id="buyButton" class="btn btn-outline-primary btn-sm w-100" href="#"><i class="bi bi-bootstrap"></i> BUY</a>
+                </div>
+                <div class="flex-grow-1" style="max-width: 30%;">
+                  <a id="cartButton" class="btn btn-outline-dark btn-sm w-100" href="#"><i class="bi bi-cart2"></i> CART</a>
+                </div>
+                <div class="flex-grow-1" style="max-width: 30%;">
+                  <a id="wishButton" class="btn btn-outline-success btn-sm w-100" href="#"><i class="bi bi-heart"></i> WISH</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="bg-dark p-2" style="--bs-bg-opacity: .05;">
@@ -367,18 +352,17 @@
 
 <!--================End Product Description Area =================-->
 <section class="py-5">
-	<div class="container px-4 px-lg-5 mt-5">
-		<div class="row justify-content-center">
-			<!-- 
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row justify-content-center">
+    <!-- 
       <div class="col-md-8 col-lg-6">
      -->
-			<div class="col-md-10 col-lg-8">
-
-				<img class="img-fluid" src="images/line/${ivo.getLineNo()}b.jpg"
-					alt="...">
-			</div>
-		</div>
-	</div>
+      <div class="col-md-10 col-lg-8">
+      
+        <img class="img-fluid" src="images/line/${ivo.getLineNo()}b.jpg" alt="...">
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Related items section-->
@@ -449,6 +433,7 @@
 		<div class="container reply">	
 			<!-- 등록. -->
 			<div class="header">
+				<input type="file" id="reviewImage" name="reviewImage" accept="image/*">
 				<input class="col-sm-8" id="reviewContent">
 				<button class="col-sm-3" id="addReview">리뷰 등록</button>
 			</div>		
@@ -458,6 +443,7 @@
 				<ul id="reviewItemList">
 					<li style="display: none;">
 						<span class="col-sm-2">12</span>
+						<img src="images/line/101a.jpg" alt="Image" height="50px">
 						<span class="col-sm-5">댓글 내용입니다.</span>
 						<span class="col-sm-2">user02</span>
 						<span class="col-sm-2">2024-05-02</span>
@@ -541,5 +527,5 @@
 		const itemNo = "${ivo.getItemNo()}";
 		const userId = "${logid}";
 </script>
-	<script src="js/reviewService.js"></script>
-	<script src="js/review.js"></script>
+	<script src="js/reviewItemService.js"></script>
+	<script src="js/reviewItem.js"></script>

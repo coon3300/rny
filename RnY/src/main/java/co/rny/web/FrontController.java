@@ -63,6 +63,7 @@ import co.rny.control.QnaReplyControl;
 import co.rny.control.QnaReplyListControl;
 import co.rny.control.ReviewAddControl;
 import co.rny.control.ReviewControl;
+import co.rny.control.ReviewImageControl;
 import co.rny.control.ReviewItemListControl;
 import co.rny.control.ReviewLikeControl;
 import co.rny.control.ReviewListControl;
@@ -254,6 +255,9 @@ public class FrontController extends HttpServlet {
 		map.put("/reviewRemove.do", new ReviewRemoveControl());
 		//Review 등록
 		map.put("/reviewAdd.do", new ReviewAddControl());
+		//Review 사진 업로드
+		map.put("/reviewImage.do", new ReviewImageControl());;		
+		
 	}
 
 	@Override

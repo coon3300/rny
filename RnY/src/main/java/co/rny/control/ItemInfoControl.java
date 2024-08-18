@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.rny.common.SearchVO;
 import co.rny.service.ItemService;
 import co.rny.service.ItemServiceImpl;
 import co.rny.service.ReviewService;
@@ -26,7 +27,14 @@ public class ItemInfoControl extends LineControl {
 		ItemVO ivo = svc.itemSelected(itemNo);
 
 		List<ItemVO> list = svc.itemInfoRelated(itemNo);
-
+		
+		//은찬 추가
+		 //ReviewService rvc = new ReviewServiceImpl();
+		 //SearchVO search = new SearchVO();
+		 //List<ReviewVO> reviewList = rvc.getReviewsByItemNo(search);
+		 //req.setAttribute("reviewList", reviewList);
+		 //
+		 
 		req.setAttribute("ivo", ivo);
 		req.setAttribute("itemList", list);
 

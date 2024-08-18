@@ -82,9 +82,9 @@
 
 	<div class="container review-container">
 		<h2>리뷰 작성</h2>
-		<form action="reviewList.do" method="post" enctype="multipart/form-data">
+		<form action="iteminfo.do" method="post" enctype="multipart/form-data">
 		<div>
-			<input type="hidden" class="form-control" id=userNo name="userNo" value="${userNo}" readonly="readonly">
+			<input type="hidden" class="form-control" id=userId name="userId" value="${userId}" readonly="readonly">
 		</div>
 			<input type="text" id="reviewTitle" name="reviewTitle" placeholder="리뷰 제목" required>
 			<textarea id="reviewContent" name="reviewContent" placeholder="리뷰 내용을 입력하세요" required></textarea>
