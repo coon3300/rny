@@ -1,5 +1,5 @@
 /**
- * review.js
+ * reviewItem.js
  */
 /**
  reviewItem.js
@@ -54,6 +54,18 @@ function makeRow(review = {}) { // reply = {} 객체타입 표시
 	cloned.style.display = 'block'; // <li style={}></li>
 	cloned.setAttribute('data-rno', review.reviewNum)
 	cloned.querySelector('span:nth-of-type(1)').innerText = review.reviewNum;
+	
+	// 이미지 추가
+	console.log("review.reviewImage : " + review.reviewImage);
+	let imgElement = cloned.querySelector('img');
+	if (review.reviewImage) {
+	    imgElement.src = "images/" + review.reviewImage;
+	    imgElement.alt = "리뷰 이미지";
+	} else {
+	    imgElement.src = "images/logoDog.png"; // 기본 이미지 경로
+	    imgElement.alt = "이미지 없음";
+	}
+	
 	cloned.querySelector('span:nth-of-type(2)').innerText = review.reviewContent;
 	cloned.querySelector('span:nth-of-type(3)').innerText = review.userId;
 	cloned.querySelector('span:nth-of-type(4)').innerText = review.reviewDate;
@@ -178,7 +190,7 @@ function pageMove() {
 		});
 } // end of pageMove
 
-
+/*
 // 댓글등록 버튼에 클릭 이벤트 등록.
 document.querySelector('#addReview')//
 	.addEventListener('click', function(e) {
@@ -202,33 +214,26 @@ document.querySelector('#addReview')//
 			}
 		});
 	});
+*/	
 	
 	
-	
-	/*
-	// 댓글 등록 버튼에 클릭이벤트 등록
-//document.querySelector('#addReply').addEventListener('click', function() {
-document.querySelector('#addReview').addEventListener('click', function() {
-	if (!userId ) {
-		alert('로그인 정보를 확인하세요');
-		return;
-	}else if(!reviewContent){
-		alert('내용을 입력하세요');
-		return;		
-	}
-	let param = { itemNo, userId, reviewContent }
+document.getElementById('addReview').addEventListener('click', function() {
+  const reviewContent = document.getElementById('reviewContent').value;
+  const reviewImage = document.getElementById('reviewImage').files[0];
 
-	svc.addReview(param, function() {
-		// 등록완료 => 화면에 등록된 글 추가
-		let result = JSON.parse(this.responseText);
-		console.log(result);
-		if (result.retCode == 'Success') {
-			alert("리뷰 작성이 완료되었습니다.");
-			//replyList.appendChild(makeRow(result.retVal));
-			page = 1;
-			showPage();
-		}
-	});
+	let parm = { itemNo, userId, reviewContent, reviewImage }
+
+
+  svc.addReview(parm, function() {
+			let result = JSON.parse(this.responseText);
+			console.log(result);
+
+			if (result.retCode == 'Success') {
+				alert("성공!!")
+				page = 1
+				showPage();
+				//reviewItemList.appendChild(makeRow(result.retVal));
+			}
+  });
 });
-*/
 
