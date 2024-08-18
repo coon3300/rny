@@ -68,24 +68,25 @@
 	-webkit-box-orient: vertical;
 }
 
-  .table-custom-borders {
-    border-top: none;
-  }
-  .table-custom-borders tr {
-    border-bottom: 1px solid #dee2e6;
-  }
-  .table-custom-borders tr:first-child, 
-  .table-custom-borders tr:nth-child(7){
-    border-top: none;
-    border-bottom: 2px solid #dee2e6;
-  }
-  .table-custom-borders tr:nth-child(8) {
-    border-top: 2px solid #dee2e6;
-    border-bottom: 2px solid #dee2e6;
-    
-  }
+.table-custom-borders {
+	border-top: none;
+}
 
-}  
+.table-custom-borders tr {
+	border-bottom: 1px solid #dee2e6;
+}
+
+.table-custom-borders tr:first-child, .table-custom-borders tr:nth-child(7)
+	{
+	border-top: none;
+	border-bottom: 2px solid #dee2e6;
+}
+
+.table-custom-borders tr:nth-child(8) {
+	border-top: 2px solid #dee2e6;
+	border-bottom: 2px solid #dee2e6;
+}
+}
 </style>
 <head>
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -103,58 +104,67 @@
 <!-- 상품상세. -->
 <!-- Product section-->
 <section class="bg-dark p-2" style="--bs-bg-opacity: .02;">
-  <div class="container px-4 px-lg-5 my-5">
-    <div class="row gx-4 gx-lg-5 align-items-center">
-      <div class="col-md-6">
-        <img class="card-img-top mb-5 mb-md-0" src="images/line/${ivo.getLineNo() }a.jpg" />
-      </div>
-      <div class="col-md-6">
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="table-responsive">
-              <table class="table table-custom-borders">
-                <tbody>
-                  <tr>
-                    <th colspan="2">
-                      <h1>${ivo.getItemName() }</h1>
-                      <h3><fmt:formatNumber value="${ivo.getItemPrice()}" pattern="#,###" />원</h3>
-                    </th>
-                  </tr>
-                  <tr>
-                    <td class="small text-muted">· 쿠폰적용가</td>
-                    <td class="small">
-                      <fmt:formatNumber value="${ivo.getItemPrice() - 1000}" pattern="#,###" />원(1,000원 할인)
-                      <select class="form-select form-select-sm d-inline-block w-auto" style="margin-left: 10px;">
-                        <option value="1000">1,000원 할인</option>
-                      </select>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="small text-muted">· 배송비</td>
-                    <td class="small">3,000원 (50,000원 이상 구매 시 무료)</td>
-                  </tr>
-                  <tr>
-                    <td class="small text-muted">· 적립금</td>
-                    <td class="small"><fmt:formatNumber value="${ivo.getItemPrice() * 0.01}" pattern="#,###" />원(1%)</td>
-                  </tr>
-                  <tr>
-                    <td class="small text-muted">· 상품코드</td>
-                    <td class="small">L-${ivo.getLineNo() }I-${ivo.getItemNo() }</td>
-                  </tr>
-                  <tr>
-                    <td class="small text-muted">· 구매 수량</td>
-                    <td>
-                      <div class="d-flex flex-column">
-                        <div class="input-group" style="width: 200px;">
-                          <input type="number" id="quantity" class="form-control form-control-sm text-center" 
-                                 min="1" max="${ivo.getItemStock()}" value="1" >
-                          (재고: ${ivo.getItemStock()}개)
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                  	<!-- 
+	<div class="container px-4 px-lg-5 my-5">
+		<div class="row gx-4 gx-lg-5 align-items-center">
+			<div class="col-md-6">
+				<img class="card-img-top mb-5 mb-md-0"
+					src="images/line/${ivo.getLineNo() }a.jpg" />
+			</div>
+			<div class="col-md-6">
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="home" role="tabpanel"
+						aria-labelledby="home-tab">
+						<div class="table-responsive">
+							<table class="table table-custom-borders">
+								<tbody>
+									<tr>
+										<th colspan="2">
+											<h1>${ivo.getItemName() }</h1>
+											<h3>
+												<fmt:formatNumber value="${ivo.getItemPrice()}"
+													pattern="#,###" />
+												원
+											</h3>
+										</th>
+									</tr>
+									<tr>
+										<td class="small text-muted">· 쿠폰적용가</td>
+										<td class="small"><fmt:formatNumber
+												value="${ivo.getItemPrice() - 1000}" pattern="#,###" />원(1,000원
+											할인) <select
+											class="form-select form-select-sm d-inline-block w-auto"
+											style="margin-left: 10px;">
+												<option value="1000">1,000원 할인</option>
+										</select></td>
+									</tr>
+									<tr>
+										<td class="small text-muted">· 배송비</td>
+										<td class="small">3,000원 (50,000원 이상 구매 시 무료)</td>
+									</tr>
+									<tr>
+										<td class="small text-muted">· 적립금</td>
+										<td class="small"><fmt:formatNumber
+												value="${ivo.getItemPrice() * 0.01}" pattern="#,###" />원(1%)</td>
+									</tr>
+									<tr>
+										<td class="small text-muted">· 상품코드</td>
+										<td class="small">L-${ivo.getLineNo() }I-${ivo.getItemNo() }</td>
+									</tr>
+									<tr>
+										<td class="small text-muted">· 구매 수량</td>
+										<td>
+											<div class="d-flex flex-column">
+												<div class="input-group" style="width: 200px;">
+													<input type="number" id="quantity"
+														class="form-control form-control-sm text-center" min="1"
+														max="${ivo.getItemStock()}" value="1"> (재고:
+													${ivo.getItemStock()}개)
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<!-- 
                     <td class="small text-muted">사이즈 선택</td>
                     <td>
                       <select class="form-select form-select-sm" id="optionSelect" style="width: 102px; text-align: left;">
@@ -165,35 +175,40 @@
                       </select>
                     </td>
                   	 -->
-                    <td colspan="2" class="small">
-                      <span class="text-muted">· 주문 수량 안내 : 최소 주문 수량 1개 이상</span><br>
-                      <span class="text-muted">· 수량을 선택해주세요.</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="small text-muted">· 최종 결제금액</td>
-                    <td><strong class="h5" id="totalPrice"><fmt:formatNumber value="${ivo.getItemPrice()}" pattern="#,###" />원</strong></td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <div id="buttons" class="d-flex justify-content-between align-items-center mt-4	" style="gap: 20px;">
-                <div class="flex-grow-1" style="max-width: 30%;">
-                  <a id="buyButton" class="btn btn-outline-primary btn-sm w-100" href="#"><i class="bi bi-bootstrap"></i> BUY</a>
-                </div>
-                <div class="flex-grow-1" style="max-width: 30%;">
-                  <a id="cartButton" class="btn btn-outline-dark btn-sm w-100" href="#"><i class="bi bi-cart2"></i> CART</a>
-                </div>
-                <div class="flex-grow-1" style="max-width: 30%;">
-                  <a id="wishButton" class="btn btn-outline-success btn-sm w-100" href="#"><i class="bi bi-heart"></i> WISH</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+										<td colspan="2" class="small"><span class="text-muted">·
+												주문 수량 안내 : 최소 주문 수량 1개 이상</span><br> <span class="text-muted">·
+												수량을 선택해주세요.</span></td>
+									</tr>
+									<tr>
+										<td class="small text-muted">· 최종 결제금액</td>
+										<td><strong class="h5" id="totalPrice"><fmt:formatNumber
+													value="${ivo.getItemPrice()}" pattern="#,###" />원</strong></td>
+									</tr>
+								</tbody>
+							</table>
+
+							<div id="buttons"
+								class="d-flex justify-content-between align-items-center mt-4	"
+								style="gap: 20px;">
+								<div class="flex-grow-1" style="max-width: 30%;">
+									<a id="buyButton" class="btn btn-outline-primary btn-sm w-100"
+										href="#"><i class="bi bi-bootstrap"></i> BUY</a>
+								</div>
+								<div class="flex-grow-1" style="max-width: 30%;">
+									<a id="cartButton" class="btn btn-outline-dark btn-sm w-100"
+										href="#"><i class="bi bi-cart2"></i> CART</a>
+								</div>
+								<div class="flex-grow-1" style="max-width: 30%;">
+									<a id="wishButton" class="btn btn-outline-success btn-sm w-100"
+										href="#"><i class="bi bi-heart"></i> WISH</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 
 <section class="bg-dark p-2" style="--bs-bg-opacity: .05;">
@@ -352,17 +367,18 @@
 
 <!--================End Product Description Area =================-->
 <section class="py-5">
-  <div class="container px-4 px-lg-5 mt-5">
-    <div class="row justify-content-center">
-    <!-- 
+	<div class="container px-4 px-lg-5 mt-5">
+		<div class="row justify-content-center">
+			<!-- 
       <div class="col-md-8 col-lg-6">
      -->
-      <div class="col-md-10 col-lg-8">
-      
-        <img class="img-fluid" src="images/line/${ivo.getLineNo()}b.jpg" alt="...">
-      </div>
-    </div>
-  </div>
+			<div class="col-md-10 col-lg-8">
+
+				<img class="img-fluid" src="images/line/${ivo.getLineNo()}b.jpg"
+					alt="...">
+			</div>
+		</div>
+	</div>
 </section>
 
 <!-- Related items section-->
@@ -427,122 +443,159 @@
 		</div>
 	</div>
 </section>
-	<!-- 리뷰섹션 -->
-	<section id="blog" class="blog">
-		<div class="container">
-			<div class="section-header">
-				<h2>REVIEW</h2>
-				<p>상품 사용후기입니다.</p>
-				<hr>
+<!-- 리뷰섹션 -->
+<section id="blog" class="blog">
+	<div class="container">
+		<div class="section-header">
+			<h2>REVIEW</h2>
+			<p>상품 사용후기입니다.</p>
+			<hr>
+		</div>
+		<form action="reviewForm.do">
+
+			<input type="hidden" name = "itemNo" id="itemNo" value="123"><!-- ${review.itemNo} -->
+			<input type="hidden" name = "page" id="page" value="${page }">
+			<input type="hidden" name = "userId" id="userId" value="${userId}">
+			<table class="table">
+				<c:forEach var="review" items="${reviewList}">
+					<tr>
+						<th class="col-sm-3">글번호</th>
+						<td class="col-sm-3">${review.reviewNum}</td>
+						<td></td>
+					</tr>
+					<tr>
+						<th>제목</th>
+						<td colspan="3">${review.reviewTitle }</td>
+					</tr>
+						<th>내용</th>
+						<td>${review.reviewContent }</td>
+					</tr>
+					<tr>
+						<th>작성자</th>
+						<td colspan="3">${review.userId}</td>
+					</tr>
+					<tr>
+						<th>작성일자</th>
+						<td colspan="3">${review.reviewDate}</td>
+					</tr>
+					<tr>
+						<th>파일</th>
+						<td colspan="3"><c:choose>
+								<c:when test="${review.reviewImage}">
+                    이미지없음
+                </c:when>
+								<c:otherwise>
+									<img src="images/chan/${review.reviewImage}" alt="review image">
+								</c:otherwise>
+							</c:choose></td>
+					</tr>
+				</c:forEach>
+				<tr>
+					<td colspan="4" align="center"><c:choose>
+							<c:when test="${logid == review.userId}">
+								<input class="btn btn-danger" type="submit" value="삭제">
+								<button class="btn btn-warning" type="button">수정</button>
+							</c:when>
+							<c:otherwise>
+								<input class="btn btn-danger" disabled type="submit" value="삭제">
+								<button class="btn btn-warning" disabled type="button">수정</button>
+							</c:otherwise>
+						</c:choose></td>
+				</tr>
+			</table>
+		</form>
+
+		<!-- 댓글관련.. -->
+		<!--  <div class="container reply">-->
+		<div class="container review">
+			<!-- 등록. -->
+			<div class="header">
+				<input class="col-sm-8" id="content">
+				<button class="col-sm-3" id="addReview">리뷰등록</button>
 			</div>
-			<div class="blog-content">
-				<table class="table table-striped">
-					<tbody>
-						<c:forEach var="review" items="${reviewList}">
-							<tr>
-								<td style="width: 50px;"><img
-									src="images/chan/${review.reviewImage}" alt="review image"
-									style="width: 50px; height: 50px; object-fit: cover;"></td>
-								<td><a href="review.do?reviewNum=${review.reviewNum}">${review.reviewTitle}</a>
-									<br> <small>작성자: ${review.userId} |
-										상품코드:${review.itemNo} | 작성일자: <fmt:formatDate
-											pattern="yyyy-MM-dd" value="${review.reviewDate}" />
-								</small> <br>
-									<p>${review.reviewContent}</p></td>
-								<td><span class="addLike"
-									onclick="likeReview(${review.reviewNum})"> <i
-										class="bi bi-hand-thumbs-up"></i> 좋아요
-								</span> <span id="likeCount=${review.reviewNum}">${review.reviewLike}</span>
-									<input type="hidden" id="reviewNum=${review.reviewNum}"
-									value="${review.reviewNum}" /></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+
+			<!-- 목록. -->
+			<div class="content">
+				<ul id="reviewItemList">
+					<li style="display: none;"><span class="col-sm-2">11</span> <span
+						class="col-sm-5">리뷰내용입니다.</span> <span class="col-sm-2">user2</span>
+						<span class="col-sm-2">2024-08-17</span> <span class="col-sm-2"><button>삭제</button></span></li>
+				</ul>
+			</div>
+			<!-- 댓글페이징. -->
+			<div class="footer">
+				<nav aria-label="...">
+					<ul class="pagination">
+					</ul>
+				</nav>
 			</div>
 		</div>
-	</section>
+	</div>
+</section>
 
-	<!-- 페이징 -->
-	<nav aria-label="Page navigation example">
-		<ul class="pagination justify-content-center">
-			<!-- PREV 페이지 존재 -->
-			<c:if test="${page.prev}">
-				<li class="page-item"><a class="page-link"
-					href="reviewList.do?page=${page.page-1}" aria-label="Previous">
-						<span aria-hidden="true">&laquo;</span>
-				</a></li>
-			</c:if>
+<!--  <script>
+			const bno = "${review.reviewNum }";
+			const replyer = "${logid}";
+			document.querySelector('form>table button.btn.btn-warning')
+					.addEventListener('click', function(e) {
+						location.href = 'modifyBoard.do?bno=${board.boardNo }';
+					})
+		</script>-->
+<!-- #product-page 닫기 -->
+<script src="js/chan/reviewItemService.js"></script>
+<script src="js/chan/reviewItem.js"></script>
+<!--   <script>
+	let itemPrice = $
+	{
+		ivo.getItemPrice()
+	};
+	let itemStock = $
+	{
+		ivo.getItemStock()
+	};
 
-			<!-- 페이지 갯수만큼 링크생성 -->
-			<c:forEach var="p" begin="${page.startPage}" end="${page.endPage}">
-				<c:choose>
-					<c:when test="${page.page == p}">
-						<li class="page-item active" aria-current="page"><span
-							class="page-link">${p}</span></li>
-					</c:when>
-					<c:otherwise>
-						<li class="page-item"><a class="page-link"
-							href="reviewList.do?page=${p}">${p}</a></li>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
+	let itemQuantity = document.getElementById('quantity');
 
-			<!-- NEXT 페이지 존재 -->
-			<c:if test="${page.next}">
-				<li class="page-item"><a class="page-link"
-					href="reviewList.do?page=${page.endPage + 1}" aria-label="Next">
-						<span aria-hidden="true">&raquo;</span>
-				</a></li>
-			</c:if>
-		</ul>
-	</nav>
-	<!-- #product-page 닫기 -->
+	function updateTotal() {
+		itemQuantity = document.getElementById('quantity');
+		if (itemQuantity.value > itemStock) {
+			document.getElementById('quantity').value = itemStock;
+			alert('최대 주문 수량은 ${ivo.getItemStock()}개 입니다.');
+		}
 
-<script>
-  let itemPrice = ${ivo.getItemPrice()};
-  let itemStock = ${ivo.getItemStock()};
-  
-  let itemQuantity = document.getElementById('quantity');
+		let quantity = itemQuantity.value;
+		let total = quantity * itemPrice;
+		document.getElementById('totalPrice').textContent = total
+				.toLocaleString('ko-KR')
+				+ '원';
+	}
+	itemQuantity.addEventListener('change', updateTotal);
 
-  function updateTotal() {
-  	itemQuantity = document.getElementById('quantity');
-	  if(itemQuantity.value > itemStock){
-		  document.getElementById('quantity').value = itemStock;
-	    alert('최대 주문 수량은 ${ivo.getItemStock()}개 입니다.');
-	  }
-	  
-    let quantity = itemQuantity.value;
-    let total = quantity * itemPrice;
-    document.getElementById('totalPrice').textContent = total.toLocaleString('ko-KR') + '원';
-  }
-  itemQuantity.addEventListener('change', updateTotal);
-  
-/*
-  function buyFunc(e) {
-    if (document.getElementById('optionSelect').value == "선택") {
-			alert('사이즈를 선택하세요');
-    } else {
-			alert('buy');
-    }
-  }
-  function cartFunc(e) {
-    if (document.getElementById('optionSelect').value == "선택") {
-			alert('사이즈를 선택하세요');
-    } else {
-			alert('cart');
-    }
-  }
-  function wishFunc(e) {
-    if (document.getElementById('optionSelect').value == "선택") {
-			alert('사이즈를 선택하세요');
-    } else {
-			alert('wish');
-    }
-  }
+	/*
+	 function buyFunc(e) {
+	 if (document.getElementById('optionSelect').value == "선택") {
+	 alert('사이즈를 선택하세요');
+	 } else {
+	 alert('buy');
+	 }
+	 }
+	 function cartFunc(e) {
+	 if (document.getElementById('optionSelect').value == "선택") {
+	 alert('사이즈를 선택하세요');
+	 } else {
+	 alert('cart');
+	 }
+	 }
+	 function wishFunc(e) {
+	 if (document.getElementById('optionSelect').value == "선택") {
+	 alert('사이즈를 선택하세요');
+	 } else {
+	 alert('wish');
+	 }
+	 }
 
-  document.getElementById('buyButton').addEventListener('click', buyFunc);
-  document.getElementById('cartButton').addEventListener('click', cartFunc);
-  document.getElementById('wishButton').addEventListener('click', wishFunc);
-*/
-</script>
+	 document.getElementById('buyButton').addEventListener('click', buyFunc);
+	 document.getElementById('cartButton').addEventListener('click', cartFunc);
+	 document.getElementById('wishButton').addEventListener('click', wishFunc);
+	 */
+</script>-->

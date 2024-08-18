@@ -102,8 +102,8 @@ table .rating {
 								<td><span class="addLike"
 									onclick="likeReview(${review.reviewNum})"> <i
 										class="bi bi-hand-thumbs-up"></i> 좋아요
-								</span> <span class="likeCount" id="likeCount_${review.reviewNum}">${review.reviewLike}</span>
-									<input type="hidden" id="reviewNum_${review.reviewNum}"
+								</span> <span class="likeCount" id="likeCount=${review.reviewNum}">${review.reviewLike}</span>
+									<input type="hidden" id="reviewNum=${review.reviewNum}"
 									value="${review.reviewNum}" /></td>
 							</tr>
 						</c:forEach>

@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 
-	// 년월일 포맷으로 출력하는 메소드
+	// 년월일 포맷으로 출력하는 메소드(교수님이랑 한거)
 	Date.prototype.yyyymmdd = function() {
 		let yyyy = this.getFullYear();
 		let MM = this.getMonth() + 1;

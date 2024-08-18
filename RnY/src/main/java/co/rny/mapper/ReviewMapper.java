@@ -2,6 +2,7 @@ package co.rny.mapper;
 
 import java.util.List;
 
+import co.rny.common.SearchVO;
 import co.rny.vo.ReviewVO;
 
 public interface ReviewMapper {
@@ -9,7 +10,7 @@ public interface ReviewMapper {
 	int totalCnt();
 	int reviewLike(int reviewNum);
 	ReviewVO selectReview(int reviewNum);
-	List<ReviewVO> selectReviewDetail(int itemNo); // 아이템상세에 리뷰 목록 출력
+	List<ReviewVO> selectReviewDetail(SearchVO search); // 아이템상세에 리뷰 목록 출력
 	int addReview(ReviewVO addReview); // 리뷰등록	
 	List<ReviewVO> getRecentReviews (String page);
 
