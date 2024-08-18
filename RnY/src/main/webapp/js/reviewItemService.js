@@ -1,7 +1,6 @@
-/*
-*
-reviewItemService.js
-*/
+/**
+ * reviewItemService.js
+ */
 
 
 
@@ -18,15 +17,15 @@ reviewItemService.js
         xhtp.onload = loadCallback
         //function 끝
     }, // reviewItemList 끝 
-
-
-
+    
+    
+    
     addReview(param = { itemNo, userId, reviewContent, reviewImage }, loadCallback) {
     const formData = new FormData();
     formData.append('itemNo', param.itemNo);
     formData.append('userId', param.userId);
     formData.append('reviewContent', param.reviewContent);
-
+    
     if (param.reviewImage) {
       formData.append('reviewImage', param.reviewImage);
     }
@@ -36,8 +35,8 @@ reviewItemService.js
     xhtp.onload = loadCallback;
     xhtp.send(formData);
   },
-
-
+    
+    
     /*
     //등록.
     //addReply(param = { bno, replyer, content }, loadCallback) {
@@ -48,7 +47,7 @@ reviewItemService.js
         xhtp.onload = loadCallback
     }, //addReview 끝
     */
-
+	 
     //삭제
     //delReply(rno = 1, loadCallback) {
     delReview(reviewNum = 1, loadCallback) {

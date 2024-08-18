@@ -1,8 +1,12 @@
 package co.rny.common;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
-import co.rny.mapper.ReviewMapper;
+import co.rny.mapper.MemberMapper;
+import co.rny.service.ReviewService;
+import co.rny.service.ReviewServiceImpl;
 import co.rny.vo.ReviewVO;
 
 public class AppTest {
@@ -28,6 +32,7 @@ public class AppTest {
 		 * 
 		 */
 		
+		/*
 		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
 		ReviewMapper mapper = sqlSession.getMapper(ReviewMapper.class);
 		
@@ -37,8 +42,6 @@ public class AppTest {
 		
 		System.out.println(mapper.selectReviewDetail(search));
 		System.out.println("종료.");
-		/*
-		 * 
 		 */
 		/*
 		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
@@ -57,6 +60,19 @@ public class AppTest {
 		System.out.println("종료.");
 		 * 
 		 */
+		
+		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		System.out.println(mapper.userCheck("user1"));
+		
+		SearchVO search = new SearchVO();
+		search.setItemNo(1612);
+		search.setPage(1);
+		
+		ReviewService svc = new ReviewServiceImpl();
+		svc.getReviewsByItemNo(search).forEach(ele -> {
+			System.out.println(ele);
+		});
 	}
 	
 }
