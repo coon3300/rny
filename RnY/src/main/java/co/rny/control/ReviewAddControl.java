@@ -27,6 +27,9 @@ public class ReviewAddControl implements Control {
 		String itemNo = req.getParameter("itemNo");
 		String reviewContent = req.getParameter("reviewContent");
 		String userId = req.getParameter("userId");
+		String reviewTitle = req.getParameter("reviewTitle");
+		String reviewNum = req.getParameter("reviewNum");
+		
 		
 		
 		MemberService svc1 = new MemberServiceImpl();
@@ -35,9 +38,10 @@ public class ReviewAddControl implements Control {
 		ReviewVO rvo = new ReviewVO();
 		rvo.setItemNo(Integer.parseInt(itemNo));
 		rvo.setReviewContent(reviewContent);
-		rvo.setReviewTitle(reviewContent); //임시로 content 저장
+		rvo.setReviewTitle(reviewTitle); // 타이틀로 변경
 		rvo.setUserId(userId);
 		rvo.setUserNo(userNo);
+		rvo.setReviewNum(Integer.parseInt(reviewNum));
 		
 		ReviewService svc = new ReviewServiceImpl();
 		// retCode: Success, retVal: ReviewVO

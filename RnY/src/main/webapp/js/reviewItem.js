@@ -236,4 +236,3 @@ document.getElementById('addReview').addEventListener('click', function() {
 			}
   });
 });
-
