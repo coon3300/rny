@@ -429,75 +429,50 @@
 </section>
 	<!-- 리뷰섹션 -->
 	<section id="blog" class="blog">
-		<div class="container">
-			<div class="section-header">
-				<h2>REVIEW</h2>
-				<p>상품 사용후기입니다.</p>
-				<hr>
+	<!-- 댓글 관련.. -->
+		<div class="container reply">	
+			<!-- 등록. -->
+			<div class="header">
+				<input class="col-sm-8" id="reviewContent">
+				<button class="col-sm-3" id="addReview">리뷰 등록</button>
+			</div>		
+			
+			<!-- 목록. -->
+			<div class="content">
+				<ul id="reviewItemList">
+					<li style="display: none;">
+						<span class="col-sm-2">12</span>
+						<span class="col-sm-5">댓글 내용입니다.</span>
+						<span class="col-sm-2">user02</span>
+						<span class="col-sm-2">2024-05-02</span>
+						<span class="col-sm-2"><button>삭제</button></span>
+					</li>
+				</ul>
 			</div>
-			<div class="blog-content">
-				<table class="table table-striped">
-					<tbody>
-						<c:forEach var="review" items="${reviewList}">
-							<tr>
-								<td style="width: 50px;"><img
-									src="images/chan/${review.reviewImage}" alt="review image"
-									style="width: 50px; height: 50px; object-fit: cover;"></td>
-								<td><a href="review.do?reviewNum=${review.reviewNum}">${review.reviewTitle}</a>
-									<br> <small>작성자: ${review.userId} |
-										상품코드:${review.itemNo} | 작성일자: <fmt:formatDate
-											pattern="yyyy-MM-dd" value="${review.reviewDate}" />
-								</small> <br>
-									<p>${review.reviewContent}</p></td>
-								<td><span class="addLike"
-									onclick="likeReview(${review.reviewNum})"> <i
-										class="bi bi-hand-thumbs-up"></i> 좋아요
-								</span> <span id="likeCount=${review.reviewNum}">${review.reviewLike}</span>
-									<input type="hidden" id="reviewNum=${review.reviewNum}"
-									value="${review.reviewNum}" /></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+			<!-- 댓글페이징. -->
+			<div class="footer">
+				<nav aria-label="...">
+				  <ul class="pagination justify-content-center">
+				  <!--
+				    <li class="page-item disabled">
+				      <a class="page-link">Previous</a>
+				    </li>
+				    <li class="page-item"><a class="page-link" href="#">1</a></li>
+				    <li class="page-item active" aria-current="page">
+				      <a class="page-link" href="#">2</a>
+				    </li>
+				    <li class="page-item"><a class="page-link" href="#">3</a></li>
+				    <li class="page-item"><a class="page-link" href="#">4</a></li>
+				    <li class="page-item"><a class="page-link" href="#">5</a></li>
+				    <li class="page-item">
+				      <a class="page-link" href="#">Next</a>
+				    </li>
+				      -->
+				  </ul>
+				</nav>
 			</div>
 		</div>
 	</section>
-
-	<!-- 페이징 -->
-	<nav aria-label="Page navigation example">
-		<ul class="pagination justify-content-center">
-			<!-- PREV 페이지 존재 -->
-			<c:if test="${page.prev}">
-				<li class="page-item"><a class="page-link"
-					href="reviewList.do?page=${page.page-1}" aria-label="Previous">
-						<span aria-hidden="true">&laquo;</span>
-				</a></li>
-			</c:if>
-
-			<!-- 페이지 갯수만큼 링크생성 -->
-			<c:forEach var="p" begin="${page.startPage}" end="${page.endPage}">
-				<c:choose>
-					<c:when test="${page.page == p}">
-						<li class="page-item active" aria-current="page"><span
-							class="page-link">${p}</span></li>
-					</c:when>
-					<c:otherwise>
-						<li class="page-item"><a class="page-link"
-							href="reviewList.do?page=${p}">${p}</a></li>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-
-			<!-- NEXT 페이지 존재 -->
-			<c:if test="${page.next}">
-				<li class="page-item"><a class="page-link"
-					href="reviewList.do?page=${page.endPage + 1}" aria-label="Next">
-						<span aria-hidden="true">&raquo;</span>
-				</a></li>
-			</c:if>
-		</ul>
-	</nav>
-	<!-- #product-page 닫기 -->
 
 <script>
   let itemPrice = ${ivo.getItemPrice()};
@@ -546,3 +521,9 @@
   document.getElementById('wishButton').addEventListener('click', wishFunc);
 */
 </script>
+<script>
+		const itemNo = "${ivo.getItemNo()}";
+		const userId = "${logid}";
+</script>
+	<script src="js/reviewService.js"></script>
+	<script src="js/review.js"></script>

@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import co.rny.common.DataSource;
+import co.rny.common.SearchVO;
 import co.rny.mapper.ReviewMapper;
 import co.rny.vo.ReviewVO;
 
@@ -33,13 +34,29 @@ public class ReviewServiceImpl implements ReviewService {
 		return mapper.selectReview(reviewNum);
 	}
 
-	public List<ReviewVO> getReviewsByItemNo(int itemNo) {
-		return mapper.selectReviewDetail(itemNo); // 리뷰목록 상세페이지에 연결
+	public List<ReviewVO> getReviewsByItemNo(SearchVO search) {
+		return mapper.selectReviewDetail(search); // 리뷰목록 상세페이지에 연결
+	}
+
+//	@Override
+//	public int addReview(ReviewVO addReview) {
+//		return mapper.addReview(addReview); // 리뷰등록
+//	}
+	
+	@Override
+	public boolean addReview(ReviewVO rvo) {
+		return mapper.addReview(rvo)==1; // 리뷰등록
 	}
 
 	@Override
-	public int addReview(ReviewVO addReview) {
-		return mapper.addReview(addReview); // 리뷰등록
+	public int reviewTotalCnt(int itemNo) {
+		return mapper.totalReviewCnt(itemNo);
+	}
+
+	@Override
+	public boolean removeReview(int reviewNum) {
+		return mapper.deleteReview(reviewNum) == 1;
+
 	}
 	
 }
