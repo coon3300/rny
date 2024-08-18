@@ -104,7 +104,7 @@
 								<i class="bi bi-hand-thumbs-up"></i> 좋아요
 							</span> 
 							<span class="likeCount"> ${rvo.reviewLike} </span> 
-							<input type="hidden" id="reviewNum_${rvo.reviewNum}" value="${rvo.reviewNum}" />
+							<input type="hidden" id="reviewNum=${rvo.reviewNum}" value="${rvo.reviewNum}" />
 						</div>
 					</div>
 				</div>

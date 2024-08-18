@@ -15,7 +15,4 @@ public interface ReviewService {
 	boolean removeReview(int reviewNum); // 리뷰 삭제.
 //	int addReview(ReviewVO addReview); // 리뷰등록	
 	boolean addReview(ReviewVO rvo); // 리뷰등록	
-
-
-	
 }
