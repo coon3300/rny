@@ -443,159 +443,103 @@
 		</div>
 	</div>
 </section>
-<!-- 리뷰섹션 -->
-<section id="blog" class="blog">
-	<div class="container">
-		<div class="section-header">
-			<h2>REVIEW</h2>
-			<p>상품 사용후기입니다.</p>
-			<hr>
-		</div>
-		<form action="reviewForm.do">
-
-			<input type="hidden" name = "itemNo" id="itemNo" value="123"><!-- ${review.itemNo} -->
-			<input type="hidden" name = "page" id="page" value="${page }">
-			<input type="hidden" name = "userId" id="userId" value="${userId}">
-			<table class="table">
-				<c:forEach var="review" items="${reviewList}">
-					<tr>
-						<th class="col-sm-3">글번호</th>
-						<td class="col-sm-3">${review.reviewNum}</td>
-						<td></td>
-					</tr>
-					<tr>
-						<th>제목</th>
-						<td colspan="3">${review.reviewTitle }</td>
-					</tr>
-						<th>내용</th>
-						<td>${review.reviewContent }</td>
-					</tr>
-					<tr>
-						<th>작성자</th>
-						<td colspan="3">${review.userId}</td>
-					</tr>
-					<tr>
-						<th>작성일자</th>
-						<td colspan="3">${review.reviewDate}</td>
-					</tr>
-					<tr>
-						<th>파일</th>
-						<td colspan="3"><c:choose>
-								<c:when test="${review.reviewImage}">
-                    이미지없음
-                </c:when>
-								<c:otherwise>
-									<img src="images/chan/${review.reviewImage}" alt="review image">
-								</c:otherwise>
-							</c:choose></td>
-					</tr>
-				</c:forEach>
-				<tr>
-					<td colspan="4" align="center"><c:choose>
-							<c:when test="${logid == review.userId}">
-								<input class="btn btn-danger" type="submit" value="삭제">
-								<button class="btn btn-warning" type="button">수정</button>
-							</c:when>
-							<c:otherwise>
-								<input class="btn btn-danger" disabled type="submit" value="삭제">
-								<button class="btn btn-warning" disabled type="button">수정</button>
-							</c:otherwise>
-						</c:choose></td>
-				</tr>
-			</table>
-		</form>
-
-		<!-- 댓글관련.. -->
-		<!--  <div class="container reply">-->
-		<div class="container review">
+	<!-- 리뷰섹션 -->
+	<section id="blog" class="blog">
+	<!-- 댓글 관련.. -->
+		<div class="container reply">	
 			<!-- 등록. -->
 			<div class="header">
-				<input class="col-sm-8" id="content">
-				<button class="col-sm-3" id="addReview">리뷰등록</button>
-			</div>
-
+				<input class="col-sm-8" id="reviewContent">
+				<button class="col-sm-3" id="addReview">리뷰 등록</button>
+			</div>		
+			
 			<!-- 목록. -->
 			<div class="content">
 				<ul id="reviewItemList">
-					<li style="display: none;"><span class="col-sm-2">11</span> <span
-						class="col-sm-5">리뷰내용입니다.</span> <span class="col-sm-2">user2</span>
-						<span class="col-sm-2">2024-08-17</span> <span class="col-sm-2"><button>삭제</button></span></li>
+					<li style="display: none;">
+						<span class="col-sm-2">12</span>
+						<span class="col-sm-5">댓글 내용입니다.</span>
+						<span class="col-sm-2">user02</span>
+						<span class="col-sm-2">2024-05-02</span>
+						<span class="col-sm-2"><button>삭제</button></span>
+					</li>
 				</ul>
 			</div>
 			<!-- 댓글페이징. -->
 			<div class="footer">
 				<nav aria-label="...">
-					<ul class="pagination">
-					</ul>
+				  <ul class="pagination justify-content-center">
+				  <!--
+				    <li class="page-item disabled">
+				      <a class="page-link">Previous</a>
+				    </li>
+				    <li class="page-item"><a class="page-link" href="#">1</a></li>
+				    <li class="page-item active" aria-current="page">
+				      <a class="page-link" href="#">2</a>
+				    </li>
+				    <li class="page-item"><a class="page-link" href="#">3</a></li>
+				    <li class="page-item"><a class="page-link" href="#">4</a></li>
+				    <li class="page-item"><a class="page-link" href="#">5</a></li>
+				    <li class="page-item">
+				      <a class="page-link" href="#">Next</a>
+				    </li>
+				      -->
+				  </ul>
 				</nav>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<!--  <script>
-			const bno = "${review.reviewNum }";
-			const replyer = "${logid}";
-			document.querySelector('form>table button.btn.btn-warning')
-					.addEventListener('click', function(e) {
-						location.href = 'modifyBoard.do?bno=${board.boardNo }';
-					})
-		</script>-->
-<!-- #product-page 닫기 -->
-<script src="js/chan/reviewItemService.js"></script>
-<script src="js/chan/reviewItem.js"></script>
-<!--   <script>
-	let itemPrice = $
-	{
-		ivo.getItemPrice()
-	};
-	let itemStock = $
-	{
-		ivo.getItemStock()
-	};
+<script>
+  let itemPrice = ${ivo.getItemPrice()};
+  let itemStock = ${ivo.getItemStock()};
+  
+  let itemQuantity = document.getElementById('quantity');
 
-	let itemQuantity = document.getElementById('quantity');
+  function updateTotal() {
+  	itemQuantity = document.getElementById('quantity');
+	  if(itemQuantity.value > itemStock){
+		  document.getElementById('quantity').value = itemStock;
+	    alert('최대 주문 수량은 ${ivo.getItemStock()}개 입니다.');
+	  }
+	  
+    let quantity = itemQuantity.value;
+    let total = quantity * itemPrice;
+    document.getElementById('totalPrice').textContent = total.toLocaleString('ko-KR') + '원';
+  }
+  itemQuantity.addEventListener('change', updateTotal);
+  
+/*
+  function buyFunc(e) {
+    if (document.getElementById('optionSelect').value == "선택") {
+			alert('사이즈를 선택하세요');
+    } else {
+			alert('buy');
+    }
+  }
+  function cartFunc(e) {
+    if (document.getElementById('optionSelect').value == "선택") {
+			alert('사이즈를 선택하세요');
+    } else {
+			alert('cart');
+    }
+  }
+  function wishFunc(e) {
+    if (document.getElementById('optionSelect').value == "선택") {
+			alert('사이즈를 선택하세요');
+    } else {
+			alert('wish');
+    }
+  }
 
-	function updateTotal() {
-		itemQuantity = document.getElementById('quantity');
-		if (itemQuantity.value > itemStock) {
-			document.getElementById('quantity').value = itemStock;
-			alert('최대 주문 수량은 ${ivo.getItemStock()}개 입니다.');
-		}
-
-		let quantity = itemQuantity.value;
-		let total = quantity * itemPrice;
-		document.getElementById('totalPrice').textContent = total
-				.toLocaleString('ko-KR')
-				+ '원';
-	}
-	itemQuantity.addEventListener('change', updateTotal);
-
-	/*
-	 function buyFunc(e) {
-	 if (document.getElementById('optionSelect').value == "선택") {
-	 alert('사이즈를 선택하세요');
-	 } else {
-	 alert('buy');
-	 }
-	 }
-	 function cartFunc(e) {
-	 if (document.getElementById('optionSelect').value == "선택") {
-	 alert('사이즈를 선택하세요');
-	 } else {
-	 alert('cart');
-	 }
-	 }
-	 function wishFunc(e) {
-	 if (document.getElementById('optionSelect').value == "선택") {
-	 alert('사이즈를 선택하세요');
-	 } else {
-	 alert('wish');
-	 }
-	 }
-
-	 document.getElementById('buyButton').addEventListener('click', buyFunc);
-	 document.getElementById('cartButton').addEventListener('click', cartFunc);
-	 document.getElementById('wishButton').addEventListener('click', wishFunc);
-	 */
-</script>-->
+  document.getElementById('buyButton').addEventListener('click', buyFunc);
+  document.getElementById('cartButton').addEventListener('click', cartFunc);
+  document.getElementById('wishButton').addEventListener('click', wishFunc);
+*/
+</script>
+<script>
+		const itemNo = "${ivo.getItemNo()}";
+		const userId = "${logid}";
+</script>
+	<script src="js/reviewService.js"></script>
+	<script src="js/review.js"></script>

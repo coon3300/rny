@@ -61,10 +61,13 @@ import co.rny.control.QnaControl;
 import co.rny.control.QnaListControl;
 import co.rny.control.QnaReplyControl;
 import co.rny.control.QnaReplyListControl;
+import co.rny.control.ReviewAddControl;
 import co.rny.control.ReviewControl;
 import co.rny.control.ReviewItemListControl;
 import co.rny.control.ReviewLikeControl;
 import co.rny.control.ReviewListControl;
+import co.rny.control.ReviewPagingCountControl;
+import co.rny.control.ReviewRemoveControl;
 import co.rny.control.UpdateUserControl;
 import co.rny.control.UpdateUserFormControl;
 import co.rny.control.UserControl;
@@ -243,8 +246,14 @@ public class FrontController extends HttpServlet {
 		map.put("/review.do", new ReviewControl());
 		//Review 등록
 		map.put("/reviewForm.do", new AddReviewFormControl());
-		//Review itemList
+		//Review 아이템 리스트
 		map.put("/reviewItemList.do", new ReviewItemListControl());
+		//Review 페이징
+		map.put("/reviewPagingCount.do", new ReviewPagingCountControl());
+		//Review 삭제
+		map.put("/reviewRemove.do", new ReviewRemoveControl());
+		//Review 등록
+		map.put("/reviewAdd.do", new ReviewAddControl());
 	}
 
 	@Override

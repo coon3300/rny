@@ -38,9 +38,25 @@ public class ReviewServiceImpl implements ReviewService {
 		return mapper.selectReviewDetail(search); // 리뷰목록 상세페이지에 연결
 	}
 
+//	@Override
+//	public int addReview(ReviewVO addReview) {
+//		return mapper.addReview(addReview); // 리뷰등록
+//	}
+	
 	@Override
-	public int addReview(ReviewVO addReview) {
-		return mapper.addReview(addReview); // 리뷰등록
+	public boolean addReview(ReviewVO rvo) {
+		return mapper.addReview(rvo)==1; // 리뷰등록
+	}
+
+	@Override
+	public int reviewTotalCnt(int itemNo) {
+		return mapper.totalReviewCnt(itemNo);
+	}
+
+	@Override
+	public boolean removeReview(int reviewNum) {
+		return mapper.deleteReview(reviewNum) == 1;
+
 	}
 	
 }
