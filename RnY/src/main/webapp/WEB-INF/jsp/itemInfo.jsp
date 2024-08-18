@@ -449,6 +449,7 @@
 		<div class="container reply">	
 			<!-- 등록. -->
 			<div class="header">
+				<input type="file" id="reviewImage" name="reviewImage" accept="image/*">
 				<input class="col-sm-8" id="reviewContent">
 				<button class="col-sm-3" id="addReview">리뷰 등록</button>
 			</div>		
@@ -458,6 +459,7 @@
 				<ul id="reviewItemList">
 					<li style="display: none;">
 						<span class="col-sm-2">12</span>
+						<img src="images/line/101a.jpg" alt="Image" height="50px">
 						<span class="col-sm-5">댓글 내용입니다.</span>
 						<span class="col-sm-2">user02</span>
 						<span class="col-sm-2">2024-05-02</span>
@@ -541,5 +543,7 @@
 		const itemNo = "${ivo.getItemNo()}";
 		const userId = "${logid}";
 </script>
+	<script src="js/reviewItemService.js"></script>
+	<script src="js/reviewItem.js"></script>
 	<script src="js/reviewService.js"></script>
 	<script src="js/review.js"></script>

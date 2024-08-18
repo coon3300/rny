@@ -108,7 +108,7 @@
 		review_seq.nextval,
 		#{reviewTitle},
 		#{reviewContent},
-		null,
+		#{reviewImage},
 		SYSDATE,
 		0
 		)
