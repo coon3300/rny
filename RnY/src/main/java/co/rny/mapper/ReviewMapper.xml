@@ -50,14 +50,31 @@
 	</select>
 
 	<!-- 리뷰 목록 상품상세 출력 -->
-	<select id="selectReviewDetail" parameterType="int"
-		resultType="co.rny.vo.ReviewVO">
-		SELECT *
-		from tbl_review
-		<!-- item_no를 review_num으로 임시 수정함. -->
-		WHERE item_no = #{itemNo}
+	<select id="selectReviewDetail" parameterType="co.rny.common.SearchVO">
+			select b.*
+			from(select rownum rn, r.*
+			    from    tbl_review r
+			    where   r.item_no = #{itemNo}
+			    order by r.review_num DESC
+			    ) b
+			where b.rn > (#{page} - 1) * 5
+			<![CDATA[
+			and   b.rn <= (#{page} * 5)
+			]]>
 	</select>
+	
+    <select id="totalReviewCnt" parameterType="int">
+			select 	count(1)
+			from		tbl_review
+			where		item_no = #{itemNo}
+    </select>	
 
+    <delete id="deleteReview" parameterType="int">
+        delete from tbl_review
+        where review_num = #{reviewNum}
+    </delete>
+
+	<!-- 
 	<insert id="addReview" parameterType="co.rny.vo.ReviewVO">
 		<selectKey keyProperty="reviewNum" resultType="int"
 			order="BEFORE">
@@ -74,8 +91,26 @@
 		#{reviewTitle},
 		#{reviewContent},
 		#{reviewImage},
-		DEFAULT, -- 리뷰 날짜는 기본값
-		0 -- 초기 좋아요 수는 0으로 설정
+		DEFAULT,
+		0
+		)
+	</insert>
+	 -->
+	
+	<insert id="addReview" parameterType="co.rny.vo.ReviewVO">
+		INSERT INTO tbl_review (
+		user_no, user_id, item_no, review_num, review_title,
+		review_content, review_image, review_date, review_like
+		) VALUES (
+		#{userNo},
+		#{userId},
+		#{itemNo},
+		review_seq.nextval,
+		#{reviewTitle},
+		#{reviewContent},
+		null,
+		SYSDATE,
+		0
 		)
 	</insert>
 
