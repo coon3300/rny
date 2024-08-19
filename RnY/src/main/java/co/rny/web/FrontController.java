@@ -20,6 +20,12 @@ import co.rny.control.AddWish;
 import co.rny.control.AddressControl;
 import co.rny.control.AddressFormControl;
 import co.rny.control.AdminPageControl;
+import co.rny.control.BasketAddControl;
+import co.rny.control.BasketControl;
+import co.rny.control.BuyAddControl;
+import co.rny.control.BuyControl;
+import co.rny.control.BuyDetailControl;
+import co.rny.control.BuyListControl;
 import co.rny.control.CartAddControl;
 import co.rny.control.CartListControl;
 import co.rny.control.CartRemoveControl;
@@ -135,6 +141,18 @@ public class FrontController extends HttpServlet {
 		map.put("/lineForm.do", new LineFormControl());
 		// 라인 등록
 		map.put("/lineAdd.do", new LineAddControl());
+		// 장바구니 등록
+		map.put("/basketAdd.do", new BasketAddControl());
+		// 장바구니 가기
+		map.put("/basket.do", new BasketControl());
+		// 주문화면
+		map.put("/buy.do", new BuyControl());
+		// 주문등록
+		map.put("/buyAdd.do", new BuyAddControl());
+		// 주문목록
+		map.put("/buyList.do", new BuyListControl());
+		// 주문목록
+		map.put("/buyDetail.do", new BuyDetailControl());
 
 		
 		// 하린아=================================================================

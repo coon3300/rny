@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.rny.mapper.BuyMapper">
+
+	<insert id="insertBuy">
+		INSERT INTO buy (buy_no, user_no, buy_price)
+		SELECT seq_buy_no.NEXTVAL, m.user_no, 
+		       (SELECT SUM(cd.item_cnt * i.item_price)
+		            FROM basket c
+		            JOIN basket_detail cd ON c.basket_no = cd.basket_no
+		            JOIN tbl_item i ON cd.item_no = i.item_no
+		            WHERE c.user_no = m.user_no
+		            AND   c.basket_no = (SELECT MAX(basket_no) FROM basket WHERE user_no = m.user_no)
+		            AND   c.is_deleted = 0
+		            AND   cd.is_deleted = 0
+		        ) buy_price
+		FROM rny_member m
+		WHERE m.user_id = #{logid}
+	</insert>
+	
+	<insert id="insertBuyDetail">
+		INSERT INTO buy_detail (buy_detail_no, buy_no, item_no, item_cnt)
+		SELECT seq_buy_detail_no.NEXTVAL, b.buy_no, cd.item_no, cd.item_cnt
+		FROM buy b
+		JOIN basket c ON b.user_no = c.user_no
+		JOIN basket_detail cd ON c.basket_no = cd.basket_no
+		WHERE b.buy_no = (SELECT MAX(buy_no) FROM buy WHERE user_no = (SELECT user_no FROM rny_member WHERE user_id = #{logid}))
+		AND c.basket_no = (SELECT MAX(basket_no) FROM basket WHERE user_no = (SELECT user_no FROM rny_member WHERE user_id = #{logid}))
+	</insert>
+	
+	<select id="selectList">
+		SELECT 
+		    b.buy_no,
+		    b.buy_price,
+		    b.created_at,
+		    b.buy_status,
+		    COUNT(bd.buy_detail_no) buy_count
+		FROM buy b
+		JOIN rny_member m ON b.user_no = m.user_no
+		JOIN buy_detail bd ON b.buy_no = bd.buy_no
+		WHERE m.user_id = #{logid}
+		AND b.is_deleted = 0
+		GROUP BY b.buy_no, m.user_name, b.buy_price, b.created_at, b.buy_status
+		ORDER BY b.buy_no DESC
+	</select>
+	
+	<select id="selectListDetail">
+		SELECT 
+		    bd.buy_detail_no,
+		    i.item_name,
+		    bd.item_cnt,
+		    i.item_price,
+		    (bd.item_cnt * i.item_price) AS item_tot_price,
+		    b.buy_price,
+		    b.buy_status,
+		    b.created_at,
+		    m.user_name,
+		    m.user_phone,
+		    m.user_email,
+		    m.user_add
+		FROM buy b
+		JOIN buy_detail bd ON b.buy_no = bd.buy_no
+		JOIN tbl_item i ON bd.item_no = i.item_no
+		JOIN rny_member m ON b.user_no = m.user_no
+		WHERE b.buy_no = #{buyNo}
+		AND b.is_deleted = 0
+		AND bd.is_deleted = 0
+		ORDER BY bd.buy_detail_no
+	</select>
+	
+</mapper>
