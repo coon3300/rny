@@ -1,25 +1,18 @@
 package co.rny.mapper;
 
 import java.util.List;
+
 import co.rny.vo.OrderVO;
 
 public interface OrderMapper {
 
-    // 주문 추가
-    void insertOrder(OrderVO order);
+	// 주문건 조회
+    List<OrderVO> selectOrderList(OrderVO ovo);
+     int insertOrder(OrderVO ovo);
+     int insertOrderDetail(OrderVO ovo);
 
-    // 주문 상세 추가
-    void insertOrderDetail(OrderVO orderDetail);
+    // 마이페이지 주문내역 확인하기
+    List<OrderVO> getMyOrderList(String memberId);
+    List<OrderVO> getMyOrderDetailList(int orderNo);
 
-    // 주문 조회
-    OrderVO selectOrderByNo(int orderNo);
-
-    // 주문 상세 조회
-    List<OrderVO> selectOrderDetailsByOrderNo(int orderNo);
-
-    // 모든 주문 조회
-    List<OrderVO> selectAllOrders();
-
-    // 주문 삭제
-    void deleteOrder(int orderNo);
 }

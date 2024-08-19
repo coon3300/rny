@@ -1,39 +1,30 @@
 package co.rny.service;
 
-import org.apache.ibatis.session.SqlSession;
-import co.rny.mapper.CartMapper;
-import co.rny.vo.CartVO;
-import co.rny.common.DataSource;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+
+import co.rny.common.DataSource;
+import co.rny.mapper.CartMapper;
+import co.rny.vo.CartVO;
+
 public class CartServiceImpl implements CartService {
-    private final SqlSession sqlSession;
-    private final CartMapper mapper;
-
-    public CartServiceImpl() {
-        // SqlSession을 초기화하고, 자동 커밋 설정
-        this.sqlSession = DataSource.getInstance().openSession(true);
-        this.mapper = sqlSession.getMapper(CartMapper.class);
-    }
-
-   @Override
-    public List<CartVO> cartList(String userNo) {
-        return mapper.selectCartList(userNo);
-    }
-
-    @Override
-    public void deleteCartItem(int cartNo) {
-        mapper.deleteCartItem(cartNo);
-    }
-
-    @Override
-    public void addOrUpdateCartItem(CartVO cartItem) {
-        CartVO existingItem = mapper.selectCartItem(cartItem.getCartNo());
-        if (existingItem != null) {
-            mapper.updateCartItem(cartItem);
-        } else {
-            mapper.insertCartItem(cartItem);
-        }
-    }
+	SqlSession sqlSession = DataSource.getInstance().openSession(true); // true 넣으면 자동 커밋됨.
+	CartMapper mapper = sqlSession.getMapper(CartMapper.class);
     
+	@Override
+    public List<CartVO> getCartList(String memberId) {
+        return mapper.selectCartList(memberId);
+    }
+
+    @Override
+    public boolean deleteCartList(String cartNo) {
+        return mapper.deleteCartItem(cartNo) == 1; // 삭제 성공 여부 확인
+    }
+
+	@Override
+	public boolean insertCartList(CartVO cartListVO) {
+		return mapper.insertCartItem(cartListVO) == 1;
+	}
+	
 }

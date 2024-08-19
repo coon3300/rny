@@ -1,55 +1,45 @@
 package co.rny.control;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import co.rny.common.Control;
 import co.rny.service.CartService;
 import co.rny.service.CartServiceImpl;
 import co.rny.vo.CartVO;
-import co.rny.vo.OrderVO;
 
 public class AddCartControl implements Control {
 
     @Override
     public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        String userNo = (String) session.getAttribute("userNo");
-        int itemNo = Integer.parseInt(req.getParameter("itemNo"));
-        
-        // 수량 수정
-        String quantityStr = req.getParameter("quantity");
-        if (quantityStr == null || quantityStr.isEmpty()) {
-            // 기본값을 설정하거나, 예외 처리
-            quantityStr = "1"; // 예: 기본 수량 1로 설정
-        }
-        int quantity = Integer.parseInt(quantityStr);
-
-        //int quantity = Integer.parseInt(req.getParameter("quantity")); // 수량(성철)
-       
-        
-        String id = (String) session.getAttribute("logid");
-
-        //int quantity = Integer.parseInt(req.getParameter("quantity")); // 수량(성철)
-       
-        
-        String id = (String) session.getAttribute("logid");
-
-        //CartService cartService = new CartServiceImpl();
-        
-        CartVO cartItem = new CartVO();
-        cartItem.setUserNo(userNo);
-        cartItem.setItemNo(itemNo);
-        cartItem.setQuantity(quantity);
-        
-        
-        cartService.addOrUpdateCartItem(cartItem);
-
-        // 장바구니 목록으로 리다이렉트
-        resp.sendRedirect("cart.do");
+    	CartService cartListService = new CartServiceImpl();
+		ObjectMapper objectMapper = new ObjectMapper();
+		
+		ServletInputStream inputStream = req.getInputStream();
+		Map<String,String> map 
+			= objectMapper.readValue(inputStream,
+					new TypeReference<Map<String,String>>(){});
+		
+		CartVO cartVO = new CartVO();
+		cartVO.setItemNo(Integer.parseInt(map.get("productNo")));
+		cartVO.setUserNo(map.get("memberId"));		
+		
+		// System.out.println(cartListVO);
+		String json;
+		if(cartListService.insertCartList(cartVO)) {
+			json= String.format("{\"%s\":\"%s\"}", "addCart","Success");
+			resp.getWriter().print(json);
+			return;
+		}
+		json= String.format("{\"%s\":\"%s\"}", "addCart","Faild");
+		resp.getWriter().print(json);
     }
 }

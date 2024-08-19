@@ -48,7 +48,7 @@ public class loginControl implements Control {
 		OrderService osv = new OrderServiceImpl();
 		//List<OrderVO> ordering = osv.listOrder(id);
 		CartService csv = new CartServiceImpl();
-		List<CartVO> cartIn = csv.cartList(id);
+		//List<CartVO> cartIn = csv.cartList(id); //0817
 		// ***예림***
 
 		// ***은찬***

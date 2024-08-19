@@ -71,7 +71,7 @@
                 <h3 class="secondary-font text-primary"><fmt:formatNumber value="${item.itemPrice}" pattern="#,###" />원</h3>
 
                 <div class="d-flex flex-wrap mt-3">
-                  <a href="addCart.do?itemNo=${item.itemNo}&userNo=${userNo}" class="btn-cart me-3 px-4 pt-3 pb-3">
+                  <a href="cartAdd.do?itemNo=${item.itemNo}&userNo=${userNo}" class="btn-cart me-3 px-4 pt-3 pb-3">
                     <h5 class="text-uppercase m-0">장바구니 담기</h5>
                   </a>
                   <a href="addWish.do?itemNo=${item.itemNo}&userNo=${userNo}" class="btn-wishlist px-4 pt-3 ">

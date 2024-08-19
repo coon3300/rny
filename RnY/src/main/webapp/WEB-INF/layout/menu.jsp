@@ -107,7 +107,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, td, th, input, button,
 	<div class="offcanvas-body">
 		<div class="order-md-last">
 			<h4 class="d-flex justify-content-between align-items-center mb-3">
-				<span class="text-primary">장바구니</span> <a href="cart.do"><span
+				<span class="text-primary">장바구니</span> <a href="cartList.do"><span
 					class="badge bg-primary rounded-circle pt-2">></span></a>
 			</h4>
 
@@ -517,7 +517,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, td, th, input, button,
 							</a></li>
 
 
-							<li class=""><a href="cart.do" class="nav-link mx-3" data-bs-toggle="tooltip" title="장바구니" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart"> 
+							<li class=""><a href="cartList.do" class="nav-link mx-3" data-bs-toggle="tooltip" title="장바구니" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart"> 
 								<i class="bi bi-cart-check-fill" style="font-size: 1.5rem;"></i>
 							</a></li>
 							<c:choose>

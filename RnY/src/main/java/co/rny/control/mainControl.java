@@ -41,10 +41,10 @@ public class mainControl implements Control {
         CartService cartService = new CartServiceImpl();
         
         // 사용자 번호로 장바구니 목록을 조회합니다.
-        List<CartVO> cartList = cartService.cartList(userNo);
+        //List<CartVO> cartList = cartService.cartList(userNo); //0817
         
         // 요청 속성에 장바구니 목록을 설정합니다.
-        req.setAttribute("cartList", cartList);
+        //req.setAttribute("cartList", cartList); //0817
     	  req.getRequestDispatcher("RnY/main.tiles").forward(req, resp);
 	}
 
