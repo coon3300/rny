@@ -26,7 +26,7 @@ function check_id() {
 			})
 			.then(data => {
 				if (data.retCode === "Success" && data.retVal === "ok") {
-					checkResultID.innerHTML = '사용 가능';
+					checkResultID.innerHTML = '사용 가능한 ID입니다.';
 					checkResultID.style.color = 'green';
 				} else {
 					checkResultID.innerHTML = '중복된 ID가 존재합니다';
@@ -43,19 +43,32 @@ function check_id() {
 
 // 비밀번호 체크
 function check_pw() {
-	var userPw = document.getElementById('userPw').value;
-	var checkResultPW = document.getElementById('checkResultPW');
-	var passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,16}$/;
+    var userPw = document.getElementById('userPw').value;
+    var checkResultPW = document.getElementById('checkResultPW');
+    var passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[~`!@#$%^&*()_\-+={}[\]|:;"'<>,.?\/]).{8,16}$/;
+    var whitespaceRegex = /\s/;
+    var sequentialRegex = /(.)\1\1/;
+    var repeatedCharRegex = /(.+)\1+/;
 
-	// 비밀번호가 정규식 조건에 맞지 않을 경우 경고 메시지를 표시
-	if (!passwordRegex.test(userPw)) {
-		checkResultPW.innerHTML = '비밀번호는 최소 8자에서 16자까지, 영문자, 숫자 및 특수 문자를 포함해야 합니다.';
-		checkResultPW.style.color = 'red';
-	} else {
-		checkResultPW.innerHTML = '비밀번호가 유효합니다.';
-		checkResultPW.style.color = 'green';
-	}
-	checkFormValidity();
+    // 조건 체크
+    if (whitespaceRegex.test(userPw)) {
+        checkResultPW.innerHTML = '비밀번호에는 공백을 포함할 수 없습니다.';
+        checkResultPW.style.color = 'red';
+    } else if (sequentialRegex.test(userPw)) {
+        checkResultPW.innerHTML = '비밀번호에 연속된 문자나 숫자를 사용할 수 없습니다.';
+        checkResultPW.style.color = 'red';
+    } else if (repeatedCharRegex.test(userPw)) {
+        checkResultPW.innerHTML = '비밀번호에 동일한 문자나 숫자를 반복해서 사용할 수 없습니다.';
+        checkResultPW.style.color = 'red';
+    } else if (!passwordRegex.test(userPw)) {
+        checkResultPW.innerHTML = '비밀번호는 최소 8자에서 16자까지, 영문자, 숫자 및 특수 문자를 포함해야 합니다.';
+        checkResultPW.style.color = 'red';
+    } else {
+        checkResultPW.innerHTML = '비밀번호가 유효합니다.';
+        checkResultPW.style.color = 'green';
+    }
+
+    checkFormValidity();
 }
 
 function check_pw2() {
@@ -71,6 +84,14 @@ function check_pw2() {
 		checkResultPW2.style.color = 'red';
 	}
 	checkFormValidity();
+}
+
+function showTooltip() {
+    document.getElementById("tooltipBox").style.display = "block";
+}
+
+function hideTooltip() {
+    document.getElementById("tooltipBox").style.display = "none";
 }
 
 // 생일
@@ -206,34 +227,34 @@ function sample6_execDaumPostcode() {
 
 // 전체 유효형 체크
 function checkFormValidity() {
-	var idValid = document.getElementById('checkResultID').style.color === 'green';
-	var pwValid = document.getElementById('checkResultPW').style.color === 'green';
-	var pw2Valid = document.getElementById('checkResultPW2').style.color === 'green';
-  var birthValid = document.getElementById('checkResultBirth').style.color === 'green';
-	var emailValid = document.getElementById('checkResultEMAIL').style.color === 'green';
-	var phoneValid = document.getElementById('checkResultPhone').style.color === 'green';
+    var idValid = document.getElementById('checkResultID').style.color === 'green';
+    var pwValid = document.getElementById('checkResultPW').style.color === 'green';
+    var pw2Valid = document.getElementById('checkResultPW2').style.color === 'green';
+    var birthValid = document.getElementById('checkResultBirth').style.color === 'green';
+    var emailValid = document.getElementById('checkResultEMAIL').style.color === 'green';
+    var phoneValid = document.getElementById('checkResultPhone').style.color === 'green';
 
-	var submitBtn = document.getElementById('submitBtn');
+    var submitBtn = document.getElementById('submitBtn');
 
-	if (idValid && pwValid && pw2Valid && birthValid && emailValid && phoneValid) {
-		submitBtn.disabled = false;
-		submitBtn.removeAttribute('disabled');
-		document.getElementById('successMessage').innerHTML = '';
-	} else {
-		submitBtn.disabled = true;
-		document.getElementById('successMessage').innerHTML = '모든 필드를 올바르게 입력하세요.';
-		document.getElementById('successMessage').style.color = 'red';
-		document.getElementById('successMessage').style.textAlign = 'center';
-	}
+    if (idValid && pwValid && pw2Valid && birthValid && emailValid && phoneValid) {
+        submitBtn.disabled = false;
+        submitBtn.classList.add('enabled'); // 활성화된 상태의 클래스 추가
+        document.getElementById('successMessage').innerHTML = '';
+    } else {
+        submitBtn.disabled = true;
+        submitBtn.classList.remove('enabled'); // 비활성화된 상태의 클래스 제거
+        document.getElementById('successMessage').innerHTML = '모든 필드를 올바르게 입력하세요.';
+        document.getElementById('successMessage').style.color = 'red';
+        document.getElementById('successMessage').style.textAlign = 'center';
+    }
 }
 
 function submitForm() {
-	if (document.getElementById('submitBtn').disabled) {
-		document.getElementById('successMessage').style = 'block';
-	} else {
-		document.getElementById('successMessage');
-		alert('회원가입 완료');
-	}
+    if (!document.getElementById('submitBtn').disabled) {
+        alert('회원가입 완료');
+    } else {
+        document.getElementById('successMessage').style.display = 'block';
+    }
 }
 
 

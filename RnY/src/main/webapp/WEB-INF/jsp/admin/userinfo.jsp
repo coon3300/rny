@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -32,6 +32,41 @@ h1 {
     letter-spacing: 2px;
 }
 
+.divider {
+    text-align: center;
+    margin: 40px 0;
+    width: 100%; /* 컨테이너 안에 들어가므로 100%로 변경 */
+}
+
+.line-with-diamond {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    position: relative;
+    margin: 10px 0;
+}
+
+.line-with-diamond::before {
+    content: '\25C6'; /* 다이아몬드 모양 유니코드 */
+    font-size: 12px;
+    color: #333;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -6px; /* 다이아몬드 위치 조정 */
+    background-color: #fff;
+    padding: 0 5px;
+}
+
+.divider-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+    margin: 50px 0;
+    display: block;
+    position: relative;
+}
+
 .form-group {
     display: flex;
     align-items: center;
@@ -50,16 +85,19 @@ h1 {
     padding: 10px;
     border: 0;
     border-radius: 10px;
-    
 }
 
 input[disabled] {
     background-color:#ecfdff; /* 비활성화된 필드의 배경색도 연한 하늘색 */
 }
 
+.button-container {
+    text-align: right; /* 버튼을 오른쪽으로 정렬 */
+    margin-top: 20px; /* 위쪽 여백 추가 */
+}
+
 button {
-    display: inline-block;
-    padding: 10px 10px;
+    padding: 10px 20px;
     width: 100px;
     border-radius: 20px;
     background-color: #ecfdff;
@@ -68,8 +106,7 @@ button {
     color: black;
     border: none;
     transition: 0.5s;
-    justify-content: center;
-    
+    cursor: pointer;
 }
 
 button:hover {
@@ -79,11 +116,22 @@ button:hover {
 button.cancel:hover {
     background-color: #aaa;
 }
+
+button a {
+    color: black;
+    text-decoration: none;
+}
 </style>
 
 <div class="container1">
     <h1>USERINFO</h1>
-    <h1>────────</h1>
+
+    <!-- divider 영역을 container1 내부로 이동 -->
+    <div class="divider">
+        <div class="line-with-diamond"></div>
+        <span class="divider-text">회원 정보</span>
+        <div class="line-with-diamond"></div>
+    </div>
 
     <div class="form-group">
         <label>회원고유번호</label>
@@ -135,10 +183,9 @@ button.cancel:hover {
         <input value="${mvo.responsibility}" disabled>
     </div>
 
-    <button type="button">
-        <a href="memberList.do" style="color:black ; text-decoration: none; ">뒤로가기</a>
-    </button>
-    
+    <div class="button-container">
+        <button type="button">
+            <a href="memberList.do">뒤로가기</a>
+        </button>
+    </div>
 </div>
-
-
