@@ -266,16 +266,33 @@ h2, p {
                 </tbody>
               </table>
               
+              
+              
               <div id="buttons" class="d-flex justify-content-between align-items-center mt-4	" style="gap: 20px;">
-                <div class="flex-grow-1" style="max-width: 30%;">
-                  <a id="buyButton" class="btn btn-outline-primary btn-sm w-100" href="#"><i class="bi bi-bootstrap"></i> BUY</a>
-                </div>
-                <div class="flex-grow-1" style="max-width: 30%;">
-                  <a id="cartButton" class="btn btn-outline-dark btn-sm w-100" href="#"><i class="bi bi-cart2"></i> CART</a>
-                </div>
-                <div class="flex-grow-1" style="max-width: 30%;">
-                  <a id="wishButton" class="btn btn-outline-success btn-sm w-100" href="#"><i class="bi bi-heart"></i> WISH</a>
-                </div>
+		          <c:choose>
+								<c:when test="${!empty logid}">
+		                <div class="flex-grow-1" style="max-width: 30%;">
+											<input id="buyButton" class="btn btn-outline-primary btn-sm w-100 " type="button" value="buy">
+		                </div>
+		                <div id="cartButton" class="flex-grow-1" style="max-width: 30%;">
+											<input class="btn btn-outline-danger btn-sm w-100 " type="button" value="cart">
+		                </div>
+		                <div id="wishButton" class="flex-grow-1" style="max-width: 30%;">
+											<input class="btn btn-outline-warning btn-sm w-100 " type="button" value="wish">
+		                </div>
+								</c:when>
+								<c:otherwise>
+	                <div class="flex-grow-1" style="max-width: 30%;">
+	                  <a id="buyButton" class="btn btn-outline-primary btn-sm w-100" href="#"><i class="bi bi-bootstrap"></i> BUY</a>
+	                </div>
+	                <div class="flex-grow-1" style="max-width: 30%;">
+	                  <a id="cartButton" class="btn btn-outline-dark btn-sm w-100" href="#"><i class="bi bi-cart2"></i> CART</a>
+	                </div>
+	                <div class="flex-grow-1" style="max-width: 30%;">
+	                  <a id="wishButton" class="btn btn-outline-success btn-sm w-100" href="#"><i class="bi bi-heart"></i> WISH</a>
+                	</div>
+								</c:otherwise>
+							</c:choose>
               </div>
             </div>
           </div>
@@ -566,7 +583,13 @@ h2, p {
 			</div>
 		</div>
 	</section>
-
+<script>
+	document.querySelector('#cartButton')
+			.addEventListener('click', function(e) {
+				itemQuantity = document.getElementById('quantity');
+				location.href = 'addCartNew.do?itemNo=${ivo.getItemNo()}&quantity=${itemQuantity}';
+			});
+</script>
 <script>
   let itemPrice = ${ivo.getItemPrice()};
   let itemStock = ${ivo.getItemStock()};
@@ -578,6 +601,9 @@ h2, p {
 	  if(itemQuantity.value > itemStock){
 		  document.getElementById('quantity').value = itemStock;
 	    alert('최대 주문 수량은 ${ivo.getItemStock()}개 입니다.');
+	  }else if(itemQuantity.value == 0){
+		  document.getElementById('quantity').value = 1;
+		  alert('최소 주문 수량은 1개 입니다.');
 	  }
 	  
     let quantity = itemQuantity.value;

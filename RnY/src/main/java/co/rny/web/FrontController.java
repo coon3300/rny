@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.rny.common.Control;
 import co.rny.control.AddCartControl;
+import co.rny.control.AddCartNewControl;
 import co.rny.control.AddDeleteControl;
 import co.rny.control.AddFormControl;
 import co.rny.control.AddMemberControl;
@@ -206,6 +207,8 @@ public class FrontController extends HttpServlet {
 		map.put("/cart.do", new CartControl());
 		// 장바구니 등록
 		map.put("/addCart.do", new AddCartControl()); 
+		// 장바구니 등록
+		map.put("/addCartNew.do", new AddCartNewControl()); 
 		// 장바구니 삭제
 		map.put("/deleteCart.do", new DeleteCartControl()); 
 		//*******예림*******
