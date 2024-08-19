@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.rny.common.Control;
-import co.rny.control.AddCartControl;
 import co.rny.control.AddDeleteControl;
 import co.rny.control.AddFormControl;
 import co.rny.control.AddMemberControl;
@@ -21,9 +20,10 @@ import co.rny.control.AddWish;
 import co.rny.control.AddressControl;
 import co.rny.control.AddressFormControl;
 import co.rny.control.AdminPageControl;
-import co.rny.control.CartControl;
+import co.rny.control.CartAddControl;
+import co.rny.control.CartListControl;
+import co.rny.control.CartRemoveControl;
 import co.rny.control.ContactControl;
-import co.rny.control.DeleteCartControl;
 import co.rny.control.DeleteMemberControl;
 import co.rny.control.DeleteReplyControl;
 import co.rny.control.DeleteWish;
@@ -56,6 +56,8 @@ import co.rny.control.NoticeControl;
 import co.rny.control.NoticeListControl;
 import co.rny.control.OrderCheckControl;
 import co.rny.control.OrderControl;
+import co.rny.control.OrderDetailListControl;
+import co.rny.control.OrderListControl;
 import co.rny.control.PayControl;
 import co.rny.control.QnaControl;
 import co.rny.control.QnaListControl;
@@ -130,6 +132,7 @@ public class FrontController extends HttpServlet {
 
 		
 		// 하린아=================================================================
+		
 		// 관리자 메인
 		map.put("/adminpage.do", new AdminPageControl());
 		// 회원목록 출력
@@ -139,7 +142,7 @@ public class FrontController extends HttpServlet {
 		// )회원상세목록
 		map.put("/user.do", new UserControl());
 		
-
+		
 		// 회원가입
 		map.put("/addform.do", new AddFormControl());
 		// 회원가입
@@ -153,7 +156,7 @@ public class FrontController extends HttpServlet {
 		map.put("/login.do", new loginControl());
 		// 로그아웃
 		map.put("/logout.do", new logOutControl());
-
+		
 		// 마이페이지
 		map.put("/mypage.do", new MyPageControl());
 		// 회원정보수정
@@ -172,22 +175,18 @@ public class FrontController extends HttpServlet {
 		map.put("/adddelete.do", new AddDeleteControl());
 		// 주소록 수정
 		map.put("/addupdate.do", new AddUpdateControl());
+		
 		// 하린아=================================================================
+		
+		
+		
 		
 		
 
 		
-		//*******예림*******
-		// 주문
-		map.put("/order.do", new OrderControl());
-		// 주문상세
-		map.put("/ordercheck.do", new OrderCheckControl());
+		//==================예림====================
 		
-		
-		// 결제페이지
-		map.put("/pay.do", new PayControl());
-		
-		
+		/* 위시 */
 		// 위시리스트
 		map.put("/wish.do", new WishControl());
 		// 찜 등록
@@ -196,14 +195,37 @@ public class FrontController extends HttpServlet {
 		map.put("/deleteWish.do", new DeleteWish()); 
 		
 		
-		// 장바구니
-		map.put("/cart.do", new CartControl());
-		// 장바구니 등록
-		map.put("/addCart.do", new AddCartControl()); 
-		// 장바구니 삭제
-		map.put("/deleteCart.do", new DeleteCartControl()); 
-		//*******예림*******
+		
+		/* 장바구니 */
+		// 장바구니 (화면)
+		map.put("/cartList.do", new CartListControl());
+		// 장바구니 (삭제)
+		map.put("/cartRemove.do", new CartRemoveControl());
+		// 장바구니 추가 (기능)
+		map.put("/cartAdd.do", new CartAddControl());
+		
+		
+		
+		/* 주문 */
+		// 주문 (화면)
+		map.put("/orderList.do", new OrderListControl()); 
+		// 주문 (기능)
+		map.put("/order.do", new OrderControl()); 
+		// 주문상세 (기능)
+		map.put("/orderDetailList.do", new OrderDetailListControl()); 
+		// 주문확인(기능)
+		map.put("/orderCheck.do", new OrderCheckControl());
+		
+		
+		
+		// 결제페이지
+		map.put("/pay.do", new PayControl());
+		
+		
+		//==================예림====================
 
+		
+		
 		
 		
 		
@@ -253,5 +275,7 @@ public class FrontController extends HttpServlet {
 		System.out.println(path);
 		Control sub = map.get(path);
 		sub.exec(req, resp);
+		
+
 	}
 }

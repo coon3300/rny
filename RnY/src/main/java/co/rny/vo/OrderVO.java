@@ -22,4 +22,8 @@ public class OrderVO {
     private int itemNo;           // 상품번호
     private int odPrice;          // 주문상세가격
     private int odCnt;            // 주문수량
+    
+    private String userId;
+    private int cartNo;
+    private int quantity;
 }

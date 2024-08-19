@@ -4,64 +4,63 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.rny.mapper.OrderMapper">
 
-  <!-- 주문 추가 -->
+    <select id="selectOrderList"
+        parameterType="co.rny.vo.OrderVO"
+        resultType="co.rny.vo.OrderVO">
+        SELECT
+        o.order_no,
+        o.order_price,
+        o.delivery_price,
+        o.order_status,
+        o.address_no,
+        o.member_id,
+        o.order_date,
+        o.delivery_date,
+        o.cancle_date,
+        d.od_no,
+        d.product_no,
+        d.od_price,
+        d.od_cnt
+        FROM
+        tbl_order o
+        JOIN
+        tbl_order_detail d
+        ON
+        o.order_no = d.order_no
+    </select>
+
     <insert id="insertOrder" parameterType="co.rny.vo.OrderVO">
-        INSERT INTO tbl_order (
-            order_no,
-            user_no,
-            order_price,
-            address_no,
-            delivery_price,
-            order_date,
-            delivery_date,
-            cancel_date
-        ) VALUES (
-            order_seq.NEXTVAL, <!-- 주문번호는 시퀀스에서 생성 -->
-            #{userNo},
-            #{orderPrice},
-            #{addressNo},
-            #{deliveryPrice},
-            #{orderDate},
-            #{deliveryDate},
-            #{cancelDate}
-        )
+        INSERT INTO tbl_order (order_no, order_price, address_no, user_no)
+        VALUES (seq_order.NEXTVAL, #{orderPrice}, 1, #{userNo})
     </insert>
 
-    <!-- 주문 상세 추가 -->
     <insert id="insertOrderDetail" parameterType="co.rny.vo.OrderVO">
-        INSERT INTO tbl_order_detail (
-            od_no,
-            order_no,
-            item_no,
-            od_price,
-            od_cnt
-        ) VALUES (
-            od_detail_seq.NEXTVAL, <!-- 주문상세번호는 시퀀스에서 생성 -->
-            #{orderNo},
-            #{itemNo},
-            #{odPrice},
-            #{odCnt}
-        )
+        INSERT INTO tbl_order_detail (od_no, order_no, product_no, od_price, od_cnt)
+        VALUES (od_seq.NEXTVAL, order_seq, #{productNo}, #{odPrice}, #{odCnt})
     </insert>
 
-    <!-- 주문 조회 -->
-    <select id="selectOrderByNo" parameterType="int" resultType="co.rny.vo.OrderVO">
-        SELECT * FROM tbl_order WHERE order_no = #{orderNo}
+    <select id="getMyOrderList" parameterType="string" resultType="co.rny.vo.OrderVO">
+        SELECT *
+        FROM tbl_order
+        WHERE member_id = #{memberId}
+        ORDER BY order_date DESC, order_no DESC
     </select>
 
-    <!-- 주문 상세 조회 -->
-    <select id="selectOrderDetailsByOrderNo" parameterType="int" resultType="co.rny.vo.OrderVO">
-        SELECT * FROM tbl_order_detail WHERE order_no = #{orderNo}
+    <select id="getMyOrderDetailList" parameterType="int" resultType="co.rny.vo.OrderVO">
+        SELECT od.od_no
+            ,od.order_no
+            ,od.product_no
+            ,od.od_price
+            ,od.od_cnt
+            ,p.product_name
+            ,p.product_price
+            ,p.product_img
+        FROM tbl_order_detail od
+            JOIN tbl_product p ON od.product_no = p.product_no
+        WHERE order_no = #{orderNo}
+        ORDER BY od_no
     </select>
-
-    <!-- 모든 주문 조회 -->
-    <select id="selectAllOrders" resultType="co.rny.vo.OrderVO">
-        SELECT * FROM tbl_order
-    </select>
-
-    <!-- 주문 삭제 -->
-    <delete id="deleteOrder" parameterType="int">
-        DELETE FROM tbl_order WHERE order_no = #{orderNo}
-    </delete>
+    
+    
     
 </mapper>
