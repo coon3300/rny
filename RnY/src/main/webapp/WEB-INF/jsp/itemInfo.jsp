@@ -4,51 +4,140 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <style>
-/* 리뷰 섹션 스타일 */
-.blog-content {
-	margin-top: 20px;
+/* 리뷰 섹션 제목과 설명을 가운데 정렬 */
+h2, p {
+    text-align: center;
 }
 
-.table-striped tbody tr {
-	background-color: #f8f9fa;
+/* 리뷰 등록 섹션 스타일 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px; /* 각 요소 간의 간격을 추가 */
 }
 
-.table-striped tbody tr:nth-of-type(odd) {
-	background-color: #ffffff;
+#reviewContent {
+    flex-grow: 2;
+    padding: 10px;
+    font-size: 14px;
+    margin-right: 10px;
 }
 
-.blog-content .table td {
-	vertical-align: middle;
-	padding: 15px;
+#reviewImage {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
 }
 
-.blog-content img {
-	max-width: 50px;
-	height: auto;
-	border-radius: 5px;
-	margin-right: 15px;
+#addReview {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
-.blog-content .addLike {
-	display: inline-flex;
-	align-items: center;
-	font-size: 16px;
-	color: #333;
-	gap: 2px; /* 아이콘과 "좋아요" 텍스트 사이의 간격 */
+#addReview:hover {
+    background-color: #0056b3;
+}
+/* 리뷰 목록 영역 */
+.content ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.blog-content .addLike i {
-	color: #ff6b6b;
+.content li {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    position: relative;
 }
 
-.blog-content .addLike span {
-	margin-left: 0; /* 숫자와 텍스트 사이의 간격을 최소화 */
+.content li img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: contain; /* 이미지가 잘리지 않도록 설정 */
+    margin-right: 15px;
 }
 
-.blog-content .pagination {
-	margin-top: 20px;
+.content li .review-content {
+    flex-grow: 1;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+.content li .review-content .review-number {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.content li .review-content .review-text {
+    margin-bottom: 5px;
+}
+
+.content li .review-content .review-meta {
+    font-size: 12px;
+    color: #666;
+}
+
+.content li button {
+    background-color: #f8d7da; /* 연한 빨강색 */
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.content li button:hover {
+    background-color: #f5c6cb;
+}
+
+/* Pagination 스타일 */
+.footer .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.footer .pagination .page-item .page-link {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.footer .pagination .page-item.active .page-link {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.footer .pagination .page-item.disabled .page-link {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+/* 리뷰섹션 끝 */
 #buttons {
 	padding: 0 !important;
 }
@@ -68,24 +157,24 @@
 	-webkit-box-orient: vertical;
 }
 
-  .table-custom-borders {
-    border-top: none;
-  }
-  .table-custom-borders tr {
-    border-bottom: 1px solid #dee2e6;
-  }
-  .table-custom-borders tr:first-child, 
-  .table-custom-borders tr:nth-child(7){
-    border-top: none;
-    border-bottom: 2px solid #dee2e6;
-  }
-  .table-custom-borders tr:nth-child(8) {
-    border-top: 2px solid #dee2e6;
-    border-bottom: 2px solid #dee2e6;
-    
-  }
+.table-custom-borders {
+	border-top: none;
+}
 
-}  
+.table-custom-borders tr {
+	border-bottom: 1px solid #dee2e6;
+}
+
+.table-custom-borders tr:first-child, .table-custom-borders tr:nth-child(7)
+	{
+	border-top: none;
+	border-bottom: 2px solid #dee2e6;
+}
+
+.table-custom-borders tr:nth-child(8) {
+	border-top: 2px solid #dee2e6;
+	border-bottom: 2px solid #dee2e6;
+}
 </style>
 <head>
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -428,13 +517,15 @@
 	</div>
 </section>
 	<!-- 리뷰섹션 -->
+	<h2>REVIEW</h2>
+	<p>상품 사용후기입니다.</p>
 	<section id="blog" class="blog">
 	<!-- 댓글 관련.. -->
 		<div class="container reply">	
 			<!-- 등록. -->
 			<div class="header">
-				<input type="file" id="reviewImage" name="reviewImage" accept="image/*">
 				<input class="col-sm-8" id="reviewContent">
+				<input type="file" id="reviewImage" name="reviewImage" accept="image/*">
 				<button class="col-sm-3" id="addReview">리뷰 등록</button>
 			</div>		
 			
