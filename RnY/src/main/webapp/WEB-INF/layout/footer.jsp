@@ -51,10 +51,9 @@
 						</h5>
 						<!-- <ul class="menu-list list-unstyled"> -->
 						<ul class="list-unstyled">
-							<li class="menu-item"><a href="#" class="nav-link">Q&A</a></li>
+							<li class="menu-item"><a href="qnaList.do" class="nav-link">Q&A</a></li>
 							<li class="menu-item"><a href="#" class="nav-link">결제</a></li>
-							<li class="menu-item"><a href="#" class="nav-link">반품 및
-									환불</a></li>
+							<li class="menu-item"><a href="#" class="nav-link">반품 및 환불</a></li>
 							<li class="menu-item"><a href="#" class="nav-link">결제 진행</a>
 							</li>
 							<li class="menu-item"><a href="#" class="nav-link">배송정보</a>
