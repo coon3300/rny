@@ -282,15 +282,15 @@ h2, p {
 		                </div>
 								</c:when>
 								<c:otherwise>
-	                <div class="flex-grow-1" style="max-width: 30%;">
-	                  <a id="buyButton" class="btn btn-outline-primary btn-sm w-100" href="#"><i class="bi bi-bootstrap"></i> BUY</a>
-	                </div>
-	                <div class="flex-grow-1" style="max-width: 30%;">
-	                  <a id="cartButton" class="btn btn-outline-dark btn-sm w-100" href="#"><i class="bi bi-cart2"></i> CART</a>
-	                </div>
-	                <div class="flex-grow-1" style="max-width: 30%;">
-	                  <a id="wishButton" class="btn btn-outline-success btn-sm w-100" href="#"><i class="bi bi-heart"></i> WISH</a>
-                	</div>
+		                <div class="flex-grow-1" style="max-width: 30%;">
+											<input id="buyButton" class="btn btn-outline-primary btn-sm w-100 " type="button" value="buy" disabled>
+		                </div>
+		                <div id="cartButton" class="flex-grow-1" style="max-width: 30%;">
+											<input class="btn btn-outline-danger btn-sm w-100 " type="button" value="cart" disabled>
+		                </div>
+		                <div id="wishButton" class="flex-grow-1" style="max-width: 30%;">
+											<input class="btn btn-outline-warning btn-sm w-100 " type="button" value="wish" disabled>
+		                </div>
 								</c:otherwise>
 							</c:choose>
               </div>
@@ -583,13 +583,6 @@ h2, p {
 			</div>
 		</div>
 	</section>
-<script>
-	document.querySelector('#cartButton')
-			.addEventListener('click', function(e) {
-				itemQuantity = document.getElementById('quantity');
-				location.href = 'addCartNew.do?itemNo=${ivo.getItemNo()}&quantity=${itemQuantity}';
-			});
-</script>
 <script>
   let itemPrice = ${ivo.getItemPrice()};
   let itemStock = ${ivo.getItemStock()};
