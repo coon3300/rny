@@ -1,13 +1,10 @@
 package co.rny.common;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 
-import co.rny.mapper.MemberMapper;
-import co.rny.service.ReviewService;
-import co.rny.service.ReviewServiceImpl;
-import co.rny.vo.ReviewVO;
+import co.rny.mapper.BasketMapper;
+import co.rny.service.BasketService;
+import co.rny.service.BasketServiceImpl;
 
 public class AppTest {
 
@@ -61,6 +58,7 @@ public class AppTest {
 		 * 
 		 */
 		
+		/*
 		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
 		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
 		System.out.println(mapper.userCheck("user1"));
@@ -73,6 +71,17 @@ public class AppTest {
 		svc.getReviewsByItemNo(search).forEach(ele -> {
 			System.out.println(ele);
 		});
+		 * 
+		 */
+		SqlSession sqlSession = DataSource.getInstance().openSession(true); // 자동 커밋.
+		BasketService svc = new BasketServiceImpl();
+
+		svc.basketList("user1").forEach(ele -> {
+			
+			System.out.println(ele);
+		});
+
+		
 	}
 	
 }

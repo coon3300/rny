@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!doctype html>
 <html lang="en">
@@ -14,7 +15,7 @@
 <meta name="description" content="" />
 <meta name="keywords" content="bootstrap, bootstrap4" />
 
-<link href="css/yerim/cart/cart.css" rel="stylesheet">
+<link href="css/yerim/basket/basket.css" rel="stylesheet">
 <title>장바구니</title>
 </head>
 
@@ -37,19 +38,19 @@
 							</thead>
 							<tbody>
 								<c:set var="grandTotal" value="0.0" />
-								<c:forEach var="cart" items="${cartList}" varStatus="status">
+								<c:forEach var="basket" items="${basketList}" varStatus="status">
 									<tr>
 										<td class="product-thumbnail"><img
-											src="images/${cart.itemImage}" alt="Image" class="img-fluid">
+											src="images/${basket.itemImage}" alt="Image" class="img-fluid" width="50px;">
 										</td>
 										<td class="product-name">
-											<h2 class="h5 text-black">${cart.itemName}</h2>
+											<h2 class="h5 text-black">${basket.itemName}</h2>
 										</td>
-										<td>${cart.itemPrice}원</td>
+										<td><fmt:formatNumber value="${basket.itemPrice}" pattern="#,###" />원</td>
 										<td>
 											<form action="updateCartQuantity.do" method="post"
 												class="quantity-form">
-												<input type="hidden" name="cartNo" value="${cart.cartNo}">
+												<input type="hidden" name="basketNo" value="${basket.basketNo}">
 												<div
 													class="input-group mb-3 d-flex align-items-center quantity-container">
 													<div class="input-group-prepend">
@@ -58,7 +59,7 @@
 													</div>
 													<input type="text"
 														class="form-control text-center quantity-amount"
-														name="quantity" value="${cart.quantity}"
+														name="quantity" value="${basket.itemCnt}"
 														aria-label="Example text with button addon"
 														aria-describedby="button-addon1">
 													<div class="input-group-append">
@@ -68,13 +69,13 @@
 												</div>
 											</form>
 										</td>
-										<td>${cart.itemPrice * cart.quantity}원</td>
-										<td><a href="deleteCart.do?cno=${cart.cartNo}"
+										<td><fmt:formatNumber value="${basket.itemPrice * basket.itemCnt}" pattern="#,###" />원</td>
+										<td><a href="deleteCart.do?cno=${basket.basketNo}"
 											class="btn btn-black btn-sm">X</a></td>
 									</tr>
 									<!-- Calculate the total for each item -->
 									<c:set var="itemTotal"
-										value="${cart.itemPrice * cart.quantity}" />
+										value="${basket.itemPrice * basket.itemCnt}" />
 									<c:set var="grandTotal" value="${grandTotal + itemTotal}" />
 								</c:forEach>
 								<!-- Calculate the shipping cost -->
@@ -93,7 +94,8 @@
 							<div class="row">
 								<div class="col-md-12 text-right border-bottom mb-5">
 									<h3 class="text-black h4 text-uppercase">
-										예상구매금액 : <span id="grandTotalDisplay" name="grandTotal">${grandTotal}</span>원
+									
+										예상구매금액 : <span id="grandTotalDisplay" name="grandTotal"><fmt:formatNumber value="${grandTotal}" pattern="#,###" />원</span>
 									</h3>
 								</div>
 							</div>
@@ -101,7 +103,7 @@
 							<div class="row mb-5"></div>
 							<div class="row">
 								<div class="col-md-12">
-									<form id="cartForm" action="order.do" method="post">
+									<form id="basketForm" action="buy.do" method="post">
 										<input type="hidden" name="userNo" value=""> <input
 											type="hidden" name="grandTotal" value=""> <input
 											type="hidden" name="shippingCost" value=""> <input

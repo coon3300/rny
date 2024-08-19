@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.rny.mapper.BasketMapper">
+
+	<insert id="insertBasketDetail">
+		INSERT INTO basket_detail (
+			basket_detail_no, 
+			basket_no, 
+			item_no, 
+			item_cnt
+		)
+		SELECT 	basket_detail_no.NEXTVAL, 
+						c.basket_no, 
+						i.item_no, 
+						#{quantity}
+		FROM 		rny_member m
+		JOIN 		basket c ON m.user_no = c.user_no
+		JOIN 		tbl_item i ON i.item_no = #{itemNo}
+		WHERE 	m.user_id = #{logid}
+		AND 		c.basket_no = (SELECT MAX(basket_no) FROM basket WHERE user_no = m.user_no)
+	</insert>
+
+	<select id="selectList" >
+				SELECT 
+				    cd.basket_no basket_no, 
+				    cd.basket_detail_no basket_detail_no, 
+				    i.item_image item_image,
+				    i.item_name item_name, 
+				    cd.item_cnt item_cnt, 
+				    i.item_price item_price,
+				    (cd.item_cnt * i.item_price) item_tot_price
+				FROM basket_detail cd
+				JOIN tbl_item i ON cd.item_no = i.item_no
+				WHERE cd.basket_no = (
+				    SELECT MAX(basket_no) 
+				    FROM basket 
+				    WHERE user_no = (SELECT user_no FROM rny_member WHERE user_id = #{logid})
+				)
+				AND   cd.is_deleted = 0
+	</select>
+	
+	<select id="selectListBuy" >
+		SELECT 
+		    c.basket_no, 
+		    cd.basket_detail_no, 
+		    i.item_no,
+		    i.item_name, 
+		    cd.item_cnt, 
+		    i.item_price,
+		    (cd.item_cnt * i.item_price) item_tot_price,
+		    m.user_name,
+		    m.user_phone,
+		    m.user_email,
+		    m.user_add,
+		    (SELECT SUM(cd_inner.item_cnt * i_inner.item_price)
+		     FROM basket_detail cd_inner
+		     JOIN tbl_item i_inner ON cd_inner.item_no = i_inner.item_no
+		     WHERE cd_inner.basket_no = c.basket_no
+		     AND cd_inner.is_deleted = 0) basket_total_price
+		FROM basket c
+		JOIN basket_detail cd ON c.basket_no = cd.basket_no
+		JOIN tbl_item i ON cd.item_no = i.item_no
+		JOIN rny_member m ON c.user_no = m.user_no
+		WHERE c.basket_no = (
+		    SELECT MAX(basket_no) 
+		    FROM basket 
+		    WHERE user_no = (SELECT user_no FROM rny_member WHERE user_id = #{logid})
+		)
+		AND c.is_deleted = 0
+		AND cd.is_deleted = 0
+		ORDER BY cd.basket_detail_no
+	</select>
+
+
+	<select id="selectIsBasket" >
+		SELECT count(basket_no)
+		FROM basket
+		WHERE user_no = (SELECT user_no FROM rny_member WHERE user_id = #{logid})
+		AND is_deleted = 0
+	</select>
+
+
+	<insert id="insertBasket">
+		INSERT INTO basket (basket_no, user_no)
+		SELECT seq_basket_no.NEXTVAL, user_no
+		FROM rny_member
+		WHERE user_id = #{logid}
+	</insert>
+	
+	<update id="updateBasketDetail">
+		UPDATE basket_detail
+		SET is_deleted = 2
+		WHERE basket_no = (
+		    SELECT MAX(basket_no) 
+		    FROM basket 
+		    WHERE user_no = (SELECT user_no FROM rny_member WHERE user_id = #{logid})
+		      AND is_deleted = 0
+		)
+	</update>
+	
+	<update id="updateBasket">
+		UPDATE basket
+		SET is_deleted = 2
+		WHERE basket_no = (
+		    SELECT MAX(basket_no) 
+		    FROM basket 
+		    WHERE user_no = (SELECT user_no FROM rny_member WHERE user_id = #{logid})
+		      AND is_deleted = 0
+		)
+	</update>	
+	
+</mapper>

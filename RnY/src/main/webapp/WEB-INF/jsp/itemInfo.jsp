@@ -634,6 +634,14 @@ h2, p {
 */
 </script>
 <script>
+	document.querySelector('#cartButton')
+			.addEventListener('click', function(e) {
+				itemQuantity = document.getElementById('quantity').value;
+				let url = 'basketAdd.do?itemNo=' + ${ivo.getItemNo()} + '&quantity=' + itemQuantity;
+				location.href = url;
+			});
+</script>	
+<script>
 		const itemNo = "${ivo.getItemNo()}";
 		const userId = "${logid}";
 </script>
