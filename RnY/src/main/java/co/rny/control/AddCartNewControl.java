@@ -27,9 +27,7 @@ public class AddCartNewControl implements Control {
         
         
         CartVO cartItem = new CartVO();
-       
         
-        cartService.addOrUpdateCartItem(cartItem);
 
         // 장바구니 목록으로 리다이렉트
         resp.sendRedirect("cart.do");
