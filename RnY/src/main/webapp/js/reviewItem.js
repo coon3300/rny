@@ -40,6 +40,14 @@ console.log('page : ' + page);
 	});//페이징을 그려주는 영역
 }
 
+// 년월일 포맷으로 출력하는 메소드(교수님이랑 한거)
+	Date.prototype.yyyymmdd = function() {
+		let yyyy = this.getFullYear();
+		let MM = this.getMonth() + 1;
+		let dd = this.getDate();
+
+		return yyyy + "-" + ('0' + MM).slice(-2) + "-" + ('0' + dd).slice(-2);
+	};
 
 // reply => row 생성
 //function makeRow(reply = {}) { // reply = {} 객체타입 표시
@@ -68,7 +76,8 @@ function makeRow(review = {}) { // reply = {} 객체타입 표시
 	
 	cloned.querySelector('span:nth-of-type(2)').innerText = review.reviewContent;
 	cloned.querySelector('span:nth-of-type(3)').innerText = review.userId;
-	cloned.querySelector('span:nth-of-type(4)').innerText = review.reviewDate;
+	let reviewDate = new Date(review.reviewDate);
+	cloned.querySelector('span:nth-of-type(4)').innerText = reviewDate.yyyymmdd();
 	cloned.querySelector('button').addEventListener('click', RemoveReviewFnc)
 	return cloned;
 }
