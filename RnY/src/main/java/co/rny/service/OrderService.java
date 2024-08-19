@@ -5,23 +5,22 @@ import java.util.List;
 import co.rny.vo.OrderVO;
 
 public interface OrderService {
-	 // 주문 추가
-    void addOrder(OrderVO order);
 
-    // 주문 상세 추가
-    void addOrderDetail(OrderVO orderDetail);
+	 List<OrderVO> getOrderList(OrderVO ovo);
+	    //주문 넣는 것 
+	    int addOrder(OrderVO ovo);
+	    //주문 상세
+	    int addOrderDetail(OrderVO ovo);
 
-    // 주문 조회
-    OrderVO getOrderByNo(int orderNo);
+	    boolean processOrder(String fullName, 
+	            String phone, String address, 
+	            String detailAddress, String orderMemo, 
+	            String productNos, String productImgs, 
+	            String productNames, String productPrices, 
+	            String quantities, String shippingCost, 
+	            String totalAmount);
 
-    // 주문 상세 조회
-    List<OrderVO> getOrderDetailsByOrderNo(int orderNo);
-
-    // 모든 주문 조회
-    List<OrderVO> getAllOrders();
-
-    // 주문 삭제
-    void deleteOrder(int orderNo);
-    // 사용자의 주문 목록 조회
-
+	    List<OrderVO> myOrderList(String memberId);
+	    List<OrderVO> myOrderDetailList(int orderNo);
+	
 }

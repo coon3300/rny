@@ -73,7 +73,7 @@ String userNo = (String) session.getAttribute("userNo");
 									<label for="orderEmail" class="text-black">이메일<span
 										class="text-danger">*</span></label> <input type="email"
 										class="form-control" id="orderEmail" name="orderEmail"
-										placeholder="example@example.com" required>
+										placeholder="" required>
 								</div>
 							</div>
 							<div class="form-group">
@@ -142,12 +142,12 @@ String userNo = (String) session.getAttribute("userNo");
 							</thead>
 							<tbody>
 								<c:set var="total" value="0" />
-								<c:forEach var="item" items="${itemList}">
+								<c:forEach var="item" items="${logCart}">
 									<tr>
-										<td>${item.itemNo}</td>
 										<td>${item.itemName}</td>
 										<td>${item.itemPrice}</td>
 										<td>${item.quantity}</td>
+										<td>${item.itemPrice * item.quantity}</td>
 									</tr>
 								</c:forEach>
 								<tr>
@@ -184,15 +184,3 @@ String userNo = (String) session.getAttribute("userNo");
 	<script src="js/yerim/order/custom.js"></script>
 	<script src="js/yerim/order/check.js"></script>
 	<script src="js/addmember2.js"></script>
-
-	<script>
-		//숫자 넘버타입만 출력
-		function checkNumber(event) {
-			if (event.key === '.' || event.key === '-' || event.key >= 0
-					&& event.key <= 9) {
-				return true;
-			}
-			return false;
-		}
-	</script>
-</body>
