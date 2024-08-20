@@ -7,37 +7,73 @@
 <Script src='js/addmember2.js'></Script>
 <style>
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    font-family: 'Jua', sans-serif;
+    background-color: #fff;
     color: #333;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.container1 {
+.divider {
+    text-align: center;
+    margin: 40px 0;
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.line-with-diamond {
     width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    position: relative;
+    margin: 10px 0;
+}
+
+.line-with-diamond::before {
+    content: '\25C6'; /* 다이아몬드 모양 유니코드 */
+    font-size: 12px;
+    color: #333;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -6px;
+    background-color: #fff;
+    padding: 0 5px;
+}
+
+.divider-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+    margin: 50px 0;
+    display: block;
+    position: relative;
+}
+
+.main-container {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
     background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-hr.custom-hr {
-    border: none;  /* 기본 선 없애기 */
-    border-top: 2px solid #333;  /* 두께와 색상 설정 */
-    width: 20%;  /* 너비 설정 */
-    margin: 20px auto;  /* 위아래 여백과 중앙 정렬 */
 }
 
 h1 {
+    font-size: 32px;
     text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #000;
     letter-spacing: 2px;
+}
+
+hr.custom-hr {
+    border: none;
+    border-top: 1px solid #333;
+    width: 70px;
+    margin: 10px auto;
 }
 
 .form-group {
@@ -54,25 +90,43 @@ input[type="text"],
 input[type="password"], 
 input[type="email"], 
 select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    width: calc(100% - 20px);
+    padding: 15px;
+    border: 3px solid #f5eee6;
     border-radius: 5px;
     font-size: 16px;
     color: #333;
+    background-color: transparent;
+    box-sizing: border-box;
 }
 
 input[type="text"]:disabled,
 input[type="password"]:disabled,
 input[type="email"]:disabled {
-    background-color: #f0f0f0;
+    background-color: #f5eee6;
+    color: #aaa;
+}
+
+input::placeholder {
+    color: #aaa; /* placeholder 폰트 색상을 회색으로 설정 */
+}
+
+input:focus {
+    outline: none;
+    border: 3px solid #f5eee6;
+    box-shadow: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+    gap: 20px; /* 버튼 사이의 간격 */
+    margin-top: 20px;
 }
 
 button {
-    display: block;
-    width: 100%;
+    width: 30%; /* 버튼 크기를 줄임 */
     padding: 10px;
-    background-color: #333;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -81,78 +135,78 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #555;
+.submit-btn {
+    background-color: #FFB347; 
 }
 
-.note {
-    font-size: 12px;
-    color: #777;
-    margin-top: 20px;
-    text-align: center;
+.submit-btn:hover {
+    background-color: #FFDAB9; 
 }
 
-button.cancel {
-    background-color: #ccc;
-    color: #333;
-    margin-top: 10px;
+.cancel-btn {
+    background-color: #cccccc; 
 }
 
-button.cancel:hover {
-    background-color: #aaa;
+.cancel-btn:hover {
+    background-color: #707070; 
 }
 </style>
 
-<div class="container1">
-	<div class="py-5">
+<div class="main-container">
+	
    	 	<h1>MODIFY</h1>
     	<hr class="custom-hr">
- 	</div>
+ 	
+ 	<div class="divider">
+    	 <div class="line-with-diamond"></div>
+   		 <span class="divider-text">수정 할 회원정보를 입력하신 후 하단의 버튼을 클릭하세요</span>
+   		 <div class="line-with-diamond"></div>
+	</div>
  	
   <form action="updateuser.do" method="post">
  	<input type="hidden" name="userNo" value="${userinfo.userNo}">
 
     <div class="form-group">
-        <label for="id">아이디 *</label>
+        <label for="id">아이디</label>
         <input type="text" id="userId" name="userId" value="${userinfo.userId}" disabled>
     </div>
 
     <div class="form-group">
-        <label for="password">비밀번호 *</label>
+        <label for="password">비밀번호</label>
         <input type="password" id="userPw" onkeyup="check_pw()" name="userPw" placeholder="Password(변경시에만 입력)">
         <span id="checkResultPW"></span>
     </div>
 
     <div class="form-group">
-        <label for="confirm_password">비밀번호 확인 *</label>
+        <label for="confirm_password">비밀번호 확인</label>
         <input type="password" id="userPw2" onkeyup="check_pw2()" name="userPw2"  placeholder="Confirm Password (변경시에만 입력)">
         <span id="checkResultPW2"></span>
     </div>
 
 	<div class="form-group">
-        <label for="name">이름 *</label>
+        <label for="name">이름</label>
         <input type="text" id="userName" name="userName" value="${userinfo.userName}" disabled>
     </div>
     
     <div class="form-group">
-        <label for="name">닉네임 *</label>
+        <label for="name">닉네임</label>
         <input type="text" id="userNick" name="userNick" value="${userinfo.userNick}">
     </div>
 
     <div class="form-group">
-        <label for="birth">생년월일 *</label>
+        <label for="birth">생년월일</label>
         <input type="text" id="userBirth" name="userBirth" value="<fmt:formatDate pattern='yyyy-MM-dd' value='${userinfo.userBirth}'/>">
         <span id="checkResultBirth"></span>
     </div>
 
     <div class="form-group">
-        <label for="phone">전화번호 *</label>
+        <label for="phone">전화번호</label>
         <input type="text" id="userPhone" name="userPhone" onkeyup="check_phone()" value="${userinfo.userPhone}">
     	<span id="checkResultPhone"></span>
     </div>
 
     <div class="form-group">
-        <label for="email">이메일 *</label>
+        <label for="email">이메일</label>
         <input type="email" id="userEmail" name="userEmail" value="${userinfo.userEmail}">
         <span id="checkResultEMAIL"></span>
     </div>
@@ -163,16 +217,13 @@ button.cancel:hover {
     </div>
 
     <div class="form-group">
-        <label for="date">가입일자 *</label>
+        <label for="date">가입일자</label>
         <input type="text" id="userDate" name="userDate" value="<fmt:formatDate pattern='yyyy-MM-dd' value='${userinfo.userDate}'/>" disabled>
     </div>
-
-    <p class="note">회원 정보를 입력하시면 하단의 버튼을 클릭하세요.</p>
     
-    <button type="submit" class="btn btn-danger">정보수정</button>
-    <button type="button" class="btn btn-warning"> <a href="mypage.do">뒤로가기</a></button>
+    <div class="button-container">
+        <button type="submit" class="submit-btn">정보수정</button>
+        <button type="button" class="cancel-btn"> <a href="mypage.do">뒤로가기</a></button>
+    </div>
   </form>
 </div>
-
-		
-
