@@ -2,13 +2,76 @@
     pageEncoding="UTF-8"%>
 
 <style>
-/* 컨테이너 */
+body {
+    font-family: 'Jua', sans-serif;
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.divider {
+    text-align: center;
+    margin: 40px 0;
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.line-with-diamond {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    position: relative;
+    margin: 10px 0;
+}
+
+.line-with-diamond::before {
+    content: '\25C6'; /* 다이아몬드 모양 유니코드 */
+    font-size: 12px;
+    color: #333;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -6px; /* 다이아몬드 위치 조정 */
+    background-color: #fff;
+    padding: 0 5px;
+}
+
+.divider-text {
+    font-size: 16px;
+    font-weight: bold; 
+    color: #666;
+    margin: 50px 0;
+    display: block;
+    position: relative;
+}
+
 .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 50px auto;
     padding: 20px;
-    font-family: Arial, sans-serif;
+    background-color: #fff;
 }
+h1 {
+    font-size: 32px;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #000;
+    letter-spacing: 2px;
+}
+
+hr.custom-hr {
+    border: none;
+    border-top: 1px solid #333;
+    width: 200px;
+    margin: 10px auto;
+}
+
+
 
 /* 제목 섹션 */
 .title-section {
@@ -132,19 +195,21 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div class="container">
-    <div class="title-section">
-        <h1>SHIPPING ADDRESS</h1>
-        <p>배송주소록 관리</p>
-    </div>
+    <h1>Shipping Register</h1>
+       <hr class="custom-hr">
 
-    <div class="notice-box">
-        <p>배송주소록 유의사항</p>
-        <ul>
-            <li>배송 주소로 최대 10개까지 등록할 수 있으며...</li>
-            <li>자동 업데이트 제외한 경우...</li>
-            <li>기본 배송지는 1개만 저장됩니다...</li>
-        </ul>
-    </div>
+	<div class="divider">
+    	 <div class="line-with-diamond"></div>
+   		 <span class="divider-text">배송 주소록 관리</span>
+   		 <div class="line-with-diamond"></div>
+	</div>
+	
+        <div class="notice">
+            <p>배송 주소록 유의사항</p>
+            <ul>
+                <li>기본 배송지는 1개만 저장됩니다.</li>
+            </ul>
+        </div>
 
     <table class="address-table">
         <thead>
@@ -178,8 +243,7 @@
 </div>
 </div>
 
-<script>
-  
+<!-- <script>
   function changeMainAdd(mainAdd) {
 	 console.log(document.querySelectorAll('.main-add tr td input:checked')[0].dataset.mainAdd);
 	 let targetAdd = document.querySelectorAll('.main-add tr td input:checked')[0].dataset.mainAdd;
@@ -197,6 +261,49 @@
 	  })
 	  .catch(err=>console.log(err))
   }
+</script> -->
 
+<script>
+function changeMainAdd(mainAdd) {
+    let targetAdd = document.querySelector('input[name="mainAddr"]:checked').dataset.mainAdd;
+    if (!confirm("기본 주소지를 변경하시겠습니까?")) {
+        // 변경 취소 시, 이전 상태로 되돌림
+        document.querySelector(`tr[data-main-add="${targetAdd}"] input`).checked = true;
+        return;
+    }
+    fetch(`addupdate.do?mainAdd=${mainAdd}&userNo=${userNo}`)
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                alert("기본 주소지가 변경되었습니다.");
+                location.reload();
+            } else {
+                alert("기본 주소지 변경에 실패했습니다.");
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
 
+function deleteAddress(event, isMainAdd, mainAdd) {
+    event.preventDefault(); // 기본 동작 막기
+
+    if (isMainAdd === 'Y') {
+        alert("기본 주소지는 삭제할 수 없습니다.");
+        return;
+    }
+
+    if (confirm("정말로 삭제하시겠습니까?")) {
+        fetch(`adddelete.do?mainAdd=${mainAdd}`)
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    alert("주소가 삭제되었습니다.");
+                    location.reload();
+                } else {
+                    alert("주소 삭제에 실패했습니다.");
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+}
 </script>
