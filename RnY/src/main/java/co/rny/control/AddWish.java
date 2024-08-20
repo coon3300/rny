@@ -1,7 +1,6 @@
 package co.rny.control;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -9,8 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import co.rny.common.Control;
-import co.rny.service.MemberService;
-import co.rny.service.MemberServiceImpl;
 import co.rny.service.WishService;
 import co.rny.service.WishServiceImpl;
 import co.rny.vo.ItemVO;

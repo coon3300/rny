@@ -2,7 +2,6 @@ package co.rny.common;
 
 import org.apache.ibatis.session.SqlSession;
 
-import co.rny.mapper.BasketMapper;
 import co.rny.service.BasketService;
 import co.rny.service.BasketServiceImpl;
 

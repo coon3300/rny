@@ -5,12 +5,10 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import co.rny.common.Control;
 import co.rny.service.MemberService;
 import co.rny.service.MemberServiceImpl;
-import co.rny.vo.MemberVO;
 
 public class DeleteMemberControl implements Control {
 

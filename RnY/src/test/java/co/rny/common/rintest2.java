@@ -2,8 +2,6 @@ package co.rny.common;
 
 import org.apache.ibatis.session.SqlSession;
 
-import co.rny.mapper.ItemMapper;
-import co.rny.mapper.LineMapper;
 import co.rny.mapper.MemberMapper;
 
 public class rintest2 {
