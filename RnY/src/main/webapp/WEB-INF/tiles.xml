@@ -78,5 +78,9 @@
     <put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp" /> 
   </definition>
   
+  <definition name="WILDCARD:manage/*" extends="myapp.user">
+		<put-attribute name="menu" value="/WEB-INF/layout/manageMenu.jsp" />  
+    <put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp" /> 
+  </definition>
 
 </tiles-definitions>
