@@ -29,6 +29,7 @@ import co.rny.control.BuyListControl;
 import co.rny.control.CartAddControl;
 import co.rny.control.CartListControl;
 import co.rny.control.CartRemoveControl;
+import co.rny.control.CheckControl;
 import co.rny.control.ContactControl;
 import co.rny.control.DeleteMemberControl;
 import co.rny.control.DeleteReplyControl;
@@ -239,6 +240,9 @@ public class FrontController extends HttpServlet {
 		map.put("/orderDetailList.do", new OrderDetailListControl()); 
 		// 주문확인(기능)
 		map.put("/orderCheck.do", new OrderCheckControl());
+		
+		//마이페이지에서 주문확인
+		map.put("/check.do", new CheckControl());
 		
 		
 		

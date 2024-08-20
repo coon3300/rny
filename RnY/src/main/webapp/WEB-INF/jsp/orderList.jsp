@@ -56,7 +56,7 @@
 							<thead>
 								<tr>
 									<th scope="col">제품</th>
-									<th scope="col">이름</th>
+									<!-- <th scope="col">이름</th> -->
 									<th scope="col">가격</th>
 									<th scope="col">수량</th>
 									<th scope="col">합계</th>
@@ -68,13 +68,17 @@
 								<c:forEach var="i" begin="0"
 									end="${fn:length(fn:split(itemNos, '/'))-1}">
 									<tr>
-										<th scope="row">
+										 <%-- <th scope="row">
 											<div class="d-flex align-items-center mt-2">
 												<img src="images/${fn:split(itemImages, '/')[i]}"
 													class="img-fluid me-5 rounded-circle"
 													style="width: 80px; height: 80px;" alt="">
 											</div>
-										</th>
+											
+										</th>  --%>
+										
+										
+										
 										<td class="py-5"><c:choose>
 												<c:when test="${fn:length(fn:split(itemNames, '/')[i]) > 5}">
            									 ${fn:substring(fn:split(itemNames, '/')[i], 0, 5)}...
