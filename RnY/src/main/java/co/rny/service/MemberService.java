@@ -12,6 +12,7 @@ public interface MemberService {
 	List<AddressVO> myaddressList(AddressVO avo);
 	MemberVO userinfo(String userNo); // 회원정보
 	boolean removemember(String userNo); // 회원탈퇴
+	int checkMainAdd(String userNo);
 	
 	boolean addMember(MemberVO mvo); // 회원가입
 	boolean address(AddressVO avo); // 주소등록

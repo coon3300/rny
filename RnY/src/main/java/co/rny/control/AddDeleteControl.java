@@ -21,10 +21,12 @@ public class AddDeleteControl implements Control {
 
 		if (svc.removeadd(mainAdd)) {
 			// 목록으로 이동
-			resp.sendRedirect("myaddress.do");
+//			resp.sendRedirect("myaddress.do");
+			resp.getWriter().print("{\"retCode\":\"Success\"}");
 		} else {
 			// 삭제페이지로 이동
-			resp.sendRedirect("myaddress.do");
+//			resp.sendRedirect("myaddress.do");
+			resp.getWriter().print("{\"retCode\":\"Fail\"}");
 		}
 
 	}

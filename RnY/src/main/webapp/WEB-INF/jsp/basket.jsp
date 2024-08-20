@@ -20,6 +20,16 @@
 </head>
 
 <body>
+
+	<c:choose>
+		<c:when test="${empty basketList}">
+		
+			<div class="alert alert-warning text-center display-6">장바구니가 비었습니다.</div>
+		</c:when>
+		<c:otherwise>
+		
+
+
 	<div class="untree_co-section before-footer-section">
 		<div class="container">
 			<div class="row mb-5">
@@ -125,6 +135,8 @@
 		</div>
 	</div>
 
+		</c:otherwise>
+	</c:choose>
 	<script src="js/yerim/cart/bootstrap.bundle.min.js"></script>
 	<script src="js/yerim/cart/tiny-slider.js"></script>
 	<script src="js/yerim/cart/custom.js"></script>

@@ -231,7 +231,7 @@ hr.custom-hr {
 								<td>${add.addPhone }</td>
 								<td>${add.newAddress }</td>
                 <td>
-                <a href="adddelete.do?mainAdd=${add.mainAdd}" class="btn-delete" onclick="return confirm('정말로 삭제하시겠습니까?');">삭제</a>
+                <a href="adddelete.do?mainAdd=${add.mainAdd}" class="btn-delete" onclick="deleteAddress(event, '${add.isMainAdd}', '${add.mainAdd }')">삭제</a>
 								</td>
             </tr>
            </c:forEach>
@@ -243,13 +243,14 @@ hr.custom-hr {
 </div>
 </div>
 
-<!-- <script>
+<script>
   function changeMainAdd(mainAdd) {
 	 console.log(document.querySelectorAll('.main-add tr td input:checked')[0].dataset.mainAdd);
+	 console.log(mainAdd)
 	 let targetAdd = document.querySelectorAll('.main-add tr td input:checked')[0].dataset.mainAdd;
 	  if(!confirm('변경하겠습니까?')) {
-		  document.querySelector('tr[data-main-add="'+targetAdd+'"] input').checked = true;
 		  location.reload();
+		  //document.querySelector('tr[data-main-add="'+targetAdd+'"] input').checked = true;
 		  return;
 	  }
 	  console.log(mainAdd)
@@ -258,12 +259,38 @@ hr.custom-hr {
 	  .then(result=>result.json())
 	  .then(result=>{
 		  console.log(result)
+		  location.reload();
+		  //document.querySelector("tr[data-main-add='"+mainAdd+"'] input").checked = true;
 	  })
 	  .catch(err=>console.log(err))
   }
-</script> -->
+  
+function deleteAddress(event, isMainAdd, mainAdd) {
+    event.preventDefault(); // 기본 동작 막기
+    console.log('adddelete.do?mainAdd='+mainAdd);
+    if (isMainAdd === 'Y') {
+        alert("기본 주소지는 삭제할 수 없습니다.");
+        return;
+    }
 
-<script>
+    if (confirm("정말로 삭제하시겠습니까?")) {
+        fetch('adddelete.do?mainAdd='+mainAdd)
+            .then(response => response.json())
+            .then(result => {
+                if (result.retCode = 'Success') {
+                    alert("주소가 삭제되었습니다.");
+                    location.reload();
+                } else {
+                    alert("주소 삭제에 실패했습니다.");
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+}
+    
+</script>
+
+<!-- <script>
 function changeMainAdd(mainAdd) {
     let targetAdd = document.querySelector('input[name="mainAddr"]:checked').dataset.mainAdd;
     if (!confirm("기본 주소지를 변경하시겠습니까?")) {
@@ -306,4 +333,4 @@ function deleteAddress(event, isMainAdd, mainAdd) {
             .catch(error => console.error('Error:', error));
     }
 }
-</script>
+</script> -->

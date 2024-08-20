@@ -80,6 +80,12 @@
 		where user_no = #{userNo}
 	</delete>
 	
+	<select id="checkMainAdd" parameterType="string" resultType="int">
+	  select count(1)
+    from rny_address
+    where user_no = #{userNo}
+	</select>
+	
 	<delete id="adddelete" parameterType="string">
 	 	delete from rny_address
 		where main_add = #{mainAdd}

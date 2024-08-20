@@ -8,7 +8,7 @@
 </script>
 <!-- Single Page Header 시작 -->
 <div class="container-fluid page-header py-5">
-	<h1 class="text-center text-white display-6">주문 목록</h1>
+	<h1 class="text-center text-white display-6">마이 쇼핑</h1>
 	<!-- 
 	<ol class="breadcrumb justify-content-center mb-0">
 		<li class="breadcrumb-item"><a href="#">홈</a></li>
@@ -60,7 +60,7 @@
 
 		<!-- 장바구니가 비어있을 때 -->
 		<c:if test="${empty buyList}">
-			<div class="alert alert-warning">주문 목록이 비어 있습니다.</div>
+			<div class="alert alert-warning">주문 내역이 없습니다.</div>
 		</c:if>
 	</div>
 </div>

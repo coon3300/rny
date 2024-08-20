@@ -116,6 +116,8 @@ header, footer {
 			<li><a href="#">이벤트</a></li>
 			<li><a href="#">팝업</a></li>
 			<li><a href="memberList.do">정보수정</a></li>
+			<li><a href="lineManage.do">라인관리</a></li>
+			<li><a href="itemManage.do">아이템관리</a></li>
 		</ul>
 	</nav>
 	<div class="logout">

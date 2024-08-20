@@ -50,6 +50,7 @@ import co.rny.control.ItemRestoreControl;
 import co.rny.control.ItemUpdateControl;
 import co.rny.control.LineAddControl;
 import co.rny.control.LineFormControl;
+import co.rny.control.LineListControl;
 import co.rny.control.LineManageControl;
 import co.rny.control.LineModifyControl;
 import co.rny.control.LineRemoveControl;
@@ -128,6 +129,8 @@ public class FrontController extends HttpServlet {
 		map.put("/itemForm.do", new ItemFormControl());
 		// 아이템 등록
 		map.put("/itemAdd.do", new ItemAddControl());
+		// 라인 리스트
+		map.put("/linelist.do", new LineListControl());
 		// 라인 관리
 		map.put("/lineManage.do", new LineManageControl());
 		// 라인 수정 form
