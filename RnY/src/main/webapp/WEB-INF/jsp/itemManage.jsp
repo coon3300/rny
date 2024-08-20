@@ -10,11 +10,7 @@ th, td {
 
 
 
-
-<div class="untree_co-section before-footer-section">
-
-
-
+<div class="alert alert-warning text-center display-6">아이템 관리</div>
 	<div class="container">
 		<div class="row mb-5">
 		
