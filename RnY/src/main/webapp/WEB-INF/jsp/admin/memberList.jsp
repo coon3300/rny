@@ -12,6 +12,9 @@
 	<h1>──────</h1>
 </div>
 
+<c:if test="${!empty mainAddMsg }">
+<script>alert('주소지 정보를 삭제 후 재시도 하세요')</script>
+</c:if>
 
 <section>
 	<div class="container" style="text-align: center" >

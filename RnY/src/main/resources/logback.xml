@@ -12,9 +12,10 @@
     <level value="debug"/>
   </logger>
 
- <!--  <logger name="co.rny.mapper.MemberMapper">
+  <logger name="co.rny.mapper.MemberMapper">
     <level value="debug"/>
-  </logger> -->
+  </logger>
+
   <logger name="co.rny.mapper.reviewMapper">
     <level value="debug"/>
   </logger>

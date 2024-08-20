@@ -13,6 +13,7 @@ public interface MemberMapper {
 	List<MemberVO> selectList(SearchVO search); // 회원목록검색
 	MemberVO userinfo(String userNo); // 회원상세목록
 	int deletemember(String userNo); // 회원정보삭제
+	int checkMainAdd(String userNo);
 	int updateList(MemberVO mvo); // 회원정보수정
 	int insertMember(MemberVO mvo); // 회원가입
 	int selectId(String id); // 회원가입(중복체크)

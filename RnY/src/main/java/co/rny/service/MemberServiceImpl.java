@@ -13,7 +13,7 @@ import co.rny.vo.MemberVO;
 import co.rny.vo.WishVO;
 
 public class MemberServiceImpl implements MemberService {
-	SqlSession sqlSession = DataSource.getInstance().openSession(true); // true 
+	SqlSession sqlSession = DataSource.getInstance().openSession(true); // true
 	MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
 
 	@Override
@@ -88,7 +88,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public boolean modifymember(MemberVO mvo) {
-		return  mapper.updateList(mvo) == 1;
+		return mapper.updateList(mvo) == 1;
 	}
 
 	@Override
@@ -103,10 +103,12 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public boolean removeadd(String mainAdd) {
-		return mapper.adddelete(mainAdd)==1;
+		return mapper.adddelete(mainAdd) == 1;
 	}
 
-	
-	
+	@Override
+	public int checkMainAdd(String userNo) {
+		return mapper.checkMainAdd(userNo);
+	}
 
 }

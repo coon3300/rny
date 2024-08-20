@@ -14,7 +14,7 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;  
 }
 
 .divider {
@@ -237,6 +237,58 @@ p {
 .form-table td {
     position: relative;
 }
+
+  .terms-section {
+        border: 1px solid #e3e3e3;
+        padding: 20px;
+        background-color: #f9f9f9;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+
+    .main-checkbox {
+        font-weight: bold;
+        color: #00b894;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .main-checkbox input[type="checkbox"] {
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .individual-terms {
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .terms-checkbox {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+    }
+
+    .terms-checkbox input[type="checkbox"] {
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .view-detail {
+        color: #666;
+        cursor: pointer;
+    }
+
+    .view-detail:hover {
+        text-decoration: underline;
+    }
+    
 </style>
 	 
 <div class="main-container">
@@ -333,6 +385,33 @@ p {
                 </td>
             </tr>
         </table>
+        
+        <!-- 약관 동의 -->
+<div class="terms-section">
+    <label class="main-checkbox">
+        <input type="checkbox" id="selectAll" onclick="toggleCheckboxes(this)">
+        이용약관 및 개인정보수집 및 이용, 쇼핑정보 수신(선택)에 모두 동의합니다.
+    </label>
+    <span class="toggle-link" onclick="toggleCheckboxesText()">모두 선택하시겠습니까?</span>
+
+    <div class="divider"></div>
+    
+    <div class="individual-terms">
+        <label class="terms-checkbox">
+            <input type="checkbox" class="term-checkbox" name="termAgree1" required>
+            [필수] 이용약관 동의
+        </label>
+        <span class="view-detail">내용보기 ▼</span>
+    </div>
+    <div class="individual-terms">
+        <label class="terms-checkbox">
+            <input type="checkbox" class="term-checkbox" name="termAgree2" required>
+            [필수] 개인정보 수집 및 이용 동의
+        </label>
+        <span class="view-detail">내용보기 ▼</span>
+    </div>
+</div>
+
         <div class="buttons">
             <button id="submitBtn" class="submit-btn" type="submit" onclick="submitForm()" disabled>회원가입</button>
         </div>
