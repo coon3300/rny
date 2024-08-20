@@ -51,9 +51,11 @@
 								data-item-image="${item.itemImage}">
 								<th scope="row">
 									<div class="d-flex align-items-center">
+									<a href="itemInfo.do?itemNo=${item.itemNo}">
 										<img src="images/${item.itemImage}"
 											class="img-fluid me-5 rounded-circle"
 											 alt="">
+											 </a>
 									</div>
 								</th>
 								<td>
@@ -70,7 +72,7 @@
 										<div class="input-group-btn">
 											<button
 												class="btn btn-sm btn-minus rounded-circle bg-light border"
-												data-item-id="${item.itemNo}" >-
+												data-item-id="${item.itemNo}" >
 												<i class="fa fa-minus"></i>
 											</button>
 										</div>
@@ -80,7 +82,7 @@
 										<div class="input-group-btn">
 											<button
 												class="btn btn-sm btn-plus rounded-circle bg-light border"
-												data-item-id="${item.itemNo}">+
+												data-item-id="${item.itemNo}">
 												<i class="fa fa-plus"></i>
 											</button>
 										</div>

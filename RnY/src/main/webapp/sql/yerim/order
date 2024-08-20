@@ -1,29 +1,75 @@
 
 --주문테이블 생성
 create table tbl_order(
-    order_no varchar2(30), --주문번호(*pk)
-    user_no varchar2(30) not null, --회원고유번호(*fk)
-    item_no number(30), --상품고유번호(*fk)
-    order_date date default sysdate --주문날짜
+    order_no    NUMBER        NOT NULL,
+    order_price    NUMBER    DEFAULT 0    NOT NULL,
+    delivery_price    NUMBER    DEFAULT 0    NULL,
+    order_status    CHAR    DEFAULT 1    NOT NULL,
+    address_no    NUMBER        NOT NULL,
+    member_id    VARCHAR2(20)        NOT NULL,
+    order_date    DATE    DEFAULT sysdate    NOT NULL,
+    delivery_date    DATE        NULL,
+    cancle_date    DATE        NULL
     );
-    
+      
 alter table tbl_order add constraint pk_order_no primary key (order_no); --프라이머리키
 alter table tbl_order add CONSTRAINT fk_order_user_no FOREIGN KEY(user_no) REFERENCES rny_member(user_no);
 alter table tbl_order add CONSTRAINT fk_order_item_no FOREIGN KEY(item_no) REFERENCES tbl_item(item_no);
 
-create sequence seq_ord;
+create sequence seq_order;
+
+COMMENT ON COLUMN tbl_order.order_no IS '주문번호';
+
+COMMENT ON COLUMN tbl_order.order_price IS '주문금액';
+
+COMMENT ON COLUMN tbl_order.delivery_price IS '배송비';
+
+COMMENT ON COLUMN tbl_order.order_status IS '주문상태 1: 결제완료(배송전), 2배송시작, 3.배송완료,4 :주문취소';
+
+COMMENT ON COLUMN tbl_order.address_no IS '배송지주소번호';
+
+COMMENT ON COLUMN tbl_order.member_id IS '주문자';
+
+COMMENT ON COLUMN tbl_order.order_date IS '주문일시';
+
+COMMENT ON COLUMN tbl_order.delivery_date IS '배송일시';
+
+
+
 
 insert into tbl_order(order_no, user_no, item_no)
-values(seq_ord.nextval, 'A101', 1);
+values(seq_order.nextval, 'A101', 1);
 insert into tbl_order(order_no, user_no, item_no)
-values(seq_ord.nextval, 'A101', 2);
+values(seq_order.nextval, 'A101', 2);
 insert into tbl_order(order_no, user_no, item_no)
-values(seq_ord.nextval, 'A101', 3);
+values(seq_order.nextval, 'A101', 3);
 insert into tbl_order(order_no, user_no, item_no)
-values(seq_ord.nextval, 'A101', 4);
+values(seq_order.nextval, 'A101', 4);
 
 commit;
 
+
+
+
+
+
+CREATE TABLE tbl_order_detail (
+    od_no    NUMBER        NOT NULL,
+    order_no    NUMBER        NOT NULL,
+    product_no    NUMBER        NOT NULL,
+    od_price    NUMBER        NULL,
+    od_cnt    NUMBER        NULL
+);
+
+COMMENT ON COLUMN tbl_order_detail.od_no IS '주문상세번호';
+
+COMMENT ON COLUMN tbl_order_detail.order_no IS '주문번호';
+
+COMMENT ON COLUMN tbl_order_detail.product_no IS '상품번호';
+
+COMMENT ON COLUMN tbl_order_detail.od_price IS '주문상세가격';
+
+COMMENT ON COLUMN tbl_order_detail.od_cnt IS '주문수량';
 
 
 
@@ -64,7 +110,7 @@ CREATE TABLE tbl_cart (
 	cart_no	VARCHAR2(30),
 	user_no	varchar2(30)NOT NULL,
 	item_no	number(30)	NOT NULL,
-    cart_cnt number(30) default 1
+    quantity number default 1
 );
 
 --장바구니 테이블 키생성

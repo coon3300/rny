@@ -7,10 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import co.rny.common.DataSource;
 import co.rny.common.SearchVO;
 import co.rny.mapper.MemberMapper;
-import co.rny.service.MemberService;
 import co.rny.vo.AddressVO;
 import co.rny.vo.MemberVO;
-import co.rny.vo.WishVO;
 
 public class MemberServiceImpl implements MemberService {
 	SqlSession sqlSession = DataSource.getInstance().openSession(true); // true

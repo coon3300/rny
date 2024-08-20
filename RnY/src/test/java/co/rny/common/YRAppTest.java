@@ -1,7 +1,5 @@
 package co.rny.common;
 
-import co.rny.service.OrderService;
-import co.rny.service.OrderServiceImpl;
 import co.rny.vo.OrderVO;
 
 public class YRAppTest {

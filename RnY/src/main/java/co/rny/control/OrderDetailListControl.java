@@ -30,6 +30,7 @@ public class OrderDetailListControl implements Control {
 
 		resp.getWriter().print(json);
 
+		
 	}
 
 }

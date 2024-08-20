@@ -22,9 +22,7 @@ import co.rny.service.OrderService;
 import co.rny.service.OrderServiceImpl;
 import co.rny.service.WishService;
 import co.rny.service.WishServiceImpl;
-import co.rny.vo.CartVO;
 import co.rny.vo.MemberVO;
-import co.rny.vo.OrderVO;
 import co.rny.vo.WishVO;
 
 public class loginControl implements Control {

@@ -13,8 +13,8 @@ public class OrderServiceImpl implements OrderService {
 	OrderMapper mapper = sqlSession.getMapper(OrderMapper.class);
 
 	  @Override
-	    public List<OrderVO> getOrderList(OrderVO ovo) {
-	        return mapper.selectOrderList(ovo);
+	    public List<OrderVO> getOrderList(String userNo) {
+	        return mapper.selectOrderList(userNo);
 	    }
 
 	    @Override
@@ -30,8 +30,8 @@ public class OrderServiceImpl implements OrderService {
 	    }
 
 	    @Override
-	    public List<OrderVO> myOrderList(String memberId) {
-	        return mapper.getMyOrderList(memberId);
+	    public List<OrderVO> myOrderList(String userNo) {
+	        return mapper.getMyOrderList(userNo);
 	    }
 
 	    @Override

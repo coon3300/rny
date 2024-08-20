@@ -242,22 +242,24 @@ hr.custom-hr {
 
 <div class="footer-icons">
     <div class="icon-item">
-        <div class="icon">🕒</div>
+        <a href="check.do?userNo=${userNo}"><div class="icon">🕒</div></a>
         <p>
             ORDER<br>고객님께서 주문하신 상품의 주문내역을 확인하실 수 있습니다.
         </p>
     </div>
+    
     <div class="icon-item">
-        <div class="icon">❤️</div>
+        <a href="wish.do?userNo=${userNo}"><div class="icon">❤️</div></a>
         <p>
             WISHLIST<br>관심상품으로 등록하신 상품내역을 보여드립니다.
         </p>
     </div>
     <div class="icon-item">
-        <div class="icon">🛒</div>
+        <a href="cartList.do?userNo=${userNo}"><div class="icon">🛒</div></a>
         <p>
             CART<br>장바구니에 담긴 상품을 확인하고 관리하실 수 있습니다.
         </p>
     </div>
 </div>
 </div>
+

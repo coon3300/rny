@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 
 import co.rny.common.DataSource;
 import co.rny.mapper.WishMapper;
-import co.rny.vo.ItemVO;
 import co.rny.vo.MemberVO;
 import co.rny.vo.WishVO;
 

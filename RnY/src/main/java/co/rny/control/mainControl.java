@@ -13,7 +13,6 @@ import co.rny.service.CartService;
 import co.rny.service.CartServiceImpl;
 import co.rny.service.ItemService;
 import co.rny.service.ItemServiceImpl;
-import co.rny.vo.CartVO;
 import co.rny.vo.ItemVO;
 
 public class mainControl implements Control {

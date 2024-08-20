@@ -2,7 +2,6 @@ package co.rny.vo;
 
 import java.util.Date;
 
-
 import lombok.Data;
 
 @Data

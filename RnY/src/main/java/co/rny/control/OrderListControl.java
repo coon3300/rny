@@ -6,11 +6,11 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import co.rny.common.Control;
 import co.rny.service.OrderService;
 import co.rny.service.OrderServiceImpl;
+import co.rny.vo.OrderVO;
 
 public class OrderListControl implements Control {
 
@@ -32,8 +32,9 @@ public class OrderListControl implements Control {
 			System.out.println("paramNm : " + paramNm + String.join(", ", paramValues));
 		}
 		
+		
+		
 		// 2. 받아온 값을 orderList.jsp 로 값 보내기
-
 		req.setAttribute("cartNos", cartNos); // 앞에 문자열은 보내는 이름 , 뒤는 보내는 값
 		req.setAttribute("itemNos", itemNos); // 앞에 문자열은 보내는 이름 , 뒤는 보내는 값
 		req.setAttribute("itemPrices", itemPrices); // 앞에 문자열은 보내는 이름 , 뒤는 보내는 값

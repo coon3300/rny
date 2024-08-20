@@ -13,7 +13,6 @@ import co.rny.common.PageDTO;
 import co.rny.service.NoticeService;
 import co.rny.service.NoticeServiceImpl;
 import co.rny.vo.NoticeVO;
-import freemarker.core.ParseException;
 
 public class NoticeListControl implements Control {
 

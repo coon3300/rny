@@ -1,18 +1,18 @@
 package co.rny.control;
 
 		import java.io.IOException;
-		import java.util.HashMap;
-		import java.util.Map;
+import java.util.HashMap;
+import java.util.Map;
 
-		import javax.servlet.ServletException;
-		import javax.servlet.http.HttpServletRequest;
-		import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-		import com.google.gson.Gson;
+import com.google.gson.Gson;
 
-		import co.rny.common.Control;
-		import co.rny.service.MemberService;
-		import co.rny.service.MemberServiceImpl;
+import co.rny.common.Control;
+import co.rny.service.MemberService;
+import co.rny.service.MemberServiceImpl;
 
 		public class IdCheckControl implements Control {
 

@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.rny.common.Control;
 import co.rny.common.PageDTO;
-import co.rny.common.SearchVO;
 import co.rny.service.QnaListService;
 import co.rny.service.QnaListServiceImpl;
 import co.rny.vo.QnaListVO;

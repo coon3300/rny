@@ -13,26 +13,32 @@
 	</ol>
 </div>
 <!-- Single Page Header End -->
-<link rel="stylesheet" href="css/yerim/ordercheck/ordercheck2.css" type="text/css">
+<link rel="stylesheet" href="css/yerim/ordercheck/ordercheck2.css"
+	type="text/css">
 
 
 <div class="container-fluid py-5">
 	<div class="container py-5">
 		<h1 class="mb-4">주문 정보 확인</h1>
 		<form action="main.do" method="post">
-		<input type="hidden" name="userId" value="${member.userId}">
+			<input type="hidden" name="userId" value="${member.userId}">
 			<div class="row g-5">
 				<div class="col-md-12 col-lg-6 col-xl-7">
 					<div class="form-item w-100">
-						<label class="form-label my-3">이름</label> <p>${fullName}</p>
-						<label class="form-label my-3">휴대전화</label> <p>${phone}</p>
-						<label class="form-label my-3">주소</label> <p>${address}</p>
-						<label class="form-label my-3">상세주소</label> <p>${detailAddress}</p>
-						<label class="form-label my-3">요청사항</label> <p>${orderMemo}</p>
-						
-						
+						<label class="form-label my-3">이름</label>
+						<p>${fullName}</p>
+						<label class="form-label my-3">휴대전화</label>
+						<p>${phone}</p>
+						<label class="form-label my-3">주소</label>
+						<p>${address}</p>
+						<label class="form-label my-3">상세주소</label>
+						<p>${detailAddress}</p>
+						<label class="form-label my-3">요청사항</label>
+						<p>${orderMemo}</p>
+
+
 					</div>
-					
+
 					<hr>
 				</div>
 				<div class="col-md-12 col-lg-6 col-xl-5">
@@ -41,7 +47,7 @@
 							<thead>
 								<tr>
 									<th scope="col">제품</th>
-									<th scope="col">이름</th>
+								<!-- 	<th scope="col">이름</th> -->
 									<th scope="col">가격</th>
 									<th scope="col">수량</th>
 									<th scope="col">합계</th>
@@ -53,16 +59,15 @@
 								<c:forEach var="i" begin="0"
 									end="${fn:length(fn:split(itemNos, '/'))-1}">
 									<tr>
-										<th scope="row">
+										<%-- <th scope="row">
 											<div class="d-flex align-items-center mt-2">
 												<img src="images/${fn:split(itemImages, '/')[i]}"
 													class="img-fluid me-5 rounded-circle"
 													style="width: 80px; height: 80px;" alt="">
 											</div>
-										</th>
+										</th> --%>
 										<td class="py-5"><c:choose>
-												<c:when
-													test="${fn:length(fn:split(itemNames, '/')[i]) > 5}">
+												<c:when test="${fn:length(fn:split(itemNames, '/')[i]) > 5}">
             ${fn:substring(fn:split(itemNames, '/')[i], 0, 5)}...
         </c:when>
 												<c:otherwise>
@@ -79,10 +84,10 @@
 												var="subtotal" value="${subtotal + total}" /></td>
 									</tr>
 								</c:forEach>
-								</tbody>
+							</tbody>
 						</table>
-						
-							
+
+
 					</div>
 					<!-- <div
 						class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
@@ -100,10 +105,14 @@
 				</div>
 
 			</div>
-			<div class="row g-4 text-center align-items-center justify-content-center pt-4" style="text-align: center;">
-			<h1>${logNick}님 ${subtotal +  3000 }원 주문완료되었습니다!</h1>
-			<p>카카오뱅크 : 123-1234-1234-12 (예금주 : 예담)<br>
-			위 계좌로 이체해주세요. 24시간 내에 결제하시지 않으면 주문은 취소됩니다.</p>
+			<div
+				class="row g-4 text-center align-items-center justify-content-center pt-4"
+				style="text-align: center;">
+				<h1>${logNick}님${subtotal +  3000 }원 주문완료되었습니다!</h1>
+				<p>
+					카카오뱅크 : 123-1234-1234-12 (예금주 : 예담)<br> 위 계좌로 이체해주세요. 24시간 내에
+					결제하시지 않으면 주문은 취소됩니다.
+				</p>
 			</div>
 			<div
 				class="row g-4 text-center align-items-center justify-content-center pt-4">
@@ -112,7 +121,9 @@
 					class="btn border-secondary py-3 px-4 text-uppercase w-100 text-primary">메인으로</button>
 			</div>
 			<c:set var="totalAmount" value="${subtotal + 3000}" />
-			<c:set var="sessionTotalAmount" value="${totalAmount}" scope="session" />
+			<c:set var="sessionTotalAmount" value="${totalAmount}"
+				scope="session" />
 		</form>
 	</div>
 </div>
+<script src="js/yerim/cart/CartList.js"></script>

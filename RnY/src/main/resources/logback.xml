@@ -19,6 +19,10 @@
   <logger name="co.rny.mapper.reviewMapper">
     <level value="debug"/>
   </logger>
+  
+  <logger name="co.rny.mapper.OrderMapper">
+    <level value="debug"/>
+  </logger>
 
   <root level="error">
     <appender-ref ref="stdout"/>

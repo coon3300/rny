@@ -7,26 +7,13 @@
     <select id="selectOrderList"
         parameterType="co.rny.vo.OrderVO"
         resultType="co.rny.vo.OrderVO">
-        SELECT
-        o.order_no,
-        o.order_price,
-        o.delivery_price,
-        o.order_status,
-        o.address_no,
-        o.member_id,
-        o.order_date,
-        o.delivery_date,
-        o.cancle_date,
-        d.od_no,
-        d.product_no,
-        d.od_price,
-        d.od_cnt
-        FROM
-        tbl_order o
-        JOIN
-        tbl_order_detail d
-        ON
-        o.order_no = d.order_no
+        SELECT order_no, 
+       order_price, 
+       address_no,
+       --TO_CHAR(order_date, 'YYYY.MM.DD') AS order_date
+       order_date
+			FROM tbl_order
+			WHERE user_no = #{userNo}
     </select>
 
     <insert id="insertOrder" parameterType="co.rny.vo.OrderVO">
@@ -35,14 +22,14 @@
     </insert>
 
     <insert id="insertOrderDetail" parameterType="co.rny.vo.OrderVO">
-        INSERT INTO tbl_order_detail (od_no, order_no, product_no, od_price, od_cnt)
-        VALUES (od_seq.NEXTVAL, order_seq, #{productNo}, #{odPrice}, #{odCnt})
+        INSERT INTO tbl_order_detail (od_no, order_no, item_no, od_price, od_cnt)
+        VALUES (od_seq.NEXTVAL, order_seq, #{itemNo}, #{odPrice}, #{odCnt})
     </insert>
 
     <select id="getMyOrderList" parameterType="string" resultType="co.rny.vo.OrderVO">
         SELECT *
         FROM tbl_order
-        WHERE member_id = #{memberId}
+        WHERE user_no = #{userNo}
         ORDER BY order_date DESC, order_no DESC
     </select>
 
